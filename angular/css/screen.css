@@ -1,0 +1,19 @@
+*{
+	border:1px solid green;
+}
+nav li{
+	display: inline;
+	padding: 1%;
+}
+header {
+	background-color: black;
+	color:#ccc;
+
+}
+footer {
+	background-color: black;
+	color:#ccc;
+}
+.condensed {
+	font-family: 'Wire One', sans-serif;
+}
