@@ -1,0 +1,40 @@
+shawee_test_api:
+    resource: "@ShaweeTestApiBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+tapioca_design_class_live_gnv:
+    resource: "@TapiocaDesignClassLiveGnvBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+app:
+    resource: @AppBundle/Controller/
+    type:     annotation
+
+#REST 
+rest : 
+  type : rest 
+  resource : "routing_rest.yml"
+  prefix : /api
+
+#ANGULAR 
+footer:
+    path: /footer
+    defaults:
+        _controller: FrameworkBundle:Template:template
+        template: 'TapiocaDesignClassLiveGnvBundle:Default:footer.html.twig'
+
+header:
+    path: /header
+    defaults:
+        _controller: FrameworkBundle:Template:template
+        template: 'TapiocaDesignClassLiveGnvBundle:Default:header.html.twig'
+
+footer:
+    path: /footer
+    defaults:
+        _controller: FrameworkBundle:Template:template
+        template: 'TapiocaDesignClassLiveGnvBundle:Default:footer.html.twig'
+
+

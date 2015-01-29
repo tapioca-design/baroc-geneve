@@ -1,0 +1,52 @@
+{% extends '::base.html.twig' %}
+
+{% block body -%}
+    <h1>Place</h1>
+
+    <table class="record_properties">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ entity.id }}</td>
+            </tr>
+            <tr>
+                <th>Namefr</th>
+                <td>{{ entity.nameFr }}</td>
+            </tr>
+            <tr>
+                <th>Nameen</th>
+                <td>{{ entity.nameEn }}</td>
+            </tr>
+            <tr>
+                <th>Nameshort</th>
+                <td>{{ entity.nameShort }}</td>
+            </tr>
+            <tr>
+                <th>Googlemapref</th>
+                <td>{{ entity.googleMapRef }}</td>
+            </tr>
+            <tr>
+                <th>Website</th>
+                <td>{{ entity.website }}</td>
+            </tr>
+            <tr>
+                <th>Imageplacemain</th>
+                <td>{{ entity.imagePlaceMain }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+        <ul class="record_actions">
+    <li>
+        <a href="{{ path('place') }}">
+            Back to the list
+        </a>
+    </li>
+    <li>
+        <a href="{{ path('place_edit', { 'id': entity.id }) }}">
+            Edit
+        </a>
+    </li>
+    <li>{{ form(delete_form) }}</li>
+</ul>
+{% endblock %}

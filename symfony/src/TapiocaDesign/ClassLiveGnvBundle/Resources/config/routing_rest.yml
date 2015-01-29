@@ -1,0 +1,21 @@
+
+
+acme_demo_city_all:
+    pattern:  /city
+    defaults: { _controller: TapiocaDesignClassLiveGnvBundle:CityRest:all, _format: ~ }
+    requirements:
+        _method: GET
+
+acme_demo_city_get:
+    pattern:  /city/{id}
+    defaults: { _controller: TapiocaDesignClassLiveGnvBundle:CityRest:get, _format: ~ }
+    requirements:
+        _method: GET
+        id: "\d+"
+
+TD_CLG_worksOrderedByFirstPerformance:
+    pattern:  /city/{city_id}/worksOrderedByFirstPerformance
+    defaults: { _controller: TapiocaDesignClassLiveGnvBundle:WorkRest:worksOrderedByFirstPerformance, _format: ~ }
+    requirements:
+        _method: GET
+        city_id: "\d+"

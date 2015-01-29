@@ -1,0 +1,6 @@
+#app/routing_rest.yml
+
+
+Rest_City : 
+  type : rest
+  resource: "@TapiocaDesignClassLiveGnvBundle/Resources/config/routing_rest.yml"

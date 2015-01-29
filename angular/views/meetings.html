@@ -1,0 +1,25 @@
+<section>
+
+	<h1>Add meetings</h1>
+	<form name="myform" 
+	ng-submit="addMeeting()" 
+	novalidate>
+
+	<div><input type="text" name="meetingname" placeholder="Meeting name" ng-model="meetingname" ng-required="true">
+	</div>
+	
+	<button type="submit" ng-disabled="myform.$invalid">Add</button>
+
+		
+	</form>
+
+
+	<h2>Your meetings</h2>
+	<div ng-repeat="meeting in meetings">
+		<!-- <p>{{meeting}}</p> -->
+		<p>{{meeting.name}}</p>
+	</div>
+
+
+
+</section>
