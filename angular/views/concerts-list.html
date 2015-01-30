@@ -1,32 +1,42 @@
 <div ng-controller="ConcertsListController" id="concerts-list">
-  <div ng-repeat="concert in concerts" class="">
-	<a href="#" class="row">
+  <ul ng-repeat="concert in concerts" class="">
+	<li class="">
+	<a href="#" class="row list-element gradient">
 		<div class="col-xs-9">
-			<h2 class="condensed text-bold">{{concert.name}}</h2>
-			<span ng-show="concert.interpreter">
-        		{{concert.interpreter}}
-    		</span>
-			<span ng-show="concert.director">
-        		DIRECTOR:{{concert.director}}
-    		</span>
-    		<span ng-show="concert.composer">
-        		COMPOSER:{{concert.composer}}
-    		</span>
-    		<span ng-show="concert.style">
-        		STYLE:{{concert.style}}
+			<h2 class="text-condensed black">
+				{{concert.name}}
+			</h2>
+			<span class="grey">
+				<span ng-show="concert.interpreter">
+	        		{{concert.interpreter}}
+	    		</span>
+				<span ng-show="concert.director">
+	        		DIRECT:{{concert.director}}
+	    		</span>
+	    		<span ng-show="concert.composer">
+	        		COMP:{{concert.composer}}
+	    		</span>
+	    		<span ng-show="concert.style">
+	        		STYLE:{{concert.style}}
+	    		</span>
     		</span>
 		</div>
 		<div class="col-xs-3">
-			<div class="date">
-				<div class="day">
+			<div class="date drop-shadow">
+				<div class="day black text-light">
 					{{concert.performances[0].date_performance | date : "d"}}
 				</div>
-				<div class="month">
+				<div class="month text-bold white">
 					{{concert.performances[0].date_performance | date : "MMMM"}}
 				</div>
 			</div>
 		</div>
-	</a>
+		
 
-  </div>
+		
+
+
+	</a>
+	</li>
+  </ul>
 </div>
