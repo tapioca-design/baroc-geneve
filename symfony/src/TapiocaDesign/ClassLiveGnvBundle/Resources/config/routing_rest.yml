@@ -19,3 +19,22 @@ TD_CLG_worksOrderedByFirstPerformance:
     requirements:
         _method: GET
         city_id: "\d+"
+
+TD_CLG_placesByCity:
+    pattern:  /city/{city_id}/places
+    defaults: { _controller: TapiocaDesignClassLiveGnvBundle:PlaceRest:placesByCity, _format: ~ }
+    requirements:
+        _method: GET
+        city_id: "\d+"
+
+TD_CLG_place:
+    pattern:  /place/{place_id}
+    defaults: { _controller: TapiocaDesignClassLiveGnvBundle:PlaceRest:place, _format: ~ }
+    requirements:
+        _method: GET
+        place_id: "\d+"
+
+
+
+
+

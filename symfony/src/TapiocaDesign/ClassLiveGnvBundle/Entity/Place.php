@@ -51,6 +51,15 @@ class Place
     /**
      * @var string
      *
+     * @ORM\Column(name="nameUrl", type="string", length=32)
+     * @Expose
+     * @Groups({"list","detail"})
+     */
+    private $nameUrl;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="nameShort", type="string", length=32)
      * @Expose
      * @Groups({"list","detail"})
@@ -165,6 +174,30 @@ public function __construct() {
     public function getNameEn()
     {
         return $this->nameEn;
+    }
+
+
+    /**
+     * Set nameUrl
+     *
+     * @param string $nameUrl
+     * @return Place
+     */
+    public function setNameUrl($nameUrl)
+    {
+        $this->nameUrl = $nameUrl;
+
+        return $this;
+    }
+
+    /**
+     * Get nameUrl
+     *
+     * @return string 
+     */
+    public function getNameUrl()
+    {
+        return $this->nameUrl;
     }
 
 

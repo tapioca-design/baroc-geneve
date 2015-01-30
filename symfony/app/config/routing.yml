@@ -18,23 +18,3 @@ rest :
   resource : "routing_rest.yml"
   prefix : /api
 
-#ANGULAR 
-footer:
-    path: /footer
-    defaults:
-        _controller: FrameworkBundle:Template:template
-        template: 'TapiocaDesignClassLiveGnvBundle:Default:footer.html.twig'
-
-header:
-    path: /header
-    defaults:
-        _controller: FrameworkBundle:Template:template
-        template: 'TapiocaDesignClassLiveGnvBundle:Default:header.html.twig'
-
-footer:
-    path: /footer
-    defaults:
-        _controller: FrameworkBundle:Template:template
-        template: 'TapiocaDesignClassLiveGnvBundle:Default:footer.html.twig'
-
-
