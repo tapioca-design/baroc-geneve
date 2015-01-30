@@ -20,7 +20,29 @@ myApp.config(["$routeProvider", function($routeProvider) {
 	});
 }]);
 
+
+/*
+var services = angular.module('guthub.services', ['ngResource']);
+services.factory('Recipe', ['$resource', function($resource) {
+var concerts = $resource(
+	); 
+console.log(concerts);
+}]);
+*/
+console.log("init");
+ myApp.controller('ConcertsListController', ['$scope','$http', function($scope,$http) {
+      //$http.get('model/worksOrderedByFirstPerformance.json').
+      $http.get('http://localhost/symfony/web/app_dev.php/api/city/1/worksOrderedByFirstPerformance').
+        success(function(concerts) {
+            console.log(concerts);
+            $scope.concerts = concerts;
+        });
+ }]);
+
+
+
 myApp.run(function($rootScope) {
+	
 	console.log("ANGULAR DEBUG");
 	$rootScope.$on('$stateChangeStart',function(event, toState, toParams, fromState, fromParams){
   console.log('$stateChangeStart to '+toState.to+'- fired when the transition begins. toState,toParams : \n',toState, toParams);

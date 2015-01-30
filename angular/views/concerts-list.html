@@ -1,22 +1,32 @@
-CONCERTS LIST
+<div ng-controller="ConcertsListController" id="concerts-list">
+  <div ng-repeat="concert in concerts" class="">
+	<a href="#" class="">
+		<div class="col-xs-9">
+			<h2 class="condensed text-bold">{{concert.name}}</h2>
+			<span ng-show="concert.interpreter">
+        		{{concert.interpreter}}
+    		</span>
+			<span ng-show="concert.director">
+        		DIRECTOR:{{concert.director}}
+    		</span>
+    		<span ng-show="concert.composer">
+        		COMPOSER:{{concert.composer}}
+    		</span>
+    		<span ng-show="concert.style">
+        		STYLE:{{concert.style}}
+    		</span>
+		</div>
+		<div class="col-xs-3">
+			<div class="date">
+				<div class="day">
+					{{concert.performances[0].date_performance | date : "d"}}
+				</div>
+				<div class="month">
+					{{concert.performances[0].date_performance | date : "MMMM"}}
+				</div>
+			</div>
+		</div>
+	</a>
 
-	
-		Salut {{blase}}
-		<input ng-model="blase" placeholder="enter your blase">
-
-Cas probablement unique dans la pop et le rock, la quasi-totalité des compositions des Beatles ont été reprises à un moment ou un autre, leurs succès comme leurs titres les moins connus. Versions fidèles aux originaux, détournements, contemporaines de leurs créations par les Fab Four ou revues des décennies plus tard. En accompagnement de la diffusion des albums du groupe en kiosques avec la collection The Beatles et leur présentation hebdomadaire dans M, le magazine du Monde, nous vous proposons de découvrir quelques-unes de ces reprises.
-Lire aussi : The Beatles : « Abbey R
-Lire aussi : The Beatles : « Abbey Road », notes de fin
-Cette semaine : autour de l’album Abbey Road (septembre 1969).
-« Come Together » (Lennon-McCartney), par Dandy & The Israelites
-Le groove syncopé de Come Together devait fatalement attirer l’attention des artistes de soul, de Ike & Tina Turner, qui s’en emparèrent aussitôt, à Michael Jackson. Mais leurs versions sont largement supplantées en originalité par celle de Dandy & The Israelites, des Jamaïcains établis à Londres, qui s’autorisèrent dès 1969 de rebaptiser le titre Let’s Come Together et de transformer la chanson en reggae chaloupé. Publié en 45-tours par la compagnie phonographique Downtown et régulièrement réédité sur des compilations.
-
-En savoir plus sur http://www.lemonde.fr/musiques/article/2015/01/29/les-beatles-les-reprises-d-abbey-road_4566366_1654986.html#ib3wcrEfhB7ckss8.99
-
-Cas probablement unique dans la pop et le rock, la quasi-totalité des compositions des Beatles ont été reprises à un moment ou un autre, leurs succès comme leurs titres les moins connus. Versions fidèles aux originaux, détournements, contemporaines de leurs créations par les Fab Four ou revues des décennies plus tard. En accompagnement de la diffusion des albums du groupe en kiosques avec la collection The Beatles et leur présentation hebdomadaire dans M, le magazine du Monde, nous vous proposons de découvrir quelques-unes de ces reprises.
-Lire aussi : The Beatles : « Abbey Road », notes de fin
-Cette semaine : autour de l’album Abbey Road (septembre 1969).
-« Come Together » (Lennon-McCartney), par Dandy & The Israelites
-Le groove syncopé de Come Together devait fatalement attirer l’attention des artistes de soul, de Ike & Tina Turner, qui s’en emparèrent aussitôt, à Michael Jackson. Mais leurs versions sont largement supplantées en originalité par celle de Dandy & The Israelites, des Jamaïcains établis à Londres, qui s’autorisèrent dès 1969 de rebaptiser le titre Let’s Come Together et de transformer la chanson en reggae chaloupé. Publié en 45-tours par la compagnie phonographique Downtown et régulièrement réédité sur des compilations.
-
-En savoir plus sur http://www.lemonde.fr/musiques/article/2015/01/29/les-beatles-les-reprises-d-abbey-road_4566366_1654986.html#ib3wcrEfhB7ckss8.99
+  </div>
+</div>

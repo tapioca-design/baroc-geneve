@@ -2,9 +2,9 @@
 <html lang="en" ng-app="myApp">
 <head>
 	<meta charset="UTF-8">
-	<title>Classic Live Geneva</title>
+	<title>Classical live Geneva</title>
 	<meta name="viewport" content="width=device-width, user-scalable=no">
-	<link rel="stylesheet" href="css/screen.css" type="text/css" />
+	
 	
 	<script src="js/lib/angular/angular.min.js"></script>
     <script src="js/lib/angular/angular-route.min.js"></script>
@@ -18,13 +18,15 @@
 
 <link href='http://fonts.googleapis.com/css?family=Wire+One' rel='stylesheet' type='text/css'>
 
-</head>
-<body>
+<link rel="stylesheet" href="css/screen.css" type="text/css" />
 
-	<header ng-include="'views/header.html'" class="text-center"></header>
-	<main ng-view >
+</head>
+<body class="container-fluid">
+
+	<header ng-include="'views/header.html'" class="row text-center"></header>
+	<main ng-view class="row">
 		
 	</main>
-	<footer ng-include="'views/footer.html'" class="text-center"></footer>
+	<footer ng-include="'views/footer.html'" class="row text-center"></footer>
 </body>
 </html>

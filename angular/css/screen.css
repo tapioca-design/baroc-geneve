@@ -1,6 +1,11 @@
+
+
 *{
 	border:1px solid green;
 }
+
+
+
 nav li{
 	display: inline;
 	padding: 1%;
@@ -14,6 +19,56 @@ footer {
 	background-color: black;
 	color:#ccc;
 }
+footer a {
+	font-size: 2em;
+
+}
+
+
 .condensed {
 	font-family: 'Wire One', sans-serif;
 }
+.text-bold {
+	font-weight: bold;
+}
+
+/*************************************/
+#concerts-list a {
+	display: block;
+	overflow: hidden;
+	background-color: red;
+	border: 1px solid blue;
+}
+#concerts-list h2 {
+	padding: 0;
+	margin: 0;
+	background-color: pink;
+}
+
+
+/*************************************/
+
+.date {
+	text-align: center;
+	
+}
+.date .day {
+	font-size: 2.5em;
+}
+.date .month {
+	font-size: 0.7em;
+	text-transform: uppercase;
+}
+a.white {
+	color:white;
+}
+a.white:hover {
+	color:#ccc;
+	text-decoration: none;
+}
+
+
+
+
+
+
