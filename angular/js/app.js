@@ -29,13 +29,25 @@ var concerts = $resource(
 console.log(concerts);
 }]);
 */
-console.log("init");
- myApp.controller('ConcertsListController', ['$scope','$http', function($scope,$http) {
-      //$http.get('model/worksOrderedByFirstPerformance.json').
+myApp.controller('ConcertsListController', ['$scope','$http', function($scope,$http) {
       $http.get('http://localhost/symfony/web/app_dev.php/api/city/1/worksOrderedByFirstPerformance').
         success(function(concerts) {
             console.log(concerts);
             $scope.concerts = concerts;
+        });
+ }]);
+myApp.controller('PlacesListController', ['$scope','$http', function($scope,$http) {
+      $http.get('http://localhost/symfony/web/app_dev.php/api/city/1/places').
+        success(function(places) {
+            console.log(places);
+            $scope.places = places;
+        });
+ }]);
+myApp.controller('PlaceController', ['$scope','$http', function($scope,$http) {
+      $http.get('http://localhost/symfony/web/app_dev.php/api/place/1').
+        success(function(place) {
+            console.log(place);
+            $scope.place = place;
         });
  }]);
 

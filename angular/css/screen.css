@@ -4,6 +4,7 @@
 	border: 1px solid green;
 }
 */
+a:hover {text-decoration: none;}
 
 ul, li {
 	padding: 0;
@@ -17,6 +18,21 @@ nav li{
 }
 header, footer {
 	height: 44px;
+}
+header h1 {
+	padding: 0;
+	margin: 0;
+	font-size: 2em;
+}
+header .header-side-btn {
+	font-size: 1.5em;
+	padding: 10% 0 0 0;
+}
+header .header-side-btn-left {
+	
+}
+header .header-side-btn-right {
+	
 }
 header {
 	background-color: black;
@@ -46,21 +62,7 @@ footer .glyphicon {
 .text-bold {
 	font-weight: bold;
 }
-header h1 {
-	padding: 0;
-	margin: 0;
-	font-size: 2em;
-}
-header .header-side-btn {
-	font-size: 1.5em;
-	padding: 10% 0 0 0;
-}
-header .header-side-btn-left {
-	
-}
-header .header-side-btn-right {
-	
-}
+
 h2 {
 	font-size: 1.8em;
 	padding: 0;
@@ -68,17 +70,35 @@ h2 {
 	padding: 1% 0 0 0;
 }
 /*************************************/
-#concerts-list a {
+
+a.list-element, a.list-element:link, a.list-element:visited {
 	display: block;
 	overflow: hidden;
+	border-bottom: 1px solid #bbb;
+}
+a.list-element:hover {
+	background-color: #eee;
+}
+a.list-element:active {
+	background-color: #ccc;
 }
 
-.list-element {
-	padding: 0 0 2% 0;
-	border-bottom: 1px solid grey;
+
+
+#concerts-list a.list-element {
+	padding: 0 0 5px 0;
 }
+#places-list a.list-element {
+	padding: 5px 0 5px 0;
+}
+#places-list .list-element img {
+	width: 44px;
+	height: 44px;
+}
+
+
 .gradient {
-	/* Recent browsers */
+	/*
 	background: -webkit-gradient(
 		linear,
 		left bottom, right top,
@@ -105,6 +125,7 @@ h2 {
 		#fff,
 		#eee
 	);
+*/
 }
 
 /*************************************/
