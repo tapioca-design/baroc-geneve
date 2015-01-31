@@ -15,6 +15,9 @@ myApp.config(["$routeProvider", function($routeProvider) {
 	when("/places-list", {
 		templateUrl: "views/places-list.html"
 	}).
+	when("/place", {
+		templateUrl: "views/place.html"
+	}).
 	otherwise({
 		redirectTo: "/concerts-list"
 	});
