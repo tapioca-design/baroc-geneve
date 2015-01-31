@@ -85,6 +85,44 @@ class Place
      */
     private $nameEn;
 
+
+
+
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="address", type="string", length=255, nullable=true)
+     * @Expose
+     * @Groups({"detail"})
+     */
+    private $address;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="telephone", type="string", length=255, nullable=true)
+     * @Expose
+     * @Groups({"detail"})
+     */
+    private $telephone;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="email", type="string", length=255, nullable=true)
+     * @Expose
+     * @Groups({"detail"})
+     */
+    private $email;
+
+
+
+
+
+
+
+
     /**
      * @var string
      *
@@ -175,6 +213,86 @@ public function __construct() {
     {
         return $this->nameEn;
     }
+
+
+
+
+
+
+
+
+    /**
+     * Set address
+     *
+     * @param string $address
+     * @return Place
+     */
+    public function setAddress($address)
+    {
+        $this->address = $address;
+
+        return $this;
+    }
+
+    /**
+     * Get address
+     *
+     * @return string 
+     */
+    public function getAddress()
+    {
+        return $this->address;
+    }
+    /**
+     * Set telephone
+     *
+     * @param string $telephone
+     * @return Place
+     */
+    public function setTelephone($telephone)
+    {
+        $this->telephone = $telephone;
+
+        return $this;
+    }
+
+    /**
+     * Get telephone
+     *
+     * @return string 
+     */
+    public function getTelephone()
+    {
+        return $this->telephone;
+    }
+    /**
+     * Set email
+     *
+     * @param string $email
+     * @return Place
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * Get email
+     *
+     * @return string 
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
+
+
+
+
+
 
 
     /**
