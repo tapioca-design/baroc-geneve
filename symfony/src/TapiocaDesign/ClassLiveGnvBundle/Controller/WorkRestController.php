@@ -62,5 +62,25 @@ class WorkRestController extends FOSRestController
       return $return;
       */
   	}
+
+    /*
+    * @Rest\View(serializerGroups={"detail"})
+    */
+    public function workAction($work_id){
+      $em = $this->getDoctrine()->getManager();
+      $work = $em->getRepository('TapiocaDesignClassLiveGnvBundle:Work')
+      ->find($work_id);
+      
+      $view = $this->view($work, 200);
+      $view->setSerializationContext(SerializationContext::create()->setGroups(array('list','detail')));
+      $view->setData($work);
+      return $view;
+    }
   
 }
+
+
+
+
+
+

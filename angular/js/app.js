@@ -12,14 +12,17 @@ myApp.config(["$routeProvider", function($routeProvider) {
 	when("/concerts-map", {
 		templateUrl: "views/concerts-map.html"
 	}).
+	when("/concert/:workId", {
+		templateUrl: "views/concert.html"
+	}).
 	when("/places-list", {
 		templateUrl: "views/places-list.html"
 	}).
-	when("/place", {
+	when("/place/:placeId", {
 		templateUrl: "views/place.html"
 	}).
 	otherwise({
-		redirectTo: "/concerts-list"
+		redirectTo: "/404"
 	});
 }]);
 
@@ -39,6 +42,19 @@ myApp.controller('ConcertsListController', ['$scope','$http', function($scope,$h
             $scope.concerts = concerts;
         });
  }]);
+myApp.controller('ConcertController', ['$scope','$http', '$routeParams', function($scope,$http, $routeParams) {
+	var workId = $routeParams.workId;
+	console.log("workId="+workId);
+    $http.get('http://localhost/symfony/web/app_dev.php/api/work/'+workId).
+        success(function(work) {
+            $scope.work = work;
+        });
+ }]);
+
+
+
+
+
 myApp.controller('PlacesListController', ['$scope','$http', function($scope,$http) {
       $http.get('http://localhost/symfony/web/app_dev.php/api/city/1/places').
         success(function(places) {
@@ -46,12 +62,23 @@ myApp.controller('PlacesListController', ['$scope','$http', function($scope,$htt
             $scope.places = places;
         });
  }]);
-myApp.controller('PlaceController', ['$scope','$http', function($scope,$http) {
-      $http.get('http://localhost/symfony/web/app_dev.php/api/place/1').
+myApp.controller('PlaceController', ['$scope','$http', '$routeParams', function($scope,$http, $routeParams) {
+	var placeId = $routeParams.placeId;
+    $http.get('http://localhost/symfony/web/app_dev.php/api/place/'+placeId).
         success(function(place) {
-            console.log(place);
+            //console.log(place);
             $scope.place = place;
         });
+
+    $scope.telephone = function(telephone){
+    	var link = "tel:"+ telephone; 
+    	window.location.href = link;
+ 	};
+ 	$scope.email = function(email){
+ 		//console.log("EMAILLLL");
+    	var link = "mailto:"+ email; 
+    	window.location.href = link;
+ 	};
  }]);
 
 

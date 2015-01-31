@@ -1,7 +1,10 @@
 <div ng-controller="PlacesListController" id="places-list">
   <ul ng-repeat="place in places" class="">
 	<li class="">
-	<a href="#" class="row list-element gradient">
+	<a 
+	ng-href="#/place/{{place.id}}" 
+	class="row list-element gradient"
+	>
 		<div class="col-xs-9">
 			<h2 class="text-condensed black">
 				{{place.name_fr}}

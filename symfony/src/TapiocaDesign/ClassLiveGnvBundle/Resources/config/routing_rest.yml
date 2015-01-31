@@ -20,6 +20,13 @@ TD_CLG_worksOrderedByFirstPerformance:
         _method: GET
         city_id: "\d+"
 
+TD_CLG_work:
+    pattern:  /work/{work_id}
+    defaults: { _controller: TapiocaDesignClassLiveGnvBundle:WorkRest:work, _format: ~ }
+    requirements:
+        _method: GET
+        work_id: "\d+"
+
 TD_CLG_placesByCity:
     pattern:  /city/{city_id}/places
     defaults: { _controller: TapiocaDesignClassLiveGnvBundle:PlaceRest:placesByCity, _format: ~ }

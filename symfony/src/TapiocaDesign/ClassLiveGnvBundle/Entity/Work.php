@@ -53,6 +53,15 @@ class Work
     /**
      * @var string
      *
+     * @ORM\Column(name="name_url", type="string", length=64)
+     * @Expose
+     * @Groups({"list","detail"})
+     */
+    private $name_url;
+
+    /**
+     * @var string
+     *
      * @ORM\Column(name="composer", type="string", length=64, nullable=true)
      * @Expose
      * @Groups({"list","detail"})
@@ -144,6 +153,31 @@ public function __construct() {
     {
         return $this->name;
     }
+
+
+    /**
+     * Set url_name
+     *
+     * @param string $url_name
+     * @return Work
+     */
+    public function setUrlName($url_name)
+    {
+        $this->url_name = $url_name;
+
+        return $this;
+    }
+
+    /**
+     * Get url_name
+     *
+     * @return string 
+     */
+    public function getUrlName()
+    {
+        return $this->url_name;
+    }
+
 
     /**
      * Set composer
