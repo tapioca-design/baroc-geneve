@@ -33,36 +33,23 @@ myApp.config(["$routeProvider", function($routeProvider) {
 
 
 myApp.factory('Data', function () {
-    return { FirstName: 'Zazanette' };
+    return { headerTitle: '' };
 });
 
-
-
-/*
-var services = angular.module('guthub.services', ['ngResource']);
-services.factory('Recipe', ['$resource', function($resource) {
-var concerts = $resource(
-	); 
-console.log(concerts);
-}]);
-*/
-
-
-
-
-
-
 myApp.controller('ConcertsListController', ['$scope','$http', 'Data', function($scope,$http, Data) {
+      //console.log("Data.headerTitle");
+      //console.log(Data.headerTitle);
+      Data.headerTitle = "Welelboune";
       $scope.Data = Data;
-      $scope.header_title = "111";
+      //$scope.header_title = "111";
       $http.get('http://localhost/symfony/web/app_dev.php/api/city/1/worksOrderedByFirstPerformance').
         success(function(concerts) {
             console.log(concerts);
             $scope.concerts = concerts;
         });
  }]);
-myApp.controller('ConcertController', ['$scope','$http', '$routeParams', function($scope,$http, $routeParams) {
-	$scope.header_title = "222";
+myApp.controller('ConcertController', ['$scope','$http', '$routeParams','Data', function($scope,$http, $routeParams, Data) {
+	//$scope.header_title = "222";
 	var workId = $routeParams.workId;
 	//console.log("workId="+workId);
     $http.get('http://localhost/symfony/web/app_dev.php/api/work/'+workId).
@@ -71,28 +58,16 @@ myApp.controller('ConcertController', ['$scope','$http', '$routeParams', functio
         });
  }]);
 
-
-
-myApp.controller('SecondCtrl', ['$rootScope','$scope','$http', 'Data', function($rootScope, $scope,$http, Data) {
-      $scope.Data = Data;
-}]);
-myApp.controller('ThirdCtrl', ['$rootScope','$scope','$http', 'Data', function($rootScope, $scope,$http, Data) {
-      $scope.Data = Data;
-}]);
-
-
-
-
-myApp.controller('PlacesListController', ['$rootScope','$scope','$http', function($rootScope, $scope,$http) {
-      $rootScope.header_title = "333";
+myApp.controller('PlacesListController', ['$rootScope','$scope','$http','Data', function($rootScope, $scope,$http, Data) {
+      //$rootScope.header_title = "333";
       $http.get('http://localhost/symfony/web/app_dev.php/api/city/1/places').
         success(function(places) {
             console.log(places);
             $scope.places = places;
         });
  }]);
-myApp.controller('PlaceController', ['$rootScope','$scope','$http', '$routeParams', function($rootScope, $scope,$http, $routeParams) {
-	$rootScope.header_title_over = "444";
+myApp.controller('PlaceController', ['$rootScope','$scope','$http', '$routeParams','Data', function($rootScope, $scope,$http, $routeParams, Data) {
+	//$rootScope.header_title_over = "444";
 	console.log("PC $rootScope.header_title_over = "+$rootScope.header_title_over);
     
 	var placeId = $routeParams.placeId;
@@ -115,8 +90,6 @@ myApp.controller('PlaceController', ['$rootScope','$scope','$http', '$routeParam
 
 myApp.controller('HeaderController', ['$rootScope','$scope','$http','Data', function($rootScope, $scope,$http, Data) {
       $scope.Data = Data;
-      console.log("HC $rootScope.header_title_over = "+$rootScope.header_title_over);
-      $scope.header_title = $rootScope.header_title_over;
 }]);
 
 
