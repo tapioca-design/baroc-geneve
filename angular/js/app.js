@@ -32,48 +32,67 @@ myApp.config(["$routeProvider", function($routeProvider) {
 }]);
 
 
+
+
+myApp.directive('headerSideBtnLeft', function() {
+  return {
+      restrict: 'C',
+      template: '<a href="#/concerts-list" class="white header-side-btn " ><span class="glyphicon glyphicon-chevron-left red-dark"></span></a>'
+  };
+});
+/*
+myApp.directive('headerSideBtnRight', function() {
+  return {
+      restrict: 'C',
+      template: '<a href="#" class="white header-side-btn" header-side-btn-right><span class="glyphicon glyphicon-menu-hamburger red-dark"></span></a>'
+  };
+});
+*/
+myApp.directive('headerSideBtnRight', function() {
+  return {
+      restrict: 'C',
+      template: '<a href="#" class="white header-side-btn" header-side-btn-right><span class="glyphicon glyphicon-menu-hamburger red-dark"></span></a>'
+  };
+});
+
+
+
+
 myApp.factory('Data', function () {
     return { headerTitle: '' };
 });
 
 myApp.controller('ConcertsListController', ['$scope','$http', 'Data', function($scope,$http, Data) {
-      //console.log("Data.headerTitle");
-      //console.log(Data.headerTitle);
-      Data.headerTitle = "Welelboune";
+      Data.headerTitle = "Classical live Genève";
       $scope.Data = Data;
-      //$scope.header_title = "111";
       $http.get('http://localhost/symfony/web/app_dev.php/api/city/1/worksOrderedByFirstPerformance').
         success(function(concerts) {
-            console.log(concerts);
             $scope.concerts = concerts;
         });
  }]);
 myApp.controller('ConcertController', ['$scope','$http', '$routeParams','Data', function($scope,$http, $routeParams, Data) {
-	//$scope.header_title = "222";
 	var workId = $routeParams.workId;
-	//console.log("workId="+workId);
     $http.get('http://localhost/symfony/web/app_dev.php/api/work/'+workId).
         success(function(work) {
+        	Data.headerTitle = work.name;
             $scope.work = work;
         });
  }]);
 
 myApp.controller('PlacesListController', ['$rootScope','$scope','$http','Data', function($rootScope, $scope,$http, Data) {
-      //$rootScope.header_title = "333";
+      Data.headerTitle = "Classical live Genève";
       $http.get('http://localhost/symfony/web/app_dev.php/api/city/1/places').
         success(function(places) {
-            console.log(places);
             $scope.places = places;
         });
  }]);
 myApp.controller('PlaceController', ['$rootScope','$scope','$http', '$routeParams','Data', function($rootScope, $scope,$http, $routeParams, Data) {
-	//$rootScope.header_title_over = "444";
 	console.log("PC $rootScope.header_title_over = "+$rootScope.header_title_over);
     
 	var placeId = $routeParams.placeId;
     $http.get('http://localhost/symfony/web/app_dev.php/api/place/'+placeId).
         success(function(place) {
-            //console.log(place);
+        	Data.headerTitle = place.name_fr;
             $scope.place = place;
         });
 
