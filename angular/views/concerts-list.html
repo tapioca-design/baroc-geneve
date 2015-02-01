@@ -1,4 +1,10 @@
-<div ng-controller="ConcertsListController" id="concerts-list">
+
+<div id="concerts-list" ng-controller="ConcertsListController">
+	<input type="text" ng-model="Data.FirstName" >
+FName3 {{Data.FirstName}}
+
+<p />
+	ht{{header_title}}	
   <ul ng-repeat="concert in concerts" class="">
 	<li class="">
 	<a 
@@ -43,3 +49,15 @@
 	</li>
   </ul>
 </div>
+
+
+
+<h1 ng-controller="SecondCtrl">
+  FName4: {{Data.FirstName}}
+</h1>
+<p /><p /><p /><p /><p />
+
+
+
+
+

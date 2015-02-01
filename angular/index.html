@@ -2,10 +2,12 @@
 <html lang="en" ng-app="myApp">
 <head>
 	<meta charset="UTF-8">
-	<title>Classical live Geneva</title>
+	<title>Classical live Geneva </title>
 	<meta name="viewport" content="width=device-width, user-scalable=no">
 	
-	
+<link href='//fonts.googleapis.com/css?family=Medula+One|Roboto+Slab:400,100' rel='stylesheet' type='text/css'>
+
+
 	<script src="js/lib/angular/angular.min.js"></script>
     <script src="js/lib/angular/angular-route.min.js"></script>
     <script src="js/lib/angular/angular-animate.min.js"></script>
@@ -16,19 +18,32 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
 
-<link href='http://fonts.googleapis.com/css?family=Wire+One' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Medula+One' rel='stylesheet' type='text/css'>
-<link href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,100' rel='stylesheet' type='text/css'>
-
 <link rel="stylesheet" href="css/screen.css" type="text/css" />
 
 </head>
 <body class="">
 
-	<header ng-include="'views/header.html'" class="container-fluid text-center"></header>
+	
+	<div ng-controller="HeaderController">
+		FName1 {{Data.FirstName}}
+		<header ng-include="'views/header.html'" class="container-fluid text-center"></header>
+	</div>
+
+
+
+	ht{{header_title}}	
 	<main ng-view class="container-fluid">
-		
+	
 	</main>
 	<footer ng-include="'views/footer.html'" class="container-fluid text-center"></footer>
+
+
+<h1 ng-controller="ThirdCtrl">
+  FName5: {{Data.FirstName}}
+</h1>
+<p /><p /><p /><p /><p />
+
 </body>
 </html>
+
+
