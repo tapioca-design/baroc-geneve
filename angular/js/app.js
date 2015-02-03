@@ -34,12 +34,7 @@ myApp.config(["$routeProvider", function($routeProvider) {
 
 
 
-myApp.directive('headerSideBtnLeft', function() {
-  return {
-      restrict: 'C',
-      template: '<a href="#/concerts-list" class="white header-side-btn " ><span class="glyphicon glyphicon-chevron-left red-dark"></span></a>'
-  };
-});
+
 /*
 myApp.directive('headerSideBtnRight', function() {
   return {
@@ -48,12 +43,7 @@ myApp.directive('headerSideBtnRight', function() {
   };
 });
 */
-myApp.directive('headerSideBtnRight', function() {
-  return {
-      restrict: 'C',
-      template: '<a href="#" class="white header-side-btn" header-side-btn-right><span class="glyphicon glyphicon-menu-hamburger red-dark"></span></a>'
-  };
-});
+
 
 
 
@@ -70,6 +60,26 @@ myApp.controller('ConcertsListController', ['$scope','$http', 'Data', function($
             $scope.concerts = concerts;
         });
  }]);
+
+
+myApp.directive('headerSideBtnLeft', function() {
+	return {
+      	restrict: 'C',
+      	template: '<a href="#/concerts-list" class="white header-side-btn " ><span class="glyphicon glyphicon-chevron-left red-dark"></span>Coco</a>'
+  };
+});
+
+
+myApp.directive('headerSideBtnRight', function() {
+  	return {
+      	restrict: 'C',
+      	template: '<a href="#" class="white header-side-btn" header-side-btn-right><span class="glyphicon glyphicon-menu-hamburger red-dark"></span></a>'
+  };
+});
+
+
+
+
 myApp.controller('ConcertController', ['$scope','$http', '$routeParams','Data', function($scope,$http, $routeParams, Data) {
 	var workId = $routeParams.workId;
     $http.get('http://localhost/symfony/web/app_dev.php/api/work/'+workId).
@@ -86,6 +96,10 @@ myApp.controller('PlacesListController', ['$rootScope','$scope','$http','Data', 
             $scope.places = places;
         });
  }]);
+
+
+
+
 myApp.controller('PlaceController', ['$rootScope','$scope','$http', '$routeParams','Data', function($rootScope, $scope,$http, $routeParams, Data) {
 	console.log("PC $rootScope.header_title_over = "+$rootScope.header_title_over);
     
