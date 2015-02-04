@@ -22,6 +22,7 @@ nav li{
 }
 header, footer {
 	height: 44px;
+	background-color: #999;
 }
 header h1 {
 	padding: 0;
@@ -39,11 +40,9 @@ header .header-side-btn-right {
 	
 }
 header {
-	background-color: black;
 	padding: 8px 0 0 0;
 }
 footer {
-	background-color: black;
 	color:#ccc;
 }
 footer a .menu-label {

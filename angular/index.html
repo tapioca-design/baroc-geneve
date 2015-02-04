@@ -27,12 +27,16 @@
 	</div>
 
 
-		<div ng-controller='QueryTest'>
-      <div ng-include='view'></div>
-      {{model.test}}
+<div ng-controller='QueryTest'>
+				INDEX: <input type='text' ng-model='$parent.model.test' >close1:{{model.test}}
+			</div>
+
+		
+    index 1 = {{model.test}}
+<div ng-controller='QueryTest'>
+      index 2 = {{model.test}}
     </div>
 
-    
 
 	<main ng-view class="container-fluid">
 	
