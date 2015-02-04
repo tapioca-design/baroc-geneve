@@ -31,10 +31,6 @@ myApp.config(["$routeProvider", function($routeProvider) {
 	});
 }]);
 
-
-
-
-
 /*
 myApp.directive('headerSideBtnRight', function() {
   return {
@@ -44,24 +40,23 @@ myApp.directive('headerSideBtnRight', function() {
 });
 */
 
-
-
-
-
 myApp.factory('Data', function () {
     return { headerTitle: '' };
 });
 
-myApp.controller('ConcertsListController', ['$scope','$http', 'Data', function($scope,$http, Data) {
-      Data.headerTitle = "Classical live Genève";
-      $scope.Data = Data;
-      $http.get('http://localhost/symfony/web/app_dev.php/api/city/1/worksOrderedByFirstPerformance').
-        success(function(concerts) {
-            $scope.concerts = concerts;
-        });
- }]);
 
 
+// function QueryTest($scope){
+//     $scope.view='views/header.html';
+//     $scope.model={test:''};
+// }
+myApp.controller('QueryTest', ['$scope','$http', 'Data', function($scope,$http, Data) {
+  console.log("QueryTest");
+      $scope.view='views/test.html';
+    $scope.model={test:''};
+}]);
+
+/*
 myApp.directive('headerSideBtnLeft', function() {
 	return {
       	restrict: 'C',
@@ -76,7 +71,16 @@ myApp.directive('headerSideBtnRight', function() {
       	template: '<a href="#" class="white header-side-btn" header-side-btn-right><span class="glyphicon glyphicon-menu-hamburger red-dark"></span></a>'
   };
 });
+*/
 
+myApp.controller('ConcertsListController', ['$scope','$http', 'Data', function($scope,$http, Data) {
+      Data.headerTitle = "Classical live Genève";
+      $scope.Data = Data;
+      $http.get('http://localhost/symfony/web/app_dev.php/api/city/1/worksOrderedByFirstPerformance').
+        success(function(concerts) {
+            $scope.concerts = concerts;
+        });
+ }]);
 
 
 

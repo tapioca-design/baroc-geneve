@@ -26,6 +26,14 @@
 		<header ng-include="'views/header.html'" class="container-fluid text-center"></header>
 	</div>
 
+
+		<div ng-controller='QueryTest'>
+      <div ng-include='view'></div>
+      {{model.test}}
+    </div>
+
+    
+
 	<main ng-view class="container-fluid">
 	
 	</main>

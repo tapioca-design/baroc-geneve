@@ -1,6 +1,18 @@
 
 <div id="concerts-list" >
-  <ul ng-repeat="concert in concerts" class="">
+
+
+<!-- <label for="search">search:</label>
+<input id="search" type="text" ng-model="query" placeholder="Search for concerts" autofocus>  -->
+
+
+
+    
+
+
+
+
+  <ul ng-repeat="concert in concerts | filter:query" class="">
 	<li class="">
 	<a 
 	ng-href="#/concert/{{concert.id}}" 
