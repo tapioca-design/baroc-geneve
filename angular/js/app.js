@@ -62,7 +62,9 @@ myApp.directive('headerSideBtnRight', function() {
 });
 */
 
-myApp.controller('HeaderController', ['$rootScope','$scope','$http','Data', function($rootScope, $scope,$http, Data) {
+myApp.controller('HeaderController', ['$rootScope','$scope','$http','Data', function($rootScope, $scope, $http, Data) {
+      // console.log("routeProvider");
+      // console.log($routeProvider);
       $scope.Data = Data;
       $scope.searchShowHideToggle = function() {
           $scope.searchShowHideToggleBoolean = !$scope.searchShowHideToggleBoolean;
