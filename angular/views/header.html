@@ -2,16 +2,23 @@
 			<div class="col-xs-2">
 				<div class="headerSideBtnLeft">
 				
-
+<!-- 
+				<span ng-if="checked" class="animate-if">
+				  FIFI
+				</span> -->
 				
 
-				<div class="row">
-					<a  ng-click="searchShowHideToggle()" href="#/concerts-list" class="white header-side-btn " >
+				<div id="search" ng-show="search.visible">
+					<a  ng-click="searchShowHideToggle()" ng-href="#/concerts-list" class="white header-side-btn " >
 						<span class="glyphicon glyphicon-remove red-dark" ng-show="searchShowHideToggleBoolean"></span>
 						<span class="glyphicon glyphicon-search red-dark" ng-hide="searchShowHideToggleBoolean"></span>
-						
 					</a>
-					
+				</div>
+
+				<div id="back" ng-show="back.visible">
+					<a ng-href="back.url" class="white header-side-btn " >
+						<span class="glyphicon glyphicon-chevron-left red-dark" ></span>
+					</a>
 				</div>
 
 

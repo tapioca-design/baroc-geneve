@@ -31,6 +31,7 @@ myApp.config(["$routeProvider", function($routeProvider) {
 	});
 }]);
 
+
 /*
 myApp.directive('headerSideBtnRight', function() {
   return {
@@ -62,9 +63,34 @@ myApp.directive('headerSideBtnRight', function() {
 });
 */
 
-myApp.controller('HeaderController', ['$rootScope','$scope','$http','Data', function($rootScope, $scope, $http, Data) {
-      // console.log("routeProvider");
-      // console.log($routeProvider);
+myApp.controller('HeaderController', ['$rootScope','$scope','$http',"$route", 'Data', function($rootScope, $scope, $http, $route, Data) {
+
+      //$scope.obj.val = "caca";
+
+      $scope.$on('$routeChangeStart', function(next, current) { 
+          var currentViewController = current.$$route.controller;
+          // console.log("currentViewController");
+          // console.log(currentViewController);
+           $scope.search={};
+           $scope.back={};
+          if (currentViewController=="ConcertsListController" || currentViewController=="PlacesListController")  {
+              $scope.search.visible = 1;
+              $scope.back.visible = 0;
+          } else if (currentViewController=="ConcertController")  {
+              $scope.search.visible = 0;
+              $scope.back.visible = 1;
+              $scope.back.url = "/concerts-list";
+          } else if (currentViewController=="PlaceController")  {
+              $scope.search.visible = 0;
+              $scope.back.visible = 1;
+              $scope.back.url = "/places-list";
+          } else {
+              $scope.search.visible = 1;
+              $scope.back.visible = 0;
+          }
+
+      });
+
       $scope.Data = Data;
       $scope.searchShowHideToggle = function() {
           $scope.searchShowHideToggleBoolean = !$scope.searchShowHideToggleBoolean;
@@ -72,7 +98,9 @@ myApp.controller('HeaderController', ['$rootScope','$scope','$http','Data', func
       };
 }]);
 
-myApp.controller('ConcertsListController', ['$scope','$http', 'Data', function($scope,$http, Data) {
+myApp.controller('ConcertsListController', ['$scope','$http', "$routeParams",'Data', function($scope,$http, $routeParams, Data) {
+      // console.log("routeParams");
+      // console.log($routeParams);
       Data.headerTitle = "Classical live Genève";
       $scope.search=Data;
       //$scope.Data = Data;
