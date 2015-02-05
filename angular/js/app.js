@@ -41,15 +41,15 @@ myApp.directive('headerSideBtnRight', function() {
 */
 
 myApp.factory('Data', function () {
-    return { headerTitle: '' };
+    return { headerTitle: '', test:"" };
 });
 
 
 
-// myApp.controller('MainCtrl', ['$scope', function($scope) {
-//           $scope.header='views/header.html';
-//           $scope.model={test:''};
-// }]);  
+myApp.controller('MainCtrl', ['$scope', 'Data', function($scope, Data) {
+          //$scope.header='views/header.html';
+          $scope.model=Data;
+}]);  
 
 /*
 myApp.directive('headerSideBtnLeft', function() {
@@ -70,7 +70,8 @@ myApp.directive('headerSideBtnRight', function() {
 
 myApp.controller('ConcertsListController', ['$scope','$http', 'Data', function($scope,$http, Data) {
       Data.headerTitle = "Classical live Genève";
-      $scope.Data = Data;
+      
+      //$scope.Data = Data;
       $http.get('http://localhost/symfony/web/app_dev.php/api/city/1/worksOrderedByFirstPerformance').
         success(function(concerts) {
             $scope.concerts = concerts;
