@@ -20,9 +20,19 @@ nav li{
 	display: inline;
 	padding: 1%;
 }
+
 header, footer {
 	height: 44px;
 	background-color: #999;
+}
+/*************************************/
+header {
+	padding: 8px 0 0 0;
+
+}
+header input {
+	width:100%;
+	/*height:44px;*/
 }
 header h1 {
 	padding: 0;
@@ -30,7 +40,7 @@ header h1 {
 	font-size: 2em;
 }
 header .header-side-btn {
-	font-size: 1.5em;
+	font-size: 20px;
 	padding: 10% 0 0 0;
 }
 header .header-side-btn-left {
@@ -39,9 +49,19 @@ header .header-side-btn-left {
 header .header-side-btn-right {
 	
 }
-header {
-	padding: 8px 0 0 0;
+header #search-field {
+	opacity: 1;
+   transition: opacity .9s ease-in-out;
+   -moz-transition: opacity .9s ease-in-out;
+   -webkit-transition: opacity .9s ease-in-out;
 }
+header #search-field.ng-hide {
+    opacity: 0;
+    transition: opacity 0s ease-in-out;
+   -moz-transition: opacity 0s ease-in-out;
+   -webkit-transition: opacity 0s ease-in-out;
+}
+/*************************************/
 footer {
 	color:#ccc;
 }
@@ -51,7 +71,7 @@ footer a .menu-label {
 footer .glyphicon {
 	margin: 0 3px 0 0;
 }
-
+/*************************************/
 .text-condensed {
 	/*
 	font-family: 'Wire One', sans-serif;
@@ -73,6 +93,10 @@ h2 {
 	padding: 1% 0 0 0;
 }
 /*************************************/
+
+
+/*************************************/
+
 
 a.list-element, a.list-element:link, a.list-element:visited {
 	display: block;

@@ -1,5 +1,5 @@
 var myApp = angular.module("myApp", 
-	["ngRoute", "appControllers"]);
+	["ngRoute", "ngAnimate", "appControllers"]);
 
 var appControllers = angular.module("appControllers", []);
 
@@ -45,15 +45,15 @@ myApp.factory('Data', function () {
 });
 
 
+
+// myApp.directive('headerSideBtnLeft', function() {
+// 	return {
+//       	restrict: 'C',
+//       	template: '<a href="#/concerts-list" class="white header-side-btn " ><span class="glyphicon glyphicon-chevron-left red-dark"></span>Coco</a>'
+//   };
+// });
+
 /*
-myApp.directive('headerSideBtnLeft', function() {
-	return {
-      	restrict: 'C',
-      	template: '<a href="#/concerts-list" class="white header-side-btn " ><span class="glyphicon glyphicon-chevron-left red-dark"></span>Coco</a>'
-  };
-});
-
-
 myApp.directive('headerSideBtnRight', function() {
   	return {
       	restrict: 'C',
@@ -61,6 +61,14 @@ myApp.directive('headerSideBtnRight', function() {
   };
 });
 */
+
+myApp.controller('HeaderController', ['$rootScope','$scope','$http','Data', function($rootScope, $scope,$http, Data) {
+      $scope.Data = Data;
+      $scope.searchShowHideToggle = function() {
+          $scope.searchShowHideToggleBoolean = !$scope.searchShowHideToggleBoolean;
+          
+      };
+}]);
 
 myApp.controller('ConcertsListController', ['$scope','$http', 'Data', function($scope,$http, Data) {
       Data.headerTitle = "Classical live Genève";
@@ -115,9 +123,7 @@ myApp.controller('PlaceController', ['$rootScope','$scope','$http', '$routeParam
  	};
  }]);
 
-myApp.controller('HeaderController', ['$rootScope','$scope','$http','Data', function($rootScope, $scope,$http, Data) {
-      $scope.Data = Data;
-}]);
+
 
 
 
