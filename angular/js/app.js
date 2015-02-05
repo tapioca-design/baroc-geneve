@@ -46,25 +46,10 @@ myApp.factory('Data', function () {
 
 
 
-// function QueryTest($scope){
-//     $scope.view='views/header.html';
-//     $scope.model={test:''};
-// }
-myApp.controller('QueryTest', ['$scope','$http', 'Data', function($scope,$http, Data, $window, Common) {
-  console.log("QueryTest");
-    //$scope.view='views/test.html';
-    //$scope.model.test="";
-    // $scope.model={test:''};
-    // $scope.test="";
-    //this.model.test="";
-    // this.model={test:''};
-    // this.test="";
-    //model.test="";
-    model={test:''};
-    test="";
-
-    // Data.headerTitle = "Classical live Genève";
-}]);
+// myApp.controller('MainCtrl', ['$scope', function($scope) {
+//           $scope.header='views/header.html';
+//           $scope.model={test:''};
+// }]);  
 
 /*
 myApp.directive('headerSideBtnLeft', function() {
