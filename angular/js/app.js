@@ -97,9 +97,8 @@ myApp.controller('HeaderController', ['$rootScope','$scope','$http',"$route", '$
           // console.log(locationPath);
           
               //console.log("location.path is not empty");
-              //avoid bug on inital homepage, if locationPath is empty, it s homepage
-
-          //if (current && current.$$route && current.$$route.controller) {
+              
+            //avoid bug on inital homepage
              if (next && next.$$route && next.$$route.controller) {
                 var viewController = next.$$route.controller;
              } else {
@@ -109,29 +108,20 @@ myApp.controller('HeaderController', ['$rootScope','$scope','$http',"$route", '$
               console.log("viewController "+viewController)
               
               if (viewController=="ConcertsListController" || viewController=="PlacesListController")  {
-                  searchAllowed=1;
-                  // $scope.search.visible = 1;
-                  // $scope.back.visible = 0;
-                  // $scope.searchShowHideToggleBoolean = 0;
+                  $scope.searchAllowed=1;
               } else if (viewController=="ConcertController")  {
-                  searchAllowed=0;
-                  // $scope.search.visible = 0;
-                  // $scope.back.visible = 1;
+                  $scope.searchAllowed=0;
+                  $scope.searchActive = 0;
                   $scope.back.url = "#/concerts-list";
-                  //after searchin, if a concert is selected, remove fieldsearch
-                  //$scope.searchShowHideToggleBoolean = 0;
               } else if (viewController=="PlaceController")  {
-                  searchAllowed=0;
-                  // $scope.search.visible = 0;
-                  // $scope.back.visible = 1;
+                  $scope.searchAllowed=0;
+                  $scope.searchActive = 0;
                   $scope.back.url = "#/places-list";
-                  //after searchin, if a place is selected, remove fieldsearch
-                  //$scope.searchShowHideToggleBoolean = 0;
               } else {
                   console.log("NO ROUTE SUPPOSED TO END UP HERE !!!");
-                  searchAllowed=1;
+                  $scope.searchAllowed=1;
+                  
               }
-          //}
       });
 
       //$scope.Data = Data;
@@ -222,11 +212,13 @@ myApp.controller('ConcertsListController', ['$scope','$http', "$routeParams",'Da
       // console.log(Data.searchTerm);
 
       //Data.stateSearch = 0
-      /*
-      $scope.stateSearchToggle = function() {
-          Data.stateSearch = !Data.stateSearch;
+      
+      $scope.searchActiveToggle = function() {
+          Data.searchActive = !Data.searchActive;
+          $scope.searchActive = Data.searchActive;
+          console.log("searchActive"+$scope.searchActive);
       };
-      */
+      
 
  }]);
 

@@ -43,15 +43,16 @@
 	<!-- nghide to show only when there s no result
 	ngshow to show only if we re in stateSearch, means the searh icon has been clicked -->
 	<div ng-hide="filteredConcerts.length"  class="text-center center-vertical">
-		<!-- <div ng-show="Data.stateSearch" > -->
+
+		<div  >
 			No result for
 			<div class="text-italic text-light">“{{search.searchTerm}}”</div>
 			<div>
-				<a ng-click="stateSearchToggle()" class="size-huge color-lighter">
+				<a ng-href="#/" class="size-huge color-lighter">
 					<span class="glyphicon glyphicon-remove-circle"></span>
 				</a>
 			</div>
-		<!-- </div> -->
+		</div>
 	</div>
 	
   </ul>

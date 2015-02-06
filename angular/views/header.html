@@ -10,7 +10,7 @@
 				<!-- Data.searchAllowed={{Data.searchAllowed}}
 				Data.searchActive={{Data.searchActive}}
 				searchAllowed={{searchAllowed}}
-				searchActive={{searchActive}} -->
+				searchActive={{searchActive}}  -->
 				<div id="search" ng-show="searchAllowed">
 					<a  ng-click="searchActiveToggle()"  class="white header-side-btn " >
 						<span class="glyphicon glyphicon-remove red-dark" ng-show="searchActive"></span>
@@ -35,19 +35,17 @@
 				<h1 class="text-condensed white" ng-hide="searchActive" >
 					headerTitleheaderTitle={{headerTitle}}
 				</h1>
-
-
-
-
-				<div ng-controller='ConcertsListController' ng-show="searchActive" id="search-field">
-					<input 
-					type='text' 
-					ng-model='search.searchTerm' 
-					placeholder="Bach, Violoncelle, ..." 
-					autofocus 
-					focus-me="shouldBeOpen"
-					>
-				</div>
+	
+					<div ng-controller='ConcertsListController' ng-show="searchActive" id="search-field">
+						<input 
+						type='text' 
+						ng-model='search.searchTerm' 
+						placeholder="Bach, Violoncelle, ..." 
+						autofocus 
+						focus-me="shouldBeOpen"
+						>
+					</div>
+				
 			</div>
 
 
