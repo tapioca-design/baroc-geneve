@@ -77,6 +77,9 @@ myApp.controller('HeaderController', ['$rootScope','$scope','$http',"$route", 'D
       // console.log(Data.headerTitle);
       // console.log(Data.headerTitle.length);
 
+      //empty search field
+      Data.searchTerm = "";
+
           var currentViewController = current.$$route.controller;
           console.log("currentViewController");
           console.log(currentViewController);
@@ -87,17 +90,21 @@ myApp.controller('HeaderController', ['$rootScope','$scope','$http',"$route", 'D
           if (currentViewController=="ConcertsListController" || currentViewController=="PlacesListController")  {
               $scope.search.visible = 1;
               $scope.back.visible = 0;
+              $scope.searchShowHideToggleBoolean = 0;
           } else if (currentViewController=="ConcertController")  {
               $scope.search.visible = 0;
               $scope.back.visible = 1;
               $scope.back.url = "#/concerts-list";
+              //after searchin, if a concert is selected, remove fieldsearch
+              $scope.searchShowHideToggleBoolean = 0;
           } else if (currentViewController=="PlaceController")  {
               $scope.search.visible = 0;
               $scope.back.visible = 1;
               $scope.back.url = "#/places-list";
+              //after searchin, if a place is selected, remove fieldsearch
+              $scope.searchShowHideToggleBoolean = 0;
           } else {
-              $scope.search.visible = 1;
-              $scope.back.visible = 0;
+              console.log("NO ROUTE SUPPOSED TO END UP HERE !!!");
           }
       });
 
@@ -107,6 +114,21 @@ myApp.controller('HeaderController', ['$rootScope','$scope','$http',"$route", 'D
           
       };
 }]);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 myApp.controller('ConcertsListController', ['$scope','$http', "$routeParams",'Data', function($scope,$http, $routeParams, Data) {
       // console.log("routeParams");

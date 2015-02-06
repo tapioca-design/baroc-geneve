@@ -3,7 +3,8 @@
 <div id="concerts-list" >
 
 
-  <ul ng-repeat="concert in concerts | filter:search.searchTerm" class="">
+  <ul >
+	<li ng-repeat="concert in filteredConcerts = (concerts | filter:search.searchTerm)" class="">
 
 	<a 
 	ng-href="#/concert/{{concert.id}}" 
@@ -40,10 +41,16 @@
 		</div>		
 	</a>
 	</li>
+
+	<div ng-hide="filteredConcerts.length" class="text-center center-vertical">
+		No result for 
+		<br />
+		<span class="text-italic text-light">“{{search.searchTerm}}”</span>
+	</div>
+	
   </ul>
 
-<li ng-show="!concerts.length">No eventsNo eventsNo eventsNo eventsNo eventsNo eventsNo eventsNo eventsNo eventsNo eventsNo eventsNo eventsNo eventsNo eventsNo eventsNo eventsNo eventsNo eventsNo eventsNo eventsNo eventsNo eventsNo eventsNo eventsNo eventsNo eventsNo eventsNo eventsNo eventsNo eventsNo eventsNo events</li>
-	<li class="">
+
 
 </div>
 

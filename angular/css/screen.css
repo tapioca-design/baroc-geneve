@@ -67,9 +67,11 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5b1b03', end
 
 
 /*************************************/
-.enum-title{
+.text-italic {
 	font-style: italic;
-
+}
+.center-vertical {
+	padding-top: 10%;
 }
 /*************************************/
 
@@ -183,7 +185,9 @@ a.list-element:active {
 #concert #work ul li {
 	display: inline;
 }
-
+#concert #work ul li + li::before {
+    content: "//";
+}
 /*************************************/
 #concerts-list a.list-element {
 	padding: 0 0 5px 0;
