@@ -67,10 +67,15 @@ myApp.controller('HeaderController', ['$rootScope','$scope','$http',"$route", 'D
 
       //$scope.obj.val = "caca";
 
+
+
+
+
+
       $scope.$on('$routeChangeStart', function(next, current) { 
           var currentViewController = current.$$route.controller;
-          // console.log("currentViewController");
-          // console.log(currentViewController);
+          console.log("currentViewController");
+          console.log(currentViewController);
            $scope.search={};
            $scope.back={};
           if (currentViewController=="ConcertsListController" || currentViewController=="PlacesListController")  {
@@ -79,16 +84,15 @@ myApp.controller('HeaderController', ['$rootScope','$scope','$http',"$route", 'D
           } else if (currentViewController=="ConcertController")  {
               $scope.search.visible = 0;
               $scope.back.visible = 1;
-              $scope.back.url = "/concerts-list";
+              $scope.back.url = "#/concerts-list";
           } else if (currentViewController=="PlaceController")  {
               $scope.search.visible = 0;
               $scope.back.visible = 1;
-              $scope.back.url = "/places-list";
+              $scope.back.url = "#/places-list";
           } else {
               $scope.search.visible = 1;
               $scope.back.visible = 0;
           }
-
       });
 
       $scope.Data = Data;
