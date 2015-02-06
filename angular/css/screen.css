@@ -17,11 +17,25 @@ body, .bkg-color {
 
 
 
+a.color-lighter {
+	color:#d5b6ad;
+}
+
+
+.size-huge {
+	font-size: 6em;
+}
+
+
 h1.h1-smaller {
 	font-size: 1.4em;
 }
 
+
+
 a:hover {text-decoration: none;}
+
+
 
 ul, li {
 	padding: 0;
@@ -36,7 +50,7 @@ nav li{
 
 header, footer {
 	min-height: 44px;
-	background-color: #000;
+	background-color: #999;
 }
 /*************************************/
 /*a .glyphicon:active, a.glyphicon:active, .glyphicon a:active {
@@ -64,7 +78,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5b1b03', end
 	width: 30vw;
 	float:left;
 }
-
+.nonDraggableImage{
+    -webkit-user-drag: none;
+}
 
 /*************************************/
 .text-italic {
@@ -72,6 +88,14 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5b1b03', end
 }
 .center-vertical {
 	padding-top: 10%;
+}
+.performance {
+	display: block;
+	overflow: hidden;
+	background-color: white;
+	width: 88px;
+	height: 88px;
+	color: black;
 }
 /*************************************/
 

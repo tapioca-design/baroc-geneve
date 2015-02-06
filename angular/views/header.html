@@ -7,15 +7,18 @@
 				  FIFI
 				</span> -->
 				
-
-				<div id="search" ng-show="search.visible">
-					<a  ng-click="searchShowHideToggle()" ng-href="#/concerts-list" class="white header-side-btn " >
-						<span class="glyphicon glyphicon-remove red-dark" ng-show="searchShowHideToggleBoolean"></span>
-						<span class="glyphicon glyphicon-search red-dark" ng-hide="searchShowHideToggleBoolean"></span>
+				<!-- Data.searchAllowed={{Data.searchAllowed}}
+				Data.searchActive={{Data.searchActive}}
+				searchAllowed={{searchAllowed}}
+				searchActive={{searchActive}} -->
+				<div id="search" ng-show="searchAllowed">
+					<a  ng-click="searchActiveToggle()"  class="white header-side-btn " >
+						<span class="glyphicon glyphicon-remove red-dark" ng-show="searchActive"></span>
+						<span class="glyphicon glyphicon-search red-dark" ng-hide="searchActive"></span>
 					</a>
 				</div>
 
-				<div id="back" ng-show="back.visible">
+				<div id="back" ng-hide="searchAllowed">
 					<a ng-href="{{back.url}}" ng-click="back.url"  class="white header-side-btn " >
 						<span class="glyphicon glyphicon-chevron-left red-dark" ></span>
 					</a>
@@ -29,20 +32,21 @@
 			</div>
 			<div class="col-xs-8" >
 				
-				<h1 class="text-condensed white" ng-hide="searchShowHideToggleBoolean" >
-					{{Data.headerTitle}}
+				<h1 class="text-condensed white" ng-hide="searchActive" >
+					headerTitleheaderTitle={{headerTitle}}
 				</h1>
 
 
 
 
-				<div ng-controller='ConcertsListController' ng-show="searchShowHideToggleBoolean" id="search-field">
+				<div ng-controller='ConcertsListController' ng-show="searchActive" id="search-field">
 					<input 
 					type='text' 
 					ng-model='search.searchTerm' 
 					placeholder="Bach, Violoncelle, ..." 
 					autofocus 
-					focus-me="shouldBeOpen">
+					focus-me="shouldBeOpen"
+					>
 				</div>
 			</div>
 

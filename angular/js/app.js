@@ -1,5 +1,5 @@
 var myApp = angular.module("myApp", 
-	["ngRoute", "ngAnimate", "appControllers"]);
+	["ngRoute", "ngTouch","ngAnimate", "appControllers"]);
 
 var appControllers = angular.module("appControllers", []);
 
@@ -32,10 +32,8 @@ myApp.config(["$routeProvider", function($routeProvider) {
 }]);
 
 myApp.factory('Data', function () {
-    return { headerTitle: '', searchTerm:"" };
+    return { headerTitle: '', searchTerm:"",  filteredConcerts:"", searchAllowed:1, searchActive:0};
 });
-
-
 
 // app.directive('main', ['$rootScope','$location', function ($rootScope, $location) {
 //    return {
@@ -67,52 +65,85 @@ myApp.directive('headerSideBtnRight', function() {
 });
 */
 
-myApp.controller('HeaderController', ['$rootScope','$scope','$http',"$route", 'Data', function($rootScope, $scope, $http, $route, Data) {
+myApp.controller('HeaderController', ['$rootScope','$scope','$http',"$route", '$location','Data', function($rootScope, $scope, $http, $route, $location, Data) {
+      
+      console.log("Data.headerTitle");
+      console.log(Data.headerTitle);
+
+      $scope.headerTitle = Data.headerTitle;
 
       //$scope.obj.val = "caca";
+      $scope.searchAllowed = Data.searchAllowed;
+      $scope.searchActive = Data.searchActive;
+      //searchAllowed=1;
+      // $scope.search={};
+       $scope.back={};
+      // $scope.search.visible = 1;
+      // $scope.back.visible = 0;
+      // $scope.searchShowHideToggleBoolean = 0;
 
-      $scope.$on('$routeChangeStart', function(next, current) { 
 
-      // console.log("Data.headerTitle");
-      // console.log(Data.headerTitle);
-      // console.log(Data.headerTitle.length);
+      $scope.$on('$routeChangeStart', function(event, next, current) { 
 
-      //empty search field
-      Data.searchTerm = "";
+          // console.log("Data.headerTitle");
+          // console.log(Data.headerTitle);
+          // console.log(Data.headerTitle.length);
 
-          var currentViewController = current.$$route.controller;
-          console.log("currentViewController");
-          console.log(currentViewController);
+          //empty search field
+          Data.searchTerm = "";
 
-           $scope.search={};
-           $scope.back={};
-           
-          if (currentViewController=="ConcertsListController" || currentViewController=="PlacesListController")  {
-              $scope.search.visible = 1;
-              $scope.back.visible = 0;
-              $scope.searchShowHideToggleBoolean = 0;
-          } else if (currentViewController=="ConcertController")  {
-              $scope.search.visible = 0;
-              $scope.back.visible = 1;
-              $scope.back.url = "#/concerts-list";
-              //after searchin, if a concert is selected, remove fieldsearch
-              $scope.searchShowHideToggleBoolean = 0;
-          } else if (currentViewController=="PlaceController")  {
-              $scope.search.visible = 0;
-              $scope.back.visible = 1;
-              $scope.back.url = "#/places-list";
-              //after searchin, if a place is selected, remove fieldsearch
-              $scope.searchShowHideToggleBoolean = 0;
-          } else {
-              console.log("NO ROUTE SUPPOSED TO END UP HERE !!!");
-          }
+          // var locationPath = $location.path();
+          // console.log("locationPath");
+          // console.log(locationPath);
+          
+              //console.log("location.path is not empty");
+              //avoid bug on inital homepage, if locationPath is empty, it s homepage
+
+          //if (current && current.$$route && current.$$route.controller) {
+             if (next && next.$$route && next.$$route.controller) {
+                var viewController = next.$$route.controller;
+             } else {
+                var viewController = "";
+             }
+              
+              console.log("viewController "+viewController)
+              
+              if (viewController=="ConcertsListController" || viewController=="PlacesListController")  {
+                  searchAllowed=1;
+                  // $scope.search.visible = 1;
+                  // $scope.back.visible = 0;
+                  // $scope.searchShowHideToggleBoolean = 0;
+              } else if (viewController=="ConcertController")  {
+                  searchAllowed=0;
+                  // $scope.search.visible = 0;
+                  // $scope.back.visible = 1;
+                  $scope.back.url = "#/concerts-list";
+                  //after searchin, if a concert is selected, remove fieldsearch
+                  //$scope.searchShowHideToggleBoolean = 0;
+              } else if (viewController=="PlaceController")  {
+                  searchAllowed=0;
+                  // $scope.search.visible = 0;
+                  // $scope.back.visible = 1;
+                  $scope.back.url = "#/places-list";
+                  //after searchin, if a place is selected, remove fieldsearch
+                  //$scope.searchShowHideToggleBoolean = 0;
+              } else {
+                  console.log("NO ROUTE SUPPOSED TO END UP HERE !!!");
+                  searchAllowed=1;
+              }
+          //}
       });
 
-      $scope.Data = Data;
-      $scope.searchShowHideToggle = function() {
-          $scope.searchShowHideToggleBoolean = !$scope.searchShowHideToggleBoolean;
-          
+      //$scope.Data = Data;
+      $scope.searchActiveToggle = function() {
+          Data.searchActive = !Data.searchActive;
+          $scope.searchActive = Data.searchActive;
+          console.log("searchActive"+$scope.searchActive);
       };
+
+      // $scope.$watch(Data, function(newValue, oldValue) {
+      //     console.log("change!");
+      // }, true);
 }]);
 
 
@@ -131,16 +162,76 @@ myApp.controller('HeaderController', ['$rootScope','$scope','$http',"$route", 'D
 
 
 myApp.controller('ConcertsListController', ['$scope','$http', "$routeParams",'Data', function($scope,$http, $routeParams, Data) {
+
+    // console.log("filteredConcerts");
+    // console.log(filteredConcerts);
+    //avoid no result displaying before json concerts
+    //$scope.noresult = {visible:0};
+
+    // if (Data.searchTerm=="") {
+    //     //search field empty, no reason to show "no result"
+
+    // }
+
+    //if Data.headerTitle is empty, 
+
       // console.log("routeParams");
       // console.log($routeParams);
       Data.headerTitle = "Classical live Genève";
+      // console.log("Data.headerTitleConcertsList");
+      // console.log(Data.headerTitle);
+
+
       $scope.search=Data;
       //$scope.Data = Data;
       $http.get('http://localhost/symfony/web/app_dev.php/api/city/1/worksOrderedByFirstPerformance').
         success(function(concerts) {
             $scope.concerts = concerts;
-        });
+
+            //concerts is now an array, so display no result with no fear, will be well handled
+            //$scope.noresult.visible = 0;
+
+            // $scope.$watch(function () {
+            //     $scope.filteredItems = $scope.$eval("items | orderBy:'order_prop' | filter:query | limitTo:4");
+            // });
+             
+            // //once concerts are downloaded, watch for their length
+            // $scope.$watch("Data.searchTerm", function(newValue, oldValue) {
+             
+            //  console.log("$scope.filteredItems");
+            //  console.log($scope.filteredItems);
+
+            //      if (newValue=="") {
+            //         //search empty
+            //         $scope.noresult.visible=0;
+            //      } else {
+            //         //if search typed
+            //         //console.log($scope.filteredConcerts.length);
+            //      }
+            // });
+      });
+
+      // function isNoResultVisible () {
+      //     console.log("Data.searchTerm-"+Data.searchTerm);
+      // }
+      // isNoResultVisible ();
+
+      //$scope.searchTerm = Data.searchTerm;
+
+      // console.log("Data.searchTerm");
+      // console.log(Data.searchTerm);
+
+      //Data.stateSearch = 0
+      /*
+      $scope.stateSearchToggle = function() {
+          Data.stateSearch = !Data.stateSearch;
+      };
+      */
+
  }]);
+
+
+
 
 
 
@@ -151,6 +242,12 @@ myApp.controller('ConcertController', ['$scope','$http', '$routeParams','Data', 
         	Data.headerTitle = work.name;
             $scope.work = work;
         });
+
+        //swipe
+  $scope.showActions = false;
+  $scope.someFunction = function(){
+    $scope.showActions = !$scope.showActions;
+  };
  }]);
 
 myApp.controller('PlacesListController', ['$rootScope','$scope','$http','Data', function($rootScope, $scope,$http, Data) {
