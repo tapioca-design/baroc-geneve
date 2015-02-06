@@ -29,9 +29,12 @@
 			</div>
 			<div class="col-xs-8" >
 				
-				<h1 class="text-condensed white" ng-hide="searchShowHideToggleBoolean">
+				<h1 class="text-condensed white" ng-hide="searchShowHideToggleBoolean" >
 					{{Data.headerTitle}}
 				</h1>
+
+
+
 
 				<div ng-controller='ConcertsListController' ng-show="searchShowHideToggleBoolean" id="search-field">
 					<input type='text' ng-model='search.searchTerm' placeholder="Bach, Violoncelle, ...">

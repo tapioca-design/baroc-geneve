@@ -4,7 +4,7 @@
 
 
   <ul ng-repeat="concert in concerts | filter:search.searchTerm" class="">
-	<li class="">
+
 	<a 
 	ng-href="#/concert/{{concert.id}}" 
 	class="row list-element gradient"
@@ -37,15 +37,14 @@
 					{{concert.performances[0].date_performance | date : "MMMM"}}
 				</div>
 			</div>
-		</div>
-		
-
-		
-
-
+		</div>		
 	</a>
 	</li>
   </ul>
+
+<li ng-show="!concerts.length">No eventsNo eventsNo eventsNo eventsNo eventsNo eventsNo eventsNo eventsNo eventsNo eventsNo eventsNo eventsNo eventsNo eventsNo eventsNo eventsNo eventsNo eventsNo eventsNo eventsNo eventsNo eventsNo eventsNo eventsNo eventsNo eventsNo eventsNo eventsNo eventsNo eventsNo eventsNo events</li>
+	<li class="">
+
 </div>
 
 
