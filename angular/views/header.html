@@ -33,7 +33,7 @@
 			<div class="col-xs-8" >
 				
 				<h1 class="text-condensed white" ng-hide="searchActive" >
-					headerTitle={{Data.headerTitle}}{{headerTitle}}
+					HEADER={{Data.headerTitle}}{{headerTitle}}{{$parent.headerTitle}}{{$parent.Data.headerTitle}}
 				</h1>
 	
 					<div ng-controller='ConcertsListController' ng-show="searchActive" id="search-field">

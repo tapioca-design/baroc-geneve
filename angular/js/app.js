@@ -30,71 +30,83 @@ myApp.config(["$routeProvider", function($routeProvider) {
 		redirectTo: "/concerts-list"
 	});
 }]);
-
+/***********************************************************************************************/
 
 myApp.factory('Data', function(){
   //{ headerTitle: '', searchTerm:"",  filteredConcerts:"", searchAllowed:1, searchActive:0};
-    var data =
+    var Data =
         {
             headerTitle: '', searchTerm:"",  filteredConcerts:"", searchAllowed:1, searchActive:0
         };
     return {
         getHeaderTitle: function () {
-            return data.headerTitle;
+            console.log("getHeaderTitle = "+Data.headerTitle);
+            return Data.headerTitle;
         },
         setHeaderTitle: function (v) {
-            data.headerTitle = v;
+            Data.headerTitle = v;
         },
         getSearchTerm: function () {
-            return data.searchTerm;
+            return Data.searchTerm;
         },
         setSearchTerm: function (v) {
-            data.searchTerm = v;
+            Data.searchTerm = v;
         },
         getFilteredConcerts: function () {
-            return data.filteredConcerts;
+            return Data.filteredConcerts;
         },
         setFilteredConcerts: function (v) {
-            data.filteredConcerts = v;
+            Data.filteredConcerts = v;
         },
         getSearchAllowed: function () {
-            return data.searchAllowed;
+            return Data.searchAllowed;
         },
         setSearchAllowed: function (v) {
-            data.searchAllowed = v;
+            Data.searchAllowed = v;
         },
         getSearchActive: function () {
-            return data.searchActive;
+            return Data.searchActive;
         },
         setSearchActive: function (v) {
-            data.searchActive = v;
+            Data.searchActive = v;
         }
     };
 });
+/***********************************************************************************************/
+// myApp.controller('FirstCtrl', function( $scope, Data ) {
+//     $scope.headerTitle = Data.getHeaderTitle();
+//     $scope.$watch('Data.headerTitle', function () {
+//         $scope.headerTitle = Data.getHeaderTitle();
+//     });
+// });
+/***********************************************************************************************/
 
-myApp.controller('FirstCtrl', function( $scope, Data ) {
-    $scope.headerTitle = Data.getHeaderTitle();
-    $scope.$watch('Data.headerTitle', function (newValue) {
-        $scope.headerTitle = Data.getHeaderTitle();
-    });
-});
-
+// myApp.controller('SecondCtrl', ['$scope','$http', "$routeParams",'Data', function($scope,$http, $routeParams, Data){
+//     Data.setHeaderTitle("AAZAZAZAZAZAZAZAZAZAZAZ")
+//     $scope.headerTitle = Data.getHeaderTitle();
+//     $scope.$watch('Data.headerTitle', function () {
+//         $scope.headerTitle = Data.getHeaderTitle();
+//     });
+// }]);
+/***********************************************************************************************/
 
 myApp.controller('HeaderController', ['$rootScope','$scope','$http',"$route", '$location','Data', function($rootScope, $scope, $http, $route, $location, Data) {
-      
-      $scope.headerTitle = Data.getHeaderTitle();
-      $scope.$watch('Data.headerTitle', function (newValue) {
-        $scope.headerTitle = Data.getHeaderTitle();
-      });
+
+
+
+            $scope.headerTitle = Data.getHeaderTitle();
+            $scope.$watch('Data.headerTitle', function () {
+              console.log("from HEADER ctrl headerTitle has changed: "+Data.getHeaderTitle());
+              $scope.headerTitle = Data.getHeaderTitle();
+            });
+
 
       $scope.searchAllowed = Data.searchAllowed;
       $scope.searchActive = Data.searchActive;
 
        $scope.back={};
-
-
       $scope.$on('$routeChangeStart', function(event, next, current) {
-          Data.searchTerm = "";
+              Data.searchTerm = "";
 
              if (next && next.$$route && next.$$route.controller) {
                 var viewController = next.$$route.controller;
@@ -131,35 +143,25 @@ myApp.controller('HeaderController', ['$rootScope','$scope','$http',"$route", '$
       // $scope.$watch(Data, function(newValue, oldValue) {
       //     console.log("change!");
       // }, true);
+
 }]);
 
 
+/***********************************************************************************************/
+myApp.controller('ConcertsListController', ['$rootScope','$scope','$http', "$routeParams",'Data', function($rootScope,$scope,$http, $routeParams, Data) { 
+
+      // $scope.retreiveHeaderTitle = function () {
+      //   return "OilaConcLiiiiist";
+      // }
 
 
-
-
-
-
-
-
-myApp.controller('SecondCtrl', function( $scope, Data ){
-    Data.setHeaderTitle("AAZAZAZAZAZAZAZAZAZAZAZ")
-    $scope.headerTitle = Data.getHeaderTitle();
-    $scope.$watch('Data.headerTitle', function (newValue) {
-        $scope.headerTitle = Data.getHeaderTitle();
-    });
-});
-
-
-
-
-
-myApp.controller('ConcertsListController', ['$scope','$http', "$routeParams",'Data', function($scope,$http, $routeParams, Data) {
       Data.setHeaderTitle("Classical live Genève");
-      $scope.headerTitle = Data.getHeaderTitle();
-      $scope.$watch('Data.headerTitle', function (newValue) {
-          $scope.headerTitle = Data.getHeaderTitle();
-      });
+      // $scope.headerTitle = Data.getHeaderTitle();
+      // $rootScope.$watch('Data.headerTitle', function () {
+      //     console.log("from CONCERTSLIST ctrl headerTitle has changed: "+Data.getHeaderTitle());
+      //     $scope.headerTitle = Data.getHeaderTitle();
+      // });
+
       
       // console.log("Data.headerTitleConcertsList");
       // console.log(Data.headerTitle);
@@ -178,21 +180,23 @@ myApp.controller('ConcertsListController', ['$scope','$http', "$routeParams",'Da
 
  }]);
 
-
-
-
-
-
-myApp.controller('ConcertController', ['$scope','$http', '$routeParams','Data', function($scope,$http, $routeParams, Data) {
+/***********************************************************************************************/
+myApp.controller('ConcertController', ['$rootScope','$scope','$http', '$routeParams','Data', function($rootScope,$scope,$http, $routeParams, Data) {
 	var workId = $routeParams.workId;
     $http.get('http://localhost/symfony/web/app_dev.php/api/work/'+workId).
         success(function(work) {
+
+
         	  Data.setHeaderTitle(work.name);
-            $scope.headerTitle = Data.getHeaderTitle();
-            $scope.$watch('Data.headerTitle', function (newValue) {
-                $scope.headerTitle = Data.getHeaderTitle();
-            });
+            // $scope.headerTitle = Data.getHeaderTitle();
+            // $rootScope.$watch('Data.headerTitle', function () {
+            //     console.log("from CONCERT ctrl headerTitle has changed: "+Data.getHeaderTitle()); 
+            //     $scope.headerTitle = Data.getHeaderTitle();
+            // });
+
+
             $scope.work = work;
+
         });
 
         //swipe
@@ -209,9 +213,7 @@ myApp.controller('PlacesListController', ['$rootScope','$scope','$http','Data', 
             $scope.places = places;
         });
  }]);
-
-
-
+/***********************************************************************************************/
 
 myApp.controller('PlaceController', ['$rootScope','$scope','$http', '$routeParams','Data', function($rootScope, $scope,$http, $routeParams, Data) {
 	console.log("PC $rootScope.header_title_over = "+$rootScope.header_title_over);
@@ -219,11 +221,16 @@ myApp.controller('PlaceController', ['$rootScope','$scope','$http', '$routeParam
 	var placeId = $routeParams.placeId;
     $http.get('http://localhost/symfony/web/app_dev.php/api/place/'+placeId).
         success(function(place) {
+
+
           Data.setHeaderTitle(place.name_fr);
-          $scope.headerTitle = Data.getHeaderTitle();
-    $scope.$watch('Data.headerTitle', function (newValue) {
-        $scope.headerTitle = Data.getHeaderTitle();
-    });
+          // $scope.headerTitle = Data.getHeaderTitle();
+          // $rootScope.$watch('Data.headerTitle', function () {
+          //     console.log("from PLACE ctrl headerTitle has changed: "+Data.getHeaderTitle());
+          //     $scope.headerTitle = Data.getHeaderTitle();
+          // });
+
+
             $scope.place = place;
         });
 
@@ -238,6 +245,19 @@ myApp.controller('PlaceController', ['$rootScope','$scope','$http', '$routeParam
  	};
  }]);
 
+/***********************************************************************************************/
+
+
+myApp.controller('FooterController', ['$rootScope','$scope','$http',"$route", 'Data', function($rootScope, $scope, $http, $route, Data) {
+
+          Data.setHeaderTitle("PiedDePage");
+          // $scope.headerTitle = Data.getHeaderTitle();
+          // $rootScope.$watch('Data.headerTitle', function () {
+          //     console.log("from FOOTER ctrl headerTitle has changed: "+Data.getHeaderTitle());
+          //     $scope.headerTitle = Data.getHeaderTitle();
+          // });
+}]);
+/***********************************************************************************************/
 
 
 // myApp.controller('FooterController', ['$rootScope','$scope','$http',"$route", 'Data', function($rootScope, $scope, $http, $route, Data) {

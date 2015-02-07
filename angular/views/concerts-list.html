@@ -1,10 +1,12 @@
 
+CONCERTS LIST={{Data.headerTitle}}{{headerTitle}}{{$parent.headerTitle}}{{$parent.Data.headerTitle}}
+
+<!-- retreiveHeaderTitle() = {{retreiveHeaderTitle()}} -->
+
 
 <div id="concerts-list" >
-
   <ul >
 	<li ng-repeat="concert in filteredConcerts = (concerts | filter:search.searchTerm)" class="">
-
 	<a 
 	ng-href="#/concert/{{concert.id}}" 
 	class="row list-element gradient"
