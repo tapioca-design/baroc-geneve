@@ -24,11 +24,11 @@
 	myApp.config(["$routeProvider", function($routeProvider) {
 	$routeProvider.
 	when("/", {
-		templateUrl: "views/FirstCtrl.html",
-		controller:"FirstCtrl"
+		templateUrl: "views/SecondCtrl.html",
+		controller:"SecondCtrl"
 	}).
 	otherwise({
-		redirectTo: "/concerts-list"
+		redirectTo: "/"
 	});
 	}]);
 
@@ -72,7 +72,9 @@
 
 	<footer ng-include="'views/footer.html'" class="container-fluid text-center"></footer> -->
 
-<div ng-include="'views/FirstCtrl.html'" ></div>
+<div ng-controller="FirstCtrl">
+	<div ng-include="'views/FirstCtrl.html'" ></div>
+</div>
 
 <div ng-view >
 </div>
