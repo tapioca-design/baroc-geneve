@@ -31,74 +31,71 @@ myApp.config(["$routeProvider", function($routeProvider) {
 	});
 }]);
 
-myApp.factory('Data', function () {
-    return { headerTitle: '', searchTerm:"",  filteredConcerts:"", searchAllowed:1, searchActive:0};
+
+myApp.factory('Data', function(){
+  //{ headerTitle: '', searchTerm:"",  filteredConcerts:"", searchAllowed:1, searchActive:0};
+    var data =
+        {
+            headerTitle: '', searchTerm:"",  filteredConcerts:"", searchAllowed:1, searchActive:0
+        };
+    return {
+        getHeaderTitle: function () {
+            return data.headerTitle;
+        },
+        setHeaderTitle: function (v) {
+            data.headerTitle = v;
+        },
+        getSearchTerm: function () {
+            return data.searchTerm;
+        },
+        setSearchTerm: function (v) {
+            data.searchTerm = v;
+        },
+        getFilteredConcerts: function () {
+            return data.filteredConcerts;
+        },
+        setFilteredConcerts: function (v) {
+            data.filteredConcerts = v;
+        },
+        getSearchAllowed: function () {
+            return data.searchAllowed;
+        },
+        setSearchAllowed: function (v) {
+            data.searchAllowed = v;
+        },
+        getSearchActive: function () {
+            return data.searchActive;
+        },
+        setSearchActive: function (v) {
+            data.searchActive = v;
+        }
+    };
 });
 
-// app.directive('main', ['$rootScope','$location', function ($rootScope, $location) {
-//    return {
-//        restrict: 'E',
-//        scope: false,
-//        link: function postLink(scope, element, attrs) {
-//            console.log('All directive elements execute this!');
-//            $rootScope.$on('$routeChangeStart', function() {
-//                console.log('ng-included elements work execute this!');
-//            });
-//        }
-//     }
-// }]);
-
-
-// myApp.directive('headerSideBtnLeft', function() {
-// 	return {
-//       	restrict: 'C',
-//       	template: '<a href="#/concerts-list" class="white header-side-btn " ><span class="glyphicon glyphicon-chevron-left red-dark"></span>Coco</a>'
-//   };
-// });
-
-/*
-myApp.directive('headerSideBtnRight', function() {
-  	return {
-      	restrict: 'C',
-      	template: '<a href="#" class="white header-side-btn" header-side-btn-right><span class="glyphicon glyphicon-menu-hamburger red-dark"></span></a>'
-  };
+myApp.controller('FirstCtrl', function( $scope, Data ) {
+    $scope.headerTitle = Data.getHeaderTitle();
+    $scope.$watch('Data.headerTitle', function (newValue) {
+        $scope.headerTitle = Data.getHeaderTitle();
+    });
 });
-*/
+
 
 myApp.controller('HeaderController', ['$rootScope','$scope','$http',"$route", '$location','Data', function($rootScope, $scope, $http, $route, $location, Data) {
       
-      console.log("Data.headerTitle");
-      console.log(Data.headerTitle);
+      $scope.headerTitle = Data.getHeaderTitle();
+      $scope.$watch('Data.headerTitle', function (newValue) {
+        $scope.headerTitle = Data.getHeaderTitle();
+      });
 
-      $scope.headerTitle = Data.headerTitle;
-
-      //$scope.obj.val = "caca";
       $scope.searchAllowed = Data.searchAllowed;
       $scope.searchActive = Data.searchActive;
-      //searchAllowed=1;
-      // $scope.search={};
+
        $scope.back={};
-      // $scope.search.visible = 1;
-      // $scope.back.visible = 0;
-      // $scope.searchShowHideToggleBoolean = 0;
 
 
-      $scope.$on('$routeChangeStart', function(event, next, current) { 
-
-          // console.log("Data.headerTitle");
-          // console.log(Data.headerTitle);
-          // console.log(Data.headerTitle.length);
-
-          //empty search field
+      $scope.$on('$routeChangeStart', function(event, next, current) {
           Data.searchTerm = "";
 
-          // var locationPath = $location.path();
-          // console.log("locationPath");
-          // console.log(locationPath);
-          
-              //console.log("location.path is not empty");
-              
-            //avoid bug on inital homepage
              if (next && next.$$route && next.$$route.controller) {
                 var viewController = next.$$route.controller;
              } else {
@@ -120,7 +117,7 @@ myApp.controller('HeaderController', ['$rootScope','$scope','$http',"$route", '$
               } else {
                   console.log("NO ROUTE SUPPOSED TO END UP HERE !!!");
                   $scope.searchAllowed=1;
-                  
+
               }
       });
 
@@ -145,73 +142,32 @@ myApp.controller('HeaderController', ['$rootScope','$scope','$http',"$route", '$
 
 
 
-
+myApp.controller('SecondCtrl', function( $scope, Data ){
+    Data.setHeaderTitle("AAZAZAZAZAZAZAZAZAZAZAZ")
+    $scope.headerTitle = Data.getHeaderTitle();
+    $scope.$watch('Data.headerTitle', function (newValue) {
+        $scope.headerTitle = Data.getHeaderTitle();
+    });
+});
 
 
 
 
 
 myApp.controller('ConcertsListController', ['$scope','$http', "$routeParams",'Data', function($scope,$http, $routeParams, Data) {
-
-    // console.log("filteredConcerts");
-    // console.log(filteredConcerts);
-    //avoid no result displaying before json concerts
-    //$scope.noresult = {visible:0};
-
-    // if (Data.searchTerm=="") {
-    //     //search field empty, no reason to show "no result"
-
-    // }
-
-    //if Data.headerTitle is empty, 
-
-      // console.log("routeParams");
-      // console.log($routeParams);
-      Data.headerTitle = "Classical live Genève";
+      Data.setHeaderTitle("Classical live Genève");
+      $scope.headerTitle = Data.getHeaderTitle();
+      $scope.$watch('Data.headerTitle', function (newValue) {
+          $scope.headerTitle = Data.getHeaderTitle();
+      });
+      
       // console.log("Data.headerTitleConcertsList");
       // console.log(Data.headerTitle);
 
-
-      $scope.search=Data;
-      //$scope.Data = Data;
       $http.get('http://localhost/symfony/web/app_dev.php/api/city/1/worksOrderedByFirstPerformance').
         success(function(concerts) {
             $scope.concerts = concerts;
-
-            //concerts is now an array, so display no result with no fear, will be well handled
-            //$scope.noresult.visible = 0;
-
-            // $scope.$watch(function () {
-            //     $scope.filteredItems = $scope.$eval("items | orderBy:'order_prop' | filter:query | limitTo:4");
-            // });
-             
-            // //once concerts are downloaded, watch for their length
-            // $scope.$watch("Data.searchTerm", function(newValue, oldValue) {
-             
-            //  console.log("$scope.filteredItems");
-            //  console.log($scope.filteredItems);
-
-            //      if (newValue=="") {
-            //         //search empty
-            //         $scope.noresult.visible=0;
-            //      } else {
-            //         //if search typed
-            //         //console.log($scope.filteredConcerts.length);
-            //      }
-            // });
       });
-
-      // function isNoResultVisible () {
-      //     console.log("Data.searchTerm-"+Data.searchTerm);
-      // }
-      // isNoResultVisible ();
-
-      //$scope.searchTerm = Data.searchTerm;
-
-      // console.log("Data.searchTerm");
-      // console.log(Data.searchTerm);
-
-      //Data.stateSearch = 0
       
       $scope.searchActiveToggle = function() {
           Data.searchActive = !Data.searchActive;
@@ -231,7 +187,11 @@ myApp.controller('ConcertController', ['$scope','$http', '$routeParams','Data', 
 	var workId = $routeParams.workId;
     $http.get('http://localhost/symfony/web/app_dev.php/api/work/'+workId).
         success(function(work) {
-        	Data.headerTitle = work.name;
+        	  Data.setHeaderTitle(work.name);
+            $scope.headerTitle = Data.getHeaderTitle();
+            $scope.$watch('Data.headerTitle', function (newValue) {
+                $scope.headerTitle = Data.getHeaderTitle();
+            });
             $scope.work = work;
         });
 
@@ -243,7 +203,7 @@ myApp.controller('ConcertController', ['$scope','$http', '$routeParams','Data', 
  }]);
 
 myApp.controller('PlacesListController', ['$rootScope','$scope','$http','Data', function($rootScope, $scope,$http, Data) {
-      Data.headerTitle = "Classical live Genève";
+      Data.setHeaderTitle("Classical live Genève");
       $http.get('http://localhost/symfony/web/app_dev.php/api/city/1/places').
         success(function(places) {
             $scope.places = places;
@@ -259,7 +219,11 @@ myApp.controller('PlaceController', ['$rootScope','$scope','$http', '$routeParam
 	var placeId = $routeParams.placeId;
     $http.get('http://localhost/symfony/web/app_dev.php/api/place/'+placeId).
         success(function(place) {
-        	Data.headerTitle = place.name_fr;
+          Data.setHeaderTitle(place.name_fr);
+          $scope.headerTitle = Data.getHeaderTitle();
+    $scope.$watch('Data.headerTitle', function (newValue) {
+        $scope.headerTitle = Data.getHeaderTitle();
+    });
             $scope.place = place;
         });
 
