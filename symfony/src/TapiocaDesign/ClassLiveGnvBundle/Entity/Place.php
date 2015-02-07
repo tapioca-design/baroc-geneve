@@ -128,7 +128,7 @@ class Place
      *
      * @ORM\Column(name="googleMapRef", type="string", length=255, nullable=true)
      * @Expose
-     * @Groups({"detail"})
+     * @Groups({"list","detail"})
      */
     private $googleMapRef;
 

@@ -54,7 +54,7 @@ class WorkRestController extends FOSRestController
       //$return[]=array('performances' => $performances);
       
       $view = $this->view($works, 200);
-      $view->setSerializationContext(SerializationContext::create()->setGroups(array('list')));
+      $view->setSerializationContext(SerializationContext::create()->setGroups(array('detail')));
       $view->setData($works);
       return $view;
       /*
