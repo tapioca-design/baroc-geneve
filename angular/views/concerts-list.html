@@ -5,7 +5,7 @@
 
 <div id="concerts-list" >
   <ul >
-	<li ng-repeat="concert in filteredConcerts = (concerts | filter:search.searchTerm)" class="">
+	<li ng-repeat="concert in filteredConcerts = (concerts | filter:Search.term)" class="">
 	<a 
 	ng-href="#/concert/{{concert.id}}" 
 	class="row list-element gradient"

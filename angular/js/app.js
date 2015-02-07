@@ -3,9 +3,6 @@ var myApp = angular.module("myApp",
 
 var appControllers = angular.module("appControllers", []);
 
-
-
-
 // myApp.config(["$routeProvider", function($routeProvider) {
 //   $routeProvider.
 //   when("/", {
@@ -20,13 +17,6 @@ var appControllers = angular.module("appControllers", []);
   //   myApp.factory('Data', function () {
   //     return { FirstName: '', sergtfgg: '', rdtghe: '', jwshtsjh: '', hrdthr: '', jdrhrdth: '' };
   // });
-
- 
-
-
-
-
-
 
 myApp.config(["$routeProvider", function($routeProvider) {
 	//console.log("myApp.config");
@@ -58,15 +48,17 @@ myApp.config(["$routeProvider", function($routeProvider) {
 /***********************************************************************************************/
 
 myApp.factory('Data', function(){
-  //{ headerTitle: '', searchTerm:"",  filteredConcerts:"", searchAllowed:1, searchActive:0};
-    return {headerTitle: '', searchTerm:"",  filteredConcerts:"", searchAllowed:1, searchActive:0};
+    return {headerTitle: '', filteredConcerts:"", searchAllowed:1, searchActive:0};
 });
-
+myApp.factory('Search', function(){
+    return {term: ''};
+});
 /***********************************************************************************************/
 
-myApp.controller('HeaderController', ['$rootScope','$scope','$http',"$route", '$location','Data', function($rootScope, $scope, $http, $route, $location, Data) {
+myApp.controller('HeaderController', ['$rootScope','$scope','$http',"$route", '$location','Data','Search', function($rootScope, $scope, $http, $route, $location, Data, Search) {
 
       $scope.Data = Data;
+      $scope.Search = Search;
 
       $scope.searchAllowed = Data.searchAllowed;
       $scope.searchActive = Data.searchActive;
@@ -74,7 +66,7 @@ myApp.controller('HeaderController', ['$rootScope','$scope','$http',"$route", '$
       $scope.back={};
       $scope.$on('$routeChangeStart', function(event, next, current) {
 
-              Data.searchTerm = "";
+              Search.term = "";
 
              if (next && next.$$route && next.$$route.controller) {
                 var viewController = next.$$route.controller;
@@ -116,10 +108,11 @@ myApp.controller('HeaderController', ['$rootScope','$scope','$http',"$route", '$
 
 
 /***********************************************************************************************/
-myApp.controller('ConcertsListController', ['$rootScope','$scope','$http', "$routeParams",'Data', function($rootScope,$scope,$http, $routeParams, Data) { 
+myApp.controller('ConcertsListController', ['$rootScope','$scope','$http', "$routeParams",'Data','Search', function($rootScope,$scope,$http, $routeParams, Data, Search) { 
 
       Data.headerTitle="Classic live Genève";
       $scope.Data = Data;
+      $scope.Search = Search;
 
       $http.get('http://localhost/symfony/web/app_dev.php/api/city/1/worksOrderedByFirstPerformance').
         success(function(concerts) {
@@ -136,7 +129,7 @@ myApp.controller('ConcertsListController', ['$rootScope','$scope','$http', "$rou
  }]);
 
 /***********************************************************************************************/
-myApp.controller('ConcertController', ['$rootScope','$scope','$http', '$routeParams','Data', function($rootScope,$scope,$http, $routeParams, Data) {
+myApp.controller('ConcertController', ['$rootScope','$scope','$http', '$routeParams','Data','Search', function($rootScope,$scope,$http, $routeParams, Data, Search) {
 	var workId = $routeParams.workId;
     $http.get('http://localhost/symfony/web/app_dev.php/api/work/'+workId).
         success(function(work) {
@@ -157,7 +150,7 @@ myApp.controller('ConcertController', ['$rootScope','$scope','$http', '$routePar
  }]);
 
 /***********************************************************************************************/
-myApp.controller('PlacesListController', ['$rootScope','$scope','$http','Data', function($rootScope, $scope,$http, Data) {
+myApp.controller('PlacesListController', ['$rootScope','$scope','$http','Data','Search', function($rootScope, $scope,$http, Data, Search) {
       Data.headerTitle="Classical live Genève";
             $scope.Data = Data;
       $http.get('http://localhost/symfony/web/app_dev.php/api/city/1/places').
@@ -167,7 +160,7 @@ myApp.controller('PlacesListController', ['$rootScope','$scope','$http','Data', 
  }]);
 /***********************************************************************************************/
 
-myApp.controller('PlaceController', ['$rootScope','$scope','$http', '$routeParams','Data', function($rootScope, $scope,$http, $routeParams, Data) {
+myApp.controller('PlaceController', ['$rootScope','$scope','$http', '$routeParams','Data','Search', function($rootScope, $scope,$http, $routeParams, Data, Search) {
 	console.log("PC $rootScope.header_title_over = "+$rootScope.header_title_over);
     
 	var placeId = $routeParams.placeId;
