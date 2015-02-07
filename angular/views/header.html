@@ -1,16 +1,10 @@
-	<div class="row" >
+	
+
+
+<div class="row" >
 			<div class="col-xs-2">
 				<div class="headerSideBtnLeft">
 				
-<!-- 
-				<span ng-if="checked" class="animate-if">
-				  FIFI
-				</span> -->
-				
-				<!-- Data.searchAllowed={{Data.searchAllowed}}
-				Data.searchActive={{Data.searchActive}}
-				searchAllowed={{searchAllowed}}
-				searchActive={{searchActive}}  -->
 				<div id="search" ng-show="searchAllowed">
 					<a  ng-click="searchActiveToggle()"  class="white header-side-btn " >
 						<span class="glyphicon glyphicon-remove red-dark" ng-show="searchActive"></span>
@@ -23,19 +17,14 @@
 						<span class="glyphicon glyphicon-chevron-left red-dark" ></span>
 					</a>
 				</div>
-
-
 				<!-- <a href="#/concerts-list" class="white header-side-btn " ><span class="glyphicon glyphicon-chevron-left red-dark"></span></a> -->
-				
-
 				</div>
 			</div>
+
 			<div class="col-xs-8" >
-				
 				<h1 class="text-condensed white" ng-hide="searchActive" >
-					HEADER={{Data.headerTitle}}{{headerTitle}}{{$parent.headerTitle}}{{$parent.Data.headerTitle}}
+					{{Data.headerTitle}}
 				</h1>
-	
 					<div ng-controller='ConcertsListController' ng-show="searchActive" id="search-field">
 						<input 
 						type='text' 
@@ -45,10 +34,7 @@
 						focus-me="shouldBeOpen"
 						>
 					</div>
-				
 			</div>
-
-
 
 			<div class="col-xs-2">
 				<div class="headerSideBtnRight">
