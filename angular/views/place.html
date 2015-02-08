@@ -1,5 +1,5 @@
 <div id="place" class="row">
-	
+
 	<div 
 	id="landscape" 
 	style="
@@ -11,43 +11,69 @@
     height: 50px;
     "
 	>
-
-	
-		
 	</div>
-	
 
-	<div class="col-xs-12">
-		<div class="btn-group btn-group-justified btn-group-lg " role="group">
+	<div id="place-details" >
+
+				
+
 			
+				<div class="row" >
+					<div class="col-xs-4 text-center">
+						<a ng-href="telephone(place.telephone)" type="button" class="red-dark small text-light">
+				  			<div class="glyphicon glyphicon-earphone" aria-hidden="true">
+				  			</div>
+							<div>Téléphone</div>
+						</a>
+					</div>
+					<div class="col-xs-4 text-center">
+						<a ng-href="email(place.email)" type="button" class="red-dark small text-light">
+				  			<div class="glyphicon glyphicon-envelope" aria-hidden="true">
+				  			</div>
+				  			<div>e-mail</div>
+						</a>
+					</div>
+					<div class="col-xs-4 text-center">
+						<a ng-href="" type="button" class="red-dark small text-light">
+				  			<div class="glyphicon glyphicon-map-marker" aria-hidden="true">
+				  			</div>
+							<div>Cartographie</div>
+						</a>
+					</div>
+				</div>
+
+				<div>
+					<div class="col-xs-12 white text-center">
+						<br />
+						{{place.address}}
+					</div>
+				</div>
+
+	</div>
+<!-- <div class="col-xs-12" id="place-details">
+		<div class="btn-group btn-group-justified btn-group-lg " role="group">
 			<div class="btn-group" role="group">
 				<button ng-click="telephone(place.telephone)" type="button" class="btn btn-danger">
 		  			<span class="glyphicon glyphicon-earphone" aria-hidden="true">
-		  				
 		  			</span>
 				</button>
 			</div>
-			
 			<div class="btn-group" role="group">
 				<button ng-click="email(place.email)" type="button" class="btn btn-danger">
 		  			<span class="glyphicon glyphicon-envelope" aria-hidden="true">
-		  				
 		  			</span>
 				</button>
 			</div>
-
 			<div class="btn-group" role="group">
 				<button ng-click="" type="button" class="btn btn-danger">
 		  			<span class="glyphicon glyphicon-map-marker" aria-hidden="true">
-		  				
 		  			</span>
 				</button>
 			</div>
 		</div>
-	</div>
+	</div> -->
 
 		
-	</div>
 </div>
 
 

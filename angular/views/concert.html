@@ -1,4 +1,8 @@
 
+
+
+
+
 <!-- <div style="background-color:red">yoyo</div> -->
 <div id="concert" class="row" >
 		<div 
@@ -12,7 +16,7 @@
 	    "
 		>
 		</div>
-		<div class="col-xs-12 bkg-color" id="work">
+		<div class="col-xs-12 bkg-color" id="concert-details">
 			<ul>
 						<li ng-show="work.interpreter">
 			        		<span class="text-italic text-light">Interpreter(s):</span> {{work.interpreter}}
@@ -33,7 +37,12 @@
 		<div id="performances" class="color-darkest">
 
 			<div>
-				<div rn-carousel-indicators ng-if="work.performances.length > 1" slides="work.performances" rn-carousel-index="carouselIndex2" class="text-align"></div>
+				
+				<div >
+					<div rn-carousel-indicators ng-if="work.performances.length > 1" slides="work.performances" rn-carousel-index="carouselIndex2" >
+					</div>
+				</div>
+
 				<div class="carousel-demo">
                     <ul rn-carousel rn-carousel-index="carouselIndex2" rn-carousel-auto-slide="2" class="carousel2">
                         <li ng-repeat="performance in work.performances" class="performance">
@@ -50,10 +59,13 @@
 										<div class="month month-alt2 text-bold white">
 											{{performance.date_performance | date : "MMMM"}}
 										</div>
+										<div class="text-bold small">
+											{{performance.date_performance | date : "H:mm"}}
+										</div>
 									</div>
 
 									<div class="text-center">
-										<br />
+										
 												<img ng-src="../symfony/web/bundles/tapiocadesignclasslivegnv/images/places/{{performance.place.name_url}}/square.jpg" class="img-circle " />
 											</div>
 
@@ -81,7 +93,7 @@
 													</div> -->
 											</div>
 											<div>
-												<button ng-href="/place" target="_blank" class="btn red-lighter width-full" >
+												<button ng-click="clickPlace(performance.place.id)" target="_blank" class="btn red-lighter width-full" >
 													Details
 												</button>
 											</div>
@@ -90,12 +102,12 @@
 											<br />
 											
 											<div ng-show="performance.ticket_website" >
-												<button ng-href="{{performance.ticket_website}}" target="_blank" class="btn red-darker width-full" >
+												<button ng-click="clickWebsite()" href="{{performance.ticket_website}}" target="_blank" class="btn red-darker width-full" >
 													Tickets<span ng-show="performance.ticket_price_lowest" class="">: chf {{performance.ticket_price_lowest}}~{{performance.ticket_price_highest}}.-
 													</span>
 												</button>
 											</div>
-											
+
 											<!-- <div ng-show="performance.date_performance" >
 												<button ng-click="clickWebsite()" ng-href="#" target="_blank" class="btn red-lighter" >
 													chf {{performance.ticket_price_lowest}}.- / {{performance.ticket_price_highest}}.-
