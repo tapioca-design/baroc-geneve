@@ -247,8 +247,12 @@ main {
 }
 
 /*************************************/
-
-
+.list-element img {
+	width: 44px;
+	height: 44px;
+	/*border:5px solid #dfb1a2;*/
+}
+/*************************************/
 a.list-element, a.list-element:link, a.list-element:visited {
 	display: block;
 	overflow: hidden;
@@ -290,10 +294,7 @@ a.list-element:active {
 #places-list a.list-element {
 	padding: 5px 0 5px 0;
 }
-#places-list .list-element img {
-	width: 44px;
-	height: 44px;
-}
+
 
 
 .gradient {

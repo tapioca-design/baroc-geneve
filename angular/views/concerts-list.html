@@ -31,7 +31,13 @@
 		</div>
 
 		<div class="col-xs-4" >
-			<div class="date drop-shadow">
+
+			<img 
+			ng-src="../symfony/web/bundles/tapiocadesignclasslivegnv/images/works/{{concert.name_url}}/square.jpg" 
+			class="img-circle" />
+
+
+			<!-- <div class="date drop-shadow">
 				<div class="day day-alt1 black text-light">
 					<span class="text-tiny">
 					{{concert.performances[0].date_performance | date : "EEE"}}
@@ -41,7 +47,7 @@
 				<div class="month month-alt1 text-bold white">
 					{{concert.performances[0].date_performance | date : "MMMM"}}
 				</div>
-			</div>
+			</div> -->
 		</div>		
 
 	</a>
