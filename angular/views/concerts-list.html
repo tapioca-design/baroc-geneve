@@ -2,14 +2,10 @@
 
 <!-- retreiveHeaderTitle() = {{retreiveHeaderTitle()}} -->
 
-
 <div id="concerts-list" >
   <ul >
 	<li ng-repeat="concert in filteredConcerts = (concerts | filter:Search.term)" class="">
-	<a 
-	ng-href="#/concert/{{concert.id}}" 
-	class="row list-element gradient"
-	>
+	<a 	ng-href="#/concert/{{concert.id}}" 	class="row list-element gradient"	>
 		<div class="col-xs-8">
 			<h2 class="text-condensed black">
 				{{concert.name}}
@@ -31,23 +27,70 @@
 		</div>
 
 		<div class="col-xs-4" >
-
-			<img 
+		
+			<!-- <img 
 			ng-src="../symfony/web/bundles/tapiocadesignclasslivegnv/images/works/{{concert.name_url}}/square.jpg" 
-			class="img-circle" />
+			class="img-circle" /> -->
 
+			
 
-			<!-- <div class="date drop-shadow">
-				<div class="day day-alt1 black text-light">
-					<span class="text-tiny">
-					{{concert.performances[0].date_performance | date : "EEE"}}
-					</span>
-					{{concert.performances[0].date_performance | date : "d"}}
+			<!-- <div class="date-container">
+				
+				<div class="date-text text-light text-center">
+						{{concert.performances[0].date_performance | date : "d"}}
+						<div class="text-tiny">
+						{{concert.performances[0].date_performance | date : "MMMM"}}
+						</div>
 				</div>
-				<div class="month month-alt1 text-bold white">
-					{{concert.performances[0].date_performance | date : "MMMM"}}
+
+				<div 
+				style="
+				background: url(../symfony/web/bundles/tapiocadesignclasslivegnv/images/works/{{concert.name_url}}/square.jpg);
+			    filter:alpha(opacity=30); /* IE */
+			    -moz-opacity:0.3; /* Mozilla */
+			    opacity: 0.3; /* CSS3 */
+			    top: 0; left: 0;
+			    height: 88px; width:88px;
+			    background-size: 88px 88px;
+			    background-repeat: no-repeat;
+			    background-position: center;
+			    border-radius: 44px;
+				-webkit-border-radius: 44px;
+				-moz-border-radius: 44px;
+
+				"
+				class="date-bkg" 
+				>
 				</div>
+
+				<div class="date-bkg-color">
+					
+				</div>
+				
 			</div> -->
+
+
+
+			<div class="date-container">
+				<div class="date-bkg"></div>
+
+				<div class="date-text drop-shadow">
+					<div class="day day-alt1 black text-light" >
+						<span class="text-tiny">
+						{{concert.performances[0].date_performance | date : "EEE"}}
+						</span>
+						{{concert.performances[0].date_performance | date : "d"}}
+					</div>
+					<div class="month month-alt1 text-bold white">
+						{{concert.performances[0].date_performance | date : "MMMM"}}
+					</div>
+				</div>
+			</div>
+
+
+
+
+
 		</div>		
 
 	</a>

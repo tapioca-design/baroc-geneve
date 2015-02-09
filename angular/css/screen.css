@@ -4,6 +4,7 @@
 	/*border: 1px solid green;*/
 }
 
+
 body, .bkg-color {
 	background-color: #f5e6e1;
 }
@@ -348,11 +349,66 @@ a.list-element:active {
 	font-size: 2.2em;
 }
 .date .day-alt1 {
-	background-color: white;
+	/*background-color: white;*/
+	/*display: block;
+  position: relative;*/
 }
+/*.date .day-alt2::after {
+  content: "";
+  background: url(http://0.gravatar.com/avatar/adfa32af6cb568d63b216ac217c4d1f0?s=160&d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&r=PG);
+  opacity: 0.5;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;   
+}*/
+
+.date-container{
+	position: relative;
+    width: 88px; height: 88px;
+}
+
+
+
+
+
+/*.date-text {
+	opacity: 1;
+	font-size: 2em;
+	font-weight: bold;
+	color:white;
+	position: absolute;
+	z-index: 200;
+}
+
+.date-bkg-color{
+	filter:alpha(opacity=30); 
+			    -moz-opacity:0.3; 
+			    opacity: 0.3; 
+			    top: 0; left: 0;
+			    height: 88px; width:88px;
+			    background-size: 88px 88px;
+			    border-radius: 44px;
+				-webkit-border-radius: 44px;
+				-moz-border-radius: 44px;
+				background-color: #6b3801;
+				z-index: 195;
+}
+
+.date-bkg{
+    z-index: 190;
+}*/
+
 .date .day-alt2 {
 	background-color: transparent;
+	
 }
+
+
+
+
 .date .month {
 	font-size: 0.6em;
 	text-transform: uppercase;
@@ -360,6 +416,8 @@ a.list-element:active {
 }
 .date .month-alt1 {
 	background-color: #000;
+	/*filter: alpha(opacity=20); 
+	opacity: 0.2;*/
 }
 .date .month-alt2 {
 	background-color: #000;
