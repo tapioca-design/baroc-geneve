@@ -1,7 +1,7 @@
-shawee_test_api:
-    resource: "@ShaweeTestApiBundle/Controller/"
-    type:     annotation
-    prefix:   /
+# shawee_test_api:
+#     resource: "@ShaweeTestApiBundle/Controller/"
+#     type:     annotation
+#     prefix:   /
 
 tapioca_design_class_live_gnv:
     resource: "@TapiocaDesignClassLiveGnvBundle/Controller/"

@@ -4,7 +4,7 @@ myApp.controller('ConcertsListController', ['$rootScope','$scope','$http', "$rou
       $scope.Data = Data;
       $scope.Search = Search;
 
-      $http.get('http://localhost/symfony/web/app_dev.php/api/city/1/worksOrderedByFirstPerformance').
+      $http.get('http://localhost/symfony/web/app.php/api/city/1/worksOrderedByFirstPerformance').
         success(function(concerts) {
             $scope.concerts = concerts;
       });
@@ -93,7 +93,7 @@ $scope.clickPlace = function($scope, $location, placeId) {
   }
 
 	var workId = $routeParams.workId;
-    $http.get('http://localhost/symfony/web/app_dev.php/api/work/'+workId).
+    $http.get('http://localhost/symfony/web/app.php/api/work/'+workId).
         success(function(work) {
             Data.headerTitle=work.name;
             $scope.Data = Data;
