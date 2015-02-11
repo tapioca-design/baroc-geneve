@@ -25,9 +25,9 @@ myApp.config(["$routeProvider", function($routeProvider) {
 		templateUrl: "views/concerts-list.html",
 		controller:"ConcertsListController"
 	}).
-	when("/concerts-map", {
-		templateUrl: "views/concerts-map.html",
-		controller:""
+	when("/map", {
+		templateUrl: "views/map.html",
+		controller:"MapController"
 	}).
 	when("/concert/:workId", {
 		templateUrl: "views/concert.html",
@@ -45,6 +45,25 @@ myApp.config(["$routeProvider", function($routeProvider) {
 		redirectTo: "/concerts-list"
 	});
 }]);
+
+
+// myApp.config(function(uiGmapGoogleMapApiProvider) {
+//     uiGmapGoogleMapApiProvider.configure({
+//         //    key: 'your api key',
+//         v: '3.17',
+//         libraries: 'weather,geometry,visualization'
+//     });
+// })
+
+
+// myApp.controller('MapCtrl', function ($scope) {
+
+    
+// });
+
+
+
+
 /***********************************************************************************************/
 myApp.factory('Const', function($location){
     //return {baseUrl: "http://tapiocadesign.com/_CL";
@@ -70,6 +89,24 @@ myApp.factory('Search', function(){
 myApp.factory('Concert', function(){
     return {term: ''};
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /***********************************************************************************************/
 

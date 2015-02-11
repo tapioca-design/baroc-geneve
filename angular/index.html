@@ -33,15 +33,21 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-
 	<link rel="stylesheet" href="css/screen.css" type="text/css" />
+
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB-IPNTXaTmYhxw68K8oURV_kRah8GbShU"></script>
+
+	<!--
+	<script type="text/javascript" src="js/lib/angular-google-maps/lodash.js"></script>
+	<script type="text/javascript" src="js/lib/angular-google-maps/angular-google-maps.min.js"></script>
+	-->
 
 
 </head>
 <body class="">
 
-
-
+<!-- <ui-gmap-google-map center='map.center' zoom='map.zoom'></ui-gmap-google-map>
+ -->
 	<div ng-controller="HeaderController">
 		<header ng-include="'views/header.html'" class="container-fluid text-center"></header>
 	</div>
@@ -57,9 +63,6 @@
 
 <div ng-view >
 </div> -->
-
-
-
 
 
 </body>

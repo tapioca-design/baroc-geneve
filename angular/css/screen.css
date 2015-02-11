@@ -4,6 +4,21 @@
 	/*border: 1px solid green;*/
 }
 
+#map {
+    height:420px;
+    width:600px;
+}
+.infoWindowContent {
+    font-size:  14px !important;
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+}
+
+
+
+
+
+
 .large {
 	
 }
@@ -256,7 +271,7 @@ h2 {
 /*************************************/
 main {
 	/* otherwise last elemtn of list is covered with footer */
-	padding-bottom: 44px;
+	/*padding-bottom: 44px;*/
 	
 }
 

@@ -33,6 +33,10 @@ myApp.controller('HeaderController', ['$rootScope','$scope','$http',"$route", '$
                   $scope.searchAllowed=0;
                   $scope.searchActive = 0;
                   $scope.back.url = "#/places-list";
+              } else if (viewController=="MapController")  {
+                  $scope.searchAllowed=1;
+                  $scope.searchActive = 0;
+                  
               } else {
                   console.log("NO ROUTE SUPPOSED TO END UP HERE !!!");
                   $scope.searchAllowed=1;
