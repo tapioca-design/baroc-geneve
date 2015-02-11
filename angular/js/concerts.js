@@ -10,7 +10,7 @@ myApp.controller('ConcertsListController', ['$rootScope','$scope','$http', "$rou
       // $scope.Const = Const;
       //Const.baseUrl = "http://"+$location.host();
 
-      $http.get(Const.baseUrl+'/symfony/web/app.php/api/city/1/worksOrderedByFirstPerformance').
+      $http.get(Const.baseUrl+'/symfony/web/api/city/1/worksOrderedByFirstPerformance').
         success(function(concerts) {
             $scope.concerts = concerts;
       });
@@ -97,7 +97,7 @@ $scope.clickPlace = function($scope, $location, placeId) {
   }
   // $scope.Const = Const;
 	var workId = $routeParams.workId;
-    $http.get(Const.baseUrl+'/symfony/web/app.php/api/work/'+workId).
+    $http.get(Const.baseUrl+'/symfony/web/api/work/'+workId).
         success(function(work) {
             Data.headerTitle=work.name;
             $scope.Data = Data;

@@ -1,7 +1,7 @@
 myApp.controller('PlacesListController', ['$rootScope','$scope','$http','Data','Search','Const', function($rootScope, $scope,$http, Data, Search, Const) {
       Data.headerTitle="Classical live Genève";
             $scope.Data = Data;
-      $http.get(Const.baseUrl+'/symfony/web/app.php/api/city/1/places').
+      $http.get(Const.baseUrl+'/symfony/web/api/city/1/places').
         success(function(places) {
             $scope.places = places;
         });
@@ -11,16 +11,13 @@ myApp.controller('PlaceController', ['$rootScope','$scope','$http', '$routeParam
 	// console.log("PC $rootScope.header_title_over = "+$rootScope.header_title_over);
     
 	var placeId = $routeParams.placeId;
-    $http.get(Const.baseUrl+'/symfony/web/app.php/api/place/'+placeId).
-        success(function(place) {
 
+    $http.get(Const.baseUrl+'/symfony/web/api/place/'+placeId).
+        success(function(place) {
           Data.headerTitle=place.name_fr;
             $scope.Data = Data;
-
-
             $scope.place = place;
         });
-
     $scope.telephone = function(telephone){
     	var link = "tel:"+ telephone; 
     	window.location.href = link;
@@ -30,4 +27,15 @@ myApp.controller('PlaceController', ['$rootScope','$scope','$http', '$routeParam
     	var link = "mailto:"+ email; 
     	window.location.href = link;
  	};
+    /*********** concerts in this place ***********/
+    $http.get(Const.baseUrl+'/symfony/web/app_dev.php/api/place/'+placeId+'/works').
+    success(function(concerts) {
+        // console.log("concerts");
+        // console.log(concerts);
+        $scope.concerts = concerts;
+    });
+
+
+
+
  }]);
