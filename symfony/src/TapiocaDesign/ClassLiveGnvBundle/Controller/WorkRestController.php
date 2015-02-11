@@ -54,7 +54,7 @@ class WorkRestController extends FOSRestController
       //$return[]=array('performances' => $performances);
       
       $view = $this->view($works, 200);
-      $view->setSerializationContext(SerializationContext::create()->setGroups(array('detail')));
+      $view->setSerializationContext(SerializationContext::create()->setGroups(array('list')));
       $view->setData($works);
       return $view;
       /*
@@ -76,6 +76,72 @@ class WorkRestController extends FOSRestController
       $view->setData($work);
       return $view;
     }
+
+
+    /*
+    * @Rest\View(serializerGroups={"detail"})
+    */
+    public function worksByPlaceAction($place_id){
+      $em = $this->getDoctrine()->getManager();
+      $place = $em->getRepository('TapiocaDesignClassLiveGnvBundle:Place')
+      ->find($place_id);
+      $place_id = $place->getId();
+
+      $performances = $em->getRepository('TapiocaDesignClassLiveGnvBundle:Performance')
+          ->findBy(
+              array("place"=>$place_id),
+              array("datePerformance"=>"ASC")
+            );
+      foreach ($performances as $performance) {
+              //store id of work of current place performances
+              $work_ids[]= $performance->getWork()->getId();
+          }
+          // //if work id8 had 5 performances, we would have 5 * id8, we want it once
+      $work_ids = array_unique($work_ids);
+      $works = $em->getRepository('TapiocaDesignClassLiveGnvBundle:Work')
+      ->findBy(
+        array("id"=>$work_ids)
+        );
+      $view = $this->view($works, 200);
+      $view->setSerializationContext(SerializationContext::create()->setGroups(array('list')));
+      $view->setData($works);
+      return $view;
+
+
+
+
+
+      // die("place_id=$place_id");
+
+
+
+
+      // foreach ($places as $place) {
+      //     $place_id = $place->getId();
+      //     $performances = $em->getRepository('TapiocaDesignClassLiveGnvBundle:Performance')
+      //     ->findBy(
+      //         array("place"=>$place_id),
+      //         array("datePerformance"=>"ASC")
+      //       );
+      //     foreach ($performances as $performance) {
+      //         //store id of work of current place performances
+      //         $work_ids[]= $performance->getWork()->getId();
+      //     }
+      // }
+      // //if work id8 had 5 performances, we would have 5 * id8, we want it once
+      // $work_ids = array_unique($work_ids);
+      // $works = $em->getRepository('TapiocaDesignClassLiveGnvBundle:Work')
+      // ->findBy(
+      //   array("id"=>$work_ids)
+      //   );
+      
+      // $view = $this->view($works, 200);
+      // $view->setSerializationContext(SerializationContext::create()->setGroups(array('list')));
+      // $view->setData($works);
+      // return $view;
+    }
+
+
   
 }
 

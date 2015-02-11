@@ -27,6 +27,7 @@ TD_CLG_work:
         _method: GET
         work_id: "\d+"
 
+
 TD_CLG_placesByCity:
     pattern:  /city/{city_id}/places
     defaults: { _controller: TapiocaDesignClassLiveGnvBundle:PlaceRest:placesByCity, _format: ~ }
@@ -40,6 +41,23 @@ TD_CLG_place:
     requirements:
         _method: GET
         place_id: "\d+"
+
+
+
+
+
+
+
+TD_CLG_worksByPlace:
+    pattern:  /place/{place_id}/works
+    defaults: { _controller: TapiocaDesignClassLiveGnvBundle:WorkRest:worksByPlace, _format: ~ }
+    requirements:
+        _method: GET
+        work_id: "\d+"
+
+
+
+
 
 
 

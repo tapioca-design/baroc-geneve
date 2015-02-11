@@ -46,9 +46,23 @@ myApp.config(["$routeProvider", function($routeProvider) {
 	});
 }]);
 /***********************************************************************************************/
-
-myApp.factory('Data', function(){
-    return {headerTitle: '', filteredConcerts:"", searchAllowed:1, searchActive:0};
+myApp.factory('Const', function($location){
+    //return {baseUrl: "http://tapiocadesign.com/_CL";
+    if ($location.host()=="tapiocadesign.com") {
+    	return {baseUrl: "http://tapiocadesign.com/_CL"};
+    } else {
+    	//locahost
+    	return {baseUrl: "http://"+$location.host()};
+    }
+    //return {baseUrl: "http://"+$location.host()};
+});
+myApp.factory('Data', function($location){
+    return {
+    	headerTitle: '', 
+    	filteredConcerts:"", 
+    	searchAllowed:1, 
+    	searchActive:0
+    };
 });
 myApp.factory('Search', function(){
     return {term: ''};
@@ -56,6 +70,7 @@ myApp.factory('Search', function(){
 myApp.factory('Concert', function(){
     return {term: ''};
 });
+
 /***********************************************************************************************/
 
 

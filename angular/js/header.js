@@ -1,4 +1,8 @@
-myApp.controller('HeaderController', ['$rootScope','$scope','$http',"$route", '$location','Data','Search', function($rootScope, $scope, $http, $route, $location, Data, Search) {
+myApp.controller('HeaderController', ['$rootScope','$scope','$http',"$route", '$location','Data','Search','Const', function($rootScope, $scope, $http, $route, $location, Data, Search, Const) {
+      
+      // Const.domainName = "http://"+$location.host();
+      // $scope.Const = Const;
+      // Const.domainName = "httpttt";
 
       $scope.Data = Data;
       $scope.Search = Search;
@@ -17,7 +21,7 @@ myApp.controller('HeaderController', ['$rootScope','$scope','$http',"$route", '$
                 var viewController = "";
              }
               
-              console.log("viewController "+viewController)
+              // console.log("viewController "+viewController)
               
               if (viewController=="ConcertsListController" || viewController=="PlacesListController")  {
                   $scope.searchAllowed=1;

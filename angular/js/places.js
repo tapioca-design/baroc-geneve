@@ -1,17 +1,17 @@
-myApp.controller('PlacesListController', ['$rootScope','$scope','$http','Data','Search', function($rootScope, $scope,$http, Data, Search) {
+myApp.controller('PlacesListController', ['$rootScope','$scope','$http','Data','Search','Const', function($rootScope, $scope,$http, Data, Search, Const) {
       Data.headerTitle="Classical live Genève";
             $scope.Data = Data;
-      $http.get('http://localhost/symfony/web/app.php/api/city/1/places').
+      $http.get(Const.baseUrl+'/symfony/web/app.php/api/city/1/places').
         success(function(places) {
             $scope.places = places;
         });
  }]);
 
-myApp.controller('PlaceController', ['$rootScope','$scope','$http', '$routeParams','Data','Search', function($rootScope, $scope,$http, $routeParams, Data, Search) {
-	console.log("PC $rootScope.header_title_over = "+$rootScope.header_title_over);
+myApp.controller('PlaceController', ['$rootScope','$scope','$http', '$routeParams','Data','Search','Const', function($rootScope, $scope,$http, $routeParams, Data, Search, Const) {
+	// console.log("PC $rootScope.header_title_over = "+$rootScope.header_title_over);
     
 	var placeId = $routeParams.placeId;
-    $http.get('http://localhost/symfony/web/app.php/api/place/'+placeId).
+    $http.get(Const.baseUrl+'/symfony/web/app.php/api/place/'+placeId).
         success(function(place) {
 
           Data.headerTitle=place.name_fr;
