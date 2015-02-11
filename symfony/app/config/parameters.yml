@@ -12,3 +12,32 @@ parameters:
     mailer_password: null
     locale: en
     secret: 1f4aa98251a105550abf23460b677a710d
+
+# parameters:
+#     database_driver: pdo_mysql
+#     database_host: localhost
+#     database_port: null
+#     database_name: usr_web106_7
+#     database_user: web106
+#     database_password: tloBUR5+
+#     mailer_transport: smtp
+#     mailer_host: localhost
+#     mailer_user: null
+#     mailer_password: null
+#     locale: en
+#     secret: 1f4aa98251a105550abf23460b677a710d
+
+# $db['expressionengine']['hostname'] = 'localhost';
+# $db['expressionengine']['username'] = 'web106';
+# $db['expressionengine']['password'] = 'tloBUR5+';
+# $db['expressionengine']['database'] = 'usr_web106_6';
+# $db['expressionengine']['dbdriver'] = 'mysqli';
+# $db['expressionengine']['pconnect'] = FALSE;
+# $db['expressionengine']['dbprefix'] = 'exp_';
+# $db['expressionengine']['swap_pre'] = 'exp_';
+# $db['expressionengine']['db_debug'] = TRUE;
+# $db['expressionengine']['cache_on'] = FALSE;
+# $db['expressionengine']['autoinit'] = FALSE;
+# $db['expressionengine']['char_set'] = 'utf8';
+# $db['expressionengine']['dbcollat'] = 'utf8_general_ci';
+# $db['expressionengine']['cachedir'] = '/home/www/web106/html/system/expressionengine/cache/db_cache/';

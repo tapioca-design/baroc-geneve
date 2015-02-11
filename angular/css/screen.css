@@ -4,6 +4,19 @@
 	/*border: 1px solid green;*/
 }
 
+.large {
+	
+}
+.larger {
+	font-size: 1.5em;
+}
+.largest {
+	
+}
+.detail-page-end {
+	background-color: #b27863;
+}
+
 
 body, .bkg-color {
 	background-color: #f5e6e1;

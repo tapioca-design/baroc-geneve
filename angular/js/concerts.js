@@ -1,9 +1,10 @@
-myApp.controller('ConcertsListController', ['$rootScope','$scope','$http', "$routeParams",'Data','Search', function($rootScope,$scope,$http, $routeParams, Data, Search) { 
+myApp.controller('ConcertsListController', ['$rootScope','$scope','$http','$location', "$routeParams",'Data','Search', function($rootScope,$scope,$http,$location, $routeParams, Data, Search) { 
 
       Data.headerTitle="Classic live Genève";
       $scope.Data = Data;
       $scope.Search = Search;
-
+      // var domain = 
+      // console.log($location.host());
       $http.get('http://localhost/symfony/web/app.php/api/city/1/worksOrderedByFirstPerformance').
         success(function(concerts) {
             $scope.concerts = concerts;
