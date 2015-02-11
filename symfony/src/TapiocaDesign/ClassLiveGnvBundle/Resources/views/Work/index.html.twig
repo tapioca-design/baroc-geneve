@@ -8,6 +8,7 @@
             <tr>
                 <th>Id</th>
                 <th>Name</th>
+                <th>Name_url</th>
                 <th>Composer</th>
                 <th>Interpreter</th>
                 <th>Director</th>
@@ -22,6 +23,7 @@
             <tr>
                 <td><a href="{{ path('work_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
                 <td>{{ entity.name }}</td>
+                <td>{{ entity.nameurl }}</td>
                 <td>{{ entity.composer }}</td>
                 <td>{{ entity.interpreter }}</td>
                 <td>{{ entity.director }}</td>

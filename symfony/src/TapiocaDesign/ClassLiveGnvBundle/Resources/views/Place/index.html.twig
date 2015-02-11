@@ -7,9 +7,13 @@
         <thead>
             <tr>
                 <th>Id</th>
+                <th>Nameurl</th>
+                <th>Nameshort</th>
                 <th>Namefr</th>
                 <th>Nameen</th>
-                <th>Nameshort</th>
+                <th>Address</th>
+                <th>Telephone</th>
+                <th>Email</th>
                 <th>Googlemapref</th>
                 <th>Website</th>
                 <th>Imageplacemain</th>
@@ -20,9 +24,13 @@
         {% for entity in entities %}
             <tr>
                 <td><a href="{{ path('place_show', { 'id': entity.id }) }}">{{ entity.id }}</a></td>
+                <td>{{ entity.nameUrl }}</td>
+                <td>{{ entity.nameShort }}</td>
                 <td>{{ entity.nameFr }}</td>
                 <td>{{ entity.nameEn }}</td>
-                <td>{{ entity.nameShort }}</td>
+                <td>{{ entity.address }}</td>
+                <td>{{ entity.telephone }}</td>
+                <td>{{ entity.email }}</td>
                 <td>{{ entity.googleMapRef }}</td>
                 <td>{{ entity.website }}</td>
                 <td>{{ entity.imagePlaceMain }}</td>
