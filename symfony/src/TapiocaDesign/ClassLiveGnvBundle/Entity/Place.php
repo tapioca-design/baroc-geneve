@@ -85,10 +85,6 @@ class Place
      */
     private $nameEn;
 
-
-
-
-
     /**
      * @var string
      *
@@ -121,17 +117,17 @@ class Place
 
 
     /**
-     * @var string
+     * @var number
      *
-     * @ORM\Column(name="mapLatitude", type="string", length=32, nullable=true)
+     * @ORM\Column(name="mapLatitude", type="number", nullable=true)
      * @Expose
      * @Groups({"list","detail"})
      */
     private $mapLatitude;
     /**
-     * @var string
+     * @var number
      *
-     * @ORM\Column(name="mapLongitude", type="string", length=32, nullable=true)
+     * @ORM\Column(name="mapLongitude", type="number", nullable=true)
      * @Expose
      * @Groups({"list","detail"})
      */
@@ -316,10 +312,13 @@ public function __construct() {
 
 
 
+
+
+
     /**
      * Set mapLatitude
      *
-     * @param string $mapLatitude
+     * @param number $mapLatitude
      * @return Place
      */
     public function setMapLatitude($mapLatitude)
@@ -332,7 +331,7 @@ public function __construct() {
     /**
      * Get mapLatitude
      *
-     * @return string 
+     * @return number 
      */
     public function getMapLatitude()
     {
@@ -341,7 +340,7 @@ public function __construct() {
     /**
      * Set mapLongitude
      *
-     * @param string $mapLongitude
+     * @param number $mapLongitude
      * @return Place
      */
     public function setMapLongitude($mapLongitude)
@@ -354,12 +353,15 @@ public function __construct() {
     /**
      * Get mapLongitude
      *
-     * @return string 
+     * @return number 
      */
     public function getMapLongitude()
     {
         return $this->mapLongitude;
     }
+
+
+
 
 
 
@@ -483,9 +485,6 @@ public function __construct() {
     {
         return $this->imagePlaceMain;
     }
-
-    
-    
 
     /**
      * Set city
