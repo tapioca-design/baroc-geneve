@@ -48,20 +48,19 @@ var cities = [
       
       var mapOptions = {
         zoom: 14,
-        //46.203129, 6.144861
-        //46.203129, 6.144861
         center: new google.maps.LatLng(46.203129, 6.144861),
-        mapTypeId: google.maps.MapTypeId.TERRAIN
+        mapTypeId: google.maps.MapTypeId.TERRAIN,
+        panControl: false,
+        streetViewControl: false,
+        zoomControl: false,
+        mapTypeControl:false,
+        scrollwheel: true,
     }
 
     $scope.map = new google.maps.Map(document.getElementById('map'), mapOptions);
-
     $scope.markers = [];
-    
     var infoWindow = new google.maps.InfoWindow();
-    
     var createMarker = function (info){
-        
         var marker = new google.maps.Marker({
             map: $scope.map,
             position: new google.maps.LatLng(info.lat, info.long),
