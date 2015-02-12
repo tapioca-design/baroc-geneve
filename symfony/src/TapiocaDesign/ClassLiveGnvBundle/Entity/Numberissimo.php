@@ -38,7 +38,7 @@ class Numberissimo
     /**
      * @var string
      *
-     * @ORM\Column(name="decimalissimoprecision", type="decimal", precision=14, scale=8, nullable=true)
+     * @ORM\Column(name="decimalissimoprecision", type="decimal", precision=20, scale=20, nullable=true)
      */
     private $decimalissimoprecision;
 
