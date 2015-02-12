@@ -116,22 +116,22 @@ class Place
 
 
 
-    /**
-     * @var number
-     *
-     * @ORM\Column(name="mapLatitude", type="number", nullable=true)
-     * @Expose
-     * @Groups({"list","detail"})
-     */
-    private $mapLatitude;
-    /**
-     * @var number
-     *
-     * @ORM\Column(name="mapLongitude", type="number", nullable=true)
-     * @Expose
-     * @Groups({"list","detail"})
-     */
-    private $mapLongitude;
+    // /**
+    //  * @var number
+    //  *
+    //  * @ORM\Column(name="mapLatitude", type="number", nullable=true)
+    //  * @Expose
+    //  * @Groups({"list","detail"})
+    //  */
+    // private $mapLatitude;
+    // /**
+    //  * @var number
+    //  *
+    //  * @ORM\Column(name="mapLongitude", type="number", nullable=true)
+    //  * @Expose
+    //  * @Groups({"list","detail"})
+    //  */
+    // private $mapLongitude;
 
 
 
@@ -315,50 +315,50 @@ public function __construct() {
 
 
 
-    /**
-     * Set mapLatitude
-     *
-     * @param number $mapLatitude
-     * @return Place
-     */
-    public function setMapLatitude($mapLatitude)
-    {
-        $this->mapLatitude = $mapLatitude;
+    // /**
+    //  * Set mapLatitude
+    //  *
+    //  * @param number $mapLatitude
+    //  * @return Place
+    //  */
+    // public function setMapLatitude($mapLatitude)
+    // {
+    //     $this->mapLatitude = $mapLatitude;
 
-        return $this;
-    }
+    //     return $this;
+    // }
 
-    /**
-     * Get mapLatitude
-     *
-     * @return number 
-     */
-    public function getMapLatitude()
-    {
-        return $this->mapLatitude;
-    }
-    /**
-     * Set mapLongitude
-     *
-     * @param number $mapLongitude
-     * @return Place
-     */
-    public function setMapLongitude($mapLongitude)
-    {
-        $this->mapLongitude = $mapLongitude;
+    // /**
+    //  * Get mapLatitude
+    //  *
+    //  * @return number 
+    //  */
+    // public function getMapLatitude()
+    // {
+    //     return $this->mapLatitude;
+    // }
+    // /**
+    //  * Set mapLongitude
+    //  *
+    //  * @param number $mapLongitude
+    //  * @return Place
+    //  */
+    // public function setMapLongitude($mapLongitude)
+    // {
+    //     $this->mapLongitude = $mapLongitude;
 
-        return $this;
-    }
+    //     return $this;
+    // }
 
-    /**
-     * Get mapLongitude
-     *
-     * @return number 
-     */
-    public function getMapLongitude()
-    {
-        return $this->mapLongitude;
-    }
+    // /**
+    //  * Get mapLongitude
+    //  *
+    //  * @return number 
+    //  */
+    // public function getMapLongitude()
+    // {
+    //     return $this->mapLongitude;
+    // }
 
 
 
