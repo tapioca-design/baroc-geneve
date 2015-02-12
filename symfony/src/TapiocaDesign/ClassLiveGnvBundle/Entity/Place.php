@@ -120,6 +120,27 @@ class Place
 
 
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="mapLatitude", type="string", length=32, nullable=true)
+     * @Expose
+     * @Groups({"list","detail"})
+     */
+    private $mapLatitude;
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="mapLongitude", type="string", length=32, nullable=true)
+     * @Expose
+     * @Groups({"list","detail"})
+     */
+    private $mapLongitude;
+
+
+
+
+
 
 
 
@@ -286,6 +307,58 @@ public function __construct() {
     public function getEmail()
     {
         return $this->email;
+    }
+
+
+
+
+
+
+
+
+    /**
+     * Set mapLatitude
+     *
+     * @param string $mapLatitude
+     * @return Place
+     */
+    public function setMapLatitude($mapLatitude)
+    {
+        $this->mapLatitude = $mapLatitude;
+
+        return $this;
+    }
+
+    /**
+     * Get mapLatitude
+     *
+     * @return string 
+     */
+    public function getMapLatitude()
+    {
+        return $this->mapLatitude;
+    }
+    /**
+     * Set mapLongitude
+     *
+     * @param string $mapLongitude
+     * @return Place
+     */
+    public function setMapLongitude($mapLongitude)
+    {
+        $this->mapLongitude = $mapLongitude;
+
+        return $this;
+    }
+
+    /**
+     * Get mapLongitude
+     *
+     * @return string 
+     */
+    public function getMapLongitude()
+    {
+        return $this->mapLongitude;
     }
 
 

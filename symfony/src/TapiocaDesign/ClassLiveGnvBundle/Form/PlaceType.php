@@ -15,8 +15,15 @@ class PlaceType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('nameUrl')
+            ->add('nameShort')
             ->add('nameFr')
             ->add('nameEn')
+            ->add('address')
+            ->add('telephone')
+            ->add('email')
+            ->add('mapLatitude')
+            ->add('mapLongitude')
             ->add('googleMapRef')
             ->add('website')
             ->add('imagePlaceMain')
