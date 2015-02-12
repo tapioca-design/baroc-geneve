@@ -4,7 +4,7 @@ myApp.controller('ConcertsListController', ['$rootScope','$scope','$http', "$rou
       // console.log("Const.baseUrl");
       // console.log(Const.baseUrl);
 
-      Data.headerTitle="Classic live Genève";
+      Data.headerTitle=Const.appNameFr;
       $scope.Data = Data;
       $scope.Search = Search;
       // $scope.Const = Const;

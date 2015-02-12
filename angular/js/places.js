@@ -1,5 +1,5 @@
 myApp.controller('PlacesListController', ['$rootScope','$scope','$http','Data','Search','Const', function($rootScope, $scope,$http, Data, Search, Const) {
-      Data.headerTitle="Classical live Genève";
+      Data.headerTitle=Const.appNameFr;
             $scope.Data = Data;
       $http.get(Const.baseUrl+'/symfony/web/api/city/1/places').
         success(function(places) {

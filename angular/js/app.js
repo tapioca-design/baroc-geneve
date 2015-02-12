@@ -66,14 +66,14 @@ myApp.config(["$routeProvider", function($routeProvider) {
 
 /***********************************************************************************************/
 myApp.factory('Const', function($location){
-    //return {baseUrl: "http://tapiocadesign.com/_CL";
+    var baseUrlInner
     if ($location.host()=="tapiocadesign.com") {
-    	return {baseUrl: "http://tapiocadesign.com/_CL"};
+    	baseUrlInner= "http://tapiocadesign.com/_CL";
     } else {
     	//locahost
-    	return {baseUrl: "http://"+$location.host()};
+    	baseUrlInner= "http://"+$location.host();
     }
-    //return {baseUrl: "http://"+$location.host()};
+    return {baseUrl:baseUrlInner, appNameFr:"Classique live Genève"};
 });
 myApp.factory('Data', function($location){
     return {

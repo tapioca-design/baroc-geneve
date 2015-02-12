@@ -1,47 +1,56 @@
 myApp.controller('MapController', ['$rootScope','$scope','$http', "$routeParams",'$location','Data','Search','Const', function($rootScope,$scope,$http,$routeParams,$location, Data, Search, Const) { 
 
 
-      Data.headerTitle="Cartographie";
-
+      //Data.headerTitle="Class Live Ge";
+      Data.headerTitle=Const.appNameFr;
 
 
       //Data
 var cities = [
     {
-        city : 'Toronto',
+        city : 'Victoria Hall',
         desc : 'This is the best city in the world!',
-        lat : 43.7000,
-        long : -79.4000
+        lat : 46.201433,
+        long : 6.141130
+        //46.201433, 6.141130
     },
     {
-        city : 'New York',
+        city : 'Grand theatttre',
         desc : 'This city is aiiiiite!',
-        lat : 40.6700,
-        long : -73.9400
+        lat : 46.201763,
+        long : 6.142680
+
+        //46.201763, 6.142680
     },
     {
-        city : 'Chicago',
+        city : 'Forum Meyrin',
         desc : 'This is the second best city in the world!',
-        lat : 41.8819,
-        long : -87.6278
+        lat : 46.232446,
+        long : 6.081378
+        //46.232446, 6.081378
     },
     {
-        city : 'Los Angeles',
-        desc : 'This city is live!',
-        lat : 34.0500,
-        long : -118.2500
+        city : 'Comédie de Genève',
+        desc : 'This is the second best city in the world!',
+        lat : 46.197285,
+        long : 6.143847
+        //46.232446, 6.081378
     },
     {
-        city : 'Las Vegas',
-        desc : 'Sin City...\'nuff said!',
-        lat : 36.0800,
-        long : -115.1522
+        city : 'BFM',
+        desc : 'This is the second best city in the world!',
+        lat : 46.204654,
+        long : 6.137092
+        //46.232446, 6.081378
     }
+
 ];
       
       var mapOptions = {
-        zoom: 4,
-        center: new google.maps.LatLng(40.0000, -98.0000),
+        zoom: 14,
+        //46.203129, 6.144861
+        //46.203129, 6.144861
+        center: new google.maps.LatLng(46.203129, 6.144861),
         mapTypeId: google.maps.MapTypeId.TERRAIN
     }
 

@@ -5,15 +5,10 @@
 }
 
 #map {
-    height:420px;
-    width:600px;
+    /*height:60vh;*/
+	height:70vh;
+    width:100%;
 }
-.infoWindowContent {
-    font-size:  14px !important;
-    border-top: 1px solid #ccc;
-    padding-top: 10px;
-}
-
 
 
 
