@@ -34,6 +34,17 @@ body, .bkg-color {
 .red-dark {
 	color:#e68c6b;
 }
+
+a.red-darkest:link, a.red-darkest:hover, a.red-darkest:visited {
+	color:#5e291a;
+}
+a.red-darkest:active {
+	color:#2f0b00;
+}
+
+
+
+
 .text-white {
 	color:white;
 }

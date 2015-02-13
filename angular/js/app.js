@@ -41,6 +41,12 @@ myApp.config(["$routeProvider", function($routeProvider) {
 		templateUrl: "views/place.html",
 		controller:"PlaceController"
 	}).
+	when("/place/:placeId/map", {
+		templateUrl: "views/place-map.html",
+		controller:"PlaceMapController"
+	}).
+
+
 	otherwise({
 		redirectTo: "/concerts-list"
 	});

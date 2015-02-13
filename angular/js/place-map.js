@@ -1,25 +1,18 @@
-myApp.controller('MapController', ['$rootScope','$scope','$http', "$routeParams",'$location','Data','Search','Const', function($rootScope,$scope,$http,$routeParams,$location, Data, Search, Const) { 
+myApp.controller('PlaceMapController', ['$rootScope','$scope','$http', "$routeParams",'$location','Data','Search','Const', function($rootScope,$scope,$http,$routeParams,$location, Data, Search, Const) { 
 
 
       
       Data.headerTitle=Const.appNameFr;
             $scope.Data = Data;
-        $http.get(Const.baseUrl+'/symfony/web/app_dev.php/api/city/1/placesWithPerformances').
-        success(function(places) {
-
-
-
+            $http.get(Const.baseUrl+'/symfony/web/app_dev.php/api/city/1/placesWithPerformances').
+            success(function(places) {
 
                         $scope.places = places;
-                        // console.log("date du premier Place de la liste, il faut virer ceux qui n ont pas de Performance");
-                        // console.log($scope.places[0].performances[0].date_performance);
-
-
+                        
                         var mapOptions = {
                                 zoom: 14,
                                 center: new google.maps.LatLng(46.203129, 6.144861),
                                 mapTypeId: google.maps.MapTypeId.SATELLITE,
-
                                 panControl: false,
                                 streetViewControl: false,
                                 zoomControl: false,
@@ -27,27 +20,32 @@ myApp.controller('MapController', ['$rootScope','$scope','$http', "$routeParams"
                                 scrollwheel: true,
                             }
 
-                    $scope.map = new google.maps.Map(document.getElementById('map'), mapOptions);
+                    $scope.map = new google.maps.Map(document.getElementById('place-map'), mapOptions);
                     $scope.markers = [];
                     var infoWindow = new google.maps.InfoWindow();
                     var createMarker = function (place){
+
                         var marker = new google.maps.Marker({
                             map: $scope.map,
                             position: new google.maps.LatLng(place.map_latitude, place.map_longitude),
-                            title: place.name_fr,
-                            icon: '../symfony/web/bundles/tapiocadesignclasslivegnv/images/places/'+place.name_url+'/map-markers.png',
+                            title: place.name_fr
                         });
                         
                         
                         google.maps.event.addListener(marker, 'click', function(){
                             infoWindow.setContent(
-                                '<a class="red-darkest" href="#/place/'+place.id+'">'
-                                +'<h2 class="text-condensed">'+marker.title+'</h2>'+marker.content
+                                '<a href="#/place/'+place.id+'">'
+                                +'<h2>'+marker.title+'</h2>'+marker.content
                                 // +'<i>'+place.performances[0].date_performance+'</i>'
                                 +'</a>'
                                 );
-                            infoWindow.open($scope.map, marker);
+                            
                         });
+                        //infoWindow.open placed here ao box is auto loaded when openning map
+                        infoWindow.open($scope.map, marker);
+
+
+
 
                         marker.content = '<div class="infoWindowContent">' + place.address + '</div>';
                         
@@ -109,9 +107,6 @@ myApp.controller('MapController', ['$rootScope','$scope','$http', "$routeParams"
 // ];
       
       
-
-
-
  }]);
 
 
