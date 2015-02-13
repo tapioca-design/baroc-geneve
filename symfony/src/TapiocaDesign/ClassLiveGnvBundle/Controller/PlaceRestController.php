@@ -36,6 +36,20 @@ class PlaceRestController extends FOSRestController
   	}
 
     /*
+    * @Rest\View(serializerGroups={"list","detail"})
+    */
+    public function placesWithPerformancesByCityAction($city_id){
+      $em = $this->getDoctrine()->getManager();
+      $places = $em->getRepository('TapiocaDesignClassLiveGnvBundle:Place')
+      ->findByCity($city_id);
+      
+      $view = $this->view($places, 200);
+      $view->setSerializationContext(SerializationContext::create()->setGroups(array('list','detail')));
+      $view->setData($places);
+      return $view;
+    }
+
+    /*
     * @Rest\View(serializerGroups={"list"})
     */
     public function placeAction($place_id){
@@ -48,6 +62,8 @@ class PlaceRestController extends FOSRestController
       $view->setData($place);
       return $view;
     }
+
+    
 }
 
 
