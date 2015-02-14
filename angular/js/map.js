@@ -35,16 +35,13 @@ dateRefDays[4] = "Fri";
 dateRefDays[5] = "Sat";
 dateRefDays[6] = "Sun";
 
-function dayDisplay(date){
-    return "<span class='dayNumber'>"+date.getDate()+"</span>";
-}
 
                         $scope.places = places;
                         // console.log("date du premier Place de la liste, il faut virer ceux qui n ont pas de Performance");
                         
                         var mapOptions = {
-                                zoom: 14,
-                                center: new google.maps.LatLng(46.203129, 6.144861),
+                                zoom: 12,
+                                center: new google.maps.LatLng(46.215, 6.13),
                                 mapTypeId: google.maps.MapTypeId.SATELLITE,
                                 panControl: false,
                                 streetViewControl: false,
@@ -63,24 +60,14 @@ function dayDisplay(date){
                             icon: '../symfony/web/bundles/tapiocadesignclasslivegnv/images/places/'+place.name_url+'/map-markers.png',
                         });
                         google.maps.event.addListener(marker, 'click', function(){
-                            var concertsList = "";
-
-
-                            
                             var monthsWithPerformance = new Object();
                             //gather months
                             for (var i = 0; i < place.performances.length; i++) {
-
-                                // console.log("i="+i);
                                 var performance = place.performances[i];
-                                // console.log("dateRawString:"+performance.date_performance);
                                 var d = performance.date_performance.split(/[^0-9]/);
                                 var date = new Date(d[0],d[1]-1,d[2],d[3],d[4],d[5] );
-                                // console.log("date:"+date);
                                 var month = date.getMonth();
-
                                 var dayNumber = date.getDate();
-                                // console.log("dayNumber = "+dayNumber);
 
                                 if(dateRefMonths[month] in monthsWithPerformance){
                                     //month already registered in monthsWithPerformance
@@ -88,7 +75,6 @@ function dayDisplay(date){
                                     // console.log("DAY NEXT dayNumber:"+dayNumber+" of  month:"+dateRefMonths[month]+" has been inserted");
                                     //april june already exist, so push new value into into
                                     monthsWithPerformance[dateRefMonths[month]].push(dayNumber);
-                                                                        
                                 } else {
                                     //not yet registered, new moth
                                     //array [april] = this performance
@@ -97,15 +83,8 @@ function dayDisplay(date){
                                     // console.log("DAY FIRST OF MONTH dayNumber:"+dayNumber+" of  month:"+dateRefMonths[month]+" has been inserted");
                                     monthsWithPerformance[dateRefMonths[month]]= new Array();
                                     monthsWithPerformance[dateRefMonths[month]].push(dayNumber);
-                                    //monthsWithPerformance[dateRefMonths[month]]= new Array("bububu");
-                                    
                                     
                                 }  
-                                
-
-
-                                
-                                
                             };
                                
 
@@ -132,53 +111,30 @@ function dayDisplay(date){
                                     console.log("ERROR: this month has no day");
                                   }
                                 }
-
-
-
-
-                                // console.log("monthsWithPerformance");
-                                // console.log(monthsWithPerformance);
-
-
                                 var html = "";
                                 html += "<div class='date-resume'>";
                                 for (var key in monthsWithPerformance) {
-                                 
-                                    // alert(key + " -> " + monthsWithPerformance[key]);
                                     html += "<div class='month'>";
                                     html += key;
                                     html += "</div>";
                                     for (var i = 0; i < monthsWithPerformance[key].length; i++) {
-                                        // console.log("monthsWithPerformance[key]");
-                                        // console.log(monthsWithPerformance[key]);
-                                        html += "<span class='day days-list-element text-light text-bold '>";
-                                        //html += "i:"+i
+                                        html += "<span class='day days-list-element text-light text-bold black '>";
                                         html += monthsWithPerformance[key][i];
                                         html += "</span>";
                                     }
-                                                                  }
+                                }
+                                // html += '<button ng-click="clickPlace(performance.place.id)" target="_blank" class="btn red-lighter width-full" >Details</button>';
                                 html += "</div>";
 
-                                
-
-                                // console.log("monthsWithPerformance jan ");
-                                // console.log(monthsWithPerformance["January"]);
-
-                                // console.log("monthsWithPerformance feb ");
-                                // console.log(monthsWithPerformance["February"]);
-
-                                // console.log("monthsWithPerformance mar");
-                                // console.log(monthsWithPerformance["March"]);
-
                             infoWindow.setContent(
-                                '<a class="red-dark" href="#/place/'+place.id+'">'
-                                +'<h2 class="text-condensed">'+marker.title+'</h2>'+concertsList
+                                '<a class=" " href="#/place/'+place.id+'">'
+                                +'<h2 class="text-condensed red-dark">'+marker.title+'</h2>'
                                 + html
                                 +'</a>'
                                 );
                             infoWindow.open($scope.map, marker);
                         });
-                        marker.content = '<div class="infoWindowContent">' + place.address + '</div>';
+                        // marker.content = '<div class="infoWindowContent">' + place.address + '</div>';
                         $scope.markers.push(marker);
                     }  
                     
@@ -190,11 +146,7 @@ function dayDisplay(date){
                         e.preventDefault();
                         google.maps.event.trigger(selectedMarker, 'click');
                     }
-
         });//end success
-
-
-
  }]);
 
 

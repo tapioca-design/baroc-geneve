@@ -48,12 +48,21 @@ body, .bkg-color {
 	color:#e68c6b;
 }
 
+
+
 a.red-darkest:link, a.red-darkest:hover, a.red-darkest:visited {
 	color:#5e291a;
 }
 a.red-darkest:active {
 	color:#2f0b00;
 }
+
+
+a.black:link, a.black:hover, a.black:visited, a.black:active {
+	color:black;
+}
+
+
 
 
 
@@ -430,11 +439,6 @@ a.list-element:active {
 /*.dayName {
 	font-family: 5px;
 }*/
-.dayNumber {
-	font-size: 1em;
-	color:black;
-	/*border:1px solid red;*/
-}
 
 
 
