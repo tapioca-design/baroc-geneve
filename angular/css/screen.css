@@ -3,14 +3,21 @@
 * {
 	/*border: 1px solid green;*/
 }
-
+/******************* map *************************/
 #map {
     /*height:60vh;*/
 	height:70vh;
     width:100%;
 }
+a[href^="http://maps.google.com/maps"]{display:none !important}
 
-
+.gmnoprint a, .gmnoprint span {
+    display:none;
+}
+.gmnoprint div {
+    background:none !important;
+}
+/********************************************/
 
 
 
@@ -406,39 +413,30 @@ a.list-element:active {
 
 
 
-
-
-/*.date-text {
-	opacity: 1;
-	font-size: 2em;
-	font-weight: bold;
-	color:white;
-	position: absolute;
-	z-index: 200;
+.date-resume .month {
+	background-color: black;
+	color: white;
+	font-size: 1em;
+	text-transform: uppercase;
+	padding: 0 3px 0 3px;
+	/*border:1px solid green;*/
 }
-
-.date-bkg-color{
-	filter:alpha(opacity=30); 
-			    -moz-opacity:0.3; 
-			    opacity: 0.3; 
-			    top: 0; left: 0;
-			    height: 88px; width:88px;
-			    background-size: 88px 88px;
-			    border-radius: 44px;
-				-webkit-border-radius: 44px;
-				-moz-border-radius: 44px;
-				background-color: #6b3801;
-				z-index: 195;
-}
-
-.date-bkg{
-    z-index: 190;
+/*.dayName {
+	font-family: 5px;
 }*/
+.dayNumber {
+	font-family: 30px;
+	/*border:1px solid red;*/
+}
+
+
 
 .date .day-alt2 {
 	background-color: transparent;
 	
 }
+
+
 
 
 

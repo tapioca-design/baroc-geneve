@@ -10,16 +10,44 @@ myApp.controller('MapController', ['$rootScope','$scope','$http', "$routeParams"
 
 
 
+
+
+var dateRefMonths = new Array();
+dateRefMonths[0] = "January";
+dateRefMonths[1] = "February";
+dateRefMonths[2] = "March";
+dateRefMonths[3] = "April";
+dateRefMonths[4] = "May";
+dateRefMonths[5] = "June";
+dateRefMonths[6] = "July";
+dateRefMonths[7] = "August";
+dateRefMonths[8] = "September";
+dateRefMonths[9] = "October";
+dateRefMonths[10] = "November";
+dateRefMonths[11] = "December";
+
+var dateRefDays = new Array();
+dateRefDays[0] = "Mon";
+dateRefDays[1] = "Tue";
+dateRefDays[2] = "Wed";
+dateRefDays[3] = "Thu";
+dateRefDays[4] = "Fri";
+dateRefDays[5] = "Sat";
+dateRefDays[6] = "Sun";
+
+function dayDisplay(date){
+    return "</span><span class='dayNumber'>"+date.getDate()+"</span> / ";
+    //return "<span class='dayName'>"+dateRefDays[date.getDay()]+"</span><span class='dayNumber'>"+date.getDate()+"</span>";
+}
+
                         $scope.places = places;
                         // console.log("date du premier Place de la liste, il faut virer ceux qui n ont pas de Performance");
                         // console.log($scope.places[0].performances[0].date_performance);
-
 
                         var mapOptions = {
                                 zoom: 14,
                                 center: new google.maps.LatLng(46.203129, 6.144861),
                                 mapTypeId: google.maps.MapTypeId.SATELLITE,
-
                                 panControl: false,
                                 streetViewControl: false,
                                 zoomControl: false,
@@ -40,43 +68,42 @@ myApp.controller('MapController', ['$rootScope','$scope','$http', "$routeParams"
                             var concertsList = "";
 
 
-
+                            var html = "";
+                            html += "<div class='date-resume'>";
                             var monthsWithPerformance = new Array();
                             //gather months
-                            for (var i = place.performances.length - 1; i >= 0; i--) {
+                            for (var i = 0; i < place.performances.length; i++) {
                                 var performance = place.performances[i];
                                 var date = new Date(performance.date_performance);
                                 var month = date.getMonth();
-                                
+
                                 if(monthsWithPerformance.indexOf(month) > -1){
                                     //month already registered in monthsWithPerformance
-                                    console.log(month+" already registered");
-                                    monthsWithPerformance[month].push(performance);
+                                    //console.log(month+" already registered");
+                                    
                                 } else {
                                     //not yet registered, new moth
                                     //array [april] = this performance
-                                    console.log(month+" has been registered");
-                                    monthsWithPerformance[month] = new Array();
-                                    monthsWithPerformance[month].push(performance);
+                                    monthsWithPerformance.push(month);
+                                    //console.log(dateRefMonths[month]+" has been registered");
+                                    html += "<div class='month'>";
+                                    html += dateRefMonths[month];
+                                    html += "</div>";
                                 }
+                                html += "<span class='day text-light text-bold'>";
+                                html += dayDisplay(date);
+                                html += "</span>";
                                 // concertsList += '<div class="date"><div class="date-text drop-shadow"><div class="day day-alt1 black text-light" ><span class="text-tiny">Wed</span>21</div><div class="month month-alt1 text-bold white">MARCH</div></div></div>';
                             };
-                            //we have unique array of monthes with perfos
-                            console.log(monthsWithPerformance);
+                            html += "</div>";
 
-
-
-                            // var monthsWithPerformanceUniques = [];
-                            //     $.each(monthsWithPerformance, function(i, el){
-                            //         if($.inArray(el, monthsWithPerformanceUniques) === -1) monthsWithPerformanceUniques.push(el);
-                            //     });
-                            
 
 
                             infoWindow.setContent(
                                 '<a class="red-darkest" href="#/place/'+place.id+'">'
                                 +'<h2 class="text-condensed">'+marker.title+'</h2>'+concertsList
                                 // +'<i>'+place.performances[0].date_performance+'</i>'
+                                + html
                                 +'</a>'
                                 );
                             infoWindow.open($scope.map, marker);
@@ -95,50 +122,6 @@ myApp.controller('MapController', ['$rootScope','$scope','$http', "$routeParams"
                     }
 
         });//end success
-
-
-//       //Data
-// var cities = [
-//     {
-//         city : 'Victoria Hall',
-//         desc : 'This is the best city in the world!',
-//         lat : 46.201433,
-//         long : 6.141130
-//         //46.201433, 6.141130
-//     },
-//     {
-//         city : 'Grand theatttre',
-//         desc : 'This city is aiiiiite!',
-//         lat : 46.201763,
-//         long : 6.142680
-
-//         //46.201763, 6.142680
-//     },
-//     {
-//         city : 'Forum Meyrin',
-//         desc : 'This is the second best city in the world!',
-//         lat : 46.232446,
-//         long : 6.081378
-//         //46.232446, 6.081378
-//     },
-//     {
-//         city : 'Comédie de Genève',
-//         desc : 'This is the second best city in the world!',
-//         lat : 46.197285,
-//         long : 6.143847
-//         //46.232446, 6.081378
-//     },
-//     {
-//         city : 'BFM',
-//         desc : 'This is the second best city in the world!',
-//         lat : 46.204654,
-//         long : 6.137092
-//         //46.232446, 6.081378
-//     }
-
-// ];
-      
-      
 
 
 
