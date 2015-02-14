@@ -45,35 +45,16 @@ class PlaceRestController extends FOSRestController
     * @Rest\View(serializerGroups={"list","detail"})
     */
     public function placesWithPerformancesByCityAction($city_id){
-
-      // $repository = $this->getDoctrine()
-      //     ->getRepository('TapiocaDesignClassLiveGnvBundle:Place');
-
-      // $places = $repository->createQueryBuilder('p')
-      //     ->select('p')
-      //     ->where('p.performances > 0')
-      //     ->getQuery()->getResult();
-
-          
-          // //works with NORMAL FIELD is not null, but not colelctions like performances
-          // $places = $repository->createQueryBuilder('p')
-          // ->select('p')
-          // ->where('p.imagePlaceMain IS NOT NULL')
-          // ->getQuery()->getResult();          
-          
       $em = $this->getDoctrine()->getManager();
       $places = $em->getRepository('TapiocaDesignClassLiveGnvBundle:Place')
       ->findByCity($city_id);
-
       $placesWithAtLeastOnePerformance = array();
       foreach ($places as $key => $place) {
-
           $performances = $place->getPerformances();
           if (count($performances)>0) {
               $placesWithAtLeastOnePerformance[] = $place;
           }
       }
-      
       $view = $this->view($placesWithAtLeastOnePerformance, 200);
       $view->setSerializationContext(SerializationContext::create()->setGroups(array('list','detail')));
       $view->setData($placesWithAtLeastOnePerformance);
@@ -93,7 +74,7 @@ class PlaceRestController extends FOSRestController
       ->find($place_id);
       
       $view = $this->view($place, 200);
-      $view->setSerializationContext(SerializationContext::create()->setGroups(array('detail')));
+      $view->setSerializationContext(SerializationContext::create()->setGroups(array('detail','placeGetPerformancesGetWorks')));
       $view->setData($place);
       return $view;
     }

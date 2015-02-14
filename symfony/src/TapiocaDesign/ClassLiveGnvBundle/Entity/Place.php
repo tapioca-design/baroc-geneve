@@ -44,7 +44,7 @@ class Place
      *
      * @ORM\OneToMany(targetEntity="Performance", mappedBy="place")
      * @Expose
-     * @Groups({"detail"})
+     * @Groups({"detail","placeGetPerformancesGetWorks"})
      */
     private $performances;
 

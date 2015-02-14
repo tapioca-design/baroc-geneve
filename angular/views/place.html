@@ -58,7 +58,7 @@
 
 <div id="concerts-list" >
 <ul>
-<li ng-repeat="concert in filteredConcerts = (concerts | filter:Search.term)" class="">
+<li ng-repeat="concert in concerts" class="">
 	<a 	ng-href="#/concert/{{concert.id}}" 	class="row list-element gradient"	>
 		<div class="col-xs-8">
 			<h2 class="text-condensed black">
@@ -82,7 +82,6 @@
 
 		<div class="col-xs-4" >
 		
-
 			<div class="date">
 				<div class="date-text drop-shadow">
 					<div class="day day-alt1 black text-light" >
@@ -96,10 +95,6 @@
 					</div>
 				</div>
 			</div>
-
-
-
-
 
 		</div>		
 

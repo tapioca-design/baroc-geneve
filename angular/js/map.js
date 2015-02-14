@@ -26,7 +26,6 @@ myApp.controller('MapController', ['$rootScope','$scope','$http', "$routeParams"
                                 mapTypeControl:false,
                                 scrollwheel: true,
                             }
-
                     $scope.map = new google.maps.Map(document.getElementById('map'), mapOptions);
                     $scope.markers = [];
                     var infoWindow = new google.maps.InfoWindow();
@@ -37,22 +36,53 @@ myApp.controller('MapController', ['$rootScope','$scope','$http', "$routeParams"
                             title: place.name_fr,
                             icon: '../symfony/web/bundles/tapiocadesignclasslivegnv/images/places/'+place.name_url+'/map-markers.png',
                         });
-                        
-                        
                         google.maps.event.addListener(marker, 'click', function(){
+                            var concertsList = "";
+
+
+
+                            var monthsWithPerformance = new Array();
+                            //gather months
+                            for (var i = place.performances.length - 1; i >= 0; i--) {
+                                var performance = place.performances[i];
+                                var date = new Date(performance.date_performance);
+                                var month = date.getMonth();
+                                
+                                if(monthsWithPerformance.indexOf(month) > -1){
+                                    //month already registered in monthsWithPerformance
+                                    console.log(month+" already registered");
+                                    monthsWithPerformance[month].push(performance);
+                                } else {
+                                    //not yet registered, new moth
+                                    //array [april] = this performance
+                                    console.log(month+" has been registered");
+                                    monthsWithPerformance[month] = new Array();
+                                    monthsWithPerformance[month].push(performance);
+                                }
+                                // concertsList += '<div class="date"><div class="date-text drop-shadow"><div class="day day-alt1 black text-light" ><span class="text-tiny">Wed</span>21</div><div class="month month-alt1 text-bold white">MARCH</div></div></div>';
+                            };
+                            //we have unique array of monthes with perfos
+                            console.log(monthsWithPerformance);
+
+
+
+                            // var monthsWithPerformanceUniques = [];
+                            //     $.each(monthsWithPerformance, function(i, el){
+                            //         if($.inArray(el, monthsWithPerformanceUniques) === -1) monthsWithPerformanceUniques.push(el);
+                            //     });
+                            
+
+
                             infoWindow.setContent(
                                 '<a class="red-darkest" href="#/place/'+place.id+'">'
-                                +'<h2 class="text-condensed">'+marker.title+'</h2>'+marker.content
+                                +'<h2 class="text-condensed">'+marker.title+'</h2>'+concertsList
                                 // +'<i>'+place.performances[0].date_performance+'</i>'
                                 +'</a>'
                                 );
                             infoWindow.open($scope.map, marker);
                         });
-
                         marker.content = '<div class="infoWindowContent">' + place.address + '</div>';
-                        
                         $scope.markers.push(marker);
-                        
                     }  
                     
                     for (i = 0; i < $scope.places.length; i++){
