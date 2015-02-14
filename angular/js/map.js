@@ -36,14 +36,12 @@ dateRefDays[5] = "Sat";
 dateRefDays[6] = "Sun";
 
 function dayDisplay(date){
-    return "</span><span class='dayNumber'>"+date.getDate()+"</span> / ";
-    //return "<span class='dayName'>"+dateRefDays[date.getDay()]+"</span><span class='dayNumber'>"+date.getDate()+"</span>";
+    return "<span class='dayNumber'>"+date.getDate()+"</span>";
 }
 
                         $scope.places = places;
                         // console.log("date du premier Place de la liste, il faut virer ceux qui n ont pas de Performance");
-                        // console.log($scope.places[0].performances[0].date_performance);
-
+                        
                         var mapOptions = {
                                 zoom: 14,
                                 center: new google.maps.LatLng(46.203129, 6.144861),
@@ -68,41 +66,113 @@ function dayDisplay(date){
                             var concertsList = "";
 
 
-                            var html = "";
-                            html += "<div class='date-resume'>";
-                            var monthsWithPerformance = new Array();
+                            
+                            var monthsWithPerformance = new Object();
                             //gather months
                             for (var i = 0; i < place.performances.length; i++) {
+
+                                // console.log("i="+i);
                                 var performance = place.performances[i];
-                                var date = new Date(performance.date_performance);
+                                // console.log("dateRawString:"+performance.date_performance);
+                                var d = performance.date_performance.split(/[^0-9]/);
+                                var date = new Date(d[0],d[1]-1,d[2],d[3],d[4],d[5] );
+                                // console.log("date:"+date);
                                 var month = date.getMonth();
 
-                                if(monthsWithPerformance.indexOf(month) > -1){
+                                var dayNumber = date.getDate();
+                                // console.log("dayNumber = "+dayNumber);
+
+                                if(dateRefMonths[month] in monthsWithPerformance){
                                     //month already registered in monthsWithPerformance
-                                    //console.log(month+" already registered");
-                                    
+                                    // console.log(month+" already registered");
+                                    // console.log("DAY NEXT dayNumber:"+dayNumber+" of  month:"+dateRefMonths[month]+" has been inserted");
+                                    //april june already exist, so push new value into into
+                                    monthsWithPerformance[dateRefMonths[month]].push(dayNumber);
+                                                                        
                                 } else {
                                     //not yet registered, new moth
                                     //array [april] = this performance
-                                    monthsWithPerformance.push(month);
-                                    //console.log(dateRefMonths[month]+" has been registered");
-                                    html += "<div class='month'>";
-                                    html += dateRefMonths[month];
-                                    html += "</div>";
-                                }
-                                html += "<span class='day text-light text-bold'>";
-                                html += dayDisplay(date);
-                                html += "</span>";
-                                // concertsList += '<div class="date"><div class="date-text drop-shadow"><div class="day day-alt1 black text-light" ><span class="text-tiny">Wed</span>21</div><div class="month month-alt1 text-bold white">MARCH</div></div></div>';
+                                    //set object with propoerty "april" and value is array with days
+                                    // console.log("month:"+month+" monthLabel:"+dateRefMonths[month]+" has been registered");
+                                    // console.log("DAY FIRST OF MONTH dayNumber:"+dayNumber+" of  month:"+dateRefMonths[month]+" has been inserted");
+                                    monthsWithPerformance[dateRefMonths[month]]= new Array();
+                                    monthsWithPerformance[dateRefMonths[month]].push(dayNumber);
+                                    //monthsWithPerformance[dateRefMonths[month]]= new Array("bububu");
+                                    
+                                    
+                                }  
+                                
+
+
+                                
+                                
                             };
-                            html += "</div>";
+                               
+
+                                // if 27 april has three concerts: 14h 17h 20h, keep one
+                                function eliminateDuplicates(arr) {
+                                      var i,
+                                          len=arr.length,
+                                          out=[],
+                                          obj={};
+                                     
+                                      for (i=0;i<len;i++) {
+                                        obj[arr[i]]=0;
+                                      }
+                                      for (i in obj) {
+                                        out.push(i);
+                                      }
+                                      return out;
+                                    }
+
+                                for (var key in monthsWithPerformance) {
+                                    if (monthsWithPerformance.hasOwnProperty(key)) {
+                                        monthsWithPerformance[key] = eliminateDuplicates(monthsWithPerformance[key]);
+                                  } else {
+                                    console.log("ERROR: this month has no day");
+                                  }
+                                }
 
 
+
+
+                                // console.log("monthsWithPerformance");
+                                // console.log(monthsWithPerformance);
+
+
+                                var html = "";
+                                html += "<div class='date-resume'>";
+                                for (var key in monthsWithPerformance) {
+                                 
+                                    // alert(key + " -> " + monthsWithPerformance[key]);
+                                    html += "<div class='month'>";
+                                    html += key;
+                                    html += "</div>";
+                                    for (var i = 0; i < monthsWithPerformance[key].length; i++) {
+                                        // console.log("monthsWithPerformance[key]");
+                                        // console.log(monthsWithPerformance[key]);
+                                        html += "<span class='day days-list-element text-light text-bold '>";
+                                        //html += "i:"+i
+                                        html += monthsWithPerformance[key][i];
+                                        html += "</span>";
+                                    }
+                                                                  }
+                                html += "</div>";
+
+                                
+
+                                // console.log("monthsWithPerformance jan ");
+                                // console.log(monthsWithPerformance["January"]);
+
+                                // console.log("monthsWithPerformance feb ");
+                                // console.log(monthsWithPerformance["February"]);
+
+                                // console.log("monthsWithPerformance mar");
+                                // console.log(monthsWithPerformance["March"]);
 
                             infoWindow.setContent(
-                                '<a class="red-darkest" href="#/place/'+place.id+'">'
+                                '<a class="red-dark" href="#/place/'+place.id+'">'
                                 +'<h2 class="text-condensed">'+marker.title+'</h2>'+concertsList
-                                // +'<i>'+place.performances[0].date_performance+'</i>'
                                 + html
                                 +'</a>'
                                 );

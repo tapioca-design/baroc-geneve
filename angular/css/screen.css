@@ -20,6 +20,12 @@ a[href^="http://maps.google.com/maps"]{display:none !important}
 /********************************************/
 
 
+.days-list-element {
+	padding: 0 15px 0 0;
+
+}
+
+
 
 .large {
 	
@@ -425,7 +431,8 @@ a.list-element:active {
 	font-family: 5px;
 }*/
 .dayNumber {
-	font-family: 30px;
+	font-size: 1em;
+	color:black;
 	/*border:1px solid red;*/
 }
 
