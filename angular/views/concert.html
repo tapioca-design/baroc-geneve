@@ -59,7 +59,7 @@
 										<div class="month month-alt2 text-bold white">
 											{{performance.date_performance | date : "MMMM"}}
 										</div>
-										<div class="text-bold larger white">
+										<div class="larger white">
 											{{performance.date_performance | date : "H:mm"}}
 										</div>
 									</div>
@@ -87,7 +87,7 @@
 
 											<div class="red-dark ">
 													<h3 class="text-condensed text-center">
-													 	{{performance.place.name_fr}}
+													 	
 													</h3>
 													<!-- <div>
 													 	{{performance.place.address}}
@@ -97,7 +97,7 @@
 												<button 
 												ng-click="go('/place/{{performance.place.id}}')"
 												class="btn red-lighter width-full" >
-													Details
+													{{performance.place.name_fr}}
 												</button>
 											</div>
 
@@ -121,7 +121,7 @@
 													class="btn red-darker width-full" 
 													target="_blank" 
 													>
-														Tickets<span ng-show="performance.ticket_price_lowest" class="">: chf {{performance.ticket_price_lowest}}~{{performance.ticket_price_highest}}.-
+														Acheter<span ng-show="performance.ticket_price_lowest" class="">: chf {{performance.ticket_price_lowest}}~{{performance.ticket_price_highest}}.-
 														</span>
 													</a>
 												<!-- </form> -->
