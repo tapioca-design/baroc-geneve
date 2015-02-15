@@ -35,7 +35,7 @@ class Performance
      * @ORM\ManyToOne(targetEntity="Work", inversedBy="performances")
      * @ORM\JoinColumn(name="work_id", referencedColumnName="id")
      * @Expose
-     * @Groups({""})
+     * @Groups({"withWork"})
      */
     private $work;
 
@@ -64,7 +64,7 @@ class Performance
      *
      * @ORM\Column(name="ticketWebsite", type="string", length=255, nullable=true)
      * @Expose
-     * @Groups({"detail"})
+     * @Groups({"list","detail"})
      */
     private $ticketWebsite;
 

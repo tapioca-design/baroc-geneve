@@ -1,7 +1,7 @@
 myApp.controller('PlacesListController', ['$rootScope','$scope','$http','Data','Search','Const', function($rootScope, $scope,$http, Data, Search, Const) {
       Data.headerTitle=Const.appNameFr;
             $scope.Data = Data;
-      $http.get(Const.baseUrl+'/symfony/web/api/city/1/places').
+      $http.get(Const.baseUrl+'/symfony/web/app_dev.php/api/city/1/places').
         success(function(places) {
             $scope.places = places;
         });
@@ -12,7 +12,7 @@ myApp.controller('PlaceController', ['$rootScope','$scope','$http', '$routeParam
     
 	var placeId = $routeParams.placeId;
 
-    $http.get(Const.baseUrl+'/symfony/web/api/place/'+placeId).
+    $http.get(Const.baseUrl+'/symfony/web/app_dev.php/api/place/'+placeId).
         success(function(place) {
           Data.headerTitle=place.name_fr;
             $scope.Data = Data;

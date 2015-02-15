@@ -299,8 +299,7 @@ h2 {
 /*************************************/
 main {
 	/* otherwise last elemtn of list is covered with footer */
-	/*padding-bottom: 44px;*/
-	
+	padding-bottom: 44px;
 }
 
 /*************************************/

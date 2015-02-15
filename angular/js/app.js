@@ -33,6 +33,10 @@ myApp.config(["$routeProvider", function($routeProvider) {
 		templateUrl: "views/concert.html",
 		controller:"ConcertController"
 	}).
+	// when("/performance/:performanceId/tickets", {
+	// 	templateUrl: "views/tickets.html",
+	// 	controller:"TicketsController"
+	// }).
 	when("/places-list", {
 		templateUrl: "views/places-list.html",
 		controller:"PlacesListController"
@@ -79,7 +83,11 @@ myApp.factory('Const', function($location){
     	//locahost
     	baseUrlInner= "http://"+$location.host();
     }
-    return {baseUrl:baseUrlInner, appNameFr:"Classique live Genève"};
+    return {
+    	baseUrl:baseUrlInner, 
+    	url:baseUrlInner+"/angular/",
+    	appNameFr:"Classique live Genève"
+    };
 });
 myApp.factory('Data', function($location){
     return {

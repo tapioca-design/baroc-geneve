@@ -42,7 +42,7 @@ dateRefDays[6] = "Sun";
                         var mapOptions = {
                                 zoom: 12,
                                 center: new google.maps.LatLng(46.215, 6.13),
-                                mapTypeId: google.maps.MapTypeId.SATELLITE,
+                                mapTypeId: google.maps.MapTypeId.HYBRID,
                                 panControl: false,
                                 streetViewControl: false,
                                 zoomControl: false,
@@ -146,6 +146,41 @@ dateRefDays[6] = "Sun";
                         e.preventDefault();
                         google.maps.event.trigger(selectedMarker, 'click');
                     }
+
+
+
+
+
+
+                    var myloc = new google.maps.Marker({
+                        clickable: false,
+                        icon: new google.maps.MarkerImage('//maps.gstatic.com/mapfiles/mobile/mobileimgs2.png',
+                                                                        new google.maps.Size(22,22),
+                                                                        new google.maps.Point(0,18),
+                                                                        new google.maps.Point(11,11)),
+                        shadow: null,
+                        zIndex: 999,
+                        map: $scope.map
+                    });
+
+                    if (navigator.geolocation) navigator.geolocation.getCurrentPosition(function(pos) {
+                        var me = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
+                        myloc.setPosition(me);
+                    }, function(error) {
+                        // ...
+                    });
+
+
+
+
+
+
+
+
+
+
+
+
         });//end success
  }]);
 
