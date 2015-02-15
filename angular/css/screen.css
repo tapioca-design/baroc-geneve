@@ -6,7 +6,7 @@
 /******************* map *************************/
 #map {
     /*height:60vh;*/
-	height:70vh;
+	height:85vh;
     width:100%;
 }
 a[href^="http://maps.google.com/maps"]{display:none !important}
@@ -79,18 +79,30 @@ a.black:link, a.black:hover, a.black:visited, a.black:active {
 .text-bold {
 	font-weight: bold;
 }
-button.red-darker {
+
+
+a.red-darker, button.red-darker {
 	color:#e68c6b;
 	background-color: #3b1a13;
 }
-button.red-lighter {
+
+
+
+a.red-lighter, button.red-lighter {
 	color:#000;
 	background-color: #e68c6b;
 }
-button.black {
+
+
+
+
+a.black, button.black {
 	color:#e68c6b;
 	background-color: #000;
 }
+
+
+
 .color-darkest {
 	background-color:#6b0b01;
 }

@@ -106,16 +106,25 @@
 
 											<!-- ng-click="go('{{performance.ticket_website}}')" -->
 											<div ng-show="performance.ticket_website" >
-												<button 
-												ng-click="go('/performance/{{performance.id}}/tickets')"
 
-												target="_blank" 
-												class="btn red-darker width-full" 
-												target="_blank" 
-												>
-													Tickets<span ng-show="performance.ticket_price_lowest" class="">: chf {{performance.ticket_price_lowest}}~{{performance.ticket_price_highest}}.-
-													</span>
-												</button>
+
+												<!-- <form>
+												<input 
+												type="button" 
+												value="Pricessss"  
+												onClick="window.location='{{performance.ticket_website}}'"
+												/> -->
+
+													<a 
+													ng-href="{{performance.ticket_website}}"
+													target="_blank" 
+													class="btn red-darker width-full" 
+													target="_blank" 
+													>
+														Tickets<span ng-show="performance.ticket_price_lowest" class="">: chf {{performance.ticket_price_lowest}}~{{performance.ticket_price_highest}}.-
+														</span>
+													</a>
+												<!-- </form> -->
 											</div>
 
 											<!-- <div ng-show="performance.date_performance" >

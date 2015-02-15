@@ -4,53 +4,138 @@ myApp.controller('PlaceMapController', ['$rootScope','$scope','$http', "$routePa
       
       Data.headerTitle=Const.appNameFr;
             $scope.Data = Data;
-            $http.get(Const.baseUrl+'/symfony/web/app_dev.php/api/city/1/placesWithPerformances').
-            success(function(places) {
+        $http.get(Const.baseUrl+'/symfony/web/app_dev.php/api/city/1/placesWithPerformances').
+        success(function(places) {
+
+
+
+
+
+
+var dateRefMonths = new Array();
+dateRefMonths[0] = "January";
+dateRefMonths[1] = "February";
+dateRefMonths[2] = "March";
+dateRefMonths[3] = "April";
+dateRefMonths[4] = "May";
+dateRefMonths[5] = "June";
+dateRefMonths[6] = "July";
+dateRefMonths[7] = "August";
+dateRefMonths[8] = "September";
+dateRefMonths[9] = "October";
+dateRefMonths[10] = "November";
+dateRefMonths[11] = "December";
+
+var dateRefDays = new Array();
+dateRefDays[0] = "Mon";
+dateRefDays[1] = "Tue";
+dateRefDays[2] = "Wed";
+dateRefDays[3] = "Thu";
+dateRefDays[4] = "Fri";
+dateRefDays[5] = "Sat";
+dateRefDays[6] = "Sun";
+
 
                         $scope.places = places;
+                        // console.log("date du premier Place de la liste, il faut virer ceux qui n ont pas de Performance");
                         
                         var mapOptions = {
-                                zoom: 14,
-                                center: new google.maps.LatLng(46.203129, 6.144861),
-                                mapTypeId: google.maps.MapTypeId.SATELLITE,
+                                zoom: 12,
+                                center: new google.maps.LatLng(46.215, 6.13),
+                                mapTypeId: google.maps.MapTypeId.HYBRID,
                                 panControl: false,
                                 streetViewControl: false,
                                 zoomControl: false,
                                 mapTypeControl:false,
                                 scrollwheel: true,
                             }
-
-                    $scope.map = new google.maps.Map(document.getElementById('place-map'), mapOptions);
+                    $scope.map = new google.maps.Map(document.getElementById('map'), mapOptions);
                     $scope.markers = [];
                     var infoWindow = new google.maps.InfoWindow();
                     var createMarker = function (place){
-
                         var marker = new google.maps.Marker({
                             map: $scope.map,
                             position: new google.maps.LatLng(place.map_latitude, place.map_longitude),
-                            title: place.name_fr
+                            title: place.name_fr,
+                            icon: '../symfony/web/bundles/tapiocadesignclasslivegnv/images/places/'+place.name_url+'/map-markers.png',
                         });
-                        
-                        
                         google.maps.event.addListener(marker, 'click', function(){
+                            var monthsWithPerformance = new Object();
+                            //gather months
+                            for (var i = 0; i < place.performances.length; i++) {
+                                var performance = place.performances[i];
+                                var d = performance.date_performance.split(/[^0-9]/);
+                                var date = new Date(d[0],d[1]-1,d[2],d[3],d[4],d[5] );
+                                var month = date.getMonth();
+                                var dayNumber = date.getDate();
+
+                                if(dateRefMonths[month] in monthsWithPerformance){
+                                    //month already registered in monthsWithPerformance
+                                    // console.log(month+" already registered");
+                                    // console.log("DAY NEXT dayNumber:"+dayNumber+" of  month:"+dateRefMonths[month]+" has been inserted");
+                                    //april june already exist, so push new value into into
+                                    monthsWithPerformance[dateRefMonths[month]].push(dayNumber);
+                                } else {
+                                    //not yet registered, new moth
+                                    //array [april] = this performance
+                                    //set object with propoerty "april" and value is array with days
+                                    // console.log("month:"+month+" monthLabel:"+dateRefMonths[month]+" has been registered");
+                                    // console.log("DAY FIRST OF MONTH dayNumber:"+dayNumber+" of  month:"+dateRefMonths[month]+" has been inserted");
+                                    monthsWithPerformance[dateRefMonths[month]]= new Array();
+                                    monthsWithPerformance[dateRefMonths[month]].push(dayNumber);
+                                    
+                                }  
+                            };
+                               
+
+                                // if 27 april has three concerts: 14h 17h 20h, keep one
+                                function eliminateDuplicates(arr) {
+                                      var i,
+                                          len=arr.length,
+                                          out=[],
+                                          obj={};
+                                     
+                                      for (i=0;i<len;i++) {
+                                        obj[arr[i]]=0;
+                                      }
+                                      for (i in obj) {
+                                        out.push(i);
+                                      }
+                                      return out;
+                                    }
+
+                                for (var key in monthsWithPerformance) {
+                                    if (monthsWithPerformance.hasOwnProperty(key)) {
+                                        monthsWithPerformance[key] = eliminateDuplicates(monthsWithPerformance[key]);
+                                  } else {
+                                    console.log("ERROR: this month has no day");
+                                  }
+                                }
+                                var html = "";
+                                html += "<div class='date-resume'>";
+                                for (var key in monthsWithPerformance) {
+                                    html += "<div class='month'>";
+                                    html += key;
+                                    html += "</div>";
+                                    for (var i = 0; i < monthsWithPerformance[key].length; i++) {
+                                        html += "<span class='day days-list-element text-light text-bold black '>";
+                                        html += monthsWithPerformance[key][i];
+                                        html += "</span>";
+                                    }
+                                }
+                                // html += '<button ng-click="clickPlace(performance.place.id)" target="_blank" class="btn red-lighter width-full" >Details</button>';
+                                html += "</div>";
+
                             infoWindow.setContent(
-                                '<a href="#/place/'+place.id+'">'
-                                +'<h2>'+marker.title+'</h2>'+marker.content
-                                // +'<i>'+place.performances[0].date_performance+'</i>'
+                                '<a class=" " href="#/place/'+place.id+'">'
+                                +'<h2 class="text-condensed red-dark">'+marker.title+'</h2>'
+                                + html
                                 +'</a>'
                                 );
-                            
+                            infoWindow.open($scope.map, marker);
                         });
-                        //infoWindow.open placed here ao box is auto loaded when openning map
-                        infoWindow.open($scope.map, marker);
-
-
-
-
-                        marker.content = '<div class="infoWindowContent">' + place.address + '</div>';
-                        
+                        // marker.content = '<div class="infoWindowContent">' + place.address + '</div>';
                         $scope.markers.push(marker);
-                        
                     }  
                     
                     for (i = 0; i < $scope.places.length; i++){
@@ -62,51 +147,41 @@ myApp.controller('PlaceMapController', ['$rootScope','$scope','$http', "$routePa
                         google.maps.event.trigger(selectedMarker, 'click');
                     }
 
+
+
+
+
+
+                    var myloc = new google.maps.Marker({
+                        clickable: false,
+                        icon: new google.maps.MarkerImage('//maps.gstatic.com/mapfiles/mobile/mobileimgs2.png',
+                                                                        new google.maps.Size(22,22),
+                                                                        new google.maps.Point(0,18),
+                                                                        new google.maps.Point(11,11)),
+                        shadow: null,
+                        zIndex: 999,
+                        map: $scope.map
+                    });
+
+                    if (navigator.geolocation) navigator.geolocation.getCurrentPosition(function(pos) {
+                        var me = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
+                        myloc.setPosition(me);
+                    }, function(error) {
+                        // ...
+                    });
+
+
+
+
+
+
+
+
+
+
+
+
         });//end success
-
-
-//       //Data
-// var cities = [
-//     {
-//         city : 'Victoria Hall',
-//         desc : 'This is the best city in the world!',
-//         lat : 46.201433,
-//         long : 6.141130
-//         //46.201433, 6.141130
-//     },
-//     {
-//         city : 'Grand theatttre',
-//         desc : 'This city is aiiiiite!',
-//         lat : 46.201763,
-//         long : 6.142680
-
-//         //46.201763, 6.142680
-//     },
-//     {
-//         city : 'Forum Meyrin',
-//         desc : 'This is the second best city in the world!',
-//         lat : 46.232446,
-//         long : 6.081378
-//         //46.232446, 6.081378
-//     },
-//     {
-//         city : 'Comédie de Genève',
-//         desc : 'This is the second best city in the world!',
-//         lat : 46.197285,
-//         long : 6.143847
-//         //46.232446, 6.081378
-//     },
-//     {
-//         city : 'BFM',
-//         desc : 'This is the second best city in the world!',
-//         lat : 46.204654,
-//         long : 6.137092
-//         //46.232446, 6.081378
-//     }
-
-// ];
-      
-      
  }]);
 
 
