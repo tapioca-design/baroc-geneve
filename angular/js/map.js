@@ -42,7 +42,7 @@ dateRefDays[6] = "Sun";
                         var mapOptions = {
                                 zoom: 12,
                                 center: new google.maps.LatLng(46.215, 6.13),
-                                mapTypeId: google.maps.MapTypeId.HYBRID,
+                                mapTypeId: google.maps.MapTypeId.ROADMAP,
                                 panControl: false,
                                 streetViewControl: false,
                                 zoomControl: false,

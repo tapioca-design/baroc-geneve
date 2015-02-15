@@ -1,16 +1,11 @@
 myApp.controller('PlaceMapController', ['$rootScope','$scope','$http', "$routeParams",'$location','Data','Search','Const', function($rootScope,$scope,$http,$routeParams,$location, Data, Search, Const) { 
 
-
+    var placeId = $routeParams.placeId;
       
       Data.headerTitle=Const.appNameFr;
             $scope.Data = Data;
-        $http.get(Const.baseUrl+'/symfony/web/app_dev.php/api/city/1/placesWithPerformances').
-        success(function(places) {
-
-
-
-
-
+        $http.get(Const.baseUrl+'/symfony/web/app_dev.php/api/place/'+placeId).
+        success(function(place) {
 
 var dateRefMonths = new Array();
 dateRefMonths[0] = "January";
@@ -35,14 +30,11 @@ dateRefDays[4] = "Fri";
 dateRefDays[5] = "Sat";
 dateRefDays[6] = "Sun";
 
-
-                        $scope.places = places;
-                        // console.log("date du premier Place de la liste, il faut virer ceux qui n ont pas de Performance");
-                        
+                        $scope.place = place;
                         var mapOptions = {
-                                zoom: 12,
-                                center: new google.maps.LatLng(46.215, 6.13),
-                                mapTypeId: google.maps.MapTypeId.HYBRID,
+                                zoom: 14,
+                                center: new google.maps.LatLng(place.map_latitude, place.map_longitude),
+                                mapTypeId: google.maps.MapTypeId.ROADMAP,
                                 panControl: false,
                                 streetViewControl: false,
                                 zoomControl: false,
@@ -70,24 +62,14 @@ dateRefDays[6] = "Sun";
                                 var dayNumber = date.getDate();
 
                                 if(dateRefMonths[month] in monthsWithPerformance){
-                                    //month already registered in monthsWithPerformance
-                                    // console.log(month+" already registered");
-                                    // console.log("DAY NEXT dayNumber:"+dayNumber+" of  month:"+dateRefMonths[month]+" has been inserted");
-                                    //april june already exist, so push new value into into
                                     monthsWithPerformance[dateRefMonths[month]].push(dayNumber);
                                 } else {
-                                    //not yet registered, new moth
-                                    //array [april] = this performance
-                                    //set object with propoerty "april" and value is array with days
-                                    // console.log("month:"+month+" monthLabel:"+dateRefMonths[month]+" has been registered");
-                                    // console.log("DAY FIRST OF MONTH dayNumber:"+dayNumber+" of  month:"+dateRefMonths[month]+" has been inserted");
                                     monthsWithPerformance[dateRefMonths[month]]= new Array();
                                     monthsWithPerformance[dateRefMonths[month]].push(dayNumber);
                                     
                                 }  
                             };
-                               
-
+                            
                                 // if 27 april has three concerts: 14h 17h 20h, keep one
                                 function eliminateDuplicates(arr) {
                                       var i,
@@ -103,7 +85,6 @@ dateRefDays[6] = "Sun";
                                       }
                                       return out;
                                     }
-
                                 for (var key in monthsWithPerformance) {
                                     if (monthsWithPerformance.hasOwnProperty(key)) {
                                         monthsWithPerformance[key] = eliminateDuplicates(monthsWithPerformance[key]);
@@ -123,7 +104,6 @@ dateRefDays[6] = "Sun";
                                         html += "</span>";
                                     }
                                 }
-                                // html += '<button ng-click="clickPlace(performance.place.id)" target="_blank" class="btn red-lighter width-full" >Details</button>';
                                 html += "</div>";
 
                             infoWindow.setContent(
@@ -134,24 +114,13 @@ dateRefDays[6] = "Sun";
                                 );
                             infoWindow.open($scope.map, marker);
                         });
-                        // marker.content = '<div class="infoWindowContent">' + place.address + '</div>';
                         $scope.markers.push(marker);
                     }  
-                    
-                    for (i = 0; i < $scope.places.length; i++){
-                        createMarker($scope.places[i]);
-                    }
-
+                        createMarker($scope.place);
                     $scope.openInfoWindow = function(e, selectedMarker){
                         e.preventDefault();
                         google.maps.event.trigger(selectedMarker, 'click');
                     }
-
-
-
-
-
-
                     var myloc = new google.maps.Marker({
                         clickable: false,
                         icon: new google.maps.MarkerImage('//maps.gstatic.com/mapfiles/mobile/mobileimgs2.png',
@@ -166,18 +135,59 @@ dateRefDays[6] = "Sun";
                     if (navigator.geolocation) navigator.geolocation.getCurrentPosition(function(pos) {
                         var me = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
                         myloc.setPosition(me);
+
+
+
+
+
+                        //direction
+                        var directionDisplay;
+                        var directionsService = new google.maps.DirectionsService();     //Create a DirectionsService object which is required to communicate with the Google Maps API Direction Service
+                        
+                        
+                                    directionsDisplay = new google.maps.DirectionsRenderer();        //Create a DirectionsRenderer object to render the directions results
+                            var center = new google.maps.LatLng(0, 0);    //Map is centered at 0,0
+                            
+                            directionsDisplay.setMap($scope.map);
+                            // var start = "Pune";     //Set the source/ origin
+                            // var end = "Mumbai";  //Set the destination
+                            var request =
+                            {
+                                    origin:new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude),
+                                    destination:new google.maps.LatLng(place.map_latitude, place.map_longitude),
+                                    travelMode: google.maps.DirectionsTravelMode.DRIVING          //Current travel mode is DRIVING. You can change to BICYCLING or WALKING and see the changes.
+                            };
+                            directionsService.route(request, function(response, status)
+                            {
+                                    if (status == google.maps.DirectionsStatus.OK) //Check if request is successful.
+                                    {
+                                    directionsDisplay.setDirections(response);         //Display the directions result
+                                    }
+                            });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                     }, function(error) {
                         // ...
                     });
-
-
-
-
-
-
-
-
-
 
 
 

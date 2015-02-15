@@ -37,6 +37,9 @@ myApp.controller('HeaderController', ['$rootScope','$scope','$http',"$route", '$
                   $scope.searchAllowed=1;
                   $scope.searchActive = 0;
                   
+              } else if (viewController=="PlaceMapController")  {
+                  $scope.searchAllowed=0;
+                  $scope.searchActive = 0;
               } else {
                   console.log("NO ROUTE SUPPOSED TO END UP HERE !!!");
                   $scope.searchAllowed=1;
