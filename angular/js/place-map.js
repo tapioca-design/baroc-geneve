@@ -90,6 +90,7 @@ dateRefDays[6] = "Sun";
                                         monthsWithPerformance[key] = eliminateDuplicates(monthsWithPerformance[key]);
                                   } else {
                                     console.log("ERROR: this month has no day");
+                                    alert("Error 12.7: current month has no day");
                                   }
                                 }
                                 var html = "";
@@ -145,7 +146,8 @@ dateRefDays[6] = "Sun";
                         var directionsService = new google.maps.DirectionsService();     //Create a DirectionsService object which is required to communicate with the Google Maps API Direction Service
                         
                         
-                                    directionsDisplay = new google.maps.DirectionsRenderer();        //Create a DirectionsRenderer object to render the directions results
+                                    directionsDisplay = new google.maps.DirectionsRenderer({suppressMarkers: true});        //Create a DirectionsRenderer object to render the directions results
+                                    // directionsDisplay.suppressMarkers = true;
                             var center = new google.maps.LatLng(0, 0);    //Map is centered at 0,0
                             
                             directionsDisplay.setMap($scope.map);
@@ -162,6 +164,7 @@ dateRefDays[6] = "Sun";
                                     if (status == google.maps.DirectionsStatus.OK) //Check if request is successful.
                                     {
                                     directionsDisplay.setDirections(response);         //Display the directions result
+
                                     }
                             });
 
@@ -169,29 +172,18 @@ dateRefDays[6] = "Sun";
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                     }, function(error) {
-                        // ...
+                        alert("Unable to find your location");
                     });
 
 
+        //end success
+        }).error(function(data, status) {
+            var msg='Error 12.2: unable to load place. Status:'+status;
+            //console.log(msg);
+            alert(msg);
+        });
 
-        });//end success
  }]);
 
 

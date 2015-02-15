@@ -167,7 +167,7 @@ dateRefDays[6] = "Sun";
                         var me = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
                         myloc.setPosition(me);
                     }, function(error) {
-                        // ...
+                        alert("Unable to find your location");
                     });
 
 
@@ -181,7 +181,11 @@ dateRefDays[6] = "Sun";
 
 
 
-        });//end success
+        }).error(function(data, status) {
+            var msg='Error 12.2: unable to load place. Status:'+status;
+            //console.log(msg);
+            alert(msg);
+        });
  }]);
 
 
