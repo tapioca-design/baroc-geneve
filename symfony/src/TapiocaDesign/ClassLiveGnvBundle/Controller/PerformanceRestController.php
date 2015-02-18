@@ -32,6 +32,39 @@ class PerformanceRestController extends FOSRestController
       $view->setData($performance);
       return $view;
   	}
+
+
+
+
+
+
+    /*
+    * @Rest\View(serializerGroups={"list","withWork"})
+    */
+    public function performancesByPlaceAction($place_id){
+      $repository = $this->getDoctrine()
+    ->getRepository('TapiocaDesignClassLiveGnvBundle:Performance');
+
+      $query = $repository->createQueryBuilder('p')
+          ->where('p.place = :place_id')
+          ->setParameter('place_id', $place_id)
+          // ->orderBy('p.price', 'ASC')
+          ->getQuery();
+
+      $performances = $query->getResult();
+
+
+
+
+      $view = $this->view($performances, 200);
+      $view->setSerializationContext(SerializationContext::create()->setGroups(array('list','withWork')));
+      $view->setData($performances);
+      return $view;
+    }
+
+
+
+    
   
   	
 }

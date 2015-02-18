@@ -63,6 +63,12 @@ TD_CLG_performance:
         _method: GET
         performance_id: "\d+"
 
+TD_CLG_performancesByPlace:
+    pattern:  /place/{place_id}/performances
+    defaults: { _controller: TapiocaDesignClassLiveGnvBundle:PerformanceRest:performancesByPlace, _format: ~ }
+    requirements:
+        _method: GET
+        place_id: "\d+"
 
 
 
