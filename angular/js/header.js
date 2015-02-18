@@ -1,4 +1,4 @@
-myApp.controller('HeaderController', ['$rootScope','$scope','$http',"$route", '$location','Data','Search','Const', function($rootScope, $scope, $http, $route, $location, Data, Search, Const) {
+myApp.controller('HeaderController', ['$rootScope','$scope','$http',"$route", '$location','$routeParams','$route','Data','Search','Const', function($rootScope, $scope, $http, $route, $location, $routeParams,$route, Data, Search, Const) {
       
       // Const.domainName = "http://"+$location.host();
       // $scope.Const = Const;
@@ -6,13 +6,35 @@ myApp.controller('HeaderController', ['$rootScope','$scope','$http',"$route", '$
 
       $scope.Data = Data;
       $scope.Search = Search;
+      $scope.Const = Const;
 
       $scope.searchAllowed = Data.searchAllowed;
       $scope.searchActive = Data.searchActive;
 
       $scope.back={};
+
+      $scope.back.url = ""
+      $rootScope.$on('$locationChangeStart',function(evt, absNewUrl, absOldUrl) {
+                  // console.log('start', evt, absNewUrl, absOldUrl);
+                  $scope.back.url = absOldUrl;
+              });
+      $rootScope.$on('$locationChangeSuccess',function(evt, absNewUrl, absOldUrl) {
+                  // console.log('success', evt, absNewUrl, absOldUrl);
+                  $scope.back.url = absOldUrl;
+              });
+
+
+
       $scope.$on('$routeChangeStart', function(event, next, current) {
 
+              // console.log("$location.url()");
+              // console.log($location.url());
+
+              $rootScope.$on('$stateChangeSuccess', function (ev, to, toParams, from, fromParams) {
+
+                 // $state.href(from, fromParams)
+
+              });
               Search.term = "";
 
              if (next && next.$$route && next.$$route.controller) {
@@ -21,18 +43,26 @@ myApp.controller('HeaderController', ['$rootScope','$scope','$http',"$route", '$
                 var viewController = "";
              }
               
-              // console.log("viewController "+viewController)
               
+              
+              
+              
+
+
+
+
+
+
+
+
               if (viewController=="ConcertsListController" || viewController=="PlacesListController")  {
                   $scope.searchAllowed=1;
               } else if (viewController=="ConcertController")  {
                   $scope.searchAllowed=0;
                   $scope.searchActive = 0;
-                  $scope.back.url = "#/concerts-list";
               } else if (viewController=="PlaceController")  {
                   $scope.searchAllowed=0;
                   $scope.searchActive = 0;
-                  $scope.back.url = "#/places-list";
               } else if (viewController=="MapController")  {
                   $scope.searchAllowed=1;
                   $scope.searchActive = 0;

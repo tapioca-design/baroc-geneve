@@ -1,5 +1,7 @@
 myApp.controller('ConcertsListController', ['$rootScope','$scope','$http', "$routeParams",'$location','Data','Search','Const', function($rootScope,$scope,$http,$routeParams,$location, Data, Search, Const) { 
 
+
+
       Data.headerTitle=Const.appNameFr;
       $scope.Data = Data;
       $scope.Search = Search;

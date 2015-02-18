@@ -3,22 +3,8 @@ var myApp = angular.module("myApp",
 
 var appControllers = angular.module("appControllers", []);
 
-// myApp.config(["$routeProvider", function($routeProvider) {
-//   $routeProvider.
-//   when("/", {
-//     templateUrl: "views/concerts-list.html",
-//     controller:"ConcertsListController"
-//   }).
-//   otherwise({
-//     redirectTo: "/"
-//   });
-//   }]);
 
-  //   myApp.factory('Data', function () {
-  //     return { FirstName: '', sergtfgg: '', rdtghe: '', jwshtsjh: '', hrdthr: '', jdrhrdth: '' };
-  // });
-
-myApp.config(["$routeProvider", function($routeProvider) {
+myApp.config(["$routeProvider","$locationProvider", function($routeProvider, $locationProvider) {
 	//console.log("myApp.config");
 	$routeProvider.
 	when("/concerts-list", {
@@ -57,20 +43,23 @@ myApp.config(["$routeProvider", function($routeProvider) {
 }]);
 
 
-// myApp.config(function(uiGmapGoogleMapApiProvider) {
-//     uiGmapGoogleMapApiProvider.configure({
-//         //    key: 'your api key',
-//         v: '3.17',
-//         libraries: 'weather,geometry,visualization'
+
+// myApp.run(function ($rootScope, $location) {
+
+//     var history = [];
+
+//     $rootScope.$on('$routeChangeSuccess', function() {
+//         history.push($location.$$path);
 //     });
-// })
 
-
-// myApp.controller('MapCtrl', function ($scope) {
+//     $rootScope.back = function () {
+//         var prevUrl = history.length > 1 ? history.splice(-2)[0] : "/";
+//         $location.path(prevUrl);
+//     };
 
     
-// });
 
+// });
 
 
 
