@@ -22,7 +22,7 @@ use JMS\Serializer\SerializationContext;
 class WorkRestController extends FOSRestController
 {
     /*
-    * @Rest\View(serializerGroups={"list"})
+    * @Rest\View(serializerGroups={"list","performancesFromWork"})
     */
     public function worksOrderedByFirstPerformanceAction($city_id){
     	$em = $this->getDoctrine()->getManager();
@@ -46,25 +46,14 @@ class WorkRestController extends FOSRestController
       ->findBy(
         array("id"=>$work_ids)
         );
-      //maybe use virtual value to add datetime to work, and not performance,
-      //snice that s what we gonna display in list
-      
-      //$return=array();
-      //$return[]=array('places' => $places);
-      //$return[]=array('performances' => $performances);
-      
       $view = $this->view($works, 200);
-      $view->setSerializationContext(SerializationContext::create()->setGroups(array('list')));
+      $view->setSerializationContext(SerializationContext::create()->setGroups(array('list',"performancesFromWork")));
       $view->setData($works);
       return $view;
-      /*
-      $return[]=array($works);
-      return $return;
-      */
   	}
 
     /*
-    * @Rest\View(serializerGroups={"detail"})
+    * @Rest\View(serializerGroups={"detail","performancesFromWork"})
     */
     public function workAction($work_id){
       $em = $this->getDoctrine()->getManager();
@@ -72,14 +61,14 @@ class WorkRestController extends FOSRestController
       ->find($work_id);
       
       $view = $this->view($work, 200);
-      $view->setSerializationContext(SerializationContext::create()->setGroups(array('list','detail')));
+      $view->setSerializationContext(SerializationContext::create()->setGroups(array('list','detail',"performancesFromWork")));
       $view->setData($work);
       return $view;
     }
 
 
     /*
-    * @Rest\View(serializerGroups={"detail"})
+    * @Rest\View(serializerGroups={"list", "performancesFromWork"})
     */
     public function worksByPlaceAction($place_id){
       $em = $this->getDoctrine()->getManager();
@@ -103,42 +92,10 @@ class WorkRestController extends FOSRestController
         array("id"=>$work_ids)
         );
       $view = $this->view($works, 200);
-      $view->setSerializationContext(SerializationContext::create()->setGroups(array('list')));
+      $view->setSerializationContext(SerializationContext::create()->setGroups(array('list',"performancesFromWork")));
       $view->setData($works);
       return $view;
 
-
-
-
-
-      // die("place_id=$place_id");
-
-
-
-
-      // foreach ($places as $place) {
-      //     $place_id = $place->getId();
-      //     $performances = $em->getRepository('TapiocaDesignClassLiveGnvBundle:Performance')
-      //     ->findBy(
-      //         array("place"=>$place_id),
-      //         array("datePerformance"=>"ASC")
-      //       );
-      //     foreach ($performances as $performance) {
-      //         //store id of work of current place performances
-      //         $work_ids[]= $performance->getWork()->getId();
-      //     }
-      // }
-      // //if work id8 had 5 performances, we would have 5 * id8, we want it once
-      // $work_ids = array_unique($work_ids);
-      // $works = $em->getRepository('TapiocaDesignClassLiveGnvBundle:Work')
-      // ->findBy(
-      //   array("id"=>$work_ids)
-      //   );
-      
-      // $view = $this->view($works, 200);
-      // $view->setSerializationContext(SerializationContext::create()->setGroups(array('list')));
-      // $view->setData($works);
-      // return $view;
     }
 
 

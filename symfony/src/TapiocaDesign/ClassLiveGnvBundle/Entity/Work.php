@@ -35,7 +35,7 @@ class Work
      * @ORM\OneToMany(targetEntity="Performance", mappedBy="work")
      * @ORM\OrderBy({"datePerformance" = "ASC"})
      * @Expose
-     * @Groups({"list","detail"})
+     * @Groups({"performancesFromWork"})
      */
     private $performances;
 

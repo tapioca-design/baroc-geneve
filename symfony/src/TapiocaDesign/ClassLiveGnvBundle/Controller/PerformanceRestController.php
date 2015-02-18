@@ -21,14 +21,14 @@ use JMS\Serializer\SerializationContext;
 class PerformanceRestController extends FOSRestController
 {
     /*
-    * @Rest\View(serializerGroups={"list","withWork"})
+    * @Rest\View(serializerGroups={"list","workFromPerformance"})
     */
     public function performanceAction($performance_id){
     	$em = $this->getDoctrine()->getManager();
     	$performance = $em->getRepository('TapiocaDesignClassLiveGnvBundle:Performance')->find($performance_id);
 
     	$view = $this->view($performance, 200);
-      $view->setSerializationContext(SerializationContext::create()->setGroups(array('list','withWork')));
+      $view->setSerializationContext(SerializationContext::create()->setGroups(array('list','workFromPerformance')));
       $view->setData($performance);
       return $view;
   	}
@@ -39,7 +39,7 @@ class PerformanceRestController extends FOSRestController
 
 
     /*
-    * @Rest\View(serializerGroups={"list","withWork"})
+    * @Rest\View(serializerGroups={"list","workFromPerformance"})
     */
     public function performancesByPlaceAction($place_id){
       $repository = $this->getDoctrine()
@@ -57,7 +57,7 @@ class PerformanceRestController extends FOSRestController
 
 
       $view = $this->view($performances, 200);
-      $view->setSerializationContext(SerializationContext::create()->setGroups(array('list','withWork')));
+      $view->setSerializationContext(SerializationContext::create()->setGroups(array('list','workFromPerformance')));
       $view->setData($performances);
       return $view;
     }

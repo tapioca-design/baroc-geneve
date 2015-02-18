@@ -35,7 +35,7 @@ class Performance
      * @ORM\ManyToOne(targetEntity="Work", inversedBy="performances")
      * @ORM\JoinColumn(name="work_id", referencedColumnName="id")
      * @Expose
-     * @Groups({"withWork"})
+     * @Groups({"withWork","workFromPerformance"})
      */
     private $work;
 
