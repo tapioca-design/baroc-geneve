@@ -7,6 +7,9 @@ myApp.controller('PlacesListController', ['$rootScope','$scope','$http','Data','
         });
  }]);
 
+
+
+
 myApp.controller('PlaceController', ['$rootScope','$scope','$http', '$routeParams','Data','Search','Const', function($rootScope, $scope,$http, $routeParams, Data, Search, Const) {
 	// console.log("PC $rootScope.header_title_over = "+$rootScope.header_title_over);
     
@@ -28,11 +31,11 @@ myApp.controller('PlaceController', ['$rootScope','$scope','$http', '$routeParam
     	window.location.href = link;
  	};
     /*********** concerts in this place ***********/
-    $http.get(Const.baseUrl+'/symfony/web/app_dev.php/api/place/'+placeId+'/works').
-    success(function(concerts) {
+    $http.get(Const.baseUrl+'/symfony/web/app_dev.php/api/place/'+placeId+'/performancesGroupedByWork').
+    success(function(performances) {
         // console.log("concerts");
         // console.log(concerts);
-        $scope.concerts = concerts;
+        $scope.performances = performances;
     });
 
 

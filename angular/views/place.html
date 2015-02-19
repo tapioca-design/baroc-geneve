@@ -58,24 +58,29 @@
 
 <div id="concerts-list" >
 <ul>
-<li ng-repeat="concert in concerts" class="">
-	<a 	ng-href="#/concert/{{concert.id}}" 	class="row list-element gradient"	>
+
+
+
+
+
+<li ng-repeat="performance in performances" class="">
+	<a 	ng-href="#/concert/{{performance.work.id}}" 	class="row list-element gradient"	>
 		<div class="col-xs-8">
 			<h2 class="text-condensed black">
-				{{concert.name}}
+				{{performance.work.name}}
 			</h2>
 			<span class="grey">
-				<span ng-show="concert.interpreter">
-	        		{{concert.interpreter}}
+				<span ng-show="performance.work.interpreter">
+	        		{{performance.work.interpreter}}
 	    		</span>
-				<span ng-show="concert.director">
-	        		DIRECT:{{concert.director}}
+				<span ng-show="performance.work.director">
+	        		DIRECT:{{performance.work.director}}
 	    		</span>
-	    		<span ng-show="concert.composer">
-	        		COMP:{{concert.composer}}
+	    		<span ng-show="performance.work.composer">
+	        		COMP:{{performance.work.composer}}
 	    		</span>
-	    		<span ng-show="concert.style">
-	        		STYLE:{{concert.style}}
+	    		<span ng-show="performance.work.style">
+	        		STYLE:{{performance.work.style}}
 	    		</span>
     		</span>
 		</div>
@@ -86,12 +91,12 @@
 				<div class="date-text drop-shadow">
 					<div class="day day-alt1 black text-light" >
 						<span class="text-tiny">
-						{{concert.performances[0].date_performance | date : "EEE"}}
+						{{performance.date_performance | date : "EEE"}}
 						</span>
-						{{concert.performances[0].date_performance | date : "d"}}
+						{{performance.date_performance | date : "d"}}
 					</div>
 					<div class="month month-alt1 text-bold white">
-						{{concert.performances[0].date_performance | date : "MMMM"}}
+						{{performance.date_performance | date : "MMMM"}}
 					</div>
 				</div>
 			</div>
@@ -100,16 +105,13 @@
 
 	</a>
 	</li>
+
+
+
+
+
+
+
 </ul>
 </div>
-
-
-
-
-
-
-
-		
 </div>
-
-
