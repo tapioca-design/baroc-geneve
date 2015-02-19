@@ -26,59 +26,18 @@ class WorkRestController extends FOSRestController
     * @Rest\View(serializerGroups={"list","workFromPerformance"})
     */
     public function worksOrderedByFirstPerformanceAction($city_id){
-    	
-     //  $em = $this->getDoctrine()->getManager();
-    	// $places = $em->getRepository('TapiocaDesignClassLiveGnvBundle:Place')
-     //  ->findByCity($city_id);
-     //  foreach ($places as $place) {
-     //      $place_id = $place->getId();
-     //      $performances = $em->getRepository('TapiocaDesignClassLiveGnvBundle:Performance')
-     //      ->findBy(
-     //          array("place"=>$place_id),
-     //          array("datePerformance"=>"ASC")
-     //        );
-     //      foreach ($performances as $performance) {
-     //          //store id of work of current place performances
-     //          $work_ids[]= $performance->getWork()->getId();
-     //      }
-     //  }
-     //  //if work id8 had 5 performances, we would have 5 * id8, we want it once
-     //  $work_ids = array_unique($work_ids);
-     //  $works = $em->getRepository('TapiocaDesignClassLiveGnvBundle:Work')
-     //  ->findBy(
-     //    array("id"=>$work_ids)
-     //    );
-
-
-
-    //   $repository = $this->getDoctrine()
-    // ->getRepository('TapiocaDesignClassLiveGnvBundle:Performance');
-
-    //   $query = $repository->createQueryBuilder('p')
-    //       ->where('p.city = :city_id')
-    //       ->setParameter('city_id', $city_id)
-    //       ->orderBy('p.datePerformance', 'ASC')
-    //       ->groupBy('p.work')
-          
-    //       ->getQuery();
-    //   $performances = $query->getResult();
-
-
-
-
       $em = $this->getDoctrine()->getManager();
       $query = $em->createQuery('
         SELECT p 
         FROM TapiocaDesign\ClassLiveGnvBundle\Entity\Performance p 
-       
+        LEFT JOIN TapiocaDesign\ClassLiveGnvBundle\Entity\Place pl WITH p.place = pl.id
+        WHERE pl.city = '.$city_id.' 
         GROUP BY p.work
         ORDER BY p.datePerformance ASC
         ');
 
       $performances = $query->getResult();
-
-
-
+      
       $view = $this->view($performances, 200);
       $view->setSerializationContext(SerializationContext::create()->setGroups(array('list', "workFromPerformance")));
       $view->setData($performances);
