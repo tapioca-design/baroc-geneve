@@ -26,18 +26,27 @@ class WorkRestController extends FOSRestController
     * @Rest\View(serializerGroups={"list","workFromPerformance"})
     */
     public function worksOrderedByFirstPerformanceAction($city_id){
+
+
+      //min(p.datePerformance) gives the first date to come for a work, it s used because group by work will merge performances, regardless of any date sorting, ORDER BY is processed afterword
+      
+      //when group by work, merge with earliest date performance on top 
       $em = $this->getDoctrine()->getManager();
       $query = $em->createQuery('
-        SELECT p 
+        SELECT p, min(p.datePerformance) 
         FROM TapiocaDesign\ClassLiveGnvBundle\Entity\Performance p 
         LEFT JOIN TapiocaDesign\ClassLiveGnvBundle\Entity\Place pl WITH p.place = pl.id
         WHERE pl.city = '.$city_id.' 
-        GROUP BY p.work
+        GROUP BY p.work  
         ORDER BY p.datePerformance ASC
+        
         ');
+// AND p.datePerformance > CURRENT_TIMESTAMP()
+//GROUP BY p.work
+
 
       $performances = $query->getResult();
-      
+
       $view = $this->view($performances, 200);
       $view->setSerializationContext(SerializationContext::create()->setGroups(array('list', "workFromPerformance")));
       $view->setData($performances);
