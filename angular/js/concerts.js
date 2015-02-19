@@ -46,11 +46,7 @@ $scope.colors = ["#fc0003", "#f70008", "#f2000d", "#ed0012", "#e80017", "#e3001c
                 target.push(getSlide(target, style));
             };
 
-            $scope.carouselIndex = 3;
-            $scope.carouselIndex2 = 0;
-            $scope.carouselIndex2 = 1;
-            $scope.carouselIndex3 = 5;
-            $scope.carouselIndex4 = 5;
+            // $scope.carouselIndex2 = 1;
 
             function addSlides(target, style, qty) {
                 for (var i=0; i < qty; i++) {
