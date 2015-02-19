@@ -26,6 +26,10 @@ a[href^="http://maps.google.com/maps"]{display:none !important}
 }
 
 
+.small {
+	font-size: 0.7em;
+}
+
 
 .large {
 	

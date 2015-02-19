@@ -1,13 +1,3 @@
-
-
-
-
-
-
-
-
-
-
 <!-- <div style="background-color:red">yoyo</div> -->
 <div id="concert" class="row" >
 		<div 
@@ -52,19 +42,21 @@
                     <ul rn-carousel rn-carousel-index="carouselIndex2" rn-carousel-auto-slide="2" class="carousel2">
                         <li ng-repeat="performance in work.performances" class="performance">
 							<div class="row">
-								<div class="col-xs-4">
+								<div class="col-xs-5">
 
 									<div class="date date-narrow">
 										<div class="day day-alt2 text-white text-light">
 											<span class="text-tiny">
 											{{performance.date_performance | date : "EEE"}}
 											</span>
+											<span class="larger">
 											{{performance.date_performance | date : "d"}}
+											</span>
 										</div>
 										<div class="month month-alt2 text-bold white">
 											{{performance.date_performance | date : "MMMM"}}
 										</div>
-										<div class="larger white">
+										<div class=" white">
 											{{performance.date_performance | date : "H:mm"}}
 										</div>
 									</div>
@@ -87,7 +79,8 @@
 									</div> -->
 
 								</div>
-								<div class="col-xs-8">
+								<div class="col-xs-7">	
+									<br />
 
 
 											<div class="red-dark ">
@@ -101,7 +94,7 @@
 											<div>
 												<button 
 												ng-click="go('/place/{{performance.place.id}}')"
-												class="btn red-lighter width-full" >
+												class="btn red-lighter width-full small" >
 													{{performance.place.name_fr}}
 												</button>
 											</div>
@@ -123,10 +116,10 @@
 													<a 
 													ng-href="{{performance.ticket_website}}"
 													target="_blank" 
-													class="btn red-darker width-full" 
+													class="btn red-lighter width-full small" 
 													target="_blank" 
 													>
-														Acheter<span ng-show="performance.ticket_price_lowest" class="">: chf {{performance.ticket_price_lowest}}~{{performance.ticket_price_highest}}.-
+														Ticket<span ng-show="performance.ticket_price_lowest" class="">: chf {{performance.ticket_price_lowest}}~{{performance.ticket_price_highest}}.-
 														</span>
 													</a>
 												<!-- </form> -->
