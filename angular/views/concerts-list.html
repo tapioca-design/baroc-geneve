@@ -1,27 +1,26 @@
 
-
 <!-- retreiveHeaderTitle() = {{retreiveHeaderTitle()}} -->
 
 <div id="concerts-list" >
   <ul >
-	<li ng-repeat="concert in filteredConcerts = (concerts | filter:Search.term)" class="">
+	<li ng-repeat="concert in filteredConcerts = (concerts | filter:Search.term | orderBy: concert[1])" class="">
 	<a 	ng-href="#/concert/{{concert.work.id}}" 	class="row list-element gradient"	>
 		<div class="col-xs-8">
 			<h2 class="text-condensed black">
-				{{concert.work.name}}
+				{{concert[0].work.name}}
 			</h2>
 			<span class="grey">
 				<span ng-show="concert.work.interpreter">
-	        		{{concert.work.interpreter}}
+	        		{{concert[0].work.interpreter}}
 	    		</span>
 				<span ng-show="concert.work.director">
-	        		DIRECT:{{concert.work.director}}
+	        		DIRECT:{{concert[0].work.director}}
 	    		</span>
 	    		<span ng-show="concert.work.composer">
-	        		COMP:{{concert.work.composer}}
+	        		COMP:{{concert[0].work.composer}}
 	    		</span>
 	    		<span ng-show="concert.work.style">
-	        		STYLE:{{concert.work.style}}
+	        		STYLE:{{concert[0].work.style}}
 	    		</span>
     		</span>
 		</div>
@@ -33,12 +32,12 @@
 				<div class="date-text drop-shadow">
 					<div class="day day-alt1 black text-light" >
 						<span class="text-tiny">
-						{{concert.date_performance | date : "EEE"}}
+						{{concert[1] | date : "EEE"}}
 						</span>
-						{{concert.date_performance | date : "d"}}
+						{{concert[1] | date : "d"}}
 					</div>
 					<div class="month month-alt1 text-bold white">
-						{{concert.date_performance | date : "MMMM"}}
+						{{concert[1] | date : "MMMM"}}
 					</div>
 				</div>
 			</div>

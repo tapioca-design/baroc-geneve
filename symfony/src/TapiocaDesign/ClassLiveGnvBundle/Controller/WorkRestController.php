@@ -27,25 +27,58 @@ class WorkRestController extends FOSRestController
     */
     public function worksOrderedByFirstPerformanceAction($city_id){
 
+      //min(p.datePerformance) gives the first date to come for a work, it s used because group by work will merge performances, regardless of any date sorting, ORDER BY is processed afterword. In json city/1/worksOrderedByFirstPerformance, the datePerformance in th work objec is useless
 
-      //min(p.datePerformance) gives the first date to come for a work, it s used because group by work will merge performances, regardless of any date sorting, ORDER BY is processed afterword
-      
       //when group by work, merge with earliest date performance on top 
       $em = $this->getDoctrine()->getManager();
       $query = $em->createQuery('
-        SELECT p, min(p.datePerformance) 
+        SELECT p, min(p.datePerformance)
         FROM TapiocaDesign\ClassLiveGnvBundle\Entity\Performance p 
         LEFT JOIN TapiocaDesign\ClassLiveGnvBundle\Entity\Place pl WITH p.place = pl.id
         WHERE pl.city = '.$city_id.' 
+        AND p.datePerformance > CURRENT_DATE() 
         GROUP BY p.work  
-        ORDER BY p.datePerformance ASC
+        ORDER BY p.datePerformance DESC
         
         ');
 // AND p.datePerformance > CURRENT_TIMESTAMP()
 //GROUP BY p.work
+        $performances = $query->getResult();
 
 
-      $performances = $query->getResult();
+        // $s = '06/Oct/2011:19:00:02';
+        // $date = date_create_from_format('d/M/Y:H:i:s', $s);
+        // $date->getTimestamp();
+        // 
+
+
+        
+
+
+        $time = strtotime($performances[5][1]);
+        $date = date(DATE_ATOM,$time);
+
+        usort($performances, function($a, $b) {
+            return $a[1] - $b[1];
+        });
+
+
+        foreach($performances as $key => $performance){
+                //change "2015-02-20 21:00:00" TO "2015-02-20t210000" or sthing like that, i mean DATE_ATOM, so Angular date formatting works properly
+                $performances[$key][1] = date(DATE_ATOM, strtotime($performances[$key][1]));
+            
+        }
+        
+
+
+      //$performances = $date;
+
+
+       //$performances = date(DATE_ATOM, $performances[1][1]);
+
+      //$performances = $performances[1][1];
+
+      
 
       $view = $this->view($performances, 200);
       $view->setSerializationContext(SerializationContext::create()->setGroups(array('list', "workFromPerformance")));
