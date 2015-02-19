@@ -50,8 +50,8 @@ myApp.run(function ($rootScope, $location) {
 
     $rootScope.$on('$routeChangeSuccess', function() {
         history.push($location.$$path);
-        console.log("history");
-	    console.log(history);
+     //    console.log("history");
+	    // console.log(history);
     });
 
     // $rootScope.back = function () {

@@ -20,6 +20,13 @@ a[href^="http://maps.google.com/maps"]{display:none !important}
 /********************************************/
 
 
+.TD-btn {
+	border: none;
+	min-height:44px;
+}
+
+
+
 .days-list-element {
 	padding: 0 15px 0 0;
 
@@ -45,21 +52,59 @@ a[href^="http://maps.google.com/maps"]{display:none !important}
 }
 
 
-body, .bkg-color {
+/*body, .bkg-color {
 	background-color: #f5e6e1;
+}*/
+
+
+/***********************************/
+.color1-brightest, .color1-brightest:link, .color1-brightest:visited, .color1-brightest:hover, .color1-brightest:active {
+	color:#ecd4cd;
 }
-.red-dark {
+.color1-brighter, .color1-brighter:link, .color1-brighter:visited, .color1-brighter:hover, .color1-brighter:active {
+	color:#ebd3c6;
+}
+.color1-bright, .color1-bright:link, .color1-bright:visited, .color1-bright:hover, .color1-bright:active {
+	color:#e5a995;
+}
+.color1-medium, .color1-medium:link, .color1-medium:visited, .color1-medium:hover, .color1-medium:active {
 	color:#e68c6b;
 }
-
-
-
-a.red-darkest:link, a.red-darkest:hover, a.red-darkest:visited {
-	color:#5e291a;
+.color1-dark, .color1-dark:link, .color1-dark:visited, .color1-dark:hover, .color1-dark:active {
+	color:#96452e;
 }
-a.red-darkest:active {
-	color:#2f0b00;
+.color1-darker, .color1-darker:link, .color1-darker:visited, .color1-darker:hover, .color1-darker:active {
+	color:#341b1a;
 }
+.color1-darkest, .color1-darkest:link, .color1-darkest:visited, .color1-darkest:hover, .color1-darkest:active {
+	color:#180a08;
+}
+/***********************************/
+.color1-bkg-brightest, .color1-bkg-brightest:link, .color1-bkg-brightest:visited, .color1-bkg-brightest:hover, .color1-bkg-brightest:active {
+	background-color:#ecd4cd;
+}
+.color1-bkg-brighter, .color1-bkg-brighter:link, .color1-bkg-brighter:visited, .color1-bkg-brighter:hover, .color1-bkg-brighter:active {
+	background-color:#ffddd2;
+}
+.color1-bkg-bright, .color1-bkg-bright:link, .color1-bkg-bright:visited, .color1-bkg-bright:hover, .color1-bkg-bright:active {
+	background-color:#e5a995;
+}
+.color1-bkg-medium, .color1-bkg-medium:link, .color1-bkg-medium:visited, .color1-bkg-medium:hover, .color1-bkg-medium:active {
+	background-color:#e68c6b;
+}
+.color1-bkg-dark, .color1-bkg-dark:link, .color1-bkg-dark:visited, .color1-bkg-dark:hover, .color1-bkg-dark:active {
+	background-color:#96452e;
+}
+.color1-bkg-darker, .color1-bkg-darker:link, .color1-bkg-darker:visited, .color1-bkg-darker:hover, .color1-bkg-darker:active {
+	background-color:#341b1a;
+}
+.color1-bkg-darkest, .color1-bkg-darkest:link, .color1-bkg-darkest:visited, .color1-bkg-darkest:hover, .color1-bkg-darkest:active {
+	background-color:#180a08;
+}
+/************************************/
+
+
+
 
 
 a.black:link, a.black:hover, a.black:visited, a.black:active {
@@ -85,10 +130,7 @@ a.black:link, a.black:hover, a.black:visited, a.black:active {
 }
 
 
-a.red-darker, button.red-darker {
-	color:#e68c6b;
-	background-color: #3b1a13;
-}
+
 
 
 
@@ -156,13 +198,11 @@ nav li{
 header, footer {
 	min-height: 44px;
 	background-color: #000;
-	color:white;
 }
-/*************************************/
-/*a .glyphicon:active, a.glyphicon:active, .glyphicon a:active {
-	background-color: blue;
-	color:yellow;
-}*/
+footer a:link, footer a:visited, footer a:hover, footer a:active {
+	text-decoration: none;
+}
+
 /*************************************/
 
 #performances * {
@@ -486,6 +526,12 @@ a.list-element:active {
   	-webkit-box-shadow: 0px 0px 3px 3px #ccc;
   	box-shadow:         0px 0px 3px 3px #ccc;
 } 
+.color1-drop-shadow{
+	-moz-box-shadow:    0px 0px 3px 3px #e3bbaf;
+  	-webkit-box-shadow: 0px 0px 3px 3px #e3bbaf;
+  	box-shadow:         0px 0px 3px 3px #e3bbaf;
+} 
+
 .white {
 	color:white;
 }
