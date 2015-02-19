@@ -1,5 +1,19 @@
 myApp.controller('HeaderController', ['$rootScope','$scope','$http',"$route", '$location','$routeParams','$route','Data','Search','Const', function($rootScope, $scope, $http, $route, $location, $routeParams,$route, Data, Search, Const) {
       
+
+
+
+
+
+      $scope.back = function () {
+      console.log("backkkkk from header");
+        // var prevUrl = history.length > 1 ? history.splice(-2)[0] : "/";
+        // $location.path(prevUrl);
+    };
+
+
+
+
       // Const.domainName = "http://"+$location.host();
       // $scope.Const = Const;
       // Const.domainName = "httpttt";

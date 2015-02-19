@@ -44,22 +44,28 @@ myApp.config(["$routeProvider","$locationProvider", function($routeProvider, $lo
 
 
 
-// myApp.run(function ($rootScope, $location) {
+myApp.run(function ($rootScope, $location) {
 
-//     var history = [];
+    var history = [];
 
-//     $rootScope.$on('$routeChangeSuccess', function() {
-//         history.push($location.$$path);
-//     });
+    $rootScope.$on('$routeChangeSuccess', function() {
+        history.push($location.$$path);
+        console.log("history");
+	    console.log(history);
+    });
 
-//     $rootScope.back = function () {
-//         var prevUrl = history.length > 1 ? history.splice(-2)[0] : "/";
-//         $location.path(prevUrl);
-//     };
+    // $rootScope.back = function () {
+    // 	console.log("backkkkk");
+        
+    // };
 
-    
+    $rootScope.backToPreviousUrl = function() {
+	    
+	    var prevUrl = history.length > 1 ? history.splice(-2)[0] : "/";
+        $location.path(prevUrl);
 
-// });
+	};
+});
 
 
 

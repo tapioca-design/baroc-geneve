@@ -156,6 +156,7 @@ nav li{
 header, footer {
 	min-height: 44px;
 	background-color: #000;
+	color:white;
 }
 /*************************************/
 /*a .glyphicon:active, a.glyphicon:active, .glyphicon a:active {
