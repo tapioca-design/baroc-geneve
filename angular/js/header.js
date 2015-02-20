@@ -40,23 +40,31 @@ myApp.controller('HeaderController', ['$rootScope','$scope','$http',"$route", '$
                 var viewController = "";
              }
               
-              if (viewController=="ConcertsListController" || viewController=="PlacesListController")  {
+              if (viewController=="ConcertsListController")  {
+                  $scope.headerSideBtnLeftActive = 1;
                   $scope.searchAllowed=1;
+              } else if (viewController=="PlacesListController")  {
+                  $scope.headerSideBtnLeftActive = 0;
+                  $scope.searchAllowed=0;
               } else if (viewController=="ConcertController")  {
+                  $scope.headerSideBtnLeftActive = 1;
                   $scope.searchAllowed=0;
                   $scope.searchActive = 0;
               } else if (viewController=="PlaceController")  {
+                  $scope.headerSideBtnLeftActive = 1;
                   $scope.searchAllowed=0;
                   $scope.searchActive = 0;
               } else if (viewController=="MapController")  {
+                  $scope.headerSideBtnLeftActive = 0;
                   $scope.searchAllowed=1;
                   $scope.searchActive = 0;
-                  
               } else if (viewController=="PlaceMapController")  {
+                  $scope.headerSideBtnLeftActive = 1;
                   $scope.searchAllowed=0;
                   $scope.searchActive = 0;
               } else {
                   console.log("NO ROUTE SUPPOSED TO END UP HERE !!!");
+                  $scope.headerSideBtnLeftActive = 0;
                   $scope.searchAllowed=1;
 
               }

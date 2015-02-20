@@ -52,66 +52,149 @@ a[href^="http://maps.google.com/maps"]{display:none !important}
 }
 
 
-/*body, .bkg-color {
-	background-color: #f5e6e1;
-}*/
-
-
 /***********************************/
-.color1-brightest, .color1-brightest:link, .color1-brightest:visited, .color1-brightest:hover, .color1-brightest:active {
+/***********************************/
+/***********************************/
+
+/*a.color1-bkg-brightest-notInteractive {
+	background-color:#ecd4cd;
+}
+a.color1-bkg-brighter-notInteractive {
+	background-color:#ebd3c6;
+}
+a.color1-bkg-bright-notInteractive {
+	background-color:#e5a995;
+}
+a.color1-bkg-medium-notInteractive {
+	background-color:#e68c6b;
+}*/
+/***********************************/
+/***********************************/
+/***********************************/
+.color1-brightest, a.color1-brightest:link, a.color1-brightest:visited, a.color1-brightest:hover {
 	color:#ecd4cd;
 }
-.color1-brighter, .color1-brighter:link, .color1-brighter:visited, .color1-brighter:hover, .color1-brighter:active {
+a.color1-brightest:active {
+	color:white;
+}
+
+.color1-brighter, a.color1-brighter:link, a.color1-brighter:visited, a.color1-brighter:hover {
 	color:#ebd3c6;
 }
-.color1-bright, .color1-bright:link, .color1-bright:visited, .color1-bright:hover, .color1-bright:active {
+a.color1-brighter:active {
 	color:#e5a995;
 }
-.color1-medium, .color1-medium:link, .color1-medium:visited, .color1-medium:hover, .color1-medium:active {
+
+.color1-bright, a.color1-bright:link, a.color1-bright:visited, a.color1-bright:hover {
+	color:#e5a995;
+}
+a.color1-bright:active {
 	color:#e68c6b;
 }
-.color1-dark, .color1-dark:link, .color1-dark:visited, .color1-dark:hover, .color1-dark:active {
-	color:#96452e;
+
+.color1-medium, a.color1-medium:link, a.color1-medium:visited, a.color1-medium:hover {
+	color:#e68c6b;
 }
-.color1-darker, .color1-darker:link, .color1-darker:visited, .color1-darker:hover, .color1-darker:active {
+a.color1-medium:active {
+	color:#e68c6b;
+}
+
+.color1-dark, a.color1-dark:link, a.color1-dark:visited, a.color1-dark:hover {
+	color:#ac5e46;
+}
+a.color1-dark:active {
 	color:#341b1a;
 }
-.color1-darkest, .color1-darkest:link, .color1-darkest:visited, .color1-darkest:hover, .color1-darkest:active {
+
+.color1-darker, a.color1-darker:link, a.color1-darker:visited, a.color1-darker:hover {
+	color:#341b1a;
+}
+a.color1-darker:active {
+	color:#180a08;
+}
+
+.color1-darkest, a.color1-darkest:link, a.color1-darkest:visited, a.color1-darkest:hover {
+	color:#180a08;
+}
+a.color1-darkest:active {
 	color:#180a08;
 }
 /***********************************/
-.color1-bkg-brightest, .color1-bkg-brightest:link, .color1-bkg-brightest:visited, .color1-bkg-brightest:hover, .color1-bkg-brightest:active {
+/***********************************/
+/***********************************/
+.color1-bkg-brightest, a.color1-bkg-brightest:link, a.color1-bkg-brightest:visited, a.color1-bkg-brightest:hover {
 	background-color:#ecd4cd;
 }
-.color1-bkg-brighter, .color1-bkg-brighter:link, .color1-bkg-brighter:visited, .color1-bkg-brighter:hover, .color1-bkg-brighter:active {
+a.color1-bkg-brightest:active {
+	background-color:white;
+}
+
+.color1-bkg-brighter, a.color1-bkg-brighter:link, a.color1-bkg-brighter:visited, a.color1-bkg-brighter:hover {
 	background-color:#ffddd2;
 }
-.color1-bkg-bright, .color1-bkg-bright:link, .color1-bkg-bright:visited, .color1-bkg-bright:hover, .color1-bkg-bright:active {
+a.color1-bkg-brighter:active {
 	background-color:#e5a995;
 }
-.color1-bkg-medium, .color1-bkg-medium:link, .color1-bkg-medium:visited, .color1-bkg-medium:hover, .color1-bkg-medium:active {
+
+.color1-bkg-bright, a.color1-bkg-bright:link, a.color1-bkg-bright:visited, a.color1-bkg-bright:hover {
+	background-color:#e5a995;
+}
+a.color1-bkg-bright:active {
 	background-color:#e68c6b;
 }
-.color1-bkg-dark, .color1-bkg-dark:link, .color1-bkg-dark:visited, .color1-bkg-dark:hover, .color1-bkg-dark:active {
+
+.color1-bkg-medium, a.color1-bkg-medium:link, a.color1-bkg-medium:visited, a.color1-bkg-medium:hover {
+	background-color:#e68c6b;
+}
+a.color1-bkg-medium:active {
 	background-color:#96452e;
 }
-.color1-bkg-darker, .color1-bkg-darker:link, .color1-bkg-darker:visited, .color1-bkg-darker:hover, .color1-bkg-darker:active {
+
+.color1-bkg-dark, a.color1-bkg-dark:link, a.color1-bkg-dark:visited, a.color1-bkg-dark:hover {
+	background-color:#96452e;
+}
+a.color1-bkg-dark:active {
 	background-color:#341b1a;
 }
-.color1-bkg-darkest, .color1-bkg-darkest:link, .color1-bkg-darkest:visited, .color1-bkg-darkest:hover, .color1-bkg-darkest:active {
+
+.color1-bkg-darker, a.color1-bkg-darker:link, a.color1-bkg-darker:visited, a.color1-bkg-darker:hover {
+	background-color:#341b1a;
+}
+a.color1-bkg-darker:active {
+	background-color:#180a08;
+}
+
+.color1-bkg-darkest, a.color1-bkg-darkest:link, a.color1-bkg-darkest:visited, a.color1-bkg-darkest:hover {
+	background-color:#180a08;
+}
+a.color1-bkg-darkest:active {
 	background-color:#180a08;
 }
 /************************************/
+/***********************************/
+/***********************************/
 
 
+a:link, a:visited, a:hover, a:active {
+	text-decoration: none;
+}
 
 
+.black {color:black;}
 
 a.black:link, a.black:hover, a.black:visited, a.black:active {
 	color:black;
 }
 
+.white {
+	color:white;
+}
+.white:hover {
+	color:#ccc;
+	text-decoration: none;
+}
 
+.grey {color:#999;}
 
 
 
@@ -180,7 +263,7 @@ h1.h1-smaller {
 
 
 
-a:hover {text-decoration: none;}
+
 
 
 
@@ -199,9 +282,7 @@ header, footer {
 	min-height: 44px;
 	background-color: #000;
 }
-footer a:link, footer a:visited, footer a:hover, footer a:active {
-	text-decoration: none;
-}
+
 
 /*************************************/
 
@@ -267,14 +348,6 @@ ul[rn-carousel] {
 .center-vertical {
 	padding-top: 10%;
 }
-/*.performance {
-	display: block;
-	overflow: hidden;
-	background-color: white;
-	width: 88px;
-	height: 88px;
-	color: black;
-}*/
 /*************************************/
 
 header {
@@ -372,7 +445,7 @@ a.list-element, a.list-element:link, a.list-element:visited {
 	border-top: 2px solid #fff;
 	border-bottom: 1px solid #d7ac9f;
 }
-a.list-element:link, a.list-element:visited {
+/*a.list-element:link, a.list-element:visited {
 	background-color: transparent;
 }
 a.list-element:hover {
@@ -380,7 +453,7 @@ a.list-element:hover {
 }
 a.list-element:active {
 	background-color: #dea592;
-}
+}*/
 
 /*************************************/
 #concert-details, #place-details {
@@ -532,15 +605,7 @@ a.list-element:active {
   	box-shadow:         0px 0px 3px 3px #e3bbaf;
 } 
 
-.white {
-	color:white;
-}
-.white:hover {
-	color:#ccc;
-	text-decoration: none;
-}
-.black {color:black;}
-.grey {color:#999;}
+
 
 
 

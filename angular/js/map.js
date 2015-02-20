@@ -1,17 +1,8 @@
 myApp.controller('MapController', ['$rootScope','$scope','$http', "$routeParams",'$location','Data','Search','Const', function($rootScope,$scope,$http,$routeParams,$location, Data, Search, Const) { 
-
-
-      
       Data.headerTitle=Const.appNameFr;
             $scope.Data = Data;
         $http.get(Const.baseUrl+'/symfony/web/app_dev.php/api/city/1/placesWithPerformances').
         success(function(places) {
-
-
-
-
-
-
 var dateRefMonths = new Array();
 dateRefMonths[0] = "January";
 dateRefMonths[1] = "February";
@@ -25,7 +16,6 @@ dateRefMonths[8] = "September";
 dateRefMonths[9] = "October";
 dateRefMonths[10] = "November";
 dateRefMonths[11] = "December";
-
 var dateRefDays = new Array();
 dateRefDays[0] = "Mon";
 dateRefDays[1] = "Tue";
@@ -34,11 +24,8 @@ dateRefDays[3] = "Thu";
 dateRefDays[4] = "Fri";
 dateRefDays[5] = "Sat";
 dateRefDays[6] = "Sun";
-
-
                         $scope.places = places;
                         // console.log("date du premier Place de la liste, il faut virer ceux qui n ont pas de Performance");
-                        
                         var mapOptions = {
                                 zoom: 12,
                                 center: new google.maps.LatLng(46.215, 6.13),
@@ -127,7 +114,7 @@ dateRefDays[6] = "Sun";
                                 html += "</div>";
 
                             infoWindow.setContent(
-                                '<a class=" " href="#/place/'+place.id+'">'
+                                '<a class="color1-medium" href="#/place/'+place.id+'">'
                                 +'<h2 class="text-condensed red-dark">'+marker.title+'</h2>'
                                 + html
                                 +'</a>'
