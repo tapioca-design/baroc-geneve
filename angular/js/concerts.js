@@ -97,14 +97,25 @@ $scope.clickPlace = function($scope, $location, placeId) {
   }
   // $scope.Const = Const;
 	var workId = $routeParams.workId;
+
     $http.get(Const.baseUrl+'/symfony/web/app_dev.php/api/work/'+workId).
         success(function(work) {
             Data.headerTitle=work.name;
-            $scope.Data = Data;
+            //$scope.Data = Data;
             $scope.work = work;
             // console.log(" $scope.work");
             // console.log( $scope.work);
         });
+
+    $http.get(Const.baseUrl+'/symfony/web/app_dev.php/api/work/'+workId+'/performances').
+        success(function(performances) {
+            $scope.Data = Data;
+            $scope.performances = performances;
+            // console.log(" $scope.work");
+            // console.log( $scope.work);
+        });
+
+
 
         //swipe
   $scope.showActions = false;

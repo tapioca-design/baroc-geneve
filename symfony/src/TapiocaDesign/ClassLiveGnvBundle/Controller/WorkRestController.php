@@ -23,7 +23,7 @@ use JMS\Serializer\SerializationContext;
 class WorkRestController extends FOSRestController
 {
     /*
-    * @Rest\View(serializerGroups={"list","workFromPerformance"})
+    * @Rest\View(serializerGroups={"list","placeFromPerformance","workFromPerformance"})
     */
     public function worksOrderedByFirstPerformanceAction($city_id){
 
@@ -45,43 +45,14 @@ class WorkRestController extends FOSRestController
 //GROUP BY p.work
         $performances = $query->getResult();
 
-
-        // $s = '06/Oct/2011:19:00:02';
-        // $date = date_create_from_format('d/M/Y:H:i:s', $s);
-        // $date->getTimestamp();
-        // 
-
-
-        
-
-
-        $time = strtotime($performances[5][1]);
-        $date = date(DATE_ATOM,$time);
-
-        usort($performances, function($a, $b) {
-            return $a[1] - $b[1];
-        });
-
-
         foreach($performances as $key => $performance){
                 //change "2015-02-20 21:00:00" TO "2015-02-20t210000" or sthing like that, i mean DATE_ATOM, so Angular date formatting works properly
                 $performances[$key][1] = date(DATE_ATOM, strtotime($performances[$key][1]));
             
         }
         
-
-
-      //$performances = $date;
-
-
-       //$performances = date(DATE_ATOM, $performances[1][1]);
-
-      //$performances = $performances[1][1];
-
-      
-
       $view = $this->view($performances, 200);
-      $view->setSerializationContext(SerializationContext::create()->setGroups(array('list', "workFromPerformance")));
+      $view->setSerializationContext(SerializationContext::create()->setGroups(array('list', "placeFromPerformance","workFromPerformance")));
       $view->setData($performances);
       return $view;
   	}
@@ -89,28 +60,41 @@ class WorkRestController extends FOSRestController
 
 
 
-
-
-
-
-
     /*
-    * @Rest\View(serializerGroups={"detail","performancesFromWork"})
+    * @Rest\View(serializerGroups={'list',"placeFromPerformance","detail"})
     */
     public function workAction($work_id){
+
+      // $em = $this->getDoctrine()->getManager();
+      // $work = $em->getRepository('TapiocaDesignClassLiveGnvBundle:Work')
+      // ->find($work_id);
+      
+//         $em = $this->getDoctrine()->getManager();
+//         $query = $em->createQuery('
+//         SELECT w.description, p
+//         FROM TapiocaDesign\ClassLiveGnvBundle\Entity\Performance p 
+//         LEFT JOIN TapiocaDesign\ClassLiveGnvBundle\Entity\Work w WITH p.work = w.id
+//         WHERE p.work = '.$work_id.' 
+//         AND p.datePerformance > CURRENT_DATE() 
+//         ORDER BY p.datePerformance ASC
+        
+//         ');
+//         $performances = $query->getResult();
+
       $em = $this->getDoctrine()->getManager();
+
       $work = $em->getRepository('TapiocaDesignClassLiveGnvBundle:Work')
       ->find($work_id);
-      
+
       $view = $this->view($work, 200);
-      $view->setSerializationContext(SerializationContext::create()->setGroups(array('list','detail',"performancesFromWork")));
+      $view->setSerializationContext(SerializationContext::create()->setGroups(array('list',"placeFromPerformance",'detail')));
       $view->setData($work);
       return $view;
     }
 
 
     /*
-    * @Rest\View(serializerGroups={"list", "performancesFromWork"})
+    * @Rest\View(serializerGroups={"list", "placeFromPerformance","performancesFromWork"})
     */
     public function worksByPlaceAction($place_id){
       $em = $this->getDoctrine()->getManager();
@@ -134,7 +118,7 @@ class WorkRestController extends FOSRestController
         array("id"=>$work_ids)
         );
       $view = $this->view($works, 200);
-      $view->setSerializationContext(SerializationContext::create()->setGroups(array('list',"performancesFromWork")));
+      $view->setSerializationContext(SerializationContext::create()->setGroups(array('list',"placeFromPerformance","performancesFromWork")));
       $view->setData($works);
       return $view;
 

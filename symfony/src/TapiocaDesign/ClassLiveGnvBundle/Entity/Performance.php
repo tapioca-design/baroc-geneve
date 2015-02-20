@@ -45,7 +45,7 @@ class Performance
      * @ORM\ManyToOne(targetEntity="Place", inversedBy="performances")
      * @ORM\JoinColumn(name="place_id", referencedColumnName="id")
      * @Expose
-     * @Groups({"detail"})
+     * @Groups({"placeFromPerformance"})
      */
     private $place;
 

@@ -28,6 +28,8 @@ TD_CLG_work:
         work_id: "\d+"
 
 
+
+
 TD_CLG_placesByCity:
     pattern:  /city/{city_id}/places
     defaults: { _controller: TapiocaDesignClassLiveGnvBundle:PlaceRest:placesByCity, _format: ~ }
@@ -77,4 +79,10 @@ TD_CLG_performancesByPlaceGroupedByWork:
         _method: GET
         place_id: "\d+"
 
+TD_CLG_performancesByWork:
+    pattern:  /work/{work_id}/performances
+    defaults: { _controller: TapiocaDesignClassLiveGnvBundle:PerformanceRest:performancesByWork, _format: ~ }
+    requirements:
+        _method: GET
+        work_id: "\d+"
 
