@@ -1,32 +1,17 @@
 myApp.controller('HeaderController', ['$rootScope','$scope','$http',"$route", '$location','$routeParams','$route','Data','Search','Const', function($rootScope, $scope, $http, $route, $location, $routeParams,$route, Data, Search, Const) {
       
-
-
-
-
-
       $scope.back = function () {
       console.log("backkkkk from header");
         // var prevUrl = history.length > 1 ? history.splice(-2)[0] : "/";
         // $location.path(prevUrl);
     };
 
-
-
-
-      // Const.domainName = "http://"+$location.host();
-      // $scope.Const = Const;
-      // Const.domainName = "httpttt";
-
       $scope.Data = Data;
       $scope.Search = Search;
       $scope.Const = Const;
-
       $scope.searchAllowed = Data.searchAllowed;
       $scope.searchActive = Data.searchActive;
-
       $scope.back={};
-
       $scope.back.url = ""
       $rootScope.$on('$locationChangeStart',function(evt, absNewUrl, absOldUrl) {
                   // console.log('start', evt, absNewUrl, absOldUrl);
@@ -36,8 +21,6 @@ myApp.controller('HeaderController', ['$rootScope','$scope','$http',"$route", '$
                   // console.log('success', evt, absNewUrl, absOldUrl);
                   $scope.back.url = absOldUrl;
               });
-
-
 
       $scope.$on('$routeChangeStart', function(event, next, current) {
 
@@ -57,18 +40,6 @@ myApp.controller('HeaderController', ['$rootScope','$scope','$http',"$route", '$
                 var viewController = "";
              }
               
-              
-              
-              
-              
-
-
-
-
-
-
-
-
               if (viewController=="ConcertsListController" || viewController=="PlacesListController")  {
                   $scope.searchAllowed=1;
               } else if (viewController=="ConcertController")  {
