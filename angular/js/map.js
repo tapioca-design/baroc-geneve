@@ -4,6 +4,13 @@ myApp.controller('MapController', ['$rootScope','$scope','$http', "$routeParams"
 
             $scope.Data = Data;
 
+            
+            var windowHeight = $( window ).height();
+            var documentHeight = $( document ).height();
+            windowHeight = windowHeight - 88;
+            $scope.mapHeightStyle = "height:"+windowHeight+"px";
+
+
         $http.get(Const.baseUrl+'/symfony/web/app_dev.php/api/city/1/placesWithPerformances').
         success(function(places) {
 var dateRefMonths = new Array();

@@ -14,7 +14,7 @@ myApp.controller('ConcertsListController', ['$rootScope','$scope','$http', "$rou
             $scope.concerts = concerts;
             //should be loadede and display after a few time, so allow no result 
             Data.loadingActive = 0;
-            console.log(Data.loadingActive);
+            // console.log(Data.loadingActive);
             setTimeout(function(){ Data.concertsNoResultAllowed = 1; }, 2000);
       });
       
