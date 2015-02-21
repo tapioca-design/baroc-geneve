@@ -1,7 +1,7 @@
 myApp.controller('ConcertsListController', ['$rootScope','$scope','$http', "$routeParams",'$location','Data','Search','Const', function($rootScope,$scope,$http,$routeParams,$location, Data, Search, Const) { 
 
 
-
+      Data.concertsNoResultAllowed = 0;
       Data.headerTitle=Const.appNameFr;
       $scope.Data = Data;
       $scope.Search = Search;
@@ -11,6 +11,8 @@ myApp.controller('ConcertsListController', ['$rootScope','$scope','$http', "$rou
       $http.get(Const.baseUrl+'/symfony/web/app_dev.php/api/city/1/worksOrderedByFirstPerformance').
         success(function(concerts) {
             $scope.concerts = concerts;
+            //should be loadede and display after a few time, so allow no result 
+            setTimeout(function(){ Data.concertsNoResultAllowed = 1; }, 2000);
       });
       
       $scope.searchActiveToggle = function() {
@@ -19,7 +21,11 @@ myApp.controller('ConcertsListController', ['$rootScope','$scope','$http', "$rou
           // console.log("searchActive"+$scope.searchActive);
       };
  }]);
-
+/***********************************************************************************************/
+/***********************************************************************************************/
+/***********************************************************************************************/
+/***********************************************************************************************/
+/***********************************************************************************************/
 /***********************************************************************************************/
 myApp.controller('ConcertController', ['$rootScope','$scope','$http', '$location','$routeParams','Data','Search','Const', function($rootScope,$scope,$http, $location, $routeParams, Data, Search, Const) {
 

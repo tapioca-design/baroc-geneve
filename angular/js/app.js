@@ -89,7 +89,8 @@ myApp.factory('Data', function($location){
     	headerTitle: '', 
     	filteredConcerts:"", 
     	searchAllowed:1, 
-    	searchActive:0
+    	searchActive:0,
+    	concertsNoResultAllowed:0
     };
 });
 myApp.factory('Search', function(){

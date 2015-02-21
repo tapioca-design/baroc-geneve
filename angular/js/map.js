@@ -99,23 +99,27 @@ dateRefDays[6] = "Sun";
                                   }
                                 }
                                 var html = "";
-                                html += "<div class='date-resume'>";
+                                html += "<div>";
                                 for (var key in monthsWithPerformance) {
-                                    html += "<div class='month'>";
+                                    html += "<div>";
+                                    html += "<span class='black uppercase text-bold'>";
                                     html += key;
-                                    html += "</div>";
+                                    html += ": </span>";
                                     for (var i = 0; i < monthsWithPerformance[key].length; i++) {
-                                        html += "<span class='day days-list-element text-light text-bold black '>";
+                                        html += "<span class='day days-list-element text-light black '>";
                                         html += monthsWithPerformance[key][i];
                                         html += "</span>";
                                     }
+                                    html += "</div>";
                                 }
-                                // html += '<button ng-click="clickPlace(performance.place.id)" target="_blank" class="btn red-lighter width-full" >Details</button>';
+                                
                                 html += "</div>";
+                                html += '<button ng-click="clickPlace(performance.place.id)" target="_blank" class="btn color1-bkg-bright white width-full" >Details</button>';
+
 
                             infoWindow.setContent(
                                 '<a class="color1-medium" href="#/place/'+place.id+'">'
-                                +'<h2 class="text-condensed red-dark">'+marker.title+'</h2>'
+                                +'<h2 class="text-condensed color1-dark">'+marker.title+'</h2>'
                                 + html
                                 +'</a>'
                                 );

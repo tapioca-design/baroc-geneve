@@ -52,17 +52,23 @@
 	</li>
 	<!-- nghide to show only when there s no result
 	ngshow to show only if we re in stateSearch, means the searh icon has been clicked -->
-	<div ng-hide="filteredConcerts.length"  class="text-center center-vertical">
-		<div  >
-			Pas de résultat pour :
-			<div class="text-italic text-light">“{{Search.term}}”</div>
-			<div>
-				<a ng-href="#/" class="size-huge color1-dark">
-					<span class="glyphicon glyphicon-remove-circle"></span>
-				</a>
+	
+	<div ng-show="Data.concertsNoResultAllowed">
+		
+		<div ng-hide="filteredConcerts.length"  class="text-center center-vertical">
+			<div  >
+				Pas de résultat pour :
+				<div class="text-italic text-light">“{{Search.term}}”</div>
+				<div>
+					<a ng-href="#/" class="size-huge color1-dark">
+						<span class="glyphicon glyphicon-remove-circle"></span>
+					</a>
+				</div>
 			</div>
 		</div>
 	</div>
+
+
 	
   </ul>
 

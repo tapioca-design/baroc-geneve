@@ -43,6 +43,7 @@ myApp.controller('HeaderController', ['$rootScope','$scope','$http',"$route", '$
               if (viewController=="ConcertsListController")  {
                   $scope.headerSideBtnLeftActive = 1;
                   $scope.searchAllowed=1;
+                  // $scope.searchActive = 0;
               } else if (viewController=="PlacesListController")  {
                   $scope.headerSideBtnLeftActive = 0;
                   $scope.searchAllowed=0;
