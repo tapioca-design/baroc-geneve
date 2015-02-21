@@ -1,6 +1,9 @@
 myApp.controller('MapController', ['$rootScope','$scope','$http', "$routeParams",'$location','Data','Search','Const', function($rootScope,$scope,$http,$routeParams,$location, Data, Search, Const) { 
       Data.headerTitle=Const.appNameFr;
+      Data.loadingActive = 1;
+
             $scope.Data = Data;
+
         $http.get(Const.baseUrl+'/symfony/web/app_dev.php/api/city/1/placesWithPerformances').
         success(function(places) {
 var dateRefMonths = new Array();
@@ -162,12 +165,7 @@ dateRefDays[6] = "Sun";
                     });
 
 
-
-
-
-
-
-
+                    Data.loadingActive = 0;
 
 
 

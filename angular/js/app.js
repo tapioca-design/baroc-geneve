@@ -90,7 +90,8 @@ myApp.factory('Data', function($location){
     	filteredConcerts:"", 
     	searchAllowed:1, 
     	searchActive:0,
-    	concertsNoResultAllowed:0
+    	concertsNoResultAllowed:0,
+    	loadingActive:1,
     };
 });
 myApp.factory('Search', function(){

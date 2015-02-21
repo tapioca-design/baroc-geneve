@@ -175,12 +175,38 @@ a, a:link, a:visited, a:hover, a:active, button, button:link, button:visited, bu
 
 
 
+.vertical-center {
+	padding-top: 20vh;
+}
+img.img-size-half {
+	width: 60px;
+}
+
+
 
 .black {color:black;}
-
 a.black:link, a.black:hover, a.black:visited, a.black:active {
 	color:black;
 }
+
+.black-bkg, a.black-bkg:link, a.black-bkg:visited, a.black-bkg:hover {
+	background-color:black;
+}
+a.black-bkg:active {
+	background-color:#3b1b14;
+}
+
+
+.green-bkg{background-color:green;}
+.red-bkg{background-color:red;}
+.blue-bkg{background-color:blue;}
+.yellow-bkg{background-color:yellow;}
+
+
+
+
+
+
 
 .white, .white:link, .white:hover, .white:visited, .white:active {
 	color:white;
@@ -391,6 +417,9 @@ footer {
 * html footer {
    position:absolute;
    top:expression((0-(footer.offsetHeight)+(document.documentElement.clientHeight ? document.documentElement.clientHeight : document.body.clientHeight)+(ignoreMe = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop))+'px');
+}
+footer a  {
+	display: block;
 }
 footer a .menu-label {
 	font-size: 1.7em;

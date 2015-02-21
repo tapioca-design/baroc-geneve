@@ -3,8 +3,10 @@ myApp.controller('PlaceMapController', ['$rootScope','$scope','$http', "$routePa
     var placeId = $routeParams.placeId;
       
       Data.headerTitle=Const.appNameFr;
+      Data.loadingActive = 1;
+
             $scope.Data = Data;
-        $http.get(Const.baseUrl+'/symfony/web/app_dev.php/api/place/'+placeId).
+        $http.get(Const.baseUrl+'/symfony/web/api/place/'+placeId).
         success(function(place) {
 
 var dateRefMonths = new Array();
@@ -181,7 +183,7 @@ dateRefDays[6] = "Sun";
                         alert("Unable to find your location");
                     });
 
-
+        Data.loadingActive = 0;
         //end success
         }).error(function(data, status) {
             var msg='Error 12.2: unable to load place. Status:'+status;
