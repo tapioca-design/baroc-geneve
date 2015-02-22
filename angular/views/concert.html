@@ -85,15 +85,16 @@
 									<br />
 											<div>
 												<button 
-												ng-click="go('/place/{{performance.place.id}}')"
+												ng-click="path('/place/{{performance.place.id}}')"
 												class="TD-btn color1-darker color1-bkg-medium width-full " >
 													{{performance.place.name_fr}}
 												</button>
 											</div>
 											<br />
 											<div ng-show="performance.ticket_website" >
+													{{performance.ticket_website}}
 													<button 
-													ng-href="{{performance.ticket_website}}"
+													ng-click="absolute('{{performance.ticket_website}}')"
 													target="_blank" 
 													class="TD-btn color1-medium color1-bkg-darker width-full " 
 													target="_blank" 
