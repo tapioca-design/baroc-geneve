@@ -37,7 +37,7 @@ dateRefDays[6] = "Sun";
                         $scope.places = places;
                         // console.log("date du premier Place de la liste, il faut virer ceux qui n ont pas de Performance");
                         var mapOptions = {
-                                zoom: 12,
+                                zoom: 10,
                                 center: new google.maps.LatLng(46.215, 6.13),
                                 mapTypeId: google.maps.MapTypeId.ROADMAP,
                                 panControl: false,
@@ -124,7 +124,7 @@ dateRefDays[6] = "Sun";
                                 }
                                 
                                 html += "</div>";
-                                html += '<button ng-click="clickPlace(performance.place.id)" target="_blank" class="btn color1-bkg-bright white width-full" >Details</button>';
+                                html += '<button ng-click="clickPlace(performance.place.id)" target="_blank" class="TD-btn color1-bkg-bright white width-full" >Details</button>';
 
 
                             infoWindow.setContent(
@@ -147,12 +147,6 @@ dateRefDays[6] = "Sun";
                         e.preventDefault();
                         google.maps.event.trigger(selectedMarker, 'click');
                     }
-
-
-
-
-
-
                     var myloc = new google.maps.Marker({
                         clickable: false,
                         icon: new google.maps.MarkerImage('//maps.gstatic.com/mapfiles/mobile/mobileimgs2.png',
@@ -163,20 +157,13 @@ dateRefDays[6] = "Sun";
                         zIndex: 999,
                         map: $scope.map
                     });
-
                     if (navigator.geolocation) navigator.geolocation.getCurrentPosition(function(pos) {
                         var me = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
                         myloc.setPosition(me);
                     }, function(error) {
                         alert("Unable to find your location");
                     });
-
-
                     Data.loadingActive = 0;
-
-
-
-
         }).error(function(data, status) {
             var msg='Error 12.2: unable to load place. Status:'+status;
             //console.log(msg);

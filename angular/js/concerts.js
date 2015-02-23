@@ -41,8 +41,8 @@ $scope.colors = ["#fc0003", "#f70008", "#f2000d", "#ed0012", "#e80017", "#e3001c
             };
 
             $scope.absolute = function ( path ) {
-              $location.path(path);
-              
+              //$location.path(path);
+              window.open(path);
             };
 
             function getSlide(target, style) {
