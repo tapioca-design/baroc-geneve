@@ -1,0 +1,49 @@
+<div class="row" >
+			<div class="col-xs-2">
+
+				
+
+				<div class="headerSideBtnLeft " ng-show="headerSideBtnLeftActive">
+				
+					<div id="search" ng-show="searchAllowed" class="">
+						<a  ng-click="searchActiveToggle()"  class="color1-medium header-side-btn " >
+							<span class="glyphicon glyphicon-remove " ng-show="searchActive"></span>
+							<span class="glyphicon glyphicon-search " ng-hide="searchActive"></span>
+						</a>
+					</div>
+
+
+					<div id="back" ng-hide="searchAllowed">
+						<a ng-click="backToPreviousUrl()" class="color1-medium header-side-btn " >
+							<span class="glyphicon glyphicon-chevron-left " ></span>
+						</a>
+					</div>
+					<!-- <a href="#/concerts-list" class="white header-side-btn " ><span class="glyphicon glyphicon-chevron-left red-dark"></span></a> -->
+				</div>
+			</div>
+
+			<div class="col-xs-8" >
+				<h1 class="text-condensed white" ng-hide="searchActive" >
+					{{Data.headerTitle}}
+				</h1>
+				<div ng-controller='ConcertsListController' ng-show="searchActive" id="search-field">
+						<input 
+						type='text' 
+						ng-model='Search.term' 
+						placeholder="Bach, Violoncelle, ..." 
+						autofocus 
+						focus-me="shouldBeOpen"
+						>
+				</div>
+			</div>
+
+			<div class="col-xs-2">
+				<!-- <div class="headerSideBtnRight">
+					<a href="#" class="white header-side-btn" header-side-btn-right><span class="glyphicon glyphicon-menu-hamburger red-dark"></span></a>
+				</div> -->
+			</div>
+
+
+
+</div>
+			

@@ -1,0 +1,17 @@
+users : 
+  type: rest
+  resource:     "ShaweeTestApiBundle:UserRest"
+  name_prefix:  api_
+
+acme_demo_user_all:
+    pattern:  /usersallofthem
+    defaults: { _controller: ShaweeTestApiBundle:UserRest:all, _format: ~ }
+    requirements:
+        _method: GET
+
+acme_demo_user_get:
+    pattern:  /usersXXXXXXXXXXXX/{id}
+    defaults: { _controller: ShaweeTestApiBundle:UserRest:get, _format: ~ }
+    requirements:
+        _method: GET
+        id: "\d+"

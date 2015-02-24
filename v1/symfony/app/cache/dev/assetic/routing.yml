@@ -1,0 +1,5 @@
+_assetic:
+    resource: .
+    type: assetic
+_app:
+    resource: '/Users/sylvainhugues/Dropbox/Productions/_PERSO/Classic Live/web/v1/symfony/app/config/routing_dev.yml'
