@@ -73,7 +73,7 @@ myApp.run(function ($rootScope, $location) {
 myApp.factory('Const', function($location){
     var baseUrlInner
     if ($location.host()=="tapiocadesign.com") {
-    	baseUrlInner= "http://tapiocadesign.com/_CL/v1";
+    	baseUrlInner= "http://tapiocadesign.com/_CLASSLIVE/v1";
     } else {
     	//locahost
     	baseUrlInner= "http://"+$location.host()+"/v1";
