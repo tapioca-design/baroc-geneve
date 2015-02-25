@@ -1,36 +1,39 @@
 myApp.controller('PlaceMapController', ['$rootScope','$scope','$http', "$routeParams",'$location','Data','Search','Const', function($rootScope,$scope,$http,$routeParams,$location, Data, Search, Const) { 
-
     var placeId = $routeParams.placeId;
-      
       Data.headerTitle=Const.appNameFr;
       Data.loadingActive = 1;
-
-            $scope.Data = Data;
+        $scope.Data = Data;
+        
+        var windowHeight = $( window ).height();
+            var documentHeight = $( document ).height();
+            windowHeight = windowHeight - 88;
+            $scope.mapHeightStyle = "height:"+windowHeight+"px";
+        
         $http.get(Const.baseUrl+'/symfony/web/api/place/'+placeId).
         success(function(place) {
+                        console.log(place);
+                        var dateRefMonths = new Array();
+                        dateRefMonths[0] = "January";
+                        dateRefMonths[1] = "February";
+                        dateRefMonths[2] = "March";
+                        dateRefMonths[3] = "April";
+                        dateRefMonths[4] = "May";
+                        dateRefMonths[5] = "June";
+                        dateRefMonths[6] = "July";
+                        dateRefMonths[7] = "August";
+                        dateRefMonths[8] = "September";
+                        dateRefMonths[9] = "October";
+                        dateRefMonths[10] = "November";
+                        dateRefMonths[11] = "December";
 
-var dateRefMonths = new Array();
-dateRefMonths[0] = "January";
-dateRefMonths[1] = "February";
-dateRefMonths[2] = "March";
-dateRefMonths[3] = "April";
-dateRefMonths[4] = "May";
-dateRefMonths[5] = "June";
-dateRefMonths[6] = "July";
-dateRefMonths[7] = "August";
-dateRefMonths[8] = "September";
-dateRefMonths[9] = "October";
-dateRefMonths[10] = "November";
-dateRefMonths[11] = "December";
-
-var dateRefDays = new Array();
-dateRefDays[0] = "Mon";
-dateRefDays[1] = "Tue";
-dateRefDays[2] = "Wed";
-dateRefDays[3] = "Thu";
-dateRefDays[4] = "Fri";
-dateRefDays[5] = "Sat";
-dateRefDays[6] = "Sun";
+                        var dateRefDays = new Array();
+                        dateRefDays[0] = "Mon";
+                        dateRefDays[1] = "Tue";
+                        dateRefDays[2] = "Wed";
+                        dateRefDays[3] = "Thu";
+                        dateRefDays[4] = "Fri";
+                        dateRefDays[5] = "Sat";
+                        dateRefDays[6] = "Sun";
 
                         $scope.place = place;
                         var mapOptions = {
@@ -47,6 +50,7 @@ dateRefDays[6] = "Sun";
                     $scope.markers = [];
                     var infoWindow = new google.maps.InfoWindow();
                     var createMarker = function (place){
+                        console.log("createMarker");
                         var marker = new google.maps.Marker({
                             map: $scope.map,
                             position: new google.maps.LatLng(place.map_latitude, place.map_longitude),
@@ -54,9 +58,11 @@ dateRefDays[6] = "Sun";
                             icon: '../symfony/web/bundles/tapiocadesignclasslivegnv/images/places/'+place.name_url+'/map-markers.png',
                         });
                         google.maps.event.addListener(marker, 'click', function(){
+                            console.log("addListener click");
                             var monthsWithPerformance = new Object();
                             //gather months
                             for (var i = 0; i < place.performances.length; i++) {
+                                console.log("place.performances.length");
                                 var performance = place.performances[i];
                                 var d = performance.date_performance.split(/[^0-9]/);
                                 var date = new Date(d[0],d[1]-1,d[2],d[3],d[4],d[5] );
@@ -74,6 +80,7 @@ dateRefDays[6] = "Sun";
                             
                                 // if 27 april has three concerts: 14h 17h 20h, keep one
                                 function eliminateDuplicates(arr) {
+                                    console.log("eliminateDuplicates");
                                       var i,
                                           len=arr.length,
                                           out=[],
@@ -126,6 +133,7 @@ dateRefDays[6] = "Sun";
                     }  
                         createMarker($scope.place);
                     $scope.openInfoWindow = function(e, selectedMarker){
+                        console.log("openInfoWindow");
                         e.preventDefault();
                         google.maps.event.trigger(selectedMarker, 'click');
                     }
@@ -139,19 +147,14 @@ dateRefDays[6] = "Sun";
                         zIndex: 999,
                         map: $scope.map
                     });
-
                     if (navigator.geolocation) navigator.geolocation.getCurrentPosition(function(pos) {
+                        console.log("getCurrentPosition");
                         var me = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
                         myloc.setPosition(me);
-
-
-
-
-
+                        
                         //direction
                         var directionDisplay;
                         var directionsService = new google.maps.DirectionsService();     //Create a DirectionsService object which is required to communicate with the Google Maps API Direction Service
-                        
                         
                                     directionsDisplay = new google.maps.DirectionsRenderer({suppressMarkers: true});        //Create a DirectionsRenderer object to render the directions results
                                     // directionsDisplay.suppressMarkers = true;
@@ -174,15 +177,9 @@ dateRefDays[6] = "Sun";
 
                                     }
                             });
-
-
-
-
-
                     }, function(error) {
                         alert("Unable to find your location");
                     });
-
         Data.loadingActive = 0;
         //end success
         }).error(function(data, status) {
@@ -190,7 +187,4 @@ dateRefDays[6] = "Sun";
             //console.log(msg);
             alert(msg);
         });
-
  }]);
-
-

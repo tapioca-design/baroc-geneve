@@ -14,3 +14,5 @@ c13097,::1,GET,http://localhost/v1/symfony/web/app_dev.php/api/performance/1,142
 320ef1,::1,GET,http://localhost/v1/symfony/web/app_dev.php/api/city/1/worksOrderedByFirstPerformance,1424824415,
 df0988,::1,GET,http://localhost/v1/symfony/web/app_dev.php/api/city/1/worksOrderedByFirstPerformance,1424824436,
 679c6a,::1,GET,http://localhost/v1/symfony/web/app_dev.php/api/city/1/worksOrderedByFirstPerformance,1424824571,
+b52c29,::1,GET,http://localhost/v1/symfony/web/app_dev.php/api/city/1/placesWithPerformances,1424829949,1b56df
+1b56df,::1,GET,http://localhost/v1/symfony/web/app_dev.php/api/city/1/placesWithPerformances,1424829949,
