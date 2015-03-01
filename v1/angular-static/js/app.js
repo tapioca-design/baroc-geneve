@@ -44,27 +44,73 @@ myApp.config(["$routeProvider","$locationProvider", function($routeProvider, $lo
 
 
 
-myApp.run(function ($rootScope, $location) {
-
+myApp.run(function ($rootScope, $location,$http,Const,Data) {
     var history = [];
-
     $rootScope.$on('$routeChangeSuccess', function() {
         history.push($location.$$path);
-     //    console.log("history");
-	    // console.log(history);
     });
-
-    // $rootScope.back = function () {
-    // 	console.log("backkkkk");
-        
-    // };
-
     $rootScope.backToPreviousUrl = function() {
-	    
 	    var prevUrl = history.length > 1 ? history.splice(-2)[0] : "/";
         $location.path(prevUrl);
-
 	};
+	$rootScope.getLandscapeBkgPath = function (object,folder,name_url,callback) {
+                var localImagesPath = "images/";
+                var serverImagesPath = Const.baseUrl+"/symfony/web/bundles/tapiocadesignclasslivegnv/images/";
+                //works landscape suffix
+                    var pathSuffix = folder+"/"+name_url+"/landscape.jpg";
+                    //if img exist locally, load it, otherwise get in on server
+                    // serverPath
+                    var localImage = localImagesPath+pathSuffix;
+                    $http.get(localImage).
+                    success(function(data, status, headers, config) {
+                        //img exists locally
+                        object.landscapeBkgPath = localImage;
+                        callback(object);
+                         // localImage;
+                    }).
+                    error(function(data, status, headers, config) {
+                        //img does not exist locally, load the distant one
+                        var distantImage = serverImagesPath+pathSuffix
+                         // distantImage;
+                         object.landscapeBkgPath = distantImage;
+                        callback(object);
+                    });
+            };
+    $rootScope.getData = function (url_suffix,folder,callback) {
+        if (localStorage.getItem(url_suffix) === null) {
+            console.log("data doesn t exist locally");
+            $http.get(Const.baseUrl+'/symfony/web/api/'+url_suffix).
+            success(function(data) {
+                localStorage.setItem(url_suffix, JSON.stringify(data));
+                //if no need to add landscape img to data, skip
+                if (folder!="") {
+                	$rootScope.getLandscapeBkgPath(data,folder,data.name_url,
+                    function (glbkgp_callback_arg) {
+                        callback(glbkgp_callback_arg);
+                        // $scope.place = glbkgp_callback_arg;
+                	});
+                } else {
+                	callback(data);
+                }
+                
+                
+            });
+          } else {
+                console.log("data exist in local storage");
+                var data = localStorage.getItem(url_suffix);
+                data = JSON.parse(data);
+                if (folder!="") {
+                	$rootScope.getLandscapeBkgPath(data,folder,data.name_url,
+                    function (glbkgp_callback_arg) {
+                        callback(glbkgp_callback_arg);
+                        // $scope.place = glbkgp_callback_arg;
+                	});
+                } else {
+                	callback(data);
+                }
+
+          }
+	}
 });
 
 
