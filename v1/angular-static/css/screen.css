@@ -1,0 +1,649 @@
+
+
+* {
+	/*border: 1px solid green;*/
+}
+/******************* map *************************/
+#map {
+    /*height:60vh;*/
+	/*height:85vh;*/
+    width:100%;
+}
+a[href^="http://maps.google.com/maps"]{display:none !important}
+
+.gmnoprint a, .gmnoprint span {
+    display:none;
+}
+.gmnoprint div {
+    background:none !important;
+}
+/********************************************/
+
+
+#concert-description {
+	padding-top:1.2%;
+	padding-bottom:2.2%;
+}
+
+
+.TD-btn {
+	border: none;
+	min-height:44px;
+}
+
+
+
+.days-list-element {
+	padding: 0 6px 0 6px;
+
+}
+
+
+.small {
+	font-size: 0.7em;
+}
+
+
+.large {
+	
+}
+.larger {
+	font-size: 1.5em;
+}
+.largest {
+	
+}
+.detail-page-end {
+	background-color: #b27863;
+}
+
+
+.uppercase {
+	text-transform: uppercase;
+}
+
+
+/***********************************/
+/***********************************/
+/***********************************/
+.color1-brightest, a.color1-brightest:link, a.color1-brightest:visited, a.color1-brightest:hover {
+	color:#ecd4cd;
+}
+a.color1-brightest:active, button.color1-brightest:active {
+	color:white;
+}
+
+.color1-brighter, a.color1-brighter:link, a.color1-brighter:visited, a.color1-brighter:hover {
+	color:#ebd3c6;
+}
+a.color1-brighter:active, button.color1-brighter:active {
+	color:#e5a995;
+}
+
+.color1-bright, a.color1-bright:link, a.color1-bright:visited, a.color1-bright:hover {
+	color:#e5a995;
+}
+a.color1-bright:active, button.color1-bright:active {
+	color:#e68c6b;
+}
+
+.color1-medium, a.color1-medium:link, a.color1-medium:visited, a.color1-medium:hover {
+	color:#e68c6b;
+}
+a.color1-medium:active, button.color1-medium:active {
+	color:#e68c6b;
+}
+
+.color1-dark, a.color1-dark:link, a.color1-dark:visited, a.color1-dark:hover {
+	color:#ac5e46;
+}
+a.color1-dark:active, button.color1-dark:active {
+	color:#341b1a;
+}
+
+.color1-darker, a.color1-darker:link, a.color1-darker:visited, a.color1-darker:hover {
+	color:#3b1b14;
+}
+a.color1-darker:active, button.color1-darker:active {
+	color:#180a08;
+}
+
+.color1-darkest, a.color1-darkest:link, a.color1-darkest:visited, a.color1-darkest:hover {
+	color:#180a08;
+}
+a.color1-darkest:active, button.color1-darkest:active {
+	color:#180a08;
+}
+/***********************************/
+/***********************************/
+/***********************************/
+.color1-bkg-brightest, a.color1-bkg-brightest:link, a.color1-bkg-brightest:visited, a.color1-bkg-brightest:hover {
+	background-color:#ecd4cd;
+}
+a.color1-bkg-brightest:active, button.color1-bkg-brightest:active {
+	background-color:white;
+}
+
+.color1-bkg-brighter, a.color1-bkg-brighter:link, a.color1-bkg-brighter:visited, a.color1-bkg-brighter:hover {
+	background-color:#ffddd2;
+}
+a.color1-bkg-brighter:active, button.color1-bkg-brighter:active {
+	background-color:white;
+}
+
+.color1-bkg-bright, a.color1-bkg-bright:link, a.color1-bkg-bright:visited, a.color1-bkg-bright:hover {
+	background-color:#e5a995;
+}
+a.color1-bkg-bright:active, button.color1-bkg-bright:active {
+	background-color:#ffddd2;
+}
+
+.color1-bkg-medium, a.color1-bkg-medium:link, a.color1-bkg-medium:visited, a.color1-bkg-medium:hover {
+	background-color:#e68c6b;
+}
+a.color1-bkg-medium:active, button.color1-bkg-medium:active {
+	background-color:#e5a995;
+}
+
+.color1-bkg-dark, a.color1-bkg-dark:link, a.color1-bkg-dark:visited, a.color1-bkg-dark:hover {
+	background-color:#96452e;
+}
+a.color1-bkg-dark:active, button.color1-bkg-dark:active {
+	background-color:#e68c6b;
+}
+
+.color1-bkg-darker, a.color1-bkg-darker:link, a.color1-bkg-darker:visited, a.color1-bkg-darker:hover {
+	background-color:#3b1b14;
+}
+a.color1-bkg-darker:active, button.color1-bkg-darker:active {
+	background-color:#96452e;
+}
+
+.color1-bkg-darkest, a.color1-bkg-darkest:link, a.color1-bkg-darkest:visited, a.color1-bkg-darkest:hover {
+	background-color:#180a08;
+}
+a.color1-bkg-darkest:active, button.color1-bkg-darkest:active {
+	background-color:#341b1a;
+}
+/************************************/
+/***********************************/
+/***********************************/
+
+
+a, a:link, a:visited, a:hover, a:active, button, button:link, button:visited, button:hover, button:active {
+	outline: none;
+	text-decoration: none;
+	border:none;
+	-moz-box-shadow:    0px 0px 0px 0px rgba(0,0,0,0);
+  	-webkit-box-shadow: 0px 0px 0px 0px rgba(0,0,0,0);
+  	box-shadow:         0px 0px 0px 0px rgba(0,0,0,0);
+}
+
+
+
+
+.vertical-center {
+	padding-top: 20vh;
+}
+img.img-size-half {
+	width: 60px;
+}
+
+
+
+.black {color:black;}
+a.black:link, a.black:hover, a.black:visited, a.black:active {
+	color:black;
+}
+
+.black-bkg, a.black-bkg:link, a.black-bkg:visited, a.black-bkg:hover {
+	background-color:black;
+}
+a.black-bkg:active {
+	background-color:#3b1b14;
+}
+
+
+.green-bkg{background-color:green;}
+.red-bkg{background-color:red;}
+.blue-bkg{background-color:blue;}
+.yellow-bkg{background-color:yellow;}
+
+
+
+
+
+
+
+.white, .white:link, .white:hover, .white:visited, .white:active {
+	color:white;
+	text-decoration: none;
+}
+
+.grey {color:#999;}
+
+
+
+
+.text-white {
+	color:white;
+}
+.text-lighter {
+	color:white;
+}
+.width-full{
+	width:100%;
+}
+.text-bold {
+	font-weight: bold;
+}
+
+
+
+
+
+
+a.red-lighter, button.red-lighter {
+	color:#000;
+	background-color: #e68c6b;
+}
+
+
+
+
+a.black, button.black {
+	color:#e68c6b;
+	background-color: #000;
+}
+
+
+
+.color-darkest {
+	background-color:#6b0b01;
+}
+.box{
+	padding: 20px;
+	background-color: yellow;
+	border:10px solid red;
+}
+
+/*************************************/
+.text-tiny {
+	font-size: 0.5em;
+}
+
+
+a.color-lighter {
+	color:#d5b6ad;
+}
+
+
+.size-huge {
+	font-size: 6em;
+}
+
+
+h1.h1-smaller {
+	font-size: 1.4em;
+}
+
+
+
+
+
+
+
+ul, li {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+
+nav li{
+	display: inline;
+	padding: 1%;
+}
+
+header, footer {
+	min-height: 44px;
+	background-color: #000;
+}
+
+
+/*************************************/
+
+#performances * {
+	/*border:1px solid red;*/
+}
+#performances h3 {
+	/*background-color: yellow;*/
+	margin: 0;
+}
+#performances h4 {
+	/*background-color: yellow;*/
+	margin: 0;
+}
+
+#performances, #place-details {
+	background: #3d150c; /* Old browsers */
+background: -moz-linear-gradient(top,  #3d150c 0%, #3a1e18 43%, #b27863 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#3d150c), color-stop(43%,#3a1e18), color-stop(100%,#b27863)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #3d150c 0%,#3a1e18 43%,#b27863 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #3d150c 0%,#3a1e18 43%,#b27863 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #3d150c 0%,#3a1e18 43%,#b27863 100%); /* IE10+ */
+background: linear-gradient(to bottom,  #3d150c 0%,#3a1e18 43%,#b27863 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3d150c', endColorstr='#b27863',GradientType=0 ); /* IE6-9 */
+
+
+}
+#performances .performance {
+	/*padding:1% 5% 1% 5%;*/
+	padding:0% 5% 0% 5%;
+}
+#performances .performance img {
+	width:44px;
+	height:44px;
+}
+/**************** CAROUSEL *********************/
+
+ul[rn-carousel] {
+    width:100%;
+    height:160px;
+    margin: 0 auto;
+}
+
+.carousel li {
+    width:100%;
+    height:100%;
+    font-size:30px;
+    background-color: #ccc;
+}
+.rn-carousel-indicator {
+	text-align: center;
+}
+.rn-carousel-indicator .ng-scope {
+	color:#6c3c2d;
+}
+.rn-carousel-indicator .ng-scope.active {
+	color:#fff;
+}
+
+/*************************************/
+.text-italic {
+	font-style: italic;
+}
+.center-vertical {
+	padding-top: 10%;
+}
+/*************************************/
+
+header {
+	padding: 4px 0 4px 0;
+
+}
+header input {
+	width:100%;
+	/*height:44px;*/
+}
+header h1 {
+	padding: 0;
+	margin: 0;
+	font-size: 2em;
+}
+header .header-side-btn {
+	font-size: 20px;
+	padding: 10% 0 0 0;
+}
+header .header-side-btn-left {
+	
+}
+header .header-side-btn-right {
+	
+}
+/*header #search-field {
+	opacity: 1;
+   transition: opacity .9s ease-in-out;
+   -moz-transition: opacity .9s ease-in-out;
+   -webkit-transition: opacity .9s ease-in-out;
+}
+header #search-field.ng-hide {
+    opacity: 0;
+    transition: opacity 0s ease-in-out;
+   -moz-transition: opacity 0s ease-in-out;
+   -webkit-transition: opacity 0s ease-in-out;
+}*/
+/*************************************/
+footer {
+	color:#ccc;
+	position:fixed;
+   left:0px;
+   bottom:0px;
+   height:44px;
+   width:100%;
+}
+/* IE 6 */
+* html footer {
+   position:absolute;
+   top:expression((0-(footer.offsetHeight)+(document.documentElement.clientHeight ? document.documentElement.clientHeight : document.body.clientHeight)+(ignoreMe = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop))+'px');
+}
+footer a  {
+	display: block;
+}
+footer a .menu-label {
+	font-size: 1.7em;
+}
+footer .glyphicon {
+	margin: 0 3px 0 0;
+}
+/*************************************/
+@font-face {
+    font-family: CondensedFont;
+    src: url(../fonts/antonio/Antonio-Light.ttf);
+}
+@font-face {
+    font-family: LightFont;
+    src: url(../fonts/lato/Lato-Thin.ttf);
+}
+.text-condensed {
+	font-family: 'CondensedFont', serif;
+}
+.text-light {
+	font-family: 'LightFont', sans-serif;
+}
+.text-bold {
+	font-weight: bold;
+}
+
+h2 {
+	font-size: 1.8em;
+	padding: 0;
+	margin: 0;
+	padding: 1% 0 0 0;
+}
+/*************************************/
+main {
+	/* otherwise last elemtn of list is covered with footer */
+	padding-bottom: 44px;
+}
+
+/*************************************/
+.list-element img {
+	width: 44px;
+	height: 44px;
+	/*border:5px solid #dfb1a2;*/
+}
+/*************************************/
+a.list-element, a.list-element:link, a.list-element:visited {
+	display: block;
+	overflow: hidden;
+	border-top: 2px solid #fff;
+	border-bottom: 1px solid #d7ac9f;
+}
+/*a.list-element:link, a.list-element:visited {
+	background-color: transparent;
+}
+a.list-element:hover {
+	background-color: transparent;
+}
+a.list-element:active {
+	background-color: #dea592;
+}*/
+
+/*************************************/
+#concert-details, #place-details {
+	padding-top: 2%;
+	padding-bottom: 3%;
+}
+#concert #concert-details ul {
+	list-style-type: circle !important;
+}
+#concert #concert-details ul li {
+	display: inline;
+}
+#concert #concert-details ul li + li::before {
+    content: "//";
+}
+/*************************************/
+#place-details {
+	overflow: hidden;
+}
+#place-details a {
+	display: block;
+}
+/*************************************/
+#concerts-list a.list-element {
+	padding: 0 0 5px 0;
+}
+#places-list a.list-element {
+	padding: 5px 0 5px 0;
+}
+
+
+
+.gradient {
+	/*
+	background: -webkit-gradient(
+		linear,
+		left bottom, right top,
+		from(#fff),
+		to(#eee)
+	);
+	background: -webkit-linear-gradient(
+		left bottom,
+		#fff,
+		#eee
+	);
+	background: -moz-linear-gradient(
+		left bottom,
+		#fff,
+		#eee
+	);
+	background: -o-linear-gradient(
+		left bottom,
+		#fff,
+		#eee
+	);
+	background: linear-gradient(
+		left bottom,
+		#fff,
+		#eee
+	);
+*/
+}
+/*************************************/
+#landscape {
+	
+}
+
+/*************************************/
+.pad-marg-none {
+	padding: 0;
+	margin: 0;
+}
+.date {
+	text-align: center;
+}
+.date-narrow {
+	/*width: 88px;*/
+}
+
+.date .day {
+	font-size: 2.2em;
+}
+.date .day-alt1 {
+	background-color: white;
+	/*display: block;
+  position: relative;*/
+}
+/*.date .day-alt2::after {
+  content: "";
+  background: url(http://0.gravatar.com/avatar/adfa32af6cb568d63b216ac217c4d1f0?s=160&d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&r=PG);
+  opacity: 0.5;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;   
+}*/
+
+.date-container{
+	position: relative;
+    width: 88px; height: 88px;
+}
+
+
+
+.date-resume .month {
+	background-color: black;
+	color: white;
+	font-size: 1em;
+	text-transform: uppercase;
+	padding: 0 3px 0 3px;
+	/*border:1px solid green;*/
+}
+/*.dayName {
+	font-family: 5px;
+}*/
+
+
+
+.date .day-alt2 {
+	background-color: transparent;
+	
+}
+
+
+
+
+
+
+.date .month {
+	font-size: 0.6em;
+	text-transform: uppercase;
+	padding: 0 1px 0 1px;
+}
+.date .month-alt1 {
+	background-color: #000;
+	/*filter: alpha(opacity=20); 
+	opacity: 0.2;*/
+}
+.date .month-alt2 {
+	background-color: #000;
+}
+.drop-shadow{
+	-moz-box-shadow:    0px 0px 3px 3px #ccc;
+  	-webkit-box-shadow: 0px 0px 3px 3px #ccc;
+  	box-shadow:         0px 0px 3px 3px #ccc;
+} 
+.color1-drop-shadow{
+	-moz-box-shadow:    0px 0px 3px 3px #e3bbaf;
+  	-webkit-box-shadow: 0px 0px 3px 3px #e3bbaf;
+  	box-shadow:         0px 0px 3px 3px #e3bbaf;
+} 
+
+
+
+
+
+
