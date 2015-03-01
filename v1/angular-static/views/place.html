@@ -3,11 +3,10 @@
 		<div 
 		id="landscape" 
 		style="
-		background: url(../symfony/web/bundles/tapiocadesignclasslivegnv/images/places/{{place.name_url}}/landscape.jpg);
+		background: url({{place.landscapeBkgPath}});
 		background-size: 100% auto;
 	    background-repeat: no-repeat;
 	    background-position:center;
-	    
 	    height: 50px;
 	    " 
 		>
@@ -18,23 +17,16 @@
 					<div class="row" >
 						<div class="col-xs-4 text-center">
 							<a ng-href="tel:{{place.telephone}}" type="button" class=" small text-light text-bold color1-medium">
-					  			<div class="glyphicon glyphicon-earphone " >
-					  			</div>
 								<div>Telephone</div>
 							</a>
 						</div>
 						<div class="col-xs-4 text-center">
 							<a ng-href="mailto:{{place.email}}" type="button" class=" small text-light text-bold color1-medium">
-					  			<div class="glyphicon glyphicon-envelope " >
-					  			</div>
 					  			<div>e-mail</div>
 							</a>
 						</div>
 						<div class="col-xs-4 text-center">
 							<a ng-href="#/place/{{place.id}}/map" type="button" class="small text-light text-bold color1-medium">
-					  			
-					  			<div class="glyphicon glyphicon-map-marker " >
-					  			</div>
 								<div>Direction</div>
 							</a>
 						</div>
