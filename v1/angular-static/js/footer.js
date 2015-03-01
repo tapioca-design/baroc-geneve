@@ -1,4 +1,10 @@
-myApp.controller('FooterController', ['$rootScope','$scope','$http',"$route", 'Data', function($rootScope, $scope, $http, $route, Data) {
+myApp.controller('FooterController', ['$rootScope','$scope','$http',"$route", 'Data','Navigation', function($rootScope, $scope, $http, $route, Data, Navigation) {
+
+
+     console.log("footer");
+     $scope.Navigation = Navigation;
+     console.log("$scope.Navigation");
+     console.log($scope.Navigation);
      //  $scope.$on('$routeChangeStart', function(next, current) { 
 
      //      var currentViewController = current.$$route.controller;

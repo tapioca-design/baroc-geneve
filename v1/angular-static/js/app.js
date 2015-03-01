@@ -44,7 +44,7 @@ myApp.config(["$routeProvider","$locationProvider", function($routeProvider, $lo
 
 
 
-myApp.run(function ($rootScope, $location,$http,Const,Data) {
+myApp.run(function ($rootScope, $location,$http,Const,Data,Navigation) {
     var history = [];
     $rootScope.$on('$routeChangeSuccess', function() {
         history.push($location.$$path);
@@ -78,7 +78,7 @@ myApp.run(function ($rootScope, $location,$http,Const,Data) {
             };
     $rootScope.getData = function (url_suffix,folder,callback) {
         if (localStorage.getItem(url_suffix) === null) {
-            console.log("data doesn t exist locally");
+            // console.log("data doesn t exist locally");
             $http.get(Const.baseUrl+'/symfony/web/api/'+url_suffix).
             success(function(data) {
                 localStorage.setItem(url_suffix, JSON.stringify(data));
@@ -96,7 +96,7 @@ myApp.run(function ($rootScope, $location,$http,Const,Data) {
                 
             });
           } else {
-                console.log("data exist in local storage");
+                // console.log("data exist in local storage");
                 var data = localStorage.getItem(url_suffix);
                 data = JSON.parse(data);
                 if (folder!="") {
@@ -110,6 +110,11 @@ myApp.run(function ($rootScope, $location,$http,Const,Data) {
                 }
 
           }
+	}
+	$rootScope.setFooterNavSelected = function (concertsStatus, mapStatus, placesStatus) {
+		Navigation.concerts = concertsStatus;
+    	Navigation.map = mapStatus;
+    	Navigation.places = placesStatus;
 	}
 });
 
@@ -139,6 +144,13 @@ myApp.factory('Data', function($location){
     	searchActive:0,
     	concertsNoResultAllowed:0,
     	loadingActive:1,
+    };
+});
+myApp.factory('Navigation', function(){
+    return {
+    	concerts:"off", 
+    	map:"off", 
+    	places:"off",
     };
 });
 myApp.factory('Search', function(){

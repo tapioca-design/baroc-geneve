@@ -18,7 +18,10 @@ a[href^="http://maps.google.com/maps"]{display:none !important}
     background:none !important;
 }
 /********************************************/
-
+.padding-side-no {
+	padding-left: 0;
+	padding-right: 0;
+}
 
 #concert-description {
 	padding-top:1.2%;
@@ -307,6 +310,7 @@ nav li{
 header, footer {
 	min-height: 44px;
 	background-color: #000;
+
 }
 
 
@@ -332,7 +336,7 @@ background: -webkit-linear-gradient(top,  #3d150c 0%,#3a1e18 43%,#b27863 100%); 
 background: -o-linear-gradient(top,  #3d150c 0%,#3a1e18 43%,#b27863 100%); /* Opera 11.10+ */
 background: -ms-linear-gradient(top,  #3d150c 0%,#3a1e18 43%,#b27863 100%); /* IE10+ */
 background: linear-gradient(to bottom,  #3d150c 0%,#3a1e18 43%,#b27863 100%); /* W3C */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3d150c', endColorstr='#b27863',GradientType=0 ); /* IE6-9 */
+/*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3d150c', endColorstr='#b27863',GradientType=0 );*/ 
 
 
 }
@@ -377,6 +381,10 @@ ul[rn-carousel] {
 }
 /*************************************/
 
+header #status-bar {
+	padding-top: 18px;
+}
+
 header {
 	padding: 4px 0 4px 0;
 
@@ -414,11 +422,10 @@ header #search-field.ng-hide {
 }*/
 /*************************************/
 footer {
-	color:#ccc;
 	position:fixed;
    left:0px;
    bottom:0px;
-   height:44px;
+   /*height:44px;*/
    width:100%;
 }
 /* IE 6 */
@@ -432,9 +439,15 @@ footer a  {
 footer a .menu-label {
 	font-size: 1.7em;
 }
-footer .glyphicon {
-	margin: 0 3px 0 0;
+
+.main-nav-off {
+	background-color: black;
 }
+.main-nav-on {
+	background-color: #96452e;
+}
+
+
 /*************************************/
 @font-face {
     font-family: CondensedFont;

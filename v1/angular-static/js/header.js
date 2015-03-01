@@ -48,25 +48,31 @@ myApp.controller('HeaderController', ['$rootScope','$scope','$http',"$route", '$
                   $scope.headerSideBtnLeftActive = 1;
                   $scope.searchAllowed=1;
                   // $scope.searchActive = 0;
+                  $rootScope.setFooterNavSelected("on","off","off");
               } else if (viewController=="PlacesListController")  {
                   $scope.headerSideBtnLeftActive = 0;
                   $scope.searchAllowed=0;
+                  $rootScope.setFooterNavSelected("off","off","on");
               } else if (viewController=="ConcertController")  {
                   $scope.headerSideBtnLeftActive = 1;
                   $scope.searchAllowed=0;
                   $scope.searchActive = 0;
+                  $rootScope.setFooterNavSelected("off","off","off");
               } else if (viewController=="PlaceController")  {
                   $scope.headerSideBtnLeftActive = 1;
                   $scope.searchAllowed=0;
                   $scope.searchActive = 0;
+                  $rootScope.setFooterNavSelected("off","off","on");
               } else if (viewController=="MapController")  {
                   $scope.headerSideBtnLeftActive = 0;
                   $scope.searchAllowed=1;
                   $scope.searchActive = 0;
+                  $rootScope.setFooterNavSelected("off","on","off");
               } else if (viewController=="PlaceMapController")  {
                   $scope.headerSideBtnLeftActive = 1;
                   $scope.searchAllowed=0;
                   $scope.searchActive = 0;
+                  $rootScope.setFooterNavSelected("off","off","on");
               } else {
                   console.log("NO ROUTE SUPPOSED TO END UP HERE !!!");
                   $scope.headerSideBtnLeftActive = 0;
