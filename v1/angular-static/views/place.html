@@ -16,17 +16,20 @@
 
 					<div class="row" >
 						<div class="col-xs-4 text-center">
-							<a ng-href="tel:{{place.telephone}}" type="button" class=" small text-light text-bold color1-medium">
-								<div>Telephone</div>
+							<a ng-href="tel:{{place.telephone}}" type="button" class=" small text-light  color1-medium">
+								<img src="images/icons/phone.png" alt="telephone" class="icon">
+								<div>Téléphone</div>
 							</a>
 						</div>
 						<div class="col-xs-4 text-center">
-							<a ng-href="mailto:{{place.email}}" type="button" class=" small text-light text-bold color1-medium">
+							<a ng-href="mailto:{{place.email}}" type="button" class=" small text-light color1-medium">
+								<img src="images/icons/mail1.png" alt="email" class="icon">
 					  			<div>e-mail</div>
 							</a>
 						</div>
 						<div class="col-xs-4 text-center">
-							<a ng-href="#/place/{{place.id}}/map" type="button" class="small text-light text-bold color1-medium">
+							<a ng-href="#/place/{{place.id}}/map" type="button" class="small text-light color1-medium">
+								<img src="images/icons/map-marker1.png" alt="map" class="icon">
 								<div>Direction</div>
 							</a>
 						</div>
@@ -45,7 +48,8 @@
 <div id="concerts-list" >
 <ul>
 
-<li ng-repeat="performance in performances" class="">
+<!-- <li ng-repeat="concert in filteredConcerts = (concerts | filter:Search.term | orderBy: concert[1])" class=""> -->
+<li ng-repeat="performance in filteredPerformances = (performances | orderBy: performance[1])" class="">
 	<a 	ng-href="#/concert/{{performance[0].work.id}}" 	class="row color1-bkg-brighter list-element gradient"	>
 		<div class="col-xs-8">
 			<h2 class="text-condensed black">
@@ -71,7 +75,7 @@
 		
 			<div class="date">
 				<div class="date-text color1-drop-shadow">
-					<div class="day day-alt1 black text-light" >
+					<div class="day day-alt1 black text-thin" >
 						<span class="text-tiny">
 						{{performance[1] | date : "EEE"}}
 						</span>

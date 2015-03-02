@@ -17,6 +17,12 @@ a[href^="http://maps.google.com/maps"]{display:none !important}
 .gmnoprint div {
     background:none !important;
 }
+
+
+
+img.icon {
+	width: 44px;
+}
 /********************************************/
 .padding-side-no {
 	padding-left: 0;
@@ -43,7 +49,7 @@ a[href^="http://maps.google.com/maps"]{display:none !important}
 
 
 .small {
-	font-size: 0.7em;
+	font-size: 0.8em;
 }
 
 
@@ -455,6 +461,10 @@ footer a .menu-label {
 }
 @font-face {
     font-family: LightFont;
+    src: url(../fonts/lato/Lato-Light.ttf);
+}
+@font-face {
+    font-family: ThinFont;
     src: url(../fonts/lato/Lato-Thin.ttf);
 }
 .text-condensed {
@@ -462,6 +472,9 @@ footer a .menu-label {
 }
 .text-light {
 	font-family: 'LightFont', sans-serif;
+}
+.text-thin {
+	font-family: 'ThinFont', sans-serif;
 }
 .text-bold {
 	font-weight: bold;
