@@ -20,9 +20,9 @@ a[href^="http://maps.google.com/maps"]{display:none !important}
 
 
 
-img.icon {
+/*img.icon {
 	width: 20px;
-}
+}*/
 /********************************************/
 .padding-side-no {
 	padding-left: 0;
@@ -395,6 +395,9 @@ header {
 	padding: 4px 0 4px 0;
 
 }
+header a {
+	display: block;
+}
 header input {
 	width:100%;
 	/*height:44px;*/
@@ -405,8 +408,7 @@ header h1 {
 	font-size: 1.7em;
 }
 header .header-side-btn {
-	font-size: 20px;
-	padding: 10% 0 0 0;
+	padding: 4px 0 0 0;
 }
 header .header-side-btn-left {
 	

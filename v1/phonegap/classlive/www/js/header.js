@@ -4,10 +4,10 @@ myApp.controller('HeaderController', ['$rootScope','$scope','$http',"$route", '$
 
 
       
-      $scope.back = function () {
+      $scope.backToPreviousUrl = function () {
       // console.log("backkkkk from header");
-        // var prevUrl = history.length > 1 ? history.splice(-2)[0] : "/";
-        // $location.path(prevUrl);
+        var prevUrl = $rootScope.history.length > 1 ? $rootScope.history.splice(-2)[0] : "/";
+        $location.path(prevUrl);
     };
 
       $scope.Data = Data;
