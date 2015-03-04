@@ -66,7 +66,7 @@ myApp.run(function ($rootScope, $location,$http,Const,Data,Navigation) {
         // }
     };
 	$rootScope.getImagePath = function (object,folder,name_url,filename,callback) {
-                alert("getImagePath");
+                // alert("getImagePath");
                 var localImagesPath = "img/";
                 var serverImagesPath = Const.baseUrl+"/symfony/web/bundles/tapiocadesignclasslivegnv/images/";
                 //works landscape suffix
@@ -88,11 +88,11 @@ myApp.run(function ($rootScope, $location,$http,Const,Data,Navigation) {
             };
     $rootScope.getData = function (url_suffix,folder,callback) {
         if (localStorage.getItem(url_suffix) === null) {
-            alert("getData: data don t exist locally");
+            // alert("getData: data don t exist locally");
             // console.log("data doesn t exist locally");
             $http.get(Const.baseUrl+'/symfony/web/api/'+url_suffix).
             success(function(data) {
-                alert("http get success");
+                // alert("http get success");
                 localStorage.setItem(url_suffix, JSON.stringify(data));
                 //if no need to add landscape img to data, skip
                 if (folder!="") {
@@ -103,29 +103,29 @@ myApp.run(function ($rootScope, $location,$http,Const,Data,Navigation) {
                         // $scope.place = glbkgp_callback_arg;
                 	});
                 } else {
-                    alert("callback(data)");
+                    // alert("callback(data)");
                 	callback(data);
                 }
                 
                 
             }).
               error(function(data, status, headers, config) {
-                    alert("getData http error, data: "+data+" status:"+status+" headers:"+headers+" config:"+config);
+                    // alert("getData http error, data: "+data+" status:"+status+" headers:"+headers+" config:"+config);
               });
           } else {
-                alert("getData: data exists locally");
+                // alert("getData: data exists locally");
                 // console.log("data exist in local storage");
                 var data = localStorage.getItem(url_suffix);
                 data = JSON.parse(data);
                 if (folder!="") {
                 	$rootScope.getImagePath(data,folder,data.name_url,"landscape.jpg",
                     function (glbkgp_callback_arg) {
-                        alert("getImagePath callback");
+                        // alert("getImagePath callback");
                         callback(glbkgp_callback_arg);
                         // $scope.place = glbkgp_callback_arg;
                 	});
                 } else {
-                    alert("callback(data)");
+                    // alert("callback(data)");
                 	callback(data);
                 }
 

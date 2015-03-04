@@ -10,7 +10,7 @@ myApp.controller('ConcertsListController', ['$rootScope','$scope','$http', "$rou
 
       $rootScope.getData("city/1/worksOrderedByFirstPerformance", "",
       function (callback_arg) {
-          alert("getData worksOrderedByFirstPerformance");
+          // alert("getData worksOrderedByFirstPerformance");
           var concerts = callback_arg;
           Data.loadingActive = 0;
           $scope.Data = Data;
