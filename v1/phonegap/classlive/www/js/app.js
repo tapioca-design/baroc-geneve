@@ -58,6 +58,7 @@ myApp.run(function ($rootScope, $location,$http,Const,Data,Navigation) {
     // alert("myApp.run");
     $rootScope.d=function(t){
         // alert(t);
+        console.log(t);
     }
 
     $rootScope.isThereConnection = function() {

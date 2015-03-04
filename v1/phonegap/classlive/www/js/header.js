@@ -57,7 +57,7 @@ myApp.controller('HeaderController', ['$rootScope','$scope','$http',"$route", '$
                   $scope.headerSideBtnLeftActive = 1;
                   $scope.searchAllowed=0;
                   $scope.searchActive = 0;
-                  $rootScope.setFooterNavSelected("off","off","off");
+                  $rootScope.setFooterNavSelected("on","off","off");
               } else if (viewController=="PlaceController")  {
                   $scope.headerSideBtnLeftActive = 1;
                   $scope.searchAllowed=0;
@@ -85,7 +85,15 @@ myApp.controller('HeaderController', ['$rootScope','$scope','$http',"$route", '$
       $scope.searchActiveToggle = function() {
           Data.searchActive = !Data.searchActive;
           $scope.searchActive = Data.searchActive;  
-          $("input#search").focus();
+
+          if (Data.searchActive) {
+            // $rootScope.d("searchActiveToggle");
+          } else {
+            // $rootScope.d("!!!searchActiveToggle");
+            //if tap search cross, empty field
+            Search.term="";
+          }
+          // $("input#search").focus();
           //console.log("searchActive"+$scope.searchActive);
       };
 

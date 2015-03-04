@@ -4,10 +4,10 @@ myApp.controller('HeaderController', ['$rootScope','$scope','$http',"$route", '$
 
 
       
-      $scope.back = function () {
+      $scope.backToPreviousUrl = function () {
       // console.log("backkkkk from header");
-        // var prevUrl = history.length > 1 ? history.splice(-2)[0] : "/";
-        // $location.path(prevUrl);
+        var prevUrl = $rootScope.history.length > 1 ? $rootScope.history.splice(-2)[0] : "/";
+        $location.path(prevUrl);
     };
 
       $scope.Data = Data;
@@ -85,7 +85,15 @@ myApp.controller('HeaderController', ['$rootScope','$scope','$http',"$route", '$
       $scope.searchActiveToggle = function() {
           Data.searchActive = !Data.searchActive;
           $scope.searchActive = Data.searchActive;  
-          $("input#search").focus();
+
+          if (Data.searchActive) {
+            // $rootScope.d("searchActiveToggle");
+          } else {
+            // $rootScope.d("!!!searchActiveToggle");
+            //if tap search cross, empty field
+            Search.term="";
+          }
+          // $("input#search").focus();
           //console.log("searchActive"+$scope.searchActive);
       };
 

@@ -15,7 +15,7 @@ myApp.controller('PlacesListController', ['$rootScope','$scope','$http','Data','
                 $scope.Data = Data;
                 $scope.places = places;
                 Data.loadingActive = 0; 
-                $scope.$apply();
+                
             });
           } else {
                 console.log("places local:");
