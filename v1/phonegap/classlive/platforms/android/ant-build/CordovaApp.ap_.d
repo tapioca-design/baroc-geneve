@@ -267,6 +267,7 @@
 /Users/sylvainhugues/Dropbox/Productions/_PERSO/Classic Live/web/v1/phonegap/classlive/platforms/android/assets/www/img/works/vivaldi_grand_marathon_des_concerts_vivaldi/landscape.jpg \
 /Users/sylvainhugues/Dropbox/Productions/_PERSO/Classic Live/web/v1/phonegap/classlive/platforms/android/assets/www/js/app.js \
 /Users/sylvainhugues/Dropbox/Productions/_PERSO/Classic Live/web/v1/phonegap/classlive/platforms/android/assets/www/js/concerts.js \
+/Users/sylvainhugues/Dropbox/Productions/_PERSO/Classic Live/web/v1/phonegap/classlive/platforms/android/assets/www/js/data-init.js \
 /Users/sylvainhugues/Dropbox/Productions/_PERSO/Classic Live/web/v1/phonegap/classlive/platforms/android/assets/www/js/footer.js \
 /Users/sylvainhugues/Dropbox/Productions/_PERSO/Classic Live/web/v1/phonegap/classlive/platforms/android/assets/www/js/header.js \
 /Users/sylvainhugues/Dropbox/Productions/_PERSO/Classic Live/web/v1/phonegap/classlive/platforms/android/assets/www/js/index.js \

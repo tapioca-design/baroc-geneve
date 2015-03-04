@@ -43,24 +43,22 @@ myApp.config(["$routeProvider","$locationProvider", function($routeProvider, $lo
 }]);
 
 
-
 myApp.run(function ($rootScope, $location,$http,Const,Data,Navigation) {
-    $rootScope.history = [];
-    $rootScope.$on('$routeChangeSuccess', function() {
-        $rootScope.history.push($location.$$path);
-    });
-
-    // $rootScope.backToPreviousUrl = function () {
-    //     var prevUrl = history.length > 1 ? history.splice(-2)[0] : "/";
-    //     $location.path(prevUrl);
-    // };
-
-    // alert("myApp.run");
     $rootScope.d=function(t){
         // alert(t);
         console.log(t);
     }
+    /******** load data when anular runs, and store everything in local storage ******/
 
+    
+    /**************/
+
+
+    $rootScope.history = [];
+    $rootScope.$on('$routeChangeSuccess', function() {
+        $rootScope.history.push($location.$$path);
+    });
+    
     $rootScope.isThereConnection = function() {
         // document.addEventListener("deviceready", onDeviceReady, false);
         // function onDeviceReady() {
@@ -96,6 +94,14 @@ myApp.run(function ($rootScope, $location,$http,Const,Data,Navigation) {
                     });
             };
     $rootScope.getData = function (url_suffix,folder,callback) {
+        //check if internet
+
+
+
+
+        //check if server last update not after the local one
+
+
         if (localStorage.getItem(url_suffix) === null) {
             // $rootScope.d("getData: data don t exist locally");
             // console.log("data doesn t exist locally");
@@ -146,18 +152,9 @@ myApp.run(function ($rootScope, $location,$http,Const,Data,Navigation) {
     	Navigation.places = placesStatus;
 	}
 });
-
-
-
 /***********************************************************************************************/
 myApp.factory('Const', function($location){
-    var baseUrlInner
-    // if ($location.host()=="tapiocadesign.com") {
-    // 	baseUrlInner= "http://tapiocadesign.com/_CLASSLIVE/v1";
-    // } else {
-    // 	//locahost
-    // 	baseUrlInner= "http://"+$location.host()+"/v1";
-    // }
+    var baseUrlInner;
     baseUrlInner= "http://tapiocadesign.com/_CLASSLIVE/v1";
     return {
     	baseUrl:baseUrlInner, 
@@ -190,7 +187,6 @@ myApp.factory('Concert', function(){
 });
 
 
-
 /*****************************************/
 myApp.directive('fallbackSrc', function() {
         return {
@@ -202,71 +198,3 @@ myApp.directive('fallbackSrc', function() {
             }
         };
     })
-
-// myApp.directive('srcBkg', function($http, Const) {
-//         return {
-//             restrict: 'A',
-//             link: function(scope, element, attr) {
-
-//             		var bkgDesired = attr.srcBkg;
-//             		console.log("bkgDesired"+bkgDesired);
-//             		var localBkg = "images/"+bkgDesired;
-//             		var serverBkg = Const.baseUrlInner+"/symfony/web/bundles/tapiocadesignclasslivegnv/images/"+bkgDesired;
-            		
-
-//                 	$http.get(localBkg).
-//                     success(function(data, status, headers, config) {
-//                         //img exists locally
-// 						alert("bkg ok");
-//                         $scope.landscapeValidUrl = localBkg;
-//                     }).
-//                     error(function(data, status, headers, config) {
-//                         //img does not exist locally, load the distant one
-//                        	alert("bkg 404");
-//                         $scope.landscapeValidUrl = serverBkg;
-//                     });
-//             }
-//         };
-//     })
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/***********************************************************************************************/
-
-
-// myApp.run(function($rootScope) {
-// 	$rootScope.$on('$stateChangeStart',function(event, toState, toParams, fromState, fromParams){
-//   console.log('$stateChangeStart to '+toState.to+'- fired when the transition begins. toState,toParams : \n',toState, toParams);
-// });
-// $rootScope.$on('$stateChangeError',function(event, toState, toParams, fromState, fromParams){
-//   console.log('$stateChangeError - fired when an error occurs during transition.');
-//   console.log(arguments);
-// });
-// $rootScope.$on('$stateChangeSuccess',function(event, toState, toParams, fromState, fromParams){
-//   console.log('$stateChangeSuccess to '+toState.name+'- fired once the state transition is complete.');
-// });
-// $rootScope.$on('$viewContentLoaded',function(event){
-//   console.log('$viewContentLoaded - fired after dom rendered',event);
-// });
-// $rootScope.$on('$stateNotFound',function(event, unfoundState, fromState, fromParams){
-//   console.log('$stateNotFound '+unfoundState.to+'  - fired when a state cannot be found by its name.');
-//   console.log(unfoundState, fromState, fromParams);
-// });
-// });
-
-
-  

@@ -28,8 +28,7 @@ myApp.controller('HeaderController', ['$rootScope','$scope','$http',"$route", '$
 
       $scope.$on('$routeChangeStart', function(event, next, current) {
 
-              // console.log("$location.url()");
-              // console.log($location.url());
+              $rootScope.d("routeChangeStart");
 
               $rootScope.$on('$stateChangeSuccess', function (ev, to, toParams, from, fromParams) {
 
