@@ -119,13 +119,24 @@
 												</button>
 											</div>
 											<br />
+
+
+
+<!-- <div ng-show="performance.ticket_website" >
+											<a href="#" ng-click="window.open('{{performance.ticket_website}}', '_system')">
+												ras le
+														</span>
+											</a>
+											{{performance.ticket_website}}
+</div> -->
+<!-- {{performance.ticket_website}} -->
+											
 											<div ng-show="performance.ticket_website" >
-													<!-- {{performance.ticket_website}} -->
 													<button 
 													ng-click="absolute('{{performance.ticket_website}}')"
 													target="_blank" 
 													class="TD-btn color1-medium color1-bkg-darker width-full " 
-													target="_blank" 
+													target="_system" 
 													>
 														Ticket<span ng-show="performance.ticket_price_lowest" class="">: chf {{performance.ticket_price_lowest}}~{{performance.ticket_price_highest}}.-
 														</span>

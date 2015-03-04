@@ -33,6 +33,9 @@
     <feature name="InAppBrowser">
         <param name="ios-package" value="CDVInAppBrowser" />
     </feature>
+    <feature name="NetworkStatus">
+        <param name="ios-package" value="CDVConnection" />
+    </feature>
     <name>Demo</name>
     <description>
         Classique live Geneva
@@ -104,4 +107,8 @@
     <gap:splash gap:platform="ios" height="768" src="www/res/screen/ios/screen-ipad-landscape.png" width="1024" />
     <gap:splash gap:platform="winphone" src="www/res/screen/windows-phone/screen-portrait.jpg" />
     <access origin="*" />
+    <access origin="http://tapiocadesign.com" subdomains="true" />
+    <access origin="http://www.tapiocadesign.com" subdomains="true" />
+    <access origin="http://tapiocadesign.com/_CLASSLIVE/v1" subdomains="true" />
+    <access origin="http://www.tapiocadesign.com/_CLASSLIVE/v1" subdomains="true" />
 </widget>

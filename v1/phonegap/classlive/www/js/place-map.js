@@ -3,10 +3,17 @@ myApp.controller('PlaceMapController', ['$rootScope','$scope','$http', "$routePa
     document.addEventListener("deviceready", onDeviceReady, false);
     function onDeviceReady() {
         // alert("onDeviceReadyInCtrl");
-        navigator.geolocation.getCurrentPosition(onSuccess, onError);
+        var isThereConnection = $rootScope.isThereConnection();
+        if (!isThereConnection) {
+            // alert("isThereConnection :: false");
+            $scope.connectionNeeded=1;
+            return;
+        } else {
+            // alert("isThereConnection :: true");
+            $scope.connectionNeeded=0;
+            navigator.geolocation.getCurrentPosition(onSuccess, onError);
+        }
     }
-
-
     function onSuccess(position) {
         // alert("onSuccess");
         // var element = document.getElementById('geolocation');

@@ -1,41 +1,62 @@
 myApp.controller('MapController', ['$rootScope','$scope','$http', "$routeParams",'$location','Data','Search','Const', function($rootScope,$scope,$http,$routeParams,$location, Data, Search, Const) { 
+
+    document.addEventListener("deviceready", onDeviceReady, false);
+    function onDeviceReady() {
+        // alert("onDeviceReadyInCtrl");
+        var isThereConnection = $rootScope.isThereConnection();
+        if (!isThereConnection) {
+            // alert("isThereConnection :: false");
+            $scope.connectionNeeded=1;
+            return;
+        } else {
+            // alert("isThereConnection :: true");
+            $scope.connectionNeeded=0;
+            navigator.geolocation.getCurrentPosition(onSuccess, onError);
+        }
+    }
+    function onSuccess(position) {
+        // alert("onSuccess");
+        // var element = document.getElementById('geolocation');
+        // alert(position.coords.latitude+" --- "+position.coords.longitude);
+    
+    
+
       Data.headerTitle=Const.appNameFr;
       Data.loadingActive = 1;
 
             $scope.Data = Data;
 
-            
             var windowHeight = $( window ).height();
             var documentHeight = $( document ).height();
             windowHeight = windowHeight - 88;
             $scope.mapHeightStyle = "height:"+windowHeight+"px";
-
-
         $http.get(Const.baseUrl+'/symfony/web/app_dev.php/api/city/1/placesWithPerformances').
         success(function(places) {
 var dateRefMonths = new Array();
-dateRefMonths[0] = "January";
-dateRefMonths[1] = "February";
-dateRefMonths[2] = "March";
-dateRefMonths[3] = "April";
-dateRefMonths[4] = "May";
-dateRefMonths[5] = "June";
-dateRefMonths[6] = "July";
-dateRefMonths[7] = "August";
-dateRefMonths[8] = "September";
-dateRefMonths[9] = "October";
-dateRefMonths[10] = "November";
-dateRefMonths[11] = "December";
+dateRefMonths[0] = "Janvier";
+dateRefMonths[1] = "Février";
+dateRefMonths[2] = "Mars";
+dateRefMonths[3] = "Avril";
+dateRefMonths[4] = "Mai";
+dateRefMonths[5] = "Juin";
+dateRefMonths[6] = "Juillet";
+dateRefMonths[7] = "Août";
+dateRefMonths[8] = "Septembre";
+dateRefMonths[9] = "Octobre";
+dateRefMonths[10] = "Novembre";
+dateRefMonths[11] = "Décembre";
 var dateRefDays = new Array();
-dateRefDays[0] = "Mon";
-dateRefDays[1] = "Tue";
-dateRefDays[2] = "Wed";
-dateRefDays[3] = "Thu";
-dateRefDays[4] = "Fri";
-dateRefDays[5] = "Sat";
-dateRefDays[6] = "Sun";
+dateRefDays[0] = "Lun";
+dateRefDays[1] = "Mar";
+dateRefDays[2] = "Mer";
+dateRefDays[3] = "Jeu";
+dateRefDays[4] = "Ven";
+dateRefDays[5] = "Sam";
+dateRefDays[6] = "Dim";
                         $scope.places = places;
                         // console.log("date du premier Place de la liste, il faut virer ceux qui n ont pas de Performance");
+                        // zoom: 10,
+                        // center: new google.maps.LatLng(46.215, 6.13),
                         var mapOptions = {
                                 zoom: 10,
                                 center: new google.maps.LatLng(46.215, 6.13),
@@ -47,16 +68,36 @@ dateRefDays[6] = "Sun";
                                 scrollwheel: true,
                             }
                     $scope.map = new google.maps.Map(document.getElementById('map'), mapOptions);
+
                     $scope.markers = [];
                     var infoWindow = new google.maps.InfoWindow();
+
+                    // var mapBounds = new google.maps.LatLngBounds();
+
+
+
                     var createMarker = function (place){
-                        var marker = new google.maps.Marker({
-                            map: $scope.map,
-                            position: new google.maps.LatLng(place.map_latitude, place.map_longitude),
-                            title: place.name_fr,
-                            icon: '../symfony/web/bundles/tapiocadesignclasslivegnv/images/places/'+place.name_url+'/map-markers.png',
-                        });
-                        google.maps.event.addListener(marker, 'click', function(){
+                        $rootScope.getImagePath(place,"places",place.name_url,"map-markers.png",
+                        function (glbkgp_callback_arg) {
+                            // console.log("glbkgp_callback_arg");
+                            // console.log(glbkgp_callback_arg);
+                            
+                            
+
+                            
+                            var place = glbkgp_callback_arg;
+
+                            var markerPosition = new google.maps.LatLng(place.map_latitude, place.map_longitude);
+
+                            // mapBounds.extend(markerPosition);
+
+                            var marker = new google.maps.Marker({
+                                map: $scope.map,
+                                position: markerPosition,
+                                title: place.name_fr,
+                                icon: place.landscapeBkgPath,
+                            });
+                            google.maps.event.addListener(marker, 'click', function(){
                             var monthsWithPerformance = new Object();
                             //gather months
                             for (var i = 0; i < place.performances.length; i++) {
@@ -137,11 +178,17 @@ dateRefDays[6] = "Sun";
                         });
                         // marker.content = '<div class="infoWindowContent">' + place.address + '</div>';
                         $scope.markers.push(marker);
+                        });
                     }  
-                    
+
                     for (i = 0; i < $scope.places.length; i++){
                         createMarker($scope.places[i]);
                     }
+                    
+
+
+
+
 
                     $scope.openInfoWindow = function(e, selectedMarker){
                         e.preventDefault();
@@ -149,7 +196,7 @@ dateRefDays[6] = "Sun";
                     }
                     var myloc = new google.maps.Marker({
                         clickable: false,
-                        icon: new google.maps.MarkerImage('//maps.gstatic.com/mapfiles/mobile/mobileimgs2.png',
+                        icon: new google.maps.MarkerImage('http://maps.gstatic.com/mapfiles/mobile/mobileimgs2.png',
                                                                         new google.maps.Size(22,22),
                                                                         new google.maps.Point(0,18),
                                                                         new google.maps.Point(11,11)),
@@ -158,17 +205,31 @@ dateRefDays[6] = "Sun";
                         map: $scope.map
                     });
                     if (navigator.geolocation) navigator.geolocation.getCurrentPosition(function(pos) {
+                        //old js browser way
                         var me = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
                         myloc.setPosition(me);
+                        // phonegap geo api way
+                        // var myLat = position.coords.latitude;
+                        // var myLong = pposition.coords.longitude;
+
+
                     }, function(error) {
                         alert("Unable to find your location");
                     });
+                        // $scope.map.fitBounds(mapBounds);
+
+                        
                     Data.loadingActive = 0;
         }).error(function(data, status) {
-            var msg='Error 12.2: unable to load place. Status:'+status;
+            var msg='Impossible de vous localiser. Status:'+status;
             //console.log(msg);
             alert(msg);
         });
+        }
+
+        function onError(error) {
+         alert('Impossible de vous localiser.');
+        }
  }]);
 
 

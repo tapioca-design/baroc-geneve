@@ -1,5 +1,6 @@
 myApp.controller('ConcertsListController', ['$rootScope','$scope','$http', "$routeParams",'$location','Data','Search','Const', function($rootScope,$scope,$http,$routeParams,$location, Data, Search, Const) { 
 
+      // alert("ConcertsListController");
 
       Data.loadingActive = 1;
       Data.concertsNoResultAllowed = 0;
@@ -7,51 +8,15 @@ myApp.controller('ConcertsListController', ['$rootScope','$scope','$http', "$rou
       $scope.Data = Data;
       $scope.Search = Search;
 
-
-
-
-
-
-
-
-$rootScope.getData("city/1/worksOrderedByFirstPerformance", "",
-function (callback_arg) {
-    var concerts = callback_arg;
-    Data.loadingActive = 0;
-    $scope.Data = Data;
-    $scope.concerts = concerts;
-});
-
-
-      // if (localStorage.getItem("city/1/worksOrderedByFirstPerformance") === null) {
-      //     console.log("city/1/worksOrderedByFirstPerformance not in lStor");
-      //     $http.get(Const.baseUrl+'/symfony/web/api/city/1/worksOrderedByFirstPerformance').
-      //       success(function(concerts) {
-      //           $scope.concerts = concerts;
-      //           localStorage.setItem('city/1/worksOrderedByFirstPerformance', JSON.stringify(concerts));
-      //           //should be loadede and display after a few time, so allow no result 
-      //           Data.loadingActive = 0;
-      //           // console.log(Data.loadingActive);
-      //           setTimeout(function(){ Data.concertsNoResultAllowed = 1; }, 2000);
-      //     }).
-      //     error(function(data, status, headers, config) {
-      //         alert("Concerts list http error: "+status);
-      //     });
-      // } else {
-      //   console.log("city/1/worksOrderedByFirstPerformance is there locally !!");
-      //   var worksOrderedByFirstPerformance = localStorage.getItem("city/1/worksOrderedByFirstPerformance");
-      //   $scope.concerts = JSON.parse(worksOrderedByFirstPerformance);
-        
-      // }
-
-
-
-
-
-
-
-
-
+      $rootScope.getData("city/1/worksOrderedByFirstPerformance", "",
+      function (callback_arg) {
+          alert("getData worksOrderedByFirstPerformance");
+          var concerts = callback_arg;
+          Data.loadingActive = 0;
+          $scope.Data = Data;
+          $scope.concerts = concerts;
+          $scope.$apply();
+      });
       $scope.searchActiveToggle = function() {
           Data.searchActive = !Data.searchActive;
           $scope.searchActive = Data.searchActive;
@@ -68,7 +33,10 @@ myApp.controller('ConcertController', ['$rootScope','$scope','$http', '$location
 
 $scope.colors = ["#fc0003", "#f70008", "#f2000d", "#ed0012", "#e80017", "#e3001c", "#de0021", "#d90026", "#d4002b", "#cf0030", "#c90036", "#c4003b", "#bf0040", "#ba0045", "#b5004a", "#b0004f", "#ab0054", "#a60059", "#a1005e", "#9c0063", "#960069", "#91006e", "#8c0073", "#870078", "#82007d", "#7d0082", "#780087", "#73008c", "#6e0091", "#690096", "#63009c", "#5e00a1", "#5900a6", "#5400ab", "#4f00b0", "#4a00b5", "#4500ba", "#4000bf", "#3b00c4", "#3600c9", "#3000cf", "#2b00d4", "#2600d9", "#2100de", "#1c00e3", "#1700e8", "#1200ed", "#0d00f2", "#0800f7", "#0300fc"];
 
-$scope.Const = Const;
+            
+            
+
+            $scope.Const = Const;
             
             $scope.path = function ( path ) {
               // console.log("path="+path);
@@ -132,6 +100,7 @@ function (callback_arg) {
     Data.headerTitle=work.name;
     $scope.Data = Data;
     $scope.work = work;
+    $scope.$apply();
 });
 
 $rootScope.getData('work/'+workId+'/performances', "works",
@@ -139,6 +108,7 @@ function (callback_arg) {
     var performances = callback_arg;
     $scope.Data = Data;
     $scope.performances = performances;
+    $scope.$apply();
 });
 
 

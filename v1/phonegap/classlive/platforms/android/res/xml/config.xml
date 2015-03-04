@@ -8,12 +8,18 @@
         <param name="android-package" value="org.apache.cordova.statusbar.StatusBar" />
         <param name="onload" value="true" />
     </feature>
+    <feature name="InAppBrowser">
+        <param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser" />
+    </feature>
+    <feature name="NetworkStatus">
+        <param name="android-package" value="org.apache.cordova.networkinformation.NetworkManager" />
+    </feature>
     <name>Demo</name>
     <description>
-        Hello World sample application that responds to the deviceready event.
+        Classique live Geneva
     </description>
     <author email="support@phonegap.com" href="http://phonegap.com">
-        PhoneGap Team
+        Tapioca design
     </author>
     <content src="index.html" />
     <preference name="permissions" value="none" />
@@ -31,6 +37,10 @@
     <preference name="disable-cursor" value="false" />
     <preference name="android-minSdkVersion" value="7" />
     <preference name="android-installLocation" value="auto" />
+    <preference name="StatusBarOverlaysWebView" value="false" />
+    <preference name="StatusBarStyle" value="lightcontent" />
+    <preference name="StatusBarBackgroundColor" value="#000000" />
+    <gap:plugin name="org.apache.cordova.statusbar" />
     <gap:plugin name="org.apache.cordova.battery-status" />
     <gap:plugin name="org.apache.cordova.camera" />
     <gap:plugin name="org.apache.cordova.media-capture" />
@@ -75,7 +85,8 @@
     <gap:splash gap:platform="ios" height="768" src="www/res/screen/ios/screen-ipad-landscape.png" width="1024" />
     <gap:splash gap:platform="winphone" src="www/res/screen/windows-phone/screen-portrait.jpg" />
     <access origin="*" />
-    <feature name="InAppBrowser">
-        <param name="android-package" value="org.apache.cordova.inappbrowser.InAppBrowser" />
-    </feature>
+    <access origin="http://tapiocadesign.com" subdomains="true" />
+    <access origin="http://www.tapiocadesign.com" subdomains="true" />
+    <access origin="http://tapiocadesign.com/_CLASSLIVE/v1" subdomains="true" />
+    <access origin="http://www.tapiocadesign.com/_CLASSLIVE/v1" subdomains="true" />
 </widget>

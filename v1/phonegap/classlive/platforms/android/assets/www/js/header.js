@@ -84,8 +84,8 @@ myApp.controller('HeaderController', ['$rootScope','$scope','$http',"$route", '$
       //$scope.Data = Data;
       $scope.searchActiveToggle = function() {
           Data.searchActive = !Data.searchActive;
-          $scope.searchActive = Data.searchActive;
-          
+          $scope.searchActive = Data.searchActive;  
+          $("input#search").focus();
           //console.log("searchActive"+$scope.searchActive);
       };
 

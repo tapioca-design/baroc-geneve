@@ -1,5 +1,10 @@
 <div ng-show="Data.loadingActive" class="text-center vertical-center">
-	<img src="images/loader.gif" alt="" class="img-size-half">
+	<img src="img/loader.gif" alt="" class="img-size-half">
+</div>
+<div ng-show="connectionNeeded" class="text-center vertical-center ">
+	<img src="img/icons-dark/warning.png" alt="" class="img-size-half ">
+	<br /><br />
+	La cartographie a besoin d'une connexion internet.
 </div>
 <div class="row">
     <div id="map" style="{{mapHeightStyle}}"></div>

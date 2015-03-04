@@ -402,7 +402,7 @@ header input {
 header h1 {
 	padding: 0;
 	margin: 0;
-	font-size: 2em;
+	font-size: 1.7em;
 }
 header .header-side-btn {
 	font-size: 20px;
@@ -443,7 +443,7 @@ footer a  {
 	display: block;
 }
 footer a .menu-label {
-	font-size: 1.7em;
+	font-size: 1.5em;
 }
 
 .main-nav-off {
@@ -469,6 +469,7 @@ footer a .menu-label {
 }
 .text-condensed {
 	font-family: 'CondensedFont', serif;
+	/*font-size: 0.8em;*/
 }
 .text-light {
 	font-family: 'LightFont', sans-serif;
@@ -481,7 +482,7 @@ footer a .menu-label {
 }
 
 h2 {
-	font-size: 1.8em;
+	font-size: 1.4em;
 	padding: 0;
 	margin: 0;
 	padding: 1% 0 0 0;
