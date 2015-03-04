@@ -64,7 +64,7 @@ class Performance
      *
      * @ORM\Column(name="ticketWebsite", type="string", length=255, nullable=true)
      * @Expose
-     * @Groups({"list","detail"})
+     * @Groups({"list","detail", "performanceDetail"})
      */
     private $ticketWebsite;
 
@@ -91,7 +91,7 @@ class Performance
      *
      * @ORM\Column(name="ticketPriceLowest", type="string", length=3, nullable=true)
      * @Expose
-     * @Groups({"detail"})
+     * @Groups({"detail", "performanceDetail"})
      */
     private $ticketPriceLowest;
 
@@ -100,7 +100,7 @@ class Performance
      *
      * @ORM\Column(name="ticketPriceHighest", type="string", length=3, nullable=true)
      * @Expose
-     * @Groups({"detail"})
+     * @Groups({"detail", "performanceDetail"})
      */
     private $ticketPriceHighest;
 

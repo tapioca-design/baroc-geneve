@@ -129,7 +129,7 @@ class PerformanceRestController extends FOSRestController
       $performances = $query->getResult();
       
       $view = $this->view($performances, 200);
-      $view->setSerializationContext(SerializationContext::create()->setGroups(array('list','detail','placeFromPerformance')));
+      $view->setSerializationContext(SerializationContext::create()->setGroups(array('list','performanceDetail','placeFromPerformance')));
       $view->setData($performances);
       return $view;
     }

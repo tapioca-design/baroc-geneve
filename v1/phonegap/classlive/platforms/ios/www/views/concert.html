@@ -1,18 +1,5 @@
-<!-- <div style="background-color:red">yoyo</div> -->
+
 <div id="concert" class="row" >
-		<!-- <div 
-		id="landscape" 
-		style="
-		background: url(../symfony/web/bundles/tapiocadesignclasslivegnv/images/works/{{work.name_url}}/landscape.jpg);
-		background-size: 100% auto;
-	    background-repeat: no-repeat;
-	    background-position:center;
-	    height: 50px;
-	    "
-		></div> -->
-
-		<!-- <img ng-src="{{work.landscapeBkgPath}}" /> -->
-
 		<div 
 		id="landscape" 
 		style="
@@ -23,19 +10,6 @@
 	    height: 50px;
 	    "
 		></div>
-
-
-
-		<!-- work.name_url={{work.name_url}}
-		<div 
-		id="landscape" 
-		
-	    src-bkg="/works/{{work.name_url}}/landscape.jpg"
-		></div> -->
-
-		
-		
-
 		<div class="col-xs-12 color1-bkg-brightest" id="concert-details">
 			<ul>
 						<li ng-show="work.interpreter">
@@ -52,25 +26,17 @@
 			    		</li>
 			</ul>
 		</div>
-
-
 		<div id="performances" class="color-darkest">
-
 			<div>
-				
 				<div >
 					<div rn-carousel-indicators ng-if="performances.length > 1" slides="performances" rn-carousel-index="carouselIndex2" >
 					</div>
 				</div>
-
 				<div class="carousel-demo">
                     <ul rn-carousel rn-carousel-index="carouselIndex2" rn-carousel-auto-slide="4" class="carousel2">
-
-
                         <li ng-repeat="performance in performances" class="performance">
 							<div class="row">
 								<div class="col-xs-5">
-
 									<div class="date date-narrow">
 										<div class="day day-alt2 text-white text-thin">
 											<span class="text-tiny">
@@ -87,7 +53,6 @@
 											{{performance.date_performance | date : "H:mm"}}
 										</div>
 									</div>
-
 									<div class="text-center">
 												<img 
 												ng-src="img/places/{{performance.place.name_url}}/square.jpg" 
@@ -95,19 +60,6 @@
 												class="img-circle" 
 												/>
 											</div>
-
-									<!-- <div ng-show="performance.ticket_email" >
-										<button ng-href="{{performance.ticket_email}}" target="_blank"  >
-											e-mail
-										</button>
-									</div> -->
-
-									<!-- <div ng-show="performance.ticket_price_lowest" class="red-dark text-condensed">
-										From chf {{performance.ticket_price_lowest}}.-
-										<br />
-										to {{performance.ticket_price_highest}}.-
-									</div> -->
-
 								</div>
 								<div class="col-xs-7">	
 									<br />
@@ -119,18 +71,6 @@
 												</button>
 											</div>
 											<br />
-
-
-
-<!-- <div ng-show="performance.ticket_website" >
-											<a href="#" ng-click="window.open('{{performance.ticket_website}}', '_system')">
-												ras le
-														</span>
-											</a>
-											{{performance.ticket_website}}
-</div> -->
-<!-- {{performance.ticket_website}} -->
-											
 											<div ng-show="performance.ticket_website" >
 													<button 
 													ng-click="absolute('{{performance.ticket_website}}')"
@@ -143,28 +83,18 @@
 													</button>
 											</div>
 								</div>
-								
 							</div>
-
 						</li>
                     </ul>
-
-			
                 </div>
 			</div>
 		</div>
-
-
-		
-		
 </div>
-
 		<div class="row" >
 			<div class="col-xs-12 color1-bkg-brightest " id="concert-description">
 				{{work.description}}
 			</div>
 		</div>
-
 <div ng-show="Data.loadingActive" class="text-center vertical-center">
 	<img src="img/loader.gif" alt="" class="img-size-half">
 </div>

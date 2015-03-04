@@ -10,12 +10,12 @@ myApp.controller('ConcertsListController', ['$rootScope','$scope','$http', "$rou
 
       $rootScope.getData("city/1/worksOrderedByFirstPerformance", "",
       function (callback_arg) {
-          alert("getData worksOrderedByFirstPerformance");
+          // alert("getData worksOrderedByFirstPerformance");
           var concerts = callback_arg;
           Data.loadingActive = 0;
           $scope.Data = Data;
           $scope.concerts = concerts;
-          $scope.$apply();
+          
       });
       $scope.searchActiveToggle = function() {
           Data.searchActive = !Data.searchActive;
@@ -100,7 +100,6 @@ function (callback_arg) {
     Data.headerTitle=work.name;
     $scope.Data = Data;
     $scope.work = work;
-    $scope.$apply();
 });
 
 $rootScope.getData('work/'+workId+'/performances', "works",
@@ -108,7 +107,6 @@ function (callback_arg) {
     var performances = callback_arg;
     $scope.Data = Data;
     $scope.performances = performances;
-    $scope.$apply();
 });
 
 

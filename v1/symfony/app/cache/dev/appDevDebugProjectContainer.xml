@@ -32,9 +32,9 @@
     <parameter key="database_driver">pdo_mysql</parameter>
     <parameter key="database_host">localhost</parameter>
     <parameter key="database_port">null</parameter>
-    <parameter key="database_name">usr_web106_7</parameter>
-    <parameter key="database_user">web106</parameter>
-    <parameter key="database_password">tloBUR5+</parameter>
+    <parameter key="database_name">classic_live</parameter>
+    <parameter key="database_user">sylvainhugues</parameter>
+    <parameter key="database_password">kop</parameter>
     <parameter key="mailer_transport">smtp</parameter>
     <parameter key="mailer_host">localhost</parameter>
     <parameter key="mailer_user">null</parameter>
@@ -1902,7 +1902,7 @@
       <argument type="collection">
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>54ed2dfc4b7fa</argument>
+            <argument>54f7407500e69</argument>
           </service>
         </argument>
       </argument>
@@ -2021,7 +2021,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.context"/>
-            <argument>54ed2dfc4b7fa</argument>
+            <argument>54f7407500e69</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
             <argument type="service" id="security.authentication.manager"/>
           </service>
@@ -2427,9 +2427,9 @@
         <argument key="driver">pdo_mysql</argument>
         <argument key="host">localhost</argument>
         <argument key="port">null</argument>
-        <argument key="dbname">usr_web106_7</argument>
-        <argument key="user">web106</argument>
-        <argument key="password">tloBUR5+</argument>
+        <argument key="dbname">classic_live</argument>
+        <argument key="user">sylvainhugues</argument>
+        <argument key="password">kop</argument>
         <argument key="charset">UTF8</argument>
         <argument key="driverOptions" type="collection"/>
       </argument>

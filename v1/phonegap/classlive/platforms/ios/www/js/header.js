@@ -28,8 +28,7 @@ myApp.controller('HeaderController', ['$rootScope','$scope','$http',"$route", '$
 
       $scope.$on('$routeChangeStart', function(event, next, current) {
 
-              // console.log("$location.url()");
-              // console.log($location.url());
+              $rootScope.d("routeChangeStart");
 
               $rootScope.$on('$stateChangeSuccess', function (ev, to, toParams, from, fromParams) {
 
@@ -57,7 +56,7 @@ myApp.controller('HeaderController', ['$rootScope','$scope','$http',"$route", '$
                   $scope.headerSideBtnLeftActive = 1;
                   $scope.searchAllowed=0;
                   $scope.searchActive = 0;
-                  $rootScope.setFooterNavSelected("off","off","off");
+                  $rootScope.setFooterNavSelected("on","off","off");
               } else if (viewController=="PlaceController")  {
                   $scope.headerSideBtnLeftActive = 1;
                   $scope.searchAllowed=0;

@@ -67,6 +67,7 @@
 /Users/sylvainhugues/Dropbox/Productions/_PERSO/Classic Live/web/v1/phonegap/classlive/platforms/android/assets/www/css/angular-carousel.css \
 /Users/sylvainhugues/Dropbox/Productions/_PERSO/Classic Live/web/v1/phonegap/classlive/platforms/android/assets/www/css/angular-carousel.css.map \
 /Users/sylvainhugues/Dropbox/Productions/_PERSO/Classic Live/web/v1/phonegap/classlive/platforms/android/assets/www/css/angular-carousel.min.css \
+/Users/sylvainhugues/Dropbox/Productions/_PERSO/Classic Live/web/v1/phonegap/classlive/platforms/android/assets/www/css/index.css \
 /Users/sylvainhugues/Dropbox/Productions/_PERSO/Classic Live/web/v1/phonegap/classlive/platforms/android/assets/www/css/screen copy.css \
 /Users/sylvainhugues/Dropbox/Productions/_PERSO/Classic Live/web/v1/phonegap/classlive/platforms/android/assets/www/css/screen.css \
 /Users/sylvainhugues/Dropbox/Productions/_PERSO/Classic Live/web/v1/phonegap/classlive/platforms/android/assets/www/fonts/antonio \
@@ -76,7 +77,9 @@
 /Users/sylvainhugues/Dropbox/Productions/_PERSO/Classic Live/web/v1/phonegap/classlive/platforms/android/assets/www/fonts/lato/Lato-Thin.ttf \
 /Users/sylvainhugues/Dropbox/Productions/_PERSO/Classic Live/web/v1/phonegap/classlive/platforms/android/assets/www/img/icons \
 /Users/sylvainhugues/Dropbox/Productions/_PERSO/Classic Live/web/v1/phonegap/classlive/platforms/android/assets/www/img/icons-dark \
+/Users/sylvainhugues/Dropbox/Productions/_PERSO/Classic Live/web/v1/phonegap/classlive/platforms/android/assets/www/img/icons-lighter \
 /Users/sylvainhugues/Dropbox/Productions/_PERSO/Classic Live/web/v1/phonegap/classlive/platforms/android/assets/www/img/loader.gif \
+/Users/sylvainhugues/Dropbox/Productions/_PERSO/Classic Live/web/v1/phonegap/classlive/platforms/android/assets/www/img/logo.png \
 /Users/sylvainhugues/Dropbox/Productions/_PERSO/Classic Live/web/v1/phonegap/classlive/platforms/android/assets/www/img/places \
 /Users/sylvainhugues/Dropbox/Productions/_PERSO/Classic Live/web/v1/phonegap/classlive/platforms/android/assets/www/img/works \
 /Users/sylvainhugues/Dropbox/Productions/_PERSO/Classic Live/web/v1/phonegap/classlive/platforms/android/assets/www/img/icons/back.png \
@@ -90,6 +93,15 @@
 /Users/sylvainhugues/Dropbox/Productions/_PERSO/Classic Live/web/v1/phonegap/classlive/platforms/android/assets/www/img/icons/search2.png \
 /Users/sylvainhugues/Dropbox/Productions/_PERSO/Classic Live/web/v1/phonegap/classlive/platforms/android/assets/www/img/icons/warning.png \
 /Users/sylvainhugues/Dropbox/Productions/_PERSO/Classic Live/web/v1/phonegap/classlive/platforms/android/assets/www/img/icons-dark/warning.png \
+/Users/sylvainhugues/Dropbox/Productions/_PERSO/Classic Live/web/v1/phonegap/classlive/platforms/android/assets/www/img/icons-lighter/back.png \
+/Users/sylvainhugues/Dropbox/Productions/_PERSO/Classic Live/web/v1/phonegap/classlive/platforms/android/assets/www/img/icons-lighter/cross1.png \
+/Users/sylvainhugues/Dropbox/Productions/_PERSO/Classic Live/web/v1/phonegap/classlive/platforms/android/assets/www/img/icons-lighter/cross2.png \
+/Users/sylvainhugues/Dropbox/Productions/_PERSO/Classic Live/web/v1/phonegap/classlive/platforms/android/assets/www/img/icons-lighter/mail1.png \
+/Users/sylvainhugues/Dropbox/Productions/_PERSO/Classic Live/web/v1/phonegap/classlive/platforms/android/assets/www/img/icons-lighter/map-marker1.png \
+/Users/sylvainhugues/Dropbox/Productions/_PERSO/Classic Live/web/v1/phonegap/classlive/platforms/android/assets/www/img/icons-lighter/map-marker2.png \
+/Users/sylvainhugues/Dropbox/Productions/_PERSO/Classic Live/web/v1/phonegap/classlive/platforms/android/assets/www/img/icons-lighter/phone.png \
+/Users/sylvainhugues/Dropbox/Productions/_PERSO/Classic Live/web/v1/phonegap/classlive/platforms/android/assets/www/img/icons-lighter/search1.png \
+/Users/sylvainhugues/Dropbox/Productions/_PERSO/Classic Live/web/v1/phonegap/classlive/platforms/android/assets/www/img/icons-lighter/search2.png \
 /Users/sylvainhugues/Dropbox/Productions/_PERSO/Classic Live/web/v1/phonegap/classlive/platforms/android/assets/www/img/places/arena_geneve \
 /Users/sylvainhugues/Dropbox/Productions/_PERSO/Classic Live/web/v1/phonegap/classlive/platforms/android/assets/www/img/places/art_histoire \
 /Users/sylvainhugues/Dropbox/Productions/_PERSO/Classic Live/web/v1/phonegap/classlive/platforms/android/assets/www/img/places/auditorium_perrier \
