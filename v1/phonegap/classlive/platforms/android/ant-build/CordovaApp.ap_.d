@@ -284,6 +284,8 @@
 /Users/sylvainhugues/Dropbox/Productions/_PERSO/Classic Live/web/v1/phonegap/classlive/platforms/android/assets/www/js/lib/angular/angular-animate.min.js.map \
 /Users/sylvainhugues/Dropbox/Productions/_PERSO/Classic Live/web/v1/phonegap/classlive/platforms/android/assets/www/js/lib/angular/angular-locale_fr-fr.js \
 /Users/sylvainhugues/Dropbox/Productions/_PERSO/Classic Live/web/v1/phonegap/classlive/platforms/android/assets/www/js/lib/angular/angular-locale_fr.js \
+/Users/sylvainhugues/Dropbox/Productions/_PERSO/Classic Live/web/v1/phonegap/classlive/platforms/android/assets/www/js/lib/angular/angular-resource.min.js \
+/Users/sylvainhugues/Dropbox/Productions/_PERSO/Classic Live/web/v1/phonegap/classlive/platforms/android/assets/www/js/lib/angular/angular-resource.min.js.map \
 /Users/sylvainhugues/Dropbox/Productions/_PERSO/Classic Live/web/v1/phonegap/classlive/platforms/android/assets/www/js/lib/angular/angular-route.min.js \
 /Users/sylvainhugues/Dropbox/Productions/_PERSO/Classic Live/web/v1/phonegap/classlive/platforms/android/assets/www/js/lib/angular/angular-route.min.js.map \
 /Users/sylvainhugues/Dropbox/Productions/_PERSO/Classic Live/web/v1/phonegap/classlive/platforms/android/assets/www/js/lib/angular/angular-touch.min.js \

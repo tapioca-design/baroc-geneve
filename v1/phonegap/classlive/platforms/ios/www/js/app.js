@@ -1,5 +1,5 @@
 var myApp = angular.module("myApp", 
-	["ngRoute", "ngTouch","ngAnimate", "appControllers", 'angular-carousel']);
+	["ngRoute", "ngTouch","ngResource","ngAnimate", "appControllers", 'angular-carousel']);
 
 var appControllers = angular.module("appControllers", []);
 
@@ -10,49 +10,42 @@ myApp.config(["$routeProvider","$locationProvider", function($routeProvider, $lo
 	when("/concerts-list", {
 		templateUrl: "views/concerts-list.html",
 		controller:"ConcertsListController"
-	}).
-	when("/map", {
+	}).when("/map", {
 		templateUrl: "views/map.html",
 		controller:"MapController"
-	}).
-	when("/concert/:workId", {
+	}).when("/concert/:workId", {
 		templateUrl: "views/concert.html",
 		controller:"ConcertController"
-	}).
-	// when("/performance/:performanceId/tickets", {
-	// 	templateUrl: "views/tickets.html",
-	// 	controller:"TicketsController"
-	// }).
-	when("/places-list", {
+	}).when("/places-list", {
 		templateUrl: "views/places-list.html",
 		controller:"PlacesListController"
-	}).
-	when("/place/:placeId", {
+	}).when("/place/:placeId", {
 		templateUrl: "views/place.html",
 		controller:"PlaceController"
-	}).
-	when("/place/:placeId/map", {
+	}).when("/place/:placeId/map", {
 		templateUrl: "views/place-map.html",
 		controller:"PlaceMapController"
-	}).
-
-
-	otherwise({
+	}).otherwise({
 		redirectTo: "/concerts-list"
 	});
 }]);
 
 
+myApp.config(['$httpProvider', function($httpProvider) {
+        $httpProvider.defaults.useXDomain = true;
+        delete $httpProvider.defaults.headers.common['X-Requested-With'];
+    }
+]);
+
+
 myApp.run(function ($rootScope, $location,$http,Const,Data,Navigation) {
+
+    // document.domain = 'tapiocadesign.com';
+
     $rootScope.d=function(t){
         // alert(t);
         console.log(t);
     }
-    /******** load data when anular runs, and store everything in local storage ******/
-
-    
-    /**************/
-
 
     $rootScope.history = [];
     $rootScope.$on('$routeChangeSuccess', function() {
@@ -95,17 +88,10 @@ myApp.run(function ($rootScope, $location,$http,Const,Data,Navigation) {
             };
     $rootScope.getData = function (url_suffix,folder,callback) {
         //check if internet
-
-
-
-
         //check if server last update not after the local one
-
-
         if (localStorage.getItem(url_suffix) === null) {
-            // $rootScope.d("getData: data don t exist locally");
-            // console.log("data doesn t exist locally");
-            $http.get(Const.baseUrl+'/symfony/web/api/'+url_suffix).
+            // $http.get(Const.baseUrl+'/symfony/web/api/'+url_suffix).
+            $http.get("http://tapiocadesign.com/_CLASSLIVE/v1/symfony/web/bundles/tapiocadesignclasslivegnv/views/json-static-Access-Control-Allow-Origin.php").
             success(function(data) {
                 // $rootScope.d("http get success");
                 localStorage.setItem(url_suffix, JSON.stringify(data));
@@ -123,8 +109,7 @@ myApp.run(function ($rootScope, $location,$http,Const,Data,Navigation) {
                 }
                 
                 
-            }).
-              error(function(data, status, headers, config) {
+            }).error(function(data, status, headers, config) {
                     alert("getData http error, data: "+data+" status:"+status+" headers:"+headers+" config:"+config);
               });
           } else {
