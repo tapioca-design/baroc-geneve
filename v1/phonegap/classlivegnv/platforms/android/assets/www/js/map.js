@@ -2,25 +2,22 @@ myApp.controller('MapController', ['$rootScope','$scope','$http', "$routeParams"
 
     document.addEventListener("deviceready", onDeviceReady, false);
     function onDeviceReady() {
-        // alert("onDeviceReadyInCtrl");
+        $rootScope.d("onDeviceReadyInCtrl");
         var isThereConnection = $rootScope.isThereConnection();
         if (!isThereConnection) {
             // alert("isThereConnection :: false");
             $scope.connectionNeeded=1;
             return;
         } else {
-            // alert("isThereConnection :: true");
+            // $rootScope.d("isThereConnection :: true");
             $scope.connectionNeeded=0;
             navigator.geolocation.getCurrentPosition(onSuccess, onError);
         }
     }
     function onSuccess(position) {
-        // alert("onSuccess");
+         $rootScope.d("onSuccess");
         // var element = document.getElementById('geolocation');
-        // alert(position.coords.latitude+" --- "+position.coords.longitude);
-    
-    
-
+        // $rootScope.d(position.coords.latitude+" --- "+position.coords.longitude);
       Data.headerTitle=Const.appNameFr;
       Data.loadingActive = 1;
 
@@ -31,28 +28,29 @@ myApp.controller('MapController', ['$rootScope','$scope','$http', "$routeParams"
             windowHeight = windowHeight - 88;
             $scope.mapHeightStyle = "height:"+windowHeight+"px";
         $http.get(Const.baseUrl+'/symfony/web/app_dev.php/api/city/1/placesWithPerformances').
-        success(function(places) {
-var dateRefMonths = new Array();
-dateRefMonths[0] = "Janvier";
-dateRefMonths[1] = "Février";
-dateRefMonths[2] = "Mars";
-dateRefMonths[3] = "Avril";
-dateRefMonths[4] = "Mai";
-dateRefMonths[5] = "Juin";
-dateRefMonths[6] = "Juillet";
-dateRefMonths[7] = "Août";
-dateRefMonths[8] = "Septembre";
-dateRefMonths[9] = "Octobre";
-dateRefMonths[10] = "Novembre";
-dateRefMonths[11] = "Décembre";
-var dateRefDays = new Array();
-dateRefDays[0] = "Lun";
-dateRefDays[1] = "Mar";
-dateRefDays[2] = "Mer";
-dateRefDays[3] = "Jeu";
-dateRefDays[4] = "Ven";
-dateRefDays[5] = "Sam";
-dateRefDays[6] = "Dim";
+            success(function(places) {
+                    $rootScope.d("http get success");
+                        var dateRefMonths = new Array();
+                        dateRefMonths[0] = "Janvier";
+                        dateRefMonths[1] = "Février";
+                        dateRefMonths[2] = "Mars";
+                        dateRefMonths[3] = "Avril";
+                        dateRefMonths[4] = "Mai";
+                        dateRefMonths[5] = "Juin";
+                        dateRefMonths[6] = "Juillet";
+                        dateRefMonths[7] = "Août";
+                        dateRefMonths[8] = "Septembre";
+                        dateRefMonths[9] = "Octobre";
+                        dateRefMonths[10] = "Novembre";
+                        dateRefMonths[11] = "Décembre";
+                        var dateRefDays = new Array();
+                        dateRefDays[0] = "Lun";
+                        dateRefDays[1] = "Mar";
+                        dateRefDays[2] = "Mer";
+                        dateRefDays[3] = "Jeu";
+                        dateRefDays[4] = "Ven";
+                        dateRefDays[5] = "Sam";
+                        dateRefDays[6] = "Dim";
                         $scope.places = places;
                         // console.log("date du premier Place de la liste, il faut virer ceux qui n ont pas de Performance");
                         // zoom: 10,
@@ -214,7 +212,7 @@ dateRefDays[6] = "Dim";
 
 
                     }, function(error) {
-                        alert("Unable to find your location");
+                        $rootScope.d("Unable to find your location");
                     });
                         // $scope.map.fitBounds(mapBounds);
 
@@ -223,7 +221,7 @@ dateRefDays[6] = "Dim";
         }).error(function(data, status) {
             var msg='Impossible de vous localiser. Status:'+status;
             //console.log(msg);
-            alert(msg);
+            $rootScope.d(msg);
         });
         }
 

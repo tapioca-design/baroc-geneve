@@ -33,6 +33,7 @@
 /Users/sylvainhugues/Dropbox/Productions/_PERSO/Classic Live/web/v1/phonegap/classlivegnv/platforms/android/assets/www/img \
 /Users/sylvainhugues/Dropbox/Productions/_PERSO/Classic Live/web/v1/phonegap/classlivegnv/platforms/android/assets/www/index.html \
 /Users/sylvainhugues/Dropbox/Productions/_PERSO/Classic Live/web/v1/phonegap/classlivegnv/platforms/android/assets/www/js \
+/Users/sylvainhugues/Dropbox/Productions/_PERSO/Classic Live/web/v1/phonegap/classlivegnv/platforms/android/assets/www/plugins \
 /Users/sylvainhugues/Dropbox/Productions/_PERSO/Classic Live/web/v1/phonegap/classlivegnv/platforms/android/assets/www/res \
 /Users/sylvainhugues/Dropbox/Productions/_PERSO/Classic Live/web/v1/phonegap/classlivegnv/platforms/android/assets/www/spec \
 /Users/sylvainhugues/Dropbox/Productions/_PERSO/Classic Live/web/v1/phonegap/classlivegnv/platforms/android/assets/www/spec.html \
@@ -274,6 +275,10 @@
 /Users/sylvainhugues/Dropbox/Productions/_PERSO/Classic Live/web/v1/phonegap/classlivegnv/platforms/android/assets/www/js/lib/bootstrap/bootstrap.min.css \
 /Users/sylvainhugues/Dropbox/Productions/_PERSO/Classic Live/web/v1/phonegap/classlivegnv/platforms/android/assets/www/js/lib/bootstrap/bootstrap.min.js \
 /Users/sylvainhugues/Dropbox/Productions/_PERSO/Classic Live/web/v1/phonegap/classlivegnv/platforms/android/assets/www/js/lib/jquery/jquery.min.js \
+/Users/sylvainhugues/Dropbox/Productions/_PERSO/Classic Live/web/v1/phonegap/classlivegnv/platforms/android/assets/www/plugins/org.apache.cordova.network-information \
+/Users/sylvainhugues/Dropbox/Productions/_PERSO/Classic Live/web/v1/phonegap/classlivegnv/platforms/android/assets/www/plugins/org.apache.cordova.network-information/www \
+/Users/sylvainhugues/Dropbox/Productions/_PERSO/Classic Live/web/v1/phonegap/classlivegnv/platforms/android/assets/www/plugins/org.apache.cordova.network-information/www/Connection.js \
+/Users/sylvainhugues/Dropbox/Productions/_PERSO/Classic Live/web/v1/phonegap/classlivegnv/platforms/android/assets/www/plugins/org.apache.cordova.network-information/www/network.js \
 /Users/sylvainhugues/Dropbox/Productions/_PERSO/Classic Live/web/v1/phonegap/classlivegnv/platforms/android/assets/www/res/icon \
 /Users/sylvainhugues/Dropbox/Productions/_PERSO/Classic Live/web/v1/phonegap/classlivegnv/platforms/android/assets/www/res/screen \
 /Users/sylvainhugues/Dropbox/Productions/_PERSO/Classic Live/web/v1/phonegap/classlivegnv/platforms/android/assets/www/res/icon/android \

@@ -43,7 +43,7 @@ myApp.run(function ($rootScope, $location,$http,Const,Data,Navigation) {
     // document.domain = 'tapiocadesign.com';
 
     $rootScope.d=function(t){
-        // alert(t);
+        alert(t);
         console.log(t);
     }
 
