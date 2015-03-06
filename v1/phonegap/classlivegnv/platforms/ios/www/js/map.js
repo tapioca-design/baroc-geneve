@@ -1,5 +1,6 @@
 myApp.controller('MapController', ['$rootScope','$scope','$http', "$routeParams",'$location','Data','Search','Const', function($rootScope,$scope,$http,$routeParams,$location, Data, Search, Const) { 
 
+    $rootScope.d("MapController");
     document.addEventListener("deviceready", onDeviceReady, false);
     function onDeviceReady() {
         $rootScope.d("onDeviceReadyInCtrl");
@@ -204,31 +205,31 @@ myApp.controller('MapController', ['$rootScope','$scope','$http', "$routeParams"
                         zIndex: 999,
                         map: $scope.map
                     });
-                    if (navigator.geolocation) navigator.geolocation.getCurrentPosition(function(pos) {
-                        //old js browser way
-                        var me = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
-                        myloc.setPosition(me);
-                        // phonegap geo api way
-                        // var myLat = position.coords.latitude;
-                        // var myLong = pposition.coords.longitude;
+                    // if (navigator.geolocation) navigator.geolocation.getCurrentPosition(function(pos) {
+                    //     //old js browser way
+                    //     var me = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
+                    //     myloc.setPosition(me);
+                    //     // phonegap geo api way
+                    //     // var myLat = position.coords.latitude;
+                    //     // var myLong = pposition.coords.longitude;
 
 
-                    }, function(error) {
-                        $rootScope.d("Unable to find your location");
-                    });
-                        // $scope.map.fitBounds(mapBounds);
+                    // }, function(error) {
+                    //     $rootScope.d("Impossible de vous localiser (!navigator.geolocation)");
+                    // });
+                        
 
                         
                     Data.loadingActive = 0;
-        }).error(function(data, status) {
-            var msg='Impossible de vous localiser. Status:'+status;
-            //console.log(msg);
-            $rootScope.d(msg);
-        });
+            }).error(function(data, status) {
+                var msg='Impossible de vous localiser (http get concerts). Status:'+status;
+                //console.log(msg);
+                alert(msg);
+            });
         }
 
         function onError(error) {
-         alert('Impossible de vous localiser.');
+         alert('Impossible de vous localiser (PhoneGap getCurrentPosition error)');
         }
  }]);
 

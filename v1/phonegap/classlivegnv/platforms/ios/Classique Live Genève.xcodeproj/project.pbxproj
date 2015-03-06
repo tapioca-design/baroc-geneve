@@ -39,8 +39,8 @@
 		7E7966E61810823500FA85AD /* icon-small.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966DC1810823500FA85AD /* icon-small.png */; };
 		7E7966E71810823500FA85AD /* icon-small@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7E7966DD1810823500FA85AD /* icon-small@2x.png */; };
 		D4A0D8761607E02300AEF8BB /* Default-568h@2x~iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = D4A0D8751607E02300AEF8BB /* Default-568h@2x~iphone.png */; };
-		FE03FEFDD5D245E28D600ED6 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 317479BF0DC34A2BAE9D326D /* CoreLocation.framework */; };
-		E10B18A375BD487A9AD92341 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E34FDF4FB3DD46F6AC4AC682 /* SystemConfiguration.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		CB10D965F49D4CD8BFC3DE47 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 38E8CC52A72F48539051E98C /* CoreLocation.framework */; };
+		2105398322644538A5B36E32 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 89DD334758F54BCEB658CBA7 /* SystemConfiguration.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -106,8 +106,8 @@
 		EB87FDF31871DA8E0020F90C /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; name = www; path = ../../www; sourceTree = "<group>"; };
 		EB87FDF41871DAF40020F90C /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = ../../config.xml; sourceTree = "<group>"; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = "Classique Live Genève/config.xml"; sourceTree = "<group>"; };
-		317479BF0DC34A2BAE9D326D /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "CoreLocation.framework"; path = "System/Library/Frameworks/CoreLocation.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
-		E34FDF4FB3DD46F6AC4AC682 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "SystemConfiguration.framework"; path = "System/Library/Frameworks/SystemConfiguration.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
+		38E8CC52A72F48539051E98C /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "CoreLocation.framework"; path = "System/Library/Frameworks/CoreLocation.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
+		89DD334758F54BCEB658CBA7 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "SystemConfiguration.framework"; path = "System/Library/Frameworks/SystemConfiguration.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,8 +119,8 @@
 				301BF552109A68D80062928A /* libCordova.a in Frameworks */,
 				288765FD0DF74451002DB57D /* CoreGraphics.framework in Frameworks */,
 				305D5FD1115AB8F900A74A75 /* MobileCoreServices.framework in Frameworks */,
-				FE03FEFDD5D245E28D600ED6 /* CoreLocation.framework in Frameworks */,
-				E10B18A375BD487A9AD92341 /* SystemConfiguration.framework in Frameworks */,
+				CB10D965F49D4CD8BFC3DE47 /* CoreLocation.framework in Frameworks */,
+				2105398322644538A5B36E32 /* SystemConfiguration.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,8 +193,8 @@
 				5B1594DC16A7569C00FEF299 /* AssetsLibrary.framework */,
 				288765FC0DF74451002DB57D /* CoreGraphics.framework */,
 				305D5FD0115AB8F900A74A75 /* MobileCoreServices.framework */,
-				317479BF0DC34A2BAE9D326D /* CoreLocation.framework */,
-				E34FDF4FB3DD46F6AC4AC682 /* SystemConfiguration.framework */,
+				38E8CC52A72F48539051E98C /* CoreLocation.framework */,
+				89DD334758F54BCEB658CBA7 /* SystemConfiguration.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
