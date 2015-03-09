@@ -18,7 +18,11 @@ myApp.controller('PlaceMapController', ['$rootScope','$scope','$http', "$routePa
         // alert("onSuccess");
         // var element = document.getElementById('geolocation');
         // alert(position.coords.latitude+" --- "+position.coords.longitude);
-
+    }
+    function onError(error) {
+        alert('onError, code: '    + error.code    + '\n' +
+              'message: ' + error.message + '\n');
+    }
 
         var placeId = $routeParams.placeId;
           Data.headerTitle=Const.appNameFr;
@@ -204,7 +208,7 @@ myApp.controller('PlaceMapController', ['$rootScope','$scope','$http', "$routePa
                                         }
                                 });
                         }, function(error) {
-                            alert("Unable to find your location");
+                            $rootScope.d("Unable to find your location");
                         });
             Data.loadingActive = 0;
             //end success
@@ -214,10 +218,6 @@ myApp.controller('PlaceMapController', ['$rootScope','$scope','$http', "$routePa
                 alert(msg);
             });
 
-        }
-        function onError(error) {
-         alert('onError, code: '    + error.code    + '\n' +
-              'message: ' + error.message + '\n');
-        }
+        
 
  }]);
