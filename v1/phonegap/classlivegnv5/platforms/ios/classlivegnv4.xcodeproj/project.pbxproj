@@ -45,6 +45,7 @@
 		B1A31F6FED8B4E43930A0403 /* CDVStatusBar.m in Sources */ = {isa = PBXBuildFile; fileRef = DA17C75455864BB7A176EE14 /* CDVStatusBar.m */; };
 		274E9EAFD4104BD89164C6A9 /* CDVLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = 34745A36EBCD4FEF9767EB37 /* CDVLocation.m */; };
 		2CCB9B7869364873BCE736E0 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 437F6431D0BA43D8B88596D2 /* CoreLocation.framework */; };
+		7EDA857C6CDE47C28065524F /* CDVInAppBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 710A40DFB8744C97BDA25B0D /* CDVInAppBrowser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +121,8 @@
 		34745A36EBCD4FEF9767EB37 /* CDVLocation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVLocation.m"; path = "org.apache.cordova.geolocation/CDVLocation.m"; sourceTree = "<group>"; fileEncoding = 4; };
 		6ACA3255EA164A658A36B5CE /* CDVLocation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVLocation.h"; path = "org.apache.cordova.geolocation/CDVLocation.h"; sourceTree = "<group>"; fileEncoding = 4; };
 		437F6431D0BA43D8B88596D2 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = "CoreLocation.framework"; path = "System/Library/Frameworks/CoreLocation.framework"; sourceTree = SDKROOT; fileEncoding = 4; };
+		710A40DFB8744C97BDA25B0D /* CDVInAppBrowser.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = "CDVInAppBrowser.m"; path = "org.apache.cordova.inappbrowser/CDVInAppBrowser.m"; sourceTree = "<group>"; fileEncoding = 4; };
+		F1D46CBE67754738B30D6E69 /* CDVInAppBrowser.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "CDVInAppBrowser.h"; path = "org.apache.cordova.inappbrowser/CDVInAppBrowser.h"; sourceTree = "<group>"; fileEncoding = 4; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -230,6 +233,8 @@
 				B1A3C22B07AB47BA9B99FD05 /* CDVStatusBar.h */,
 				34745A36EBCD4FEF9767EB37 /* CDVLocation.m */,
 				6ACA3255EA164A658A36B5CE /* CDVLocation.h */,
+				710A40DFB8744C97BDA25B0D /* CDVInAppBrowser.m */,
+				F1D46CBE67754738B30D6E69 /* CDVInAppBrowser.h */,
 			);
 			name = Plugins;
 			path = "classlivegnv4/Plugins";
@@ -418,6 +423,7 @@
 				5B5EEFBCFAE64167953ED653 /* CDVReachability.m in Sources */,
 				B1A31F6FED8B4E43930A0403 /* CDVStatusBar.m in Sources */,
 				274E9EAFD4104BD89164C6A9 /* CDVLocation.m in Sources */,
+				7EDA857C6CDE47C28065524F /* CDVInAppBrowser.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
