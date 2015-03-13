@@ -13,13 +13,13 @@ myApp.controller('MapController', ['$rootScope','$scope','$http', "$routeParams"
             $scope.connectionNeeded=1;
             return;
         } else {
-            $rootScope.d("isThereConnection :: true");
+            // $rootScope.d("isThereConnection :: true");
             $scope.connectionNeeded=0;
             navigator.geolocation.getCurrentPosition(onSuccess, onError);
         }
     }
     function onSuccess(position) {
-         $rootScope.d("getCurrentPosition onSuccess");
+         // $rootScope.d("getCurrentPosition onSuccess");
         // var element = document.getElementById('geolocation');
         $rootScope.d(position.coords.latitude+" --- "+position.coords.longitude);
     }

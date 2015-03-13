@@ -1,7 +1,7 @@
 myApp.controller('ConcertsListController', ['$rootScope','$scope','$http', "$routeParams",'$location','Data','Search','Const', function($rootScope,$scope,$http,$routeParams,$location, Data, Search, Const) { 
 
       // alert("ConcertsListController");
-      $rootScope.d("ConcertsListController");
+      // $rootScope.d("ConcertsListController");
 
       Data.loadingActive = 1;
       Data.concertsNoResultAllowed = 0;
