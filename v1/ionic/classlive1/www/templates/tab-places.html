@@ -1,5 +1,32 @@
-<ion-view view-title="Places">
-  <ion-content>
-    Places
-  </ion-content>
+<ion-view>
+<ion-nav-title class="text-condensed">
+Places
+</ion-nav-title>
+<ion-content>
+<ion-list>
+  <ion-item 
+  ng-repeat="place in places" 
+  type="item-text-wrap" 
+  ng-href="#/tab/places/{{place.id}}" 
+  class=""
+  >
+	
+		<div class="col-75">
+			<h2 class="text-condensed black">
+				{{place.name_fr}}
+			</h2>
+		</div>
+		<div class="col-25">
+			<img 
+			ng-src="img/places/{{place.name_url}}/square.jpg" 
+			class="img-circle" 
+			fallback-src="{{Const.baseUrl}}/symfony/web/bundles/tapiocadesignclasslivegnv/images/places/{{place.name_url}}/square.jpg" 	
+			/>
+		</div>
+
+		
+	</ion-item>
+  </ion-list>
+</ion-content>
 </ion-view>
+

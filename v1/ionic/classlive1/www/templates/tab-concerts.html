@@ -1,6 +1,94 @@
-<ion-view view-title="Concerts">
-  <ion-content>
-    <ion-list>
+<ion-view>
+<ion-nav-title class="text-condensed">
+Concerts
+</ion-nav-title>
+<ion-content>
+<ion-list >
+  <ion-item 
+  ng-repeat="concert in filteredConcerts = (concerts | filter:Search.term | orderBy: concert[1])" 
+  type="item-text-wrap" 
+  href="#/tab/concerts/{{concert[0].work.id}}"
+  class=""
+  >
+  <!-- <a  ng-href="#/concert/{{concert[0].work.id}}"  class="row color1-bkg-brighter list-element gradient" > -->
+
+
+
+<div class="row">
+
+
+    <div class="col-75">
+      <h2 class="text-condensed black">
+        {{concert[0].work.name}}
+      </h2>
+      <span class="grey">
+        <span ng-show="concert[0].work.interpreter">
+              {{concert[0].work.interpreter}}
+          </span>
+        <span ng-show="concert[0].work.director">
+              <br /><span class="small">DIRECT:</span> {{concert[0].work.director}}
+          </span>
+          <span ng-show="concert[0].work.composer">
+              <br /><span class="small">COMP:</span> {{concert[0].work.composer}}
+          </span>
+          <span ng-show="concert[0].work.style">
+              <br /><span class="small">STYLE:</span> {{concert[0].work.style}}
+          </span>
+        </span>
+    </div>
+
+
+
+    <div class="col-25" >
+      <div class="date">
+        <div class="date-text color1-drop-shadow">
+          <div class="day day-alt1 black text-thin" >
+            <span class="text-tiny">
+            {{concert[1] | date : "EEE"}}
+            </span>
+            {{concert[1] | date : "d"}}
+          </div>
+          <div class="month month-alt1 text-bold white">
+            {{concert[1] | date : "MMMM"}}
+          </div>
+        </div>
+      </div>
+    </div>    
+
+
+</div>  
+
+  <!-- </a> -->
+  </ion-item>
+
+
+
+
+
+
+  <div ng-show="Data.concertsNoResultAllowed">
+    <div ng-hide="filteredConcerts.length"  class="text-center center-vertical">
+      <div  >
+        Pas de résultat pour :
+        <div class="text-italic text-thin">“{{Search.term}}”</div>
+        <div>
+          <a ng-href="#/" class="size-huge color1-dark">
+            <span class="glyphicon glyphicon-remove-circle"></span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  </ion-list>
+
+
+
+
+
+
+
+    <!-- <ion-list>
       <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="concert in concerts" type="item-text-wrap" href="#/tab/concerts/{{concert.id}}">
         <img ng-src="{{concert.face}}">
         <h2>{{concert.name}}</h2>
@@ -11,6 +99,7 @@
           Delete
         </ion-option-button>
       </ion-item>
-    </ion-list>
+    </ion-list> -->
+
   </ion-content>
 </ion-view>

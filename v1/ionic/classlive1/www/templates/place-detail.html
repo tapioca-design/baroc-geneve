@@ -1,0 +1,60 @@
+<ion-view>
+<ion-nav-title class="text-condensed">
+{{place.name_fr}}
+</ion-nav-title>
+
+<ion-content>
+<div id="concert" class="row">
+
+<div 
+    id="landscape" 
+    style="
+    background: url({{place.landscapeBkgPath}});
+    background-size: 100% auto;
+      background-repeat: no-repeat;
+      background-position:center;
+      height: 50px;
+      " 
+    >
+    </div>
+
+
+
+
+
+<div id="place-details" >
+          <div class="row" >
+            <div class="col-33 text-center">
+              <a ng-href="tel:{{place.telephone}}" type="button" class=" small text-light  color1-medium">
+                <img src="img/icons/phone.png" alt="telephone" class="icon" style="width:15px">
+                <div>Téléphone</div>
+              </a>
+            </div>
+            <div class="col-33 text-center">
+              <a ng-href="mailto:{{place.email}}" type="button" class=" small text-light color1-medium">
+                <img src="img/icons/mail1.png" alt="email" class="icon" style="width:20px">
+                  <div>e-mail</div>
+              </a>
+            </div>
+            <div class="col-33 text-center">
+              <a ng-href="#/place/{{place.id}}/map" type="button" class="small text-light color1-medium">
+                <img src="img/icons/map-marker1.png" alt="map" class="icon" style="width:15px">
+                <div>Direction</div>
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <div class="col-xs-100 white text-center">
+              <br />
+              {{place.address}}
+            </div>
+          </div>
+    </div>
+
+
+
+   
+</div>
+</ion-content>
+</ion-view>

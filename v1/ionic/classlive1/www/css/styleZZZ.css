@@ -1,0 +1,26 @@
+/* Empty. Add your own CSS if you like */
+@font-face {
+    font-family: CondensedFont;
+    src: url(../fonts/antonio/Antonio-Light.ttf);
+}
+@font-face {
+    font-family: LightFont;
+    src: url(../fonts/lato/Lato-Light.ttf);
+}
+@font-face {
+    font-family: ThinFont;
+    src: url(../fonts/lato/Lato-Thin.ttf);
+}
+.text-condensed {
+	font-family: 'CondensedFont', serif;
+	/*font-size: 0.8em;*/
+}
+.text-light {
+	font-family: 'LightFont', sans-serif;
+}
+.text-thin {
+	font-family: 'ThinFont', sans-serif;
+}
+.text-bold {
+	font-weight: bold;
+}

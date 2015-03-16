@@ -1,0 +1,183 @@
+
+
+* {
+	/*border: 1px solid green;*/
+}
+/******************* map *************************/
+#map {
+    /*height:60vh;*/
+	height:85vh;
+    width:100%;
+}
+a[href^="http://maps.google.com/maps"]{display:none !important}
+
+.gmnoprint a, .gmnoprint span {
+    display:none;
+}
+.gmnoprint div {
+    background:none !important;
+}
+/********************************************/
+
+.uppercase {
+	text-transform: uppercase;
+}
+.small {
+	font-size: 0.8em;
+}
+
+/***********************************/
+/***********************************/
+/***********************************/
+.color1-brightest, a.color1-brightest:link, a.color1-brightest:visited, a.color1-brightest:hover {
+	color:#ecd4cd;
+}
+a.color1-brightest:active, button.color1-brightest:active {
+	color:white;
+}
+
+.color1-brighter, a.color1-brighter:link, a.color1-brighter:visited, a.color1-brighter:hover {
+	color:#ebd3c6;
+}
+a.color1-brighter:active, button.color1-brighter:active {
+	color:#e5a995;
+}
+
+.color1-bright, a.color1-bright:link, a.color1-bright:visited, a.color1-bright:hover {
+	color:#e5a995;
+}
+a.color1-bright:active, button.color1-bright:active {
+	color:#e68c6b;
+}
+
+.color1-medium, a.color1-medium:link, a.color1-medium:visited, a.color1-medium:hover {
+	color:#e68c6b;
+}
+a.color1-medium:active, button.color1-medium:active {
+	color:#e68c6b;
+}
+
+.color1-dark, a.color1-dark:link, a.color1-dark:visited, a.color1-dark:hover {
+	color:#ac5e46;
+}
+a.color1-dark:active, button.color1-dark:active {
+	color:#341b1a;
+}
+
+.color1-darker, a.color1-darker:link, a.color1-darker:visited, a.color1-darker:hover {
+	color:#3b1b14;
+}
+a.color1-darker:active, button.color1-darker:active {
+	color:#180a08;
+}
+
+.color1-darkest, a.color1-darkest:link, a.color1-darkest:visited, a.color1-darkest:hover {
+	color:#180a08;
+}
+a.color1-darkest:active, button.color1-darkest:active {
+	color:#180a08;
+}
+/***********************************/
+/***********************************/
+/***********************************/
+.color1-bkg-brightest, a.color1-bkg-brightest:link, a.color1-bkg-brightest:visited, a.color1-bkg-brightest:hover {
+	background-color:#ecd4cd;
+}
+a.color1-bkg-brightest:active, button.color1-bkg-brightest:active {
+	background-color:white;
+}
+
+.color1-bkg-brighter, a.color1-bkg-brighter:link, a.color1-bkg-brighter:visited, a.color1-bkg-brighter:hover {
+	background-color:#ffddd2;
+}
+a.color1-bkg-brighter:active, button.color1-bkg-brighter:active {
+	background-color:white;
+}
+
+.color1-bkg-bright, a.color1-bkg-bright:link, a.color1-bkg-bright:visited, a.color1-bkg-bright:hover {
+	background-color:#e5a995;
+}
+a.color1-bkg-bright:active, button.color1-bkg-bright:active {
+	background-color:#ffddd2;
+}
+
+.color1-bkg-medium, a.color1-bkg-medium:link, a.color1-bkg-medium:visited, a.color1-bkg-medium:hover {
+	background-color:#e68c6b;
+}
+a.color1-bkg-medium:active, button.color1-bkg-medium:active {
+	background-color:#e5a995;
+}
+
+.color1-bkg-dark, a.color1-bkg-dark:link, a.color1-bkg-dark:visited, a.color1-bkg-dark:hover {
+	background-color:#96452e;
+}
+a.color1-bkg-dark:active, button.color1-bkg-dark:active {
+	background-color:#e68c6b;
+}
+
+.color1-bkg-darker, a.color1-bkg-darker:link, a.color1-bkg-darker:visited, a.color1-bkg-darker:hover {
+	background-color:#3b1b14;
+}
+a.color1-bkg-darker:active, button.color1-bkg-darker:active {
+	background-color:#96452e;
+}
+
+.color1-bkg-darkest, a.color1-bkg-darkest:link, a.color1-bkg-darkest:visited, a.color1-bkg-darkest:hover {
+	background-color:#180a08;
+}
+a.color1-bkg-darkest:active, button.color1-bkg-darkest:active {
+	background-color:#341b1a;
+}
+/**************** CAROUSEL *********************/
+
+ul[rn-carousel] {
+    width:100%;
+    height:160px;
+    margin: 0 auto;
+}
+
+.carousel li {
+    width:100%;
+    height:100%;
+    font-size:30px;
+    background-color: #ccc;
+}
+.rn-carousel-indicator {
+	text-align: center;
+}
+.rn-carousel-indicator .ng-scope {
+	color:#6c3c2d;
+}
+.rn-carousel-indicator .ng-scope.active {
+	color:#fff;
+}
+
+/*************************************/
+
+
+/*************************************/
+@font-face {
+    font-family: CondensedFont;
+    src: url(../fonts/antonio/Antonio-Light.ttf);
+}
+@font-face {
+    font-family: LightFont;
+    src: url(../fonts/lato/Lato-Light.ttf);
+}
+@font-face {
+    font-family: ThinFont;
+    src: url(../fonts/lato/Lato-Thin.ttf);
+}
+.text-condensed {
+	font-family: 'CondensedFont', serif;
+	/*font-size: 0.8em;*/
+}
+.text-light {
+	font-family: 'LightFont', sans-serif;
+}
+.text-thin {
+	font-family: 'ThinFont', sans-serif;
+}
+.text-bold {
+	font-weight: bold;
+}
