@@ -2,26 +2,27 @@ starter.controller('MapCtrl', ['$rootScope','$scope','$http','$location','Const'
 
 
 
-    // document.addEventListener("deviceready", onDeviceReady, false);
-    // function onDeviceReady() {
-    //     $rootScope.d("onDeviceReadyInCtrl");
+    document.addEventListener("deviceready", onDeviceReady, false);
+    function onDeviceReady() {
+        // $rootScope.d("onDeviceReadyInCtrl");
         
-    //     var isThereConnection = $rootScope.isThereConnection();
-    //     if (!isThereConnection) {
-    //         $rootScope.d("isThereConnection :: false");
-    //         $scope.connectionNeeded=1;
-    //         return;
-    //     } else {
-    //         $scope.connectionNeeded=0;
-    //         navigator.geolocation.getCurrentPosition(onSuccess, onError);
-    //     }
-    // }
-    // function onSuccess(position) {
-    //     $rootScope.d(position.coords.latitude+" --- "+position.coords.longitude);
-    // }
-    // function onError(error) {
-    //      $rootScope.d('Impossible de vous localiser (PhoneGap getCurrentPosition error)');
-    // }
+        var isThereConnection = $rootScope.isThereConnection();
+        if (!isThereConnection) {
+            $rootScope.d("isThereConnection :: false");
+            $scope.connectionNeeded=1;
+            return;
+        } else {
+        	// $rootScope.d("isThereConnection :: true");
+            $scope.connectionNeeded=0;
+            navigator.geolocation.getCurrentPosition(onSuccess, onError);
+        }
+    }
+    function onSuccess(position) {
+        $rootScope.d(position.coords.latitude+" --- "+position.coords.longitude);
+    }
+    function onError(error) {
+         $rootScope.d('Impossible de vous localiser (PhoneGap getCurrentPosition error)');
+    }
 
             // var windowHeight = $( window ).height();
             // var documentHeight = $( document ).height();
@@ -84,6 +85,8 @@ starter.controller('MapCtrl', ['$rootScope','$scope','$http','$location','Const'
 				    icon: place.landscapeBkgPath,
 				});
 				google.maps.event.addListener(marker, 'click', function(){
+					// $rootScope.d("map click");
+
 				var monthsWithPerformance = new Object();
 				for (var i = 0; i < place.performances.length; i++) {
 				    var performance = place.performances[i];
@@ -166,15 +169,24 @@ starter.controller('MapCtrl', ['$rootScope','$scope','$http','$location','Const'
 				zIndex: 999,
 				map: $scope.map
 				});
-				if (navigator.geolocation) navigator.geolocation.getCurrentPosition(function(pos) {
-				   
-				    var me = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
-				    myloc.setPosition(me);
+
+				if (navigator.geolocation) {
+					navigator.geolocation.getCurrentPosition(function(pos) {
+					    var me = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
+					    myloc.setPosition(me);
+					}, function(error) {
+					    $rootScope.d("Impossible de vous localiser (!navigator.geolocation)");
+					});
+				}
+				// navigator.geolocation.getCurrentPosition(function(pos) {
+		  //         $scope.map.setCenter(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
+		  //         $scope.loading.hide();
+		  //       }, function(error) {
+		  //         alert('Unable to get location: ' + error.message);
+		  //       });
 
 
-				}, function(error) {
-				    $rootScope.d("Impossible de vous localiser (!navigator.geolocation)");
-				});
+
             }).error(function(data, status) {
                 var msg='http get concerts error. Status:'+status;
                 alert(msg);

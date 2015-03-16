@@ -1,7 +1,7 @@
 starter.controller('PlacesCtrl', ['$rootScope','$scope','$http','Data','Search','Const', function($rootScope, $scope,$http, Data, Search, Const) {
-
           $rootScope.getData("city/1/places", "",
           function (callback_arg) {
+          	// $rootScope.d("getData places");
               $scope.places = callback_arg;
           });
  }]);

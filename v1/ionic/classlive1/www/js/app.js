@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-var starter = angular.module('starter', ['ionic', 'starter.services']);
+var starter = angular.module('starter', ['ionic']);
 
 
 starter.run(function($ionicPlatform) {
@@ -42,6 +42,20 @@ starter.run(function ($rootScope, $location,$http,Const,Data) {
     console.log(t);
     alert(t);
   }
+
+  $rootScope.isThereConnection = function() {
+        // document.addEventListener("deviceready", onDeviceReady, false);
+        // function onDeviceReady() {
+            // $rootScope.d("isThereConnection - navigator.network.connection.type: "+navigator.network.connection.type);
+            if(navigator.network.connection.type == Connection.NONE){
+                // $rootScope.d("nocon");
+                return false;
+            }else{
+                // $rootScope.d("yescon");
+                return true;
+            }
+        // }
+    };
 
   $rootScope.getImagePath = function (object,folder,name_url,filename,callback) {
                 // $rootScope.d("getImagePath");

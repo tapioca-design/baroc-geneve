@@ -1,4 +1,4 @@
-starter.controller('ConcertsCtrl', ['$rootScope' ,'$scope', 'Concerts', function($rootScope, $scope, Concerts) {
+starter.controller('ConcertsCtrl', ['$rootScope' ,'$scope', function($rootScope, $scope) {
   // $scope.concerts = Concerts.all();
   $rootScope.getData("city/1/worksOrderedByFirstPerformance", "",
       function (callback_arg) {
@@ -10,7 +10,7 @@ starter.controller('ConcertsCtrl', ['$rootScope' ,'$scope', 'Concerts', function
 }]);
 
 
-starter.controller('ConcertDetailCtrl', ['$rootScope', '$scope', '$stateParams', 'Concerts', function($rootScope, $scope, $stateParams, Concerts) {
+starter.controller('ConcertDetailCtrl', ['$rootScope', '$scope', '$stateParams', function($rootScope, $scope, $stateParams) {
           // $scope.concert = Concerts.get($stateParams.concertId);
 
           // $scope.test = "zuzu";

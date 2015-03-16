@@ -1,6 +1,6 @@
 {
   "name": "classlive1",
-  "app_id": "",
+  "app_id": "35240b0d",
   "gulpStartupTasks": [
     "sass",
     "watch"
