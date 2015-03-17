@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-var starter = angular.module('starter', ['ionic']);
+var starter = angular.module('starter', ['ionic', "ngRoute", "ngTouch","ngResource","ngAnimate", 'angular-carousel']);
 
 
 starter.run(function($ionicPlatform) {
