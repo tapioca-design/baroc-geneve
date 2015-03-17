@@ -8,21 +8,17 @@ Places
   ng-repeat="place in places" 
   type="item-text-wrap" 
   ng-href="#/tab/places/{{place.id}}" 
-  class=""
+  class="item-remove-animate item-avatar item-icon-right"
   >
-	
-		<div class="col-75">
-			<h2 class="text-condensed black">
-				{{place.name_fr}}
-			</h2>
-		</div>
-		<!-- <div class="col-25">
-			<img 
+	<img 
 			ng-src="img/places/{{place.name_url}}/square.jpg" 
 			class="img-circle" 
 			fallback-src="{{Const.baseUrl}}/symfony/web/bundles/tapiocadesignclasslivegnv/images/places/{{place.name_url}}/square.jpg" 	
 			/>
-		</div> -->
+			<h2 class="text-condensed black">
+				{{place.name_fr}}
+			</h2>
+			
 
 
 	</ion-item>

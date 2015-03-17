@@ -1,145 +1,126 @@
-<!--
-  This template loads for the 'tab.friend-detail' state (app.js)
-  'friend' is a $scope variable created in the FriendsCtrl controller (controllers.js)
-  The FriendsCtrl pulls data from the Friends service (service.js)
-  The Friends service returns an array of friend data
--->
-<!-- <ion-view view-title="{{concert.name}}">
-  <ion-content class="padding">
-    <img ng-src="{{concert.face}}" style="width: 64px; height: 64px">
-    <p>
-      {{concert.lastText}}
-    </p>
-  </ion-content>
-</ion-view>
- -->
-
-
 <ion-view>
 <ion-nav-title class="text-condensed">
 {{work.name}}
 </ion-nav-title>
 
 <ion-content>
-<div id="concert" class="" >
-   <div 
-    id="landscape" 
-    style="
-    background: url({{work.landscapeBkgPath}});
-    background-size: 100% auto;
-      background-repeat: no-repeat;
-      background-position:center;
-      height: 50px;
-      "
-    ></div>
+
+<div 
+id="landscape" 
+style="
+background: url({{work.landscapeBkgPath}});
+background-size: 100% auto;
+background-repeat: no-repeat;
+background-position:center;
+height: 50px;
+"
+></div>
 
 
 
 
 
-    
-    <div class="color1-bkg-brightest" id="concert-details">
-      <ul>
-            <li ng-show="work.interpreter">
-                  <span class="text-italic text-thin">Interpreter(s):</span> {{work.interpreter}}
-              </li>
-            <li ng-show="work.director">
-                  <span class="text-italic text-thin">Direction:</span> {{work.director}}
-              </li>
-              <li ng-show="work.composer">
-                  <span class="text-italic text-thin">Composer(s):</span> {{work.composer}}
-              </li>
-              <li ng-show="work.style">
-                  <span class="text-italic text-thin">Style:</span> {{work.style}}
-              </li>
-      </ul>
+
+<div class="pad-side-2 color1-bkg-brightest" id="concert-details">
+
+  <ul>
+    <li ng-show="work.interpreter">
+      <span class="text-italic text-thin">Interpreter(s):</span> {{work.interpreter}}
+    </li>
+    <li ng-show="work.director">
+      <span class="text-italic text-thin">Direction:</span> {{work.director}}
+    </li>
+    <li ng-show="work.composer">
+      <span class="text-italic text-thin">Composer(s):</span> {{work.composer}}
+    </li>
+    <li ng-show="work.style">
+      <span class="text-italic text-thin">Style:</span> {{work.style}}
+    </li>
+  </ul>
+</div>
+
+
+
+
+
+<div id="performances" class="color-darkest">
+  
+    <div rn-carousel-indicators ng-if="performances.length > 1" slides="performances" rn-carousel-index="carouselIndex2">
     </div>
+  
+  <div>
+    <ul 
+    rn-carousel 
+    rn-carousel-index="carouselIndex2" 
+    rn-carousel-auto-slide="4" 
+    class="carousel2"
+    >
+    <li ng-repeat="performance in performances" class="performance">
 
+      <div class="row">
 
+        <div class="col-50 pad-right-2">
 
-
-
-
-    <div id="performances" class="color-darkest">
-      <div>
-        <div >
-          <div 
-          rn-carousel-indicators 
-          ng-if="performances.length > 1" 
-          slides="performances" 
-          rn-carousel-index="carouselIndex2" 
-          >
+          <div class="date date-narrow">
+            <div class="day day-alt2 text-white text-thin">
+              <span class="text-tiny">
+                {{performance.date_performance | date : "EEE"}}
+              </span>
+              <span class="larger">
+                {{performance.date_performance | date : "d"}}
+              </span>
+            </div>
+            <div class="month month-alt2 text-bold white">
+              {{performance.date_performance | date : "MMMM"}}
+            </div>
+            <div class=" white">
+              {{performance.date_performance | date : "H:mm"}}
+            </div>
+          </div>
+          <div class="text-center">
+            <img 
+            ng-src="img/places/{{performance.place.name_url}}/square.jpg" 
+            fallback-src="{{Const.baseUrl}}/symfony/web/bundles/tapiocadesignclasslivegnv/images/places/{{performance.place.name_url}}/square.jpg" 
+            class="img-circle" 
+            />
           </div>
         </div>
-        <div class="carousel-demo">
-                    <ul 
-                    rn-carousel 
-                    rn-carousel-index="carouselIndex2" 
-                    rn-carousel-auto-slide="4" 
-                    class="carousel2">
-                        <li ng-repeat="performance in performances" class="performance">
-              <div>
-                <div>
-                  <div class="date date-narrow">
-                    <div class="day day-alt2 text-white text-thin">
-                      <span class="text-tiny">
-                      {{performance.date_performance | date : "EEE"}}
-                      </span>
-                      <span class="larger">
-                      {{performance.date_performance | date : "d"}}
-                      </span>
-                    </div>
-                    <div class="month month-alt2 text-bold white">
-                      {{performance.date_performance | date : "MMMM"}}
-                    </div>
-                    <div class=" white">
-                      {{performance.date_performance | date : "H:mm"}}
-                    </div>
-                  </div>
-                  <div class="text-center">
-                        <img 
-                        ng-src="img/places/{{performance.place.name_url}}/square.jpg" 
-                        fallback-src="{{Const.baseUrl}}/symfony/web/bundles/tapiocadesignclasslivegnv/images/places/{{performance.place.name_url}}/square.jpg" 
-                        class="img-circle" 
-                        />
-                      </div>
-                </div>
 
-                <div>  
-                  <br />
-                      <div>
-                        <button 
-                        ng-click="path('/place/{{performance.place.id}}')"
-                        class="TD-btn color1-darker color1-bkg-medium width-full " >
-                          {{performance.place.name_fr}}
-                        </button>
-                      </div>
-                      <br />
-                      <div ng-show="performance.ticket_website" >
-                          <button 
-                          ng-click="absolute('{{performance.ticket_website}}')"
-                          target="_blank" 
-                          class="TD-btn color1-medium color1-bkg-darker width-full " 
-                          target="_system" 
-                          >
-                            Ticket<span ng-show="performance.ticket_price_lowest" class="">: chf {{performance.ticket_price_lowest}}~{{performance.ticket_price_highest}}.-
-                            </span>
-                          </button>
-                      </div>
-                </div>
-              </div>
-            </li>
-                    </ul>
-                </div>
-      </div>
+        <div class="col-50 pad-left-2">
+          <div>
+            <button ng-href="$location.url('#/tab/places/{{performance.place.id}}');">To place url</button>
+            <button ng-href="$location.path('#/tab/places/{{performance.place.id}}');">To place path</button>
+            <button 
+            ng-click="path('#/tab/places/{{performance.place.id}}')"
+            class="TD-btn color1-darker color1-bkg-medium width-full" >
+            {{performance.place.name_fr}}
+            </button>
+          </div>
+          <br />
+          <div ng-show="performance.ticket_website" >
+          <button 
+          ng-click="absolute('{{performance.ticket_website}}')"
+          target="_blank" 
+          class="TD-btn color1-medium color1-bkg-darker  width-full" 
+          target="_system" 
+          >
+              Ticket<span ng-show="performance.ticket_price_lowest" class="">: chf {{performance.ticket_price_lowest}}~{{performance.ticket_price_highest}}.-
+              </span>
+          </button>
     </div>
+    <!-- will clise col -->
+
+  </div>
+  <!-- will close row -->
 </div>
+</li>
+</ul>
+</div>
+</div>
+  <div class="pad-side-2 color1-bkg-brightest " id="concert-description">
+    {{work.description}}
+  </div>
 </ion-content>
 </ion-view>
 
 
-    <div>
-      <div class="color1-bkg-brightest " id="concert-description">
-        {{work.description}}
-      </div>
-    </div>
