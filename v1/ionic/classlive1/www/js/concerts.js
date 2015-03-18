@@ -1,4 +1,15 @@
-starter.controller('ConcertsCtrl', ['$rootScope' ,'$scope', function($rootScope, $scope) {
+starter.controller('ConcertsCtrl', ['$rootScope' ,'$scope','$state', function($rootScope, $scope, $state) {
+  
+
+  // $scope.transitionTo = function(){
+  //   $rootScope.d("transitionTo");
+  //   $state.transitionTo('tab.places');
+  // }
+
+
+
+
+
   // $scope.concerts = Concerts.all();
   $rootScope.getData("city/1/worksOrderedByFirstPerformance", "",
       function (callback_arg) {
@@ -8,6 +19,9 @@ starter.controller('ConcertsCtrl', ['$rootScope' ,'$scope', function($rootScope,
       });
 
 }]);
+
+
+
 
 
 starter.controller('ConcertDetailCtrl', ['$rootScope', '$scope', '$stateParams','$location', function($rootScope, $scope, $stateParams,$location) {

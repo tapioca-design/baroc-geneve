@@ -3,14 +3,15 @@
 <strong>B a r o c - G e n è v e</strong>
 </ion-nav-title>
 <ion-content>
+
+<!-- <button ng-click="transitionTo()">transitionTo</button> -->
+
 <ion-list>
 <ion-item 
 ng-repeat="concert in filteredConcerts = (concerts | filter:Search.term | orderBy: concert[1])" 
 type="item-text-wrap" 
 href="#/tab/concerts/{{concert[0].work.id}}"
 >
-
-
 
 <div class="row pad-side-4 ">
   <div class="col-75 pad-right-1 pad-vertical-1" >

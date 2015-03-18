@@ -1,4 +1,4 @@
-var starter = angular.module('starter', ['ionic', "ngRoute", "ngTouch","ngResource","ngAnimate", 'angular-carousel']);
+var starter = angular.module('starter', ['ionic',"ngAnimate", 'angular-carousel']);
 
 starter.run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -13,28 +13,16 @@ starter.run(function($ionicPlatform) {
     }
   });
 })
-
-
-
-            
-
 starter.config(['$httpProvider', function($httpProvider) {
         $httpProvider.defaults.useXDomain = true;
         delete $httpProvider.defaults.headers.common['X-Requested-With'];
     }
 ]);
-
 starter.run(function ($rootScope, $location,$http,Const,Data) {
-
-
-
-
-
   $rootScope.d = function(t) {
     console.log(t);
     alert(t);
   }
-
   $rootScope.isThereConnection = function() {
         // document.addEventListener("deviceready", onDeviceReady, false);
         // function onDeviceReady() {
@@ -48,9 +36,6 @@ starter.run(function ($rootScope, $location,$http,Const,Data) {
             }
         // }
     };
-
-
-
   $rootScope.getImagePath = function (object,folder,name_url,filename,callback) {
                 // $rootScope.d("getImagePath");
                 var localImagesPath = "img/";
@@ -103,10 +88,8 @@ starter.run(function ($rootScope, $location,$http,Const,Data) {
                 } else {
                   callback(data);
                 }
-
           }
   }
-  
 });
 /***********************************************************************************************/
 starter.factory('Const', function($location){
@@ -142,6 +125,7 @@ starter.factory('Concert', function(){
     return {term: ''};
 });
 
+/***********************************************************************************************/
 starter.config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
   // setup an abstract state for the tabs directive
@@ -214,11 +198,5 @@ starter.config(function($stateProvider, $urlRouterProvider) {
       }
     }
   });
-
-  // if none of the above states are matched, use this as the fallback
-  // $urlRouterProvider.otherwise(function($injector, $location){
-  //   $rootScope.d("OTHERWISE");
-  // });
   $urlRouterProvider.otherwise('/tab/concerts');
-
 });
