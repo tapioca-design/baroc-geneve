@@ -9,7 +9,7 @@
 }
 
 
-#concerts ion-item, #concerts ion-item a, #concerts .item,  #concerts .item-content, #concerts a.item-content, #concerts .item-complex{
+.TD-list ion-item, .TD-list ion-item a, .TD-list .item,  .TD-list .item-content, .TD-list a.item-content, .TD-list .item-complex{
 	border:none;
 	padding: 0 !important;
   	margin: 0 !important;
@@ -133,8 +133,10 @@ a[href^="http://maps.google.com/maps"]{display:none !important}
 
 
 .TD-btn {
+	display: block;
 	border: none;
-	min-height:44px;
+	height:44px;
+
 }
 
 
@@ -273,6 +275,9 @@ a.color1-bkg-darkest:active, button.color1-bkg-darkest:active {
 	background-color: black;
 }
 /***********************************/
+body, ion-view, ion-content {
+	background-color: #ecd4cd !important;
+}
 /***********************************/
 
 

@@ -2,17 +2,18 @@ starter.controller('MapCtrl', ['$rootScope','$scope','$http','$location','Const'
 
 
 
+
+
     document.addEventListener("deviceready", onDeviceReady, false);
     function onDeviceReady() {
-        // $rootScope.d("onDeviceReadyInCtrl");
-        
+        $rootScope.d("onDeviceReadyInCtrl");
         var isThereConnection = $rootScope.isThereConnection();
         if (!isThereConnection) {
             $rootScope.d("isThereConnection :: false");
             $scope.connectionNeeded=1;
             return;
         } else {
-        	// $rootScope.d("isThereConnection :: true");
+        	$rootScope.d("isThereConnection :: true");
             $scope.connectionNeeded=0;
             navigator.geolocation.getCurrentPosition(onSuccess, onError);
         }
@@ -140,9 +141,48 @@ starter.controller('MapCtrl', ['$rootScope','$scope','$http','$location','Const'
 				        html += "</div>";
 				    }
 				    html += "</div>";
-				    html += '<button ng-click="clickPlace(performance.place.id)" target="_blank" class="TD-btn color1-bkg-bright white width-full" >Details</button>';
+
+
+
+				    $scope.path = function ( path ) {
+		              // console.log("path="+path);
+		              alert("path()");
+		              // $rootScope.d("path "+path);
+		              // $location.url(path);
+		              
+		            };
+		            function path () {
+		            	alert("path2()");
+		            }
+
+
+		            $scope.absolute = function ( path ) {
+		              //$location.path(path);
+		              window.open(path,"_system");
+		            };
+
+
+
+				    // html += '<button ng-href="$location.url(\'#/tab/places/{{performance.place.id}}\');" target="_blank" class="TD-btn color1-bkg-bright white width-full" >Details</button>';
+				    
+				    html += '<button ng-click="" class="TD-btn color1-bkg-bright white width-full" >Details</button>';
+
+
+
+				    
+				    // var urlToGo = "#/tab/place/10";
+				    
+				    // html += 'place.='+place;
+				    // html += 'performance.place.id='+performance.place.id;
+
+				    // html += '<a href="" class="TD-btn color1-bkg-bright white width-full" >DetailsZZZ</a>';
+
+
+				    
+
+
 				infoWindow.setContent(
-				    '<a class="color1-medium" href="#/place/'+place.id+'">'
+				    '<a class="color1-medium" href="#/tab/ORPHAN/places/'+place.id+'">'
 				    +'<h2 class="text-condensed color1-dark">'+marker.title+'</h2>'
 				    + html
 				    +'</a>'

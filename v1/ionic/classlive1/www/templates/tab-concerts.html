@@ -1,125 +1,76 @@
-<ion-view id="concerts">
-
-
-
-
-<!-- <div class="">
-    <div class="blue-bkg" style="width:40%; float:left; display:inline; overflow:visible;">
-      xdtg rdth zh ltjr tigj rdutoh grifhgj ro tjgord jtgourjthg bordjthgu ordjhtgurj thirjthpig jriotgj dirugt jirud gij urddtgiu rjtgui rjtugi riutg jriut hjgirutj giortjg rutgjuiftgj 
-    </div>
-    <div class="green-bkg" style="width:40%; float:right; display:block;">
-      XXXXXX<br>XXXXXX<br>XXXX
-    </div>    
-</div>  
- -->
-
-
-
+<ion-view class="TD-list">
 <ion-nav-title class="text-condensed">
-Concerts
+<strong>B a r o c - G e n è v e</strong>
 </ion-nav-title>
 <ion-content>
-<ion-list >
-  <ion-item 
-  ng-repeat="concert in filteredConcerts = (concerts | filter:Search.term | orderBy: concert[1])" 
-  type="item-text-wrap" 
-  href="#/tab/concerts/{{concert[0].work.id}}"
-  >
-  <!-- <a  ng-href="#/concert/{{concert[0].work.id}}"  class="row color1-bkg-brighter list-element gradient" > -->
+<ion-list>
+<ion-item 
+ng-repeat="concert in filteredConcerts = (concerts | filter:Search.term | orderBy: concert[1])" 
+type="item-text-wrap" 
+href="#/tab/concerts/{{concert[0].work.id}}"
+>
 
 
 
 <div class="row pad-side-4 ">
-
-
-    <div class="col-75 pad-right-1 pad-vertical-1" >
-      <h2 class="text-condensed black">
-        {{concert[0].work.name}}
-      </h2>
-
-      <span class="grey small" >
-          <span ng-show="concert[0].work.interpreter" >
-              {{concert[0].work.interpreter}}
-          </span>
-          <span ng-show="concert[0].work.director">
-              <br/><span class="smaller">DIRECT: </span>{{concert[0].work.director}}
-          </span>
-          <span ng-show="concert[0].work.composer">
-              <br/><span class="smaller">COMP: </span>{{concert[0].work.composer}}
-          </span>
-          <span ng-show="concert[0].work.style">
-              <br/><span class="smaller">STYLE: </span>{{concert[0].work.style}}
-          </span>
-      </span>
-
-
-    </div>
-
-
-
-    <div class="col-25" >
-      <div class="date">
-        <div class="date-text color1-drop-shadow">
-          <div class="day day-alt1 black text-thin" >
-            <span class="text-tiny">
-              {{concert[1] | date : "EEE"}}
-            </span>
-            <span class="text-regular">
-              {{concert[1] | date : "d"}}
-            </span>
-          </div>
-          <div class="month month-alt1 text-bold white">
-            {{concert[1] | date : "MMMM"}}
-          </div>
-        </div>
-      </div>
-    </div>    
-
-
+  <div class="col-75 pad-right-1 pad-vertical-1" >
+              <h2 class="text-condensed black">
+                {{concert[0].work.name}}
+              </h2>
+              <div class="grey small" >
+                <div ng-show="concert[0].work.interpreter" >
+                  {{concert[0].work.interpreter}}
+                </div>
+                <div ng-show="concert[0].work.director">
+                  <span class="smaller">DIRECT: </span>{{concert[0].work.director}}
+                </div>
+                <div ng-show="concert[0].work.composer">
+                  <span class="smaller">COMP: </span>{{concert[0].work.composer}}
+                </div>
+                <div ng-show="concert[0].work.style">
+                  <span class="smaller">STYLE: </span>{{concert[0].work.style}}
+                </div>
+              </div>
+  </div>
+  <div class="col-25" >
+            <div class="date">
+              <div class="date-text color1-drop-shadow">
+                      <div class="day day-alt1 black text-thin" >
+                        <span class="text-tiny">
+                          {{concert[1] | date : "EEE"}}
+                        </span>
+                        <span class="text-regular">
+                          {{concert[1] | date : "d"}}
+                        </span>
+                      </div>
+                      <div class="month month-alt1 text-bold white">
+                        {{concert[1] | date : "MMMM"}}
+                      </div>
+              </div>
+            </div>
+    </div>  
+    <!-- will close row -->
 </div>  
 
-  <!-- </a> -->
-  </ion-item>
 
 
 
-
-
-
-  <div ng-show="Data.concertsNoResultAllowed">
-    <div ng-hide="filteredConcerts.length"  class="text-center center-vertical">
-      <div  >
-        Pas de résultat pour :
-        <div class="text-italic text-thin">“{{Search.term}}”</div>
-        <div>
-          <a ng-href="#/" class="size-huge color1-dark">
-            <span class="glyphicon glyphicon-remove-circle"></span>
-          </a>
-        </div>
+<!-- <div ng-show="Data.concertsNoResultAllowed">
+  <div ng-hide="filteredConcerts.length"  class="text-center center-vertical">
+    <div  >
+      Pas de résultat pour :
+      <div class="text-italic text-thin">“{{Search.term}}”</div>
+      <div>
+        <a ng-href="#/" class="size-huge color1-dark">
+          <span class="glyphicon glyphicon-remove-circle"></span>
+        </a>
       </div>
     </div>
   </div>
-
-  </ion-list>
-
+</div> -->
 
 
-
-
-
-
-    <!-- <ion-list>
-      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="concert in concerts" type="item-text-wrap" href="#/tab/concerts/{{concert.id}}">
-        <img ng-src="{{concert.face}}">
-        <h2>{{concert.name}}</h2>
-        <p>{{concert.lastText}}</p>
-        <i class="icon ion-chevron-right icon-accessory"></i>
-
-        <ion-option-button class="button-assertive" ng-click="remove(concert)">
-          Delete
-        </ion-option-button>
-      </ion-item>
-    </ion-list> -->
-
-  </ion-content>
+</ion-item>
+</ion-list>
+</ion-content>
 </ion-view>
