@@ -25,7 +25,7 @@ starter.controller('ConcertDetailCtrl', ['$rootScope', '$scope', '$stateParams',
           var stateUrlPrefix = $state.$current.url.prefix;
           var expl = stateUrlPrefix.split("/");
           var stateType = expl[2];
-          $rootScope.d(stateType);
+          // $rootScope.d(stateType);
           $scope.stateType = stateType;
 
           

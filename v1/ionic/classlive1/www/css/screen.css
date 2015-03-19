@@ -28,6 +28,10 @@ ion-item a:active {
   background-color: #fff !important;
 }
 /****************** carousel **************************/
+.TD-theme-1 a {
+	color:#DE7659 !important;
+}
+/****************** carousel **************************/
 /* Empty. Add your own CSS if you like */
 
 
@@ -281,7 +285,7 @@ body, ion-view, ion-content {
 /***********************************/
 
 
-a, a:link, a:visited, a:hover, a:active, button, button:link, button:visited, button:hover, button:active {
+a, a:link, a:visited, a:hover, a:active {
 	outline: none;
 	text-decoration: none;
 	border:none;

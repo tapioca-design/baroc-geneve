@@ -175,7 +175,7 @@ starter.config(function($stateProvider, $urlRouterProvider) {
       }
     })
     /*************************/
-    .state('tab.map', {
+  .state('tab.map', {
     url: '/map',
     views: {
       'tab-map': {
@@ -184,6 +184,24 @@ starter.config(function($stateProvider, $urlRouterProvider) {
       }
     }
   })
+  .state('tab.map-concert-detail', {
+      url: '/map/concert/:workId',
+      views: {
+        'tab-map': {
+          templateUrl: 'templates/concert-detail.html',
+          controller: 'ConcertDetailCtrl'
+        }
+      }
+    })
+    .state('tab.map-place-detail', {
+      url: '/map/place/:placeId',
+      views: {
+        'tab-map': {
+          templateUrl: 'templates/place-detail.html',
+          controller: 'PlaceDetailCtrl'
+        }
+      }
+    })
     /*************************/
   .state('tab.places', {
     url: '/places',

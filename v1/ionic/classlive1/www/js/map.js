@@ -182,7 +182,7 @@ starter.controller('MapCtrl', ['$rootScope','$scope','$http','$location','Const'
 
 
 				infoWindow.setContent(
-				    '<a class="color1-medium" href="#/tab/ORPHAN/places/'+place.id+'">'
+				    '<a class="color1-medium" href="#/tab/map/place/'+place.id+'">'
 				    +'<h2 class="text-condensed color1-dark">'+marker.title+'</h2>'
 				    + html
 				    +'</a>'
