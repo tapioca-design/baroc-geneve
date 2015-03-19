@@ -2,8 +2,8 @@
 <ion-nav-title class="text-condensed">
 <span class="bold">B a r o c - G e n è v e</span>
 </ion-nav-title>
-<ion-content>
 
+<ion-content>
 <!-- <button ng-click="transitionTo()">transitionTo</button> -->
 
 <ion-list>
@@ -56,22 +56,12 @@ href="#/tab/concerts/concert/{{concert[0].work.id}}"
 
 
 
-<!-- <div ng-show="Data.concertsNoResultAllowed">
-  <div ng-hide="filteredConcerts.length"  class="text-center center-vertical">
-    <div  >
-      Pas de résultat pour :
-      <div class="text-italic text-thin">“{{Search.term}}”</div>
-      <div>
-        <a ng-href="#/" class="size-huge color1-dark">
-          <span class="glyphicon glyphicon-remove-circle"></span>
-        </a>
-      </div>
-    </div>
-  </div>
-</div> -->
 
 
 </ion-item>
 </ion-list>
+<div ng-show="Data.loadingActive" class="text-center vertical-center">
+  <img src="img/loader.gif" alt="" class="img-size-half">
+</div>
 </ion-content>
 </ion-view>

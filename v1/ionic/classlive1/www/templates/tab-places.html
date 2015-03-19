@@ -10,6 +10,7 @@ Places
   ng-href="#/tab/places/place/{{place.id}}" 
   class="item-remove-animate item-avatar item-icon-right"
   >
+  
 	<img 
 			ng-src="img/places/{{place.name_url}}/square.jpg" 
 			class="img-circle" 
@@ -18,10 +19,12 @@ Places
 			<h2 class="text-condensed black">
 				{{place.name_fr}}
 			</h2>
-			
-
-
 	</ion-item>
   </ion-list>
+
+  <div ng-show="Data.loadingActive" class="text-center vertical-center">
+  <img src="img/loader.gif" alt="" class="img-size-half">
+</div>
+
 </ion-content>
 </ion-view>

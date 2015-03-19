@@ -1,13 +1,14 @@
-starter.controller('ConcertsCtrl', ['$rootScope' ,'$scope','$state', function($rootScope, $scope, $state) {
-  // $scope.transitionTo = function(){
-  //   $rootScope.d("transitionTo");
-  //   $state.transitionTo('tab.places');
-  // }
+starter.controller('ConcertsCtrl', ['$rootScope' ,'$scope','$state', 'Data', function($rootScope, $scope, $state, Data) {
+
+      Data.loadingActive = 1;
+      Data.concertsNoResultAllowed = 0;
+      $scope.Data = Data;
 
   // $scope.concerts = Concerts.all();
   $rootScope.getData("city/1/worksOrderedByFirstPerformance", "",
       function (callback_arg) {
           var concerts = callback_arg;
+          Data.loadingActive = 0;
           $scope.concerts = concerts;
           
       });
@@ -18,8 +19,10 @@ starter.controller('ConcertsCtrl', ['$rootScope' ,'$scope','$state', function($r
 
 
 
-starter.controller('ConcertDetailCtrl', ['$rootScope', '$scope', '$stateParams','$location','$state', function($rootScope, $scope, $stateParams,$location,$state) {
+starter.controller('ConcertDetailCtrl', ['$rootScope', '$scope', '$stateParams','$location','$state','Data', function($rootScope, $scope, $stateParams,$location,$state, Data) {
 
+          Data.loadingActive = 1;
+          $scope.Data = Data;
           //every tabs point to rrot list of elements: concetts and places, would be concert detail or place detail, we can switch with those two infinitly, but this has to be done inside a line from a starting point: concerts list, or places list, stateType defines this.
           // $scope.stateType = $rootScope.getState($state.$current.url.prefix);
           var stateUrlPrefix = $state.$current.url.prefix;
@@ -97,6 +100,7 @@ starter.controller('ConcertDetailCtrl', ['$rootScope', '$scope', '$stateParams',
           function (callback_arg) {
               var performances = callback_arg;
               // $scope.Data = Data;
+              Data.loadingActive = 0;
               $scope.performances = performances;
           });
 }]);

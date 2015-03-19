@@ -2,12 +2,13 @@
 <ion-nav-title class="text-condensed">
 Map
 </ion-nav-title>
-  <ion-content class="">
+<ion-content class="">
 
+<div ng-show="Data.loadingActive" class="text-center vertical-center">
+	<img src="img/loader.gif" alt="" class="img-size-half">
+</div>
 
-<!-- <a ng-click="path()" class="TD-btn color1-bkg-bright white width-full" >Details</a> -->
+<div id="map" data-tap-disabled="true" style="{{mapHeightStyle}}"></div>
 
-
-    <div id="map" data-tap-disabled="true" style="{{mapHeightStyle}}"></div>
-  </ion-content>
+</ion-content>
 </ion-view>
