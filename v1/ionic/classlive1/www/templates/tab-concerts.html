@@ -10,7 +10,7 @@
 <ion-item 
 ng-repeat="concert in filteredConcerts = (concerts | filter:Search.term | orderBy: concert[1])" 
 type="item-text-wrap" 
-href="#/tab/concerts/{{concert[0].work.id}}"
+href="#/tab/concerts/concert/{{concert[0].work.id}}"
 >
 
 <div class="row pad-side-4 ">

@@ -18,11 +18,22 @@ starter.config(['$httpProvider', function($httpProvider) {
         delete $httpProvider.defaults.headers.common['X-Requested-With'];
     }
 ]);
-starter.run(function ($rootScope, $location,$http,Const,Data) {
+/***********************************************************************************************/
+starter.run(function ($rootScope, $location,$http,$state,Const,Data) {
   $rootScope.d = function(t) {
     console.log(t);
     alert(t);
   }
+  $rootScope.transitionTo = function(stateName){
+    // $rootScope.d("transitionTo");
+    $state.transitionTo(stateName);
+  }
+  
+  // $rootScope.getState = function(stateUrlPrefix){
+  //   var expl = stateUrlPrefix.split("/");
+  //   var stateType = expl[2];
+  //   $rootScope.d(stateType);
+  // }
   $rootScope.isThereConnection = function() {
         // document.addEventListener("deviceready", onDeviceReady, false);
         // function onDeviceReady() {
@@ -59,6 +70,7 @@ starter.run(function ($rootScope, $location,$http,Const,Data) {
             };
 
     $rootScope.getData = function (url_suffix,folder,callback) {
+      // $rootScope.d("getData url_suffix,folder,callback");
         if (localStorage.getItem(url_suffix) === null) {
             var url=Const.baseUrl+'/symfony/web/api/'+url_suffix;
             $http.get(url).
@@ -145,7 +157,7 @@ starter.config(function($stateProvider, $urlRouterProvider) {
       }
     })
     .state('tab.concert-detail', {
-      url: '/concerts/:workId',
+      url: '/concerts/concert/:workId',
       views: {
         'tab-concerts': {
           templateUrl: 'templates/concert-detail.html',
@@ -153,6 +165,16 @@ starter.config(function($stateProvider, $urlRouterProvider) {
         }
       }
     })
+    .state('tab.concert-place-detail', {
+      url: '/concerts/place/:placeId',
+      views: {
+        'tab-concerts': {
+          templateUrl: 'templates/place-detail.html',
+          controller: 'PlaceDetailCtrl'
+        }
+      }
+    })
+    /*************************/
     .state('tab.map', {
     url: '/map',
     views: {
@@ -162,6 +184,7 @@ starter.config(function($stateProvider, $urlRouterProvider) {
       }
     }
   })
+    /*************************/
   .state('tab.places', {
     url: '/places',
     views: {
@@ -172,7 +195,7 @@ starter.config(function($stateProvider, $urlRouterProvider) {
     }
   })
   .state('tab.place-detail', {
-    url: '/places/:placeId',
+    url: '/places/place/:placeId',
     views: {
       'tab-places': {
         templateUrl: 'templates/place-detail.html',
@@ -180,17 +203,8 @@ starter.config(function($stateProvider, $urlRouterProvider) {
       }
     }
   })
-  .state('tab.place-detail-concert', {
-    url: '/places/concerts/:workId',
-    views: {
-      'tab-places': {
-        templateUrl: 'templates/concert-detail.html',
-        controller: 'ConcertDetailCtrl'
-      }
-    }
-  })
-  .state('tab.place-detail-ORPHAN', {
-    url: '/ORPHAN/places/:workId',
+  .state('tab.place-concert-detail', {
+    url: '/places/concert/:workId',
     views: {
       'tab-places': {
         templateUrl: 'templates/concert-detail.html',

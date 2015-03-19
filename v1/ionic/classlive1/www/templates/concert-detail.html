@@ -83,11 +83,13 @@ height: 50px;
 
         <div class="col-50 pad-left-2">
 
+        
+
           <div>
-            <button ng-href="$location.url('#/tab/places/{{performance.place.id}}');">To place url</button>
-            <button ng-href="$location.path('#/tab/places/{{performance.place.id}}');">To place path</button>
+            <!-- <button ng-href="$location.url('#/tab/places/{{performance.place.id}}');">To place url</button>
+            <button ng-href="$location.path('#/tab/places/{{performance.place.id}}');">To place path</button> -->
             <button 
-            ng-click="path('/tab/places/{{performance.place.id}}')"
+            ng-click="path('/tab/{{stateType}}/place/{{performance.place.id}}')"
             class="TD-btn color1-darker color1-bkg-medium width-full" >
             {{performance.place.name_fr}}
             </button>
