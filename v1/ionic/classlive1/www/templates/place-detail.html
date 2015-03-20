@@ -37,7 +37,7 @@
     </a>
   </div>
   <div class="col-33 text-center">
-    <a ng-href="#/place/{{place.id}}/map" type="button" class="small text-light color1-medium">
+    <a ng-href="#/tab/{{stateType}}/place-map/{{place.id}}" type="button" class="small text-light color1-medium">
       <!-- <img src="img/icons/map-marker1.png" alt="map" class="icon" style="width:15px"> -->
       <i class="icon ion-android-pin"></i>
       <div>Direction</div>
@@ -110,7 +110,8 @@
     </div>    
 </div>  
   <!-- </a> -->
-  <div ng-show="Data.concertsNoResultAllowed">
+  
+  <!-- <div ng-show="Data.concertsNoResultAllowed">
     <div ng-hide="filteredConcerts.length"  class="text-center center-vertical">
       <div  >
         Pas de résultat pour :
@@ -122,8 +123,19 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
+
+  
+
   </ion-item>
+
+<div ng-hide="filteredPerformances.length"  class="text-center center-vertical">
+      <div>
+        Pas de concert à venir.
+      </div>
+    </div>
+
+
   </ion-list>
 </div>
 

@@ -118,7 +118,7 @@ starter.factory('Const', function($location){
     baseUrlInner= "http://tapiocadesign.com/_CLASSLIVE/v1";
     return {
       baseUrl:baseUrlInner, 
-      url:baseUrlInner+"/angular-static/",
+      // url:baseUrlInner+"/angular-static/",
       appNameFr:"Classique live Genève"
     };
 });
@@ -160,7 +160,7 @@ starter.config(function($stateProvider, $urlRouterProvider) {
       url: '/concerts',
       views: {
         'tab-concerts': {
-          templateUrl: 'templates/tab-concerts.html',
+          templateUrl: 'templates/concerts.html',
           controller: 'ConcertsCtrl'
         }
       }
@@ -183,12 +183,23 @@ starter.config(function($stateProvider, $urlRouterProvider) {
         }
       }
     })
-    /*************************/
+    .state('tab.concert-place-map', {
+    url: '/concerts/place-map/:placeId',
+    views: {
+      'tab-concerts': {
+        templateUrl: 'templates/place-map.html',
+        controller: 'PlaceMapCtrl'
+      }
+    }
+  })
+    /*********************************************************************************/
+    /*********************************************************************************/
+    /*********************************************************************************/
   .state('tab.map', {
     url: '/map',
     views: {
       'tab-map': {
-        templateUrl: 'templates/tab-map.html',
+        templateUrl: 'templates/map.html',
         controller: 'MapCtrl'
       }
     }
@@ -211,12 +222,23 @@ starter.config(function($stateProvider, $urlRouterProvider) {
         }
       }
     })
-    /*************************/
+    .state('tab.map-place-map', {
+    url: '/map/place-map/:placeId',
+    views: {
+      'tab-map': {
+        templateUrl: 'templates/place-map.html',
+        controller: 'PlaceMapCtrl'
+      }
+    }
+  })
+    /*********************************************************************************/
+    /*********************************************************************************/
+    /*********************************************************************************/
   .state('tab.places', {
     url: '/places',
     views: {
       'tab-places': {
-        templateUrl: 'templates/tab-places.html',
+        templateUrl: 'templates/places.html',
         controller: 'PlacesCtrl'
       }
     }
@@ -236,6 +258,15 @@ starter.config(function($stateProvider, $urlRouterProvider) {
       'tab-places': {
         templateUrl: 'templates/concert-detail.html',
         controller: 'ConcertDetailCtrl'
+      }
+    }
+  })
+  .state('tab.place-place-map', {
+    url: '/places/place-map/:placeId',
+    views: {
+      'tab-places': {
+        templateUrl: 'templates/place-map.html',
+        controller: 'PlaceMapCtrl'
       }
     }
   });

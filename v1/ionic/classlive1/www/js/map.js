@@ -1,7 +1,8 @@
-starter.controller('MapCtrl', ['$rootScope','$scope','$http','$location','Const', function($rootScope,$scope,$http,$location, Const) { 
+starter.controller('MapCtrl', ['$rootScope','$scope','$http','$location','Data','Const', function($rootScope,$scope,$http,$location, Data, Const) { 
 
 
-
+Data.loadingActive = 1;
+   $scope.Data = Data;
 
 
     document.addEventListener("deviceready", onDeviceReady, false);
@@ -23,7 +24,7 @@ starter.controller('MapCtrl', ['$rootScope','$scope','$http','$location','Const'
         // $rootScope.d(position.coords.latitude+" --- "+position.coords.longitude);
     }
     function onError(error) {
-         $rootScope.d('Impossible de vous localiser (PhoneGap getCurrentPosition error)');
+         $rootScope.d('Impossible de vous localiser (Cordova getCurrentPosition error)');
     }
 
             // var windowHeight = $( window ).height();
@@ -31,7 +32,7 @@ starter.controller('MapCtrl', ['$rootScope','$scope','$http','$location','Const'
             // windowHeight = windowHeight - 88;
             // $scope.mapHeightStyle = "height:"+windowHeight+"px";
 
-    $http.get(Const.baseUrl+'/symfony/web/app_dev.php/api/city/1/placesWithPerformances').
+    $http.get(Const.baseUrl+'/symfony/web/api/city/1/placesWithPerformances').
             success(function(places) {
 				// $rootScope.d("http get success");
 				var dateRefMonths = new Array();
@@ -210,6 +211,8 @@ starter.controller('MapCtrl', ['$rootScope','$scope','$http','$location','Const'
 				zIndex: 999,
 				map: $scope.map
 				});
+
+				Data.loadingActive = 0;
 
 				if (navigator.geolocation) {
 					navigator.geolocation.getCurrentPosition(function(pos) {

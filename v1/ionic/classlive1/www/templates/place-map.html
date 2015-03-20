@@ -1,0 +1,14 @@
+<ion-view>
+<ion-nav-title class="text-condensed">
+<span class="text-extended bold">{{place.name_fr}}</span>
+</ion-nav-title>
+<ion-content class="">
+
+<div ng-show="Data.loadingActive" class="text-center vertical-center">
+    <img src="img/loader.gif" alt="" class="img-size-half">
+</div>
+
+<div id="map" data-tap-disabled="true" style="{{mapHeightStyle}}"></div>
+
+</ion-content>
+</ion-view>
