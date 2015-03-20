@@ -1,4 +1,4 @@
-starter.controller('ConcertsCtrl', ['$rootScope' ,'$scope','$state', 'Data','Search', function($rootScope, $scope, $state, Data,Search) {
+starter.controller('ConcertsCtrl', ['$rootScope' ,'$scope','$state', 'Data', function($rootScope, $scope, $state, Data) {
 
       Data.loadingActive = 1;
       Data.concertsNoResultAllowed = 0;
@@ -14,12 +14,10 @@ starter.controller('ConcertsCtrl', ['$rootScope' ,'$scope','$state', 'Data','Sea
       });
 
 
-
-  $scope.clearSearch = function () {
-    $rootScope.d("clearSearch "+Search.term);
-    Search.term = "";
-    $rootScope.d("clearSearch post "+Search.term);
-  }
+  $scope.data = {};
+  $scope.clearSearch = function() {
+    $scope.data.searchQuery = '';
+  };
 
 
 
