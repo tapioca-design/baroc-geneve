@@ -1,14 +1,38 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <widget id="com.ionicframework.classlive1456093" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-  <name>classlive1</name>
+  <name>Baroc Genève</name>
   <description>
-        An Ionic Framework and Cordova project.
+        Tous les concerts de musique classique sur Genève et environs. Calendrier, cartographie et liens vers les billeteries.
     </description>
-  <author email="hi@ionicframework" href="http://ionicframework.com/">
-      Ionic Framework Team
+  <author email="info@tapiocadesign.com" href="http://www.tapiocadesign.com">
+      Tapioca design
     </author>
   <content src="index.html"/>
   <access origin="*"/>
+
+
+
+
+
+<preference name="DisallowOverscroll" value="true" />
+
+
+
+
+<!--   <preference name="StatusBarOverlaysWebView" value="false" />
+    <preference name="StatusBarStyle" value="lightcontent" />
+    <preference name="ios-statusbarstyle" value="black-opaque" />
+    <preference name="StatusBarBackgroundColor" value="#FF0000" />
+ -->
+    <feature name="NetworkStatus">
+        <param name="ios-package" value="CDVConnection" />
+    </feature>
+    <feature name="Device">
+        <param name="ios-package" value="CDVDevice" />
+    </feature>
+
+    
+
   <preference name="webviewbounce" value="false"/>
   <preference name="UIWebViewBounce" value="false"/>
   <preference name="DisallowOverscroll" value="true"/>

@@ -3,6 +3,46 @@
 
 
 
+
+#search {
+	height: 60px;
+}
+
+
+
+.icon {
+	display: block;
+}
+
+
+/*.spinner svg {
+font-size:300px;
+  width: 28px;
+  height: 28px;
+  stroke: #444;
+  fill: #444;
+}*/
+
+
+
+#ios7-status-bar {
+        position: absolute;
+        width: 100%;
+        height: 20px;
+        background: blue;
+        color: white;
+        text-align: center;
+        z-index: 9999;
+        display: none;
+      }
+      .platform-cordova.platform-ios7 #ios7-status-bar {
+        display: block;
+      }
+
+
+
+
+
 .row {
 	padding: 0;
 	margin: 0;
@@ -28,9 +68,10 @@ ion-item a:active {
   background-color: #fff !important;
 }
 /****************** carousel **************************/
-.TD-theme-1 a {
+.TD-theme-1, .TD-theme-1 a {
 	color:#DE7659 !important;
 }
+
 /****************** carousel **************************/
 /* Empty. Add your own CSS if you like */
 
@@ -306,7 +347,9 @@ img.img-size-half {
 
 
 
-.black {color:black;}
+.black {
+	color:black !important;
+}
 a.black:link, a.black:hover, a.black:visited, a.black:active {
 	color:black;
 }
@@ -579,6 +622,10 @@ footer a .menu-label {
     font-family: ThinFont;
     src: url(../fonts/lato/Lato-Thin.ttf);
 }
+@font-face {
+    font-family: ExtendedFont;
+    src: url(../fonts/agbq/Akzidenz-Grotesk-extend.ttf);
+}
 .text-condensed {
 	font-family: 'CondensedFont', serif;
 	/*font-size: 0.8em;*/
@@ -588,6 +635,9 @@ footer a .menu-label {
 }
 .text-thin {
 	font-family: 'ThinFont', sans-serif;
+}
+.text-extended {
+	font-family: 'ExtendedFont', sans-serif;
 }
 .text-bold {
 	font-weight: bold;

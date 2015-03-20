@@ -6,20 +6,21 @@ starter.controller('MapCtrl', ['$rootScope','$scope','$http','$location','Const'
 
     document.addEventListener("deviceready", onDeviceReady, false);
     function onDeviceReady() {
-        $rootScope.d("onDeviceReadyInCtrl");
+        // $rootScope.d("onDeviceReadyInCtrl");
         var isThereConnection = $rootScope.isThereConnection();
         if (!isThereConnection) {
-            $rootScope.d("isThereConnection :: false");
-            $scope.connectionNeeded=1;
+        	alert("La cartographie nécessite une connexion internet.");
+            // $rootScope.d("isThereConnection :: false");
+            // $scope.connectionNeeded=1;
             return;
         } else {
-        	$rootScope.d("isThereConnection :: true");
-            $scope.connectionNeeded=0;
+        	// $rootScope.d("isThereConnection :: true");
+            // $scope.connectionNeeded=0;
             navigator.geolocation.getCurrentPosition(onSuccess, onError);
         }
     }
     function onSuccess(position) {
-        $rootScope.d(position.coords.latitude+" --- "+position.coords.longitude);
+        // $rootScope.d(position.coords.latitude+" --- "+position.coords.longitude);
     }
     function onError(error) {
          $rootScope.d('Impossible de vous localiser (PhoneGap getCurrentPosition error)');

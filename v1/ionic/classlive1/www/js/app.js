@@ -1,4 +1,4 @@
-var starter = angular.module('starter', ['ionic',"ngAnimate", 'angular-carousel']);
+var starter = angular.module('starter', ['ionic',"ngAnimate", 'angular-carousel', 'ngCordova']);
 
 starter.run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -19,11 +19,20 @@ starter.config(['$httpProvider', function($httpProvider) {
     }
 ]);
 /***********************************************************************************************/
-starter.run(function ($rootScope, $location,$http,$state,Const,Data) {
+starter.run(function ($rootScope, $location,$http,$state,$cordovaStatusbar,$ionicPlatform,Const,Data) {
   $rootScope.d = function(t) {
     console.log(t);
     alert(t);
   }
+
+$ionicPlatform.ready(function() {
+  $cordovaStatusbar.overlaysWebView(false);
+  // $cordovaStatusBar.style(1);
+  $cordovaStatusbar.styleHex('#e68c6b');
+});
+   
+
+
   $rootScope.transitionTo = function(stateName){
     // $rootScope.d("transitionTo");
     $state.transitionTo(stateName);
