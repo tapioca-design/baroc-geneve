@@ -20,9 +20,14 @@ starter.config(['$httpProvider', function($httpProvider) {
 ]);
 /***********************************************************************************************/
 starter.run(function ($rootScope, $location,$http,$state,$cordovaStatusbar,$ionicPlatform,Const,Data) {
+
+  $rootScope.debugMode=false;
+
   $rootScope.d = function(t) {
-    console.log(t);
-    alert(t);
+    if ($rootScope.debugMode) {
+      console.log(t);
+      alert(t);
+    }
   }
 
   $rootScope.bug = function(t) {

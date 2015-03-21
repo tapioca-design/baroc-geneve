@@ -114,10 +114,10 @@ ul[rn-carousel] {
 /******************* map *************************/
 #map {
     /*height:60vh;*/
-	height:85vh;
+	height:88vh;
     width:100%;
-    background-color: red;
-    border:1px solid blue;
+    /*background-color: red;
+    border:1px solid blue;*/
 }
 a[href^="http://maps.google.com/maps"]{display:none !important}
 
