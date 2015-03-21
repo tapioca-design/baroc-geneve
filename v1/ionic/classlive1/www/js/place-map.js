@@ -1,19 +1,19 @@
 starter.controller('PlaceMapCtrl', ['$rootScope','$scope','$http', "$stateParams",'$state','$location','Data','Search','Const', function($rootScope,$scope,$http,$stateParams,$state,$location, Data, Search, Const) { 
 
-
+$rootScope.d("PlaceMapCtrl");
 
 
     document.addEventListener("deviceready", onDeviceReady, false);
     function onDeviceReady() {
-        // $rootScope.d("onDeviceReadyInCtrl");
+        $rootScope.d("onDeviceReadyInCtrl");
         var isThereConnection = $rootScope.isThereConnection();
         if (!isThereConnection) {
             alert("La cartographie nécessite une connexion internet.");
-            // $rootScope.d("isThereConnection :: false");
+            $rootScope.d("isThereConnection :: false");
             // $scope.connectionNeeded=1;
             return;
         } else {
-            // $rootScope.d("isThereConnection :: true");
+            $rootScope.d("isThereConnection :: true");
             // $scope.connectionNeeded=0;
             navigator.geolocation.getCurrentPosition(onSuccess, onError);
         }
@@ -22,9 +22,13 @@ starter.controller('PlaceMapCtrl', ['$rootScope','$scope','$http', "$stateParams
         // $rootScope.d(position.coords.latitude+" --- "+position.coords.longitude);
     }
     function onError(error) {
-       $rootScope.d('Impossible de vous localiser (Cordova getCurrentPosition error)');
+       $rootScope.bug('Impossible de vous localiser.');
    }
 
+
+
+
+   $rootScope.d("after deviceready bloc");
 
 
 
@@ -52,7 +56,7 @@ starter.controller('PlaceMapCtrl', ['$rootScope','$scope','$http', "$stateParams
 
    $http.get(Const.baseUrl+'/symfony/web/api/place/'+placeId).
    success(function(place) {
-    console.log(place);
+    $rootScope.d("http.get");
     var dateRefMonths = new Array();
                 dateRefMonths[0] = "Janvier";
                 dateRefMonths[1] = "Février";
@@ -93,6 +97,7 @@ starter.controller('PlaceMapCtrl', ['$rootScope','$scope','$http', "$stateParams
     var createMarker = function (place){
         $rootScope.getImagePath(place,"places",place.name_url,"map-markers.png",
             function (glbkgp_callback_arg) {
+                                $rootScope.d("getImagePath");
                                 // console.log("createMarker");
                                 var place = glbkgp_callback_arg;
 
@@ -111,16 +116,20 @@ starter.controller('PlaceMapCtrl', ['$rootScope','$scope','$http', "$stateParams
                                         var performance = place.performances[i];
                                         var d = performance.date_performance.split(/[^0-9]/);
                                         var date = new Date(d[0],d[1]-1,d[2],d[3],d[4],d[5] );
-                                        var month = date.getMonth();
-                                        var dayNumber = date.getDate();
 
-                                        if(dateRefMonths[month] in monthsWithPerformance){
-                                            monthsWithPerformance[dateRefMonths[month]].push(dayNumber);
-                                        } else {
-                                            monthsWithPerformance[dateRefMonths[month]]= new Array();
-                                            monthsWithPerformance[dateRefMonths[month]].push(dayNumber);
-                                            
-                                        }  
+                                        var date_now = new Date();
+                                            if (date > date_now) {
+                                                var month = date.getMonth();
+                                                var dayNumber = date.getDate();
+
+                                                if(dateRefMonths[month] in monthsWithPerformance){
+                                                    monthsWithPerformance[dateRefMonths[month]].push(dayNumber);
+                                                } else {
+                                                    monthsWithPerformance[dateRefMonths[month]]= new Array();
+                                                    monthsWithPerformance[dateRefMonths[month]].push(dayNumber);
+                                                    
+                                                }  
+                                            }
                                     };
                                     
                                         // if 27 april has three concerts: 14h 17h 20h, keep one
@@ -237,7 +246,7 @@ Data.loadingActive = 0;
         }).error(function(data, status) {
             var msg='Error 12.2: unable to load place. Status:'+status;
                 //console.log(msg);
-                alert(msg);
+                $rootScope.d(msg);
             });
 
         

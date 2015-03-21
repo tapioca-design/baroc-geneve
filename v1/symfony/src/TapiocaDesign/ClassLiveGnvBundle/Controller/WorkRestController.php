@@ -44,6 +44,7 @@ class WorkRestController extends FOSRestController
 // AND p.datePerformance > CURRENT_TIMESTAMP()
 //GROUP BY p.work
         $performances = $query->getResult();
+        
 
         foreach($performances as $key => $performance){
                 //change "2015-02-20 21:00:00" TO "2015-02-20t210000" or sthing like that, i mean DATE_ATOM, so Angular date formatting works properly

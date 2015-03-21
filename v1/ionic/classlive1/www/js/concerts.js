@@ -1,5 +1,7 @@
 starter.controller('ConcertsCtrl', ['$rootScope' ,'$scope','$state', 'Data', function($rootScope, $scope, $state, Data) {
 
+$rootScope.d("ConcertsCtrl");
+
       Data.loadingActive = 1;
       Data.concertsNoResultAllowed = 0;
       $scope.Data = Data;
@@ -28,6 +30,8 @@ starter.controller('ConcertsCtrl', ['$rootScope' ,'$scope','$state', 'Data', fun
 
 
 starter.controller('ConcertDetailCtrl', ['$rootScope', '$scope', '$stateParams','$location','$state','Data', function($rootScope, $scope, $stateParams,$location,$state, Data) {
+
+$rootScope.d("ConcertDetailCtrl");
 
           Data.loadingActive = 1;
           $scope.Data = Data;

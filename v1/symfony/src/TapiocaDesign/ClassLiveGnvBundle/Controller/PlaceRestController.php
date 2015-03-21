@@ -41,7 +41,7 @@ class PlaceRestController extends FOSRestController
 
     
 
-    /*
+     /*
     * @Rest\View(serializerGroups={"list","detail"})
     */
     public function placesWithPerformancesByCityAction($city_id){

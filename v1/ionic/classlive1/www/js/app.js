@@ -25,6 +25,10 @@ starter.run(function ($rootScope, $location,$http,$state,$cordovaStatusbar,$ioni
     alert(t);
   }
 
+  $rootScope.bug = function(t) {
+    alert(t);
+  }
+
 $ionicPlatform.ready(function() {
   $cordovaStatusbar.overlaysWebView(false);
   // $cordovaStatusBar.style(1);

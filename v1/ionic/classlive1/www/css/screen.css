@@ -1,32 +1,9 @@
-
-
-/** {
-	border:1px solid red;
-}
-*/
-
-
-#search {
+/*#search {
 	height: 60px;
-}
-
-
-
-.icon {
-	display: block;
-}
-
-
-/*.spinner svg {
-font-size:300px;
-  width: 28px;
-  height: 28px;
-  stroke: #444;
-  fill: #444;
 }*/
-
-
-
+/*.icon {
+	display: block;
+}*/
 #ios7-status-bar {
         position: absolute;
         width: 100%;
@@ -37,14 +14,9 @@ font-size:300px;
         z-index: 9999;
         display: none;
       }
-      .platform-cordova.platform-ios7 #ios7-status-bar {
+.platform-cordova.platform-ios7 #ios7-status-bar {
         display: block;
       }
-
-
-
-
-
 .row {
 	padding: 0;
 	margin: 0;
@@ -57,10 +29,6 @@ font-size:300px;
   	margin: 0 !important;
 
 }
-
-/*#concerts ion-item a {
-	padding: 50px !important;
-}*/
 ion-item a {
   background-color: #ecd4cd !important;
   border-top: 1px solid #fff !important;
@@ -76,21 +44,17 @@ ion-item a:active {
 
 /****************** carousel **************************/
 /* Empty. Add your own CSS if you like */
-
-
 ul[rn-carousel] {
     width:400px;
     height:200px;
     margin: 0 auto;
 }
-
 .carousel5 li {
     width:100%;
     height:100%;
     font-size:30px;
     background-color: #ccc;
 }
-
 .carousel-demo {
     padding:30px;
     margin:30px;
@@ -152,6 +116,8 @@ ul[rn-carousel] {
     /*height:60vh;*/
 	height:85vh;
     width:100%;
+    background-color: red;
+    border:1px solid blue;
 }
 a[href^="http://maps.google.com/maps"]{display:none !important}
 
@@ -161,38 +127,23 @@ a[href^="http://maps.google.com/maps"]{display:none !important}
 .gmnoprint div {
     background:none !important;
 }
-
-
-
-/*img.icon {
-	width: 20px;
-}*/
 /********************************************/
 .padding-side-no {
 	padding-left: 0;
 	padding-right: 0;
 }
-
 #concert-description {
 	padding-top:1.2%;
 	padding-bottom:2.2%;
 }
-
-
 .TD-btn {
 	display: block;
 	border: none;
 	height:44px;
-
 }
-
-
-
 .days-list-element {
 	padding: 0 6px 0 6px;
-
 }
-
 .text-regular {
 	font-size: 1em;
 }
@@ -208,15 +159,9 @@ a[href^="http://maps.google.com/maps"]{display:none !important}
 .detail-page-end {
 	background-color: #b27863;
 }
-
-
 .uppercase {
 	text-transform: uppercase;
 }
-
-
-/***********************************/
-/***********************************/
 /***********************************/
 .color1-brightest, a.color1-brightest:link, a.color1-brightest:visited, a.color1-brightest:hover {
 	color:#ecd4cd;
@@ -224,42 +169,36 @@ a[href^="http://maps.google.com/maps"]{display:none !important}
 a.color1-brightest:active, button.color1-brightest:active {
 	color:white;
 }
-
 .color1-brighter, a.color1-brighter:link, a.color1-brighter:visited, a.color1-brighter:hover {
 	color:#ebd3c6;
 }
 a.color1-brighter:active, button.color1-brighter:active {
 	color:#e5a995;
 }
-
 .color1-bright, a.color1-bright:link, a.color1-bright:visited, a.color1-bright:hover {
 	color:#e5a995;
 }
 a.color1-bright:active, button.color1-bright:active {
 	color:#e68c6b;
 }
-
 .color1-medium, a.color1-medium:link, a.color1-medium:visited, a.color1-medium:hover {
 	color:#e68c6b;
 }
 a.color1-medium:active, button.color1-medium:active {
 	color:#e68c6b;
 }
-
 .color1-dark, a.color1-dark:link, a.color1-dark:visited, a.color1-dark:hover {
 	color:#ac5e46;
 }
 a.color1-dark:active, button.color1-dark:active {
 	color:#341b1a;
 }
-
 .color1-darker, a.color1-darker:link, a.color1-darker:visited, a.color1-darker:hover {
 	color:#3b1b14;
 }
 a.color1-darker:active, button.color1-darker:active {
 	color:#180a08;
 }
-
 .color1-darkest, a.color1-darkest:link, a.color1-darkest:visited, a.color1-darkest:hover {
 	color:#180a08;
 }
@@ -275,42 +214,36 @@ a.color1-darkest:active, button.color1-darkest:active {
 a.color1-bkg-brightest:active, button.color1-bkg-brightest:active {
 	background-color:white;
 }
-
 .color1-bkg-brighter, a.color1-bkg-brighter:link, a.color1-bkg-brighter:visited, a.color1-bkg-brighter:hover {
 	background-color:#ffddd2;
 }
 a.color1-bkg-brighter:active, button.color1-bkg-brighter:active {
 	background-color:white;
 }
-
 .color1-bkg-bright, a.color1-bkg-bright:link, a.color1-bkg-bright:visited, a.color1-bkg-bright:hover {
 	background-color:#e5a995;
 }
 a.color1-bkg-bright:active, button.color1-bkg-bright:active {
 	background-color:#ffddd2;
 }
-
 .color1-bkg-medium, a.color1-bkg-medium:link, a.color1-bkg-medium:visited, a.color1-bkg-medium:hover {
 	background-color:#e68c6b;
 }
 a.color1-bkg-medium:active, button.color1-bkg-medium:active {
 	background-color:#e5a995;
 }
-
 .color1-bkg-dark, a.color1-bkg-dark:link, a.color1-bkg-dark:visited, a.color1-bkg-dark:hover {
 	background-color:#96452e;
 }
 a.color1-bkg-dark:active, button.color1-bkg-dark:active {
 	background-color:#e68c6b;
 }
-
 .color1-bkg-darker, a.color1-bkg-darker:link, a.color1-bkg-darker:visited, a.color1-bkg-darker:hover {
 	background-color:#3b1b14;
 }
 a.color1-bkg-darker:active, button.color1-bkg-darker:active {
 	background-color:#96452e;
 }
-
 .color1-bkg-darkest, a.color1-bkg-darkest:link, a.color1-bkg-darkest:visited, a.color1-bkg-darkest:hover {
 	background-color:#180a08;
 }
@@ -326,8 +259,6 @@ body, ion-view, ion-content {
 	background-color: #e5a995 !important;
 }
 /***********************************/
-
-
 a, a:link, a:visited, a:hover, a:active {
 	outline: none;
 	text-decoration: none;
@@ -336,19 +267,12 @@ a, a:link, a:visited, a:hover, a:active {
   	-webkit-box-shadow: 0px 0px 0px 0px rgba(0,0,0,0);
   	box-shadow:         0px 0px 0px 0px rgba(0,0,0,0);
 }
-
-
-
-
 .vertical-center {
 	padding-top: 20vh;
 }
 img.img-size-half {
 	width: 60px;
 }
-
-
-
 .black {
 	color:black !important;
 }
