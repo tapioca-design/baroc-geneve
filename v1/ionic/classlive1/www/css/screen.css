@@ -4,6 +4,9 @@
 /*.icon {
 	display: block;
 }*/
+.center {
+	text-align: center;
+}
 #ios7-status-bar {
         position: absolute;
         width: 100%;
