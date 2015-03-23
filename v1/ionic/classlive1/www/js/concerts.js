@@ -18,6 +18,7 @@ $rootScope.d("ConcertsCtrl");
 
   $scope.data = {};
   $scope.clearSearch = function() {
+    $rootScope.d("clearSearch");
     $scope.data.searchQuery = '';
   };
 

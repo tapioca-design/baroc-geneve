@@ -4,6 +4,16 @@
 /*.icon {
 	display: block;
 }*/
+
+#search .icon, #search a.icon, #search .icon a {
+	height: 44px;
+	width: 44px;
+	/*background-color: red;*/
+	display: block;	
+	text-align: center;
+	padding: 5px 0 0 0;
+}
+
 .center {
 	text-align: center;
 }

@@ -1,47 +1,47 @@
 starter.controller('PlaceMapCtrl', ['$rootScope','$scope','$http', "$stateParams",'$state','$location','Data','Search','Const', function($rootScope,$scope,$http,$stateParams,$state,$location, Data, Search, Const) { 
 
-$rootScope.d("PlaceMapCtrl");
+    $rootScope.d("PlaceMapCtrl");
 
 
-    document.addEventListener("deviceready", onDeviceReady, false);
-    function onDeviceReady() {
-        $rootScope.d("onDeviceReadyInCtrl");
-        var isThereConnection = $rootScope.isThereConnection();
-        if (!isThereConnection) {
-            alert("La cartographie nécessite une connexion internet.");
-            $rootScope.d("isThereConnection :: false");
-            // $scope.connectionNeeded=1;
-            return;
-        } else {
-            $rootScope.d("isThereConnection :: true");
-            // $scope.connectionNeeded=0;
-            navigator.geolocation.getCurrentPosition(onSuccess, onError);
-        }
-    }
-    function onSuccess(position) {
-        // $rootScope.d(position.coords.latitude+" --- "+position.coords.longitude);
-    }
-    function onError(error) {
-       $rootScope.bug('Impossible de vous localiser.');
-   }
-
-
-
-
-   $rootScope.d("after deviceready bloc");
+   //  document.addEventListener("deviceready", onDeviceReady, false);
+   //  function onDeviceReady() {
+   //      $rootScope.d("onDeviceReadyInCtrl");
+   //      var isThereConnection = $rootScope.isThereConnection();
+   //      if (!isThereConnection) {
+   //          alert("La cartographie nécessite une connexion internet.");
+   //          $rootScope.d("isThereConnection :: false");
+   //          // $scope.connectionNeeded=1;
+   //          return;
+   //      } else {
+   //          $rootScope.d("isThereConnection :: true");
+   //          // $scope.connectionNeeded=0;
+   //          navigator.geolocation.getCurrentPosition(onSuccess, onError);
+   //      }
+   //  }
+   //  function onSuccess(position) {
+   //      $rootScope.d(position.coords.latitude+" --- "+position.coords.longitude);
+   //  }
+   //  function onError(error) {
+   //     $rootScope.bug('Impossible de vous localiser.');
+   // }
 
 
 
-          var stateUrlPrefix = $state.$current.url.prefix;
-          var expl = stateUrlPrefix.split("/");
-          var stateType = expl[2];
+
+   // $rootScope.d("after deviceready bloc");
+
+
+
+   var stateUrlPrefix = $state.$current.url.prefix;
+   var expl = stateUrlPrefix.split("/");
+   var stateType = expl[2];
           // $scope.stateType = stateType;
 
 
 
 
 
-   var placeId = $stateParams.placeId;
+          var placeId = $stateParams.placeId;
    // var placeId = $routeParams.placeId;
 
 
@@ -58,27 +58,27 @@ $rootScope.d("PlaceMapCtrl");
    success(function(place) {
     $rootScope.d("http.get");
     var dateRefMonths = new Array();
-                dateRefMonths[0] = "Janvier";
-                dateRefMonths[1] = "Février";
-                dateRefMonths[2] = "Mars";
-                dateRefMonths[3] = "Avril";
-                dateRefMonths[4] = "Mai";
-                dateRefMonths[5] = "Juin";
-                dateRefMonths[6] = "Juillet";
-                dateRefMonths[7] = "Août";
-                dateRefMonths[8] = "Septembre";
-                dateRefMonths[9] = "Octobre";
-                dateRefMonths[10] = "Novembre";
-                dateRefMonths[11] = "Décembre";
+    dateRefMonths[0] = "Janvier";
+    dateRefMonths[1] = "Février";
+    dateRefMonths[2] = "Mars";
+    dateRefMonths[3] = "Avril";
+    dateRefMonths[4] = "Mai";
+    dateRefMonths[5] = "Juin";
+    dateRefMonths[6] = "Juillet";
+    dateRefMonths[7] = "Août";
+    dateRefMonths[8] = "Septembre";
+    dateRefMonths[9] = "Octobre";
+    dateRefMonths[10] = "Novembre";
+    dateRefMonths[11] = "Décembre";
 
-                var dateRefDays = new Array();
-                dateRefDays[0] = "Lun";
-                dateRefDays[1] = "Mar";
-                dateRefDays[2] = "Mer";
-                dateRefDays[3] = "Jeu";
-                dateRefDays[4] = "Ven";
-                dateRefDays[5] = "Sam";
-                dateRefDays[6] = "Dim";
+    var dateRefDays = new Array();
+    dateRefDays[0] = "Lun";
+    dateRefDays[1] = "Mar";
+    dateRefDays[2] = "Mer";
+    dateRefDays[3] = "Jeu";
+    dateRefDays[4] = "Ven";
+    dateRefDays[5] = "Sam";
+    dateRefDays[6] = "Dim";
 
     $scope.place = place;
     var mapOptions = {
@@ -97,7 +97,7 @@ $rootScope.d("PlaceMapCtrl");
     var createMarker = function (place){
         $rootScope.getImagePath(place,"places",place.name_url,"map-markers.png",
             function (glbkgp_callback_arg) {
-                                $rootScope.d("getImagePath");
+                $rootScope.d("getImagePath");
                                 // console.log("createMarker");
                                 var place = glbkgp_callback_arg;
 
@@ -118,18 +118,18 @@ $rootScope.d("PlaceMapCtrl");
                                         var date = new Date(d[0],d[1]-1,d[2],d[3],d[4],d[5] );
 
                                         var date_now = new Date();
-                                            if (date > date_now) {
-                                                var month = date.getMonth();
-                                                var dayNumber = date.getDate();
+                                        if (date > date_now) {
+                                            var month = date.getMonth();
+                                            var dayNumber = date.getDate();
 
-                                                if(dateRefMonths[month] in monthsWithPerformance){
-                                                    monthsWithPerformance[dateRefMonths[month]].push(dayNumber);
-                                                } else {
-                                                    monthsWithPerformance[dateRefMonths[month]]= new Array();
-                                                    monthsWithPerformance[dateRefMonths[month]].push(dayNumber);
-                                                    
-                                                }  
-                                            }
+                                            if(dateRefMonths[month] in monthsWithPerformance){
+                                                monthsWithPerformance[dateRefMonths[month]].push(dayNumber);
+                                            } else {
+                                                monthsWithPerformance[dateRefMonths[month]]= new Array();
+                                                monthsWithPerformance[dateRefMonths[month]].push(dayNumber);
+
+                                            }  
+                                        }
                                     };
                                     
                                         // if 27 april has three concerts: 14h 17h 20h, keep one
@@ -209,38 +209,53 @@ var myloc = new google.maps.Marker({
     zIndex: 999,
     map: $scope.map
 });
-if (navigator.geolocation) navigator.geolocation.getCurrentPosition(function(pos) {
-    var me = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
-    myloc.setPosition(me);
 
-                            //direction
-                            var directionDisplay;
-                            var directionsService = new google.maps.DirectionsService();     //Create a DirectionsService object which is required to communicate with the Google Maps API Direction Service
-                            
-                                        directionsDisplay = new google.maps.DirectionsRenderer({suppressMarkers: true});        //Create a DirectionsRenderer object to render the directions results
-                                        // directionsDisplay.suppressMarkers = true;
-                                var center = new google.maps.LatLng(0, 0);    //Map is centered at 0,0
-                                
-                                directionsDisplay.setMap($scope.map);
-                                // var start = "Pune";     //Set the source/ origin
-                                // var end = "Mumbai";  //Set the destination
-                                var request =
-                                {
-                                    origin:new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude),
+                document.addEventListener("deviceready", onDeviceReady, false);
+                function onDeviceReady() {
+                    $rootScope.d("onDeviceReadyInCtrl");
+                    var isThereConnection = $rootScope.isThereConnection();
+                    if (!isThereConnection) {
+                        $rootScope.bug("La cartographie nécessite une connexion internet.");
+                        $rootScope.d("isThereConnection :: false");
+                        // $scope.connectionNeeded=1;
+                        // return;
+                    } else {
+                        $rootScope.d("isThereConnection :: true");
+                        // $scope.connectionNeeded=0;
+                        navigator.geolocation.getCurrentPosition(onSuccess, onError);
+                    }
+                }
+                function onSuccess(position) {
+                            $rootScope.d('Cordova navgator getCurrentPosition success '+position.coords.latitude+" - "+position.coords.longitude);
+                            var me = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+                            myloc.setPosition(me);
+
+                            var directionsService = new google.maps.DirectionsService();
+                            directionsDisplay = new google.maps.DirectionsRenderer({suppressMarkers: true});
+                            directionsDisplay.suppressMarkers = true;
+                            directionsDisplay.setMap( $scope.map);
+                            var request =
+                            {
+                                    origin:new google.maps.LatLng(position.coords.latitude, position.coords.longitude),
                                     destination:new google.maps.LatLng(place.map_latitude, place.map_longitude),
-                                        travelMode: google.maps.DirectionsTravelMode.DRIVING          //Current travel mode is DRIVING. You can change to BICYCLING or WALKING and see the changes.
-                                    };
-                                    directionsService.route(request, function(response, status)
+                                    travelMode: google.maps.DirectionsTravelMode.DRIVING
+                            };
+                            directionsService.route(request, function(response, status)   {
+                                $rootScope.d(" directionsService.route");
+                                    if (status == google.maps.DirectionsStatus.OK) 
                                     {
-                                        if (status == google.maps.DirectionsStatus.OK) //Check if request is successful.
-                                        {
-                                        directionsDisplay.setDirections(response);         //Display the directions result
-
+                                    directionsDisplay.setDirections(response);
+                                    } else {
+                                        $rootScope.d("error gMap direction (!google.maps.DirectionsStatus.OK)");
                                     }
-                                });
-                                }, function(error) {
-                                    $rootScope.d("Unable to find your location.");
-                                });
+                            });
+
+                }
+
+                function onError(error) {
+                     $rootScope.bug('Impossible de vous localiser: '+error.message);
+                }
+
 Data.loadingActive = 0;
             //end success
         }).error(function(data, status) {

@@ -7,31 +7,28 @@ Data.loadingActive = 1;
 
 
 
-document.addEventListener("deviceready", onDeviceReady, false);
-			    function onDeviceReady() {
-			        $rootScope.d("onDeviceReadyInCtrl");
-			        var isThereConnection = $rootScope.isThereConnection();
-			        if (!isThereConnection) {
-			        	$rootScope.bug("La cartographie nécessite une connexion internet.");
-			            $rootScope.d("isThereConnection :: false");
-			            // $scope.connectionNeeded=1;
-			            return;
-			        } else {
-			        	$rootScope.d("isThereConnection :: true");
-			            // $scope.connectionNeeded=0;
-			            navigator.geolocation.getCurrentPosition(onSuccess, onError);
-			        }
-			    }
-			    function onSuccess(position) {
-			        var me = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
-					    myloc.setPosition(me);
-			    }
-			    function onError(error) {
-			         $rootScope.bug('Impossible de vous localiser (Cordova getCurrentPosition error)');
-			    }
 
 
-    $rootScope.d("after deviceready bloc");
+
+
+       // document.addEventListener("deviceready", onDeviceReady, false);
+       //          function onDeviceReady() {
+       //              navigator.geolocation.getCurrentPosition(onSuccess, onError);
+       //          }
+       //          function onSuccess(position) {
+       //              alert('Cordova navgator getCurrentPosition success '+position.coords.latitude+" - "+position.coords.longitude);
+       //          }
+       //          function onError(error) {
+       //               alert('error: '+error.code+" - "+error.message);
+       //          }
+
+
+
+
+
+
+
+    // $rootScope.d("after deviceready bloc");
 
             // var windowHeight = $( window ).height();
             // var documentHeight = $( document ).height();
@@ -211,25 +208,7 @@ document.addEventListener("deviceready", onDeviceReady, false);
 		              window.open(path,"_system");
 		            };
 
-
-
-				    // html += '<button ng-href="$location.url(\'#/tab/places/{{performance.place.id}}\');" target="_blank" class="TD-btn color1-bkg-bright white width-full" >Details</button>';
-				    
 				    html += '<button ng-click="" class="TD-btn color1-bkg-bright white width-full" >Details</button>';
-
-
-
-				    
-				    // var urlToGo = "#/tab/place/10";
-				    
-				    // html += 'place.='+place;
-				    // html += 'performance.place.id='+performance.place.id;
-
-				    // html += '<a href="" class="TD-btn color1-bkg-bright white width-full" >DetailsZZZ</a>';
-
-
-				    
-
 
 				infoWindow.setContent(
 				    '<a class="color1-medium" href="#/tab/map/place/'+place.id+'">'
@@ -262,6 +241,30 @@ document.addEventListener("deviceready", onDeviceReady, false);
 
 				Data.loadingActive = 0;
 
+				document.addEventListener("deviceready", onDeviceReady, false);
+			    function onDeviceReady() {
+			        $rootScope.d("onDeviceReadyInCtrl");
+			        var isThereConnection = $rootScope.isThereConnection();
+			        if (!isThereConnection) {
+			        	$rootScope.bug("La cartographie nécessite une connexion internet.");
+			            $rootScope.d("isThereConnection :: false");
+			            // $scope.connectionNeeded=1;
+			            // return;
+			        } else {
+			        	$rootScope.d("isThereConnection :: true");
+			            // $scope.connectionNeeded=0;
+			            navigator.geolocation.getCurrentPosition(onSuccess, onError);
+			        }
+			    }
+			    function onSuccess(position) {
+			    	$rootScope.d('Cordova navgator getCurrentPosition success '+position.coords.latitude+" - "+position.coords.longitude);
+			        var me = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+					    myloc.setPosition(me);
+			    }
+			    function onError(error) {
+			         $rootScope.bug('Impossible de vous localiser: '+error.message);
+			    }
+
 				// if (navigator.geolocation) {
 				// 	navigator.geolocation.getCurrentPosition(function(pos) {
 				// 	    var me = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
@@ -270,15 +273,6 @@ document.addEventListener("deviceready", onDeviceReady, false);
 				// 	    $rootScope.d("Impossible de vous localiser (!navigator.geolocation)");
 				// 	});
 				// }
-
-
-
-
-
-
-
-				
-
 
 
 				// navigator.geolocation.getCurrentPosition(function(pos) {
