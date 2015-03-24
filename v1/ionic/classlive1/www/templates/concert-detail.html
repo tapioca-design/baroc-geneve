@@ -2,9 +2,7 @@
 <ion-nav-title class="text-condensed">
 {{work.name}}
 </ion-nav-title>
-
 <ion-content class="black">
-
 <div 
 id="landscape" 
 style="
@@ -15,7 +13,6 @@ background-position:center;
 height: 50px;
 "
 ></div>
-
 <div class="pad-side-2 color1-bkg-brightest" id="concert-details">
 
   <ul>
@@ -33,16 +30,9 @@ height: 50px;
     </li>
   </ul>
 </div>
-
-
-
-
-
 <div id="performances" class="color-darkest ">
-  
     <div rn-carousel-indicators ng-if="performances.length > 1" slides="performances" rn-carousel-index="carouselIndex2">
     </div>
-  
   <div class="pad-top-2">
     <ul 
     rn-carousel 
@@ -51,11 +41,8 @@ height: 50px;
     class="carousel2 "
     >
     <li ng-repeat="performance in performances" class="performance ">
-
       <div class="row">
-
         <div class="col-50 pad-right-2">
-
           <div class="date date-narrow" style="margin-top:3%; ">
             <div class="day day-alt2 text-white text-thin">
               <span class="text-tiny">
@@ -80,25 +67,15 @@ height: 50px;
             />
           </div>
         </div>
-
         <div class="col-50 pad-left-2">
-
-        
-
           <div>
-            <!-- <button ng-href="$location.url('#/tab/places/{{performance.place.id}}');">To place url</button>
-            <button ng-href="$location.path('#/tab/places/{{performance.place.id}}');">To place path</button> -->
             <button 
             ng-click="path('/tab/{{stateType}}/place/{{performance.place.id}}')"
             class="TD-btn color1-darker color1-bkg-medium width-full" >
             {{performance.place.name_fr}}
             </button>
           </div>
-
-
           <br />
-
-
           <div ng-show="performance.ticket_website" >
           <button 
           ng-click="absolute('{{performance.ticket_website}}')"
@@ -110,10 +87,7 @@ height: 50px;
               </span>
           </button>
     </div>
-    <!-- will clise col -->
-
   </div>
-  <!-- will close row -->
 </div>
 </li>
 </ul>
@@ -122,11 +96,8 @@ height: 50px;
   <div class="pad-side-2 color1-bkg-brightest " id="concert-description">
     {{work.description}}
   </div>
-  
   <div ng-show="Data.loadingActive" class="text-center vertical-center">
   <img src="img/loader.gif" alt="" class="img-size-half">
 </div>
 </ion-content>
 </ion-view>
-
-

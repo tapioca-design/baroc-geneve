@@ -3,9 +3,6 @@
 <span class="text-extended bold">B a r o c • G e n è v e</span>
 </ion-nav-title>
 <ion-content>
-
-
-  
 <ion-list>
   <ion-item 
   ng-repeat="place in places" 
@@ -13,7 +10,6 @@
   ng-href="#/tab/places/place/{{place.id}}" 
   class="item-remove-animate item-avatar item-icon-right"
   >
-  
 	<img 
 			ng-src="img/places/{{place.name_url}}/square.jpg" 
 			class="img-circle" 
@@ -24,10 +20,8 @@
 			</h2>
 	</ion-item>
   </ion-list>
-
   <div ng-show="Data.loadingActive" class="text-center vertical-center">
   <img src="img/loader.gif" alt="" class="img-size-half">
 </div>
-
 </ion-content>
 </ion-view>

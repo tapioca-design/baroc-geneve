@@ -1,19 +1,10 @@
-/*#search {
-	height: 60px;
-}*/
-/*.icon {
-	display: block;
-}*/
-
 #search .icon, #search a.icon, #search .icon a {
 	height: 44px;
 	width: 44px;
-	/*background-color: red;*/
 	display: block;	
 	text-align: center;
 	padding: 5px 0 0 0;
 }
-
 .center {
 	text-align: center;
 }
@@ -34,8 +25,6 @@
 	padding: 0;
 	margin: 0;
 }
-
-
 .TD-list ion-item, .TD-list ion-item a, .TD-list .item,  .TD-list .item-content, .TD-list a.item-content, .TD-list .item-complex{
 	border:none;
 	padding: 0 !important;
@@ -50,12 +39,12 @@ ion-item a {
 ion-item a:active {
   background-color: #fff !important;
 }
-/****************** carousel **************************/
+/**** carousel ********/
 .TD-theme-1, .TD-theme-1 a {
 	color:#DE7659 !important;
 }
 
-/****************** carousel **************************/
+/***** carousel ******/
 /* Empty. Add your own CSS if you like */
 ul[rn-carousel] {
     width:400px;
@@ -74,7 +63,7 @@ ul[rn-carousel] {
     display:block;
     text-align: center;
 }
-/********************************************/
+/*******/
 .pad-1 {padding:1%}
 .pad-side-1 {padding-left:1%; padding-right:1%}
 .pad-vertical-1 {padding-top:1%; padding-bottom:1%}
@@ -106,7 +95,7 @@ ul[rn-carousel] {
 .pad-right-4 {padding-right:4%}
 .pad-bottom-4 {padding-bottom:4%}
 .pad-left-4 {padding-left:4%}
-/********************************************/
+/*********/
 .uppercase {
 	text-transform: uppercase;
 }
@@ -121,16 +110,12 @@ ul[rn-carousel] {
 }
 
 * {
-	/*border: 1px solid green;*/
 	white-space:normal;
 }
-/******************* map *************************/
+/***** map **********/
 #map {
-    /*height:60vh;*/
 	height:88vh;
     width:100%;
-    /*background-color: red;
-    border:1px solid blue;*/
 }
 a[href^="http://maps.google.com/maps"]{display:none !important}
 
@@ -140,7 +125,7 @@ a[href^="http://maps.google.com/maps"]{display:none !important}
 .gmnoprint div {
     background:none !important;
 }
-/********************************************/
+/************/
 .padding-side-no {
 	padding-left: 0;
 	padding-right: 0;
@@ -175,7 +160,7 @@ a[href^="http://maps.google.com/maps"]{display:none !important}
 .uppercase {
 	text-transform: uppercase;
 }
-/***********************************/
+/********/
 .color1-brightest, a.color1-brightest:link, a.color1-brightest:visited, a.color1-brightest:hover {
 	color:#ecd4cd;
 }
@@ -218,9 +203,7 @@ a.color1-darker:active, button.color1-darker:active {
 a.color1-darkest:active, button.color1-darkest:active {
 	color:#180a08;
 }
-/***********************************/
-/***********************************/
-/***********************************/
+/********/
 .color1-bkg-brightest, a.color1-bkg-brightest:link, a.color1-bkg-brightest:visited, a.color1-bkg-brightest:hover {
 	background-color:#ecd4cd;
 }
@@ -263,15 +246,15 @@ a.color1-bkg-darker:active, button.color1-bkg-darker:active {
 a.color1-bkg-darkest:active, button.color1-bkg-darkest:active {
 	background-color:#341b1a;
 }
-/************************************/
+/*******/
 .bkg-black {
 	background-color: black;
 }
-/***********************************/
+/********/
 body, ion-view, ion-content {
 	background-color: #e5a995 !important;
 }
-/***********************************/
+/*********/
 a, a:link, a:visited, a:hover, a:active {
 	outline: none;
 	text-decoration: none;
@@ -299,29 +282,16 @@ a.black:link, a.black:hover, a.black:visited, a.black:active {
 a.black-bkg:active {
 	background-color:#3b1b14;
 }
-
-
 .green-bkg{background-color:green;}
 .red-bkg{background-color:red;}
 .blue-bkg{background-color:blue;}
 .yellow-bkg{background-color:yellow;}
 
-
-
-
-
-
-
 .white, .white:link, .white:hover, .white:visited, .white:active {
 	color:white;
 	text-decoration: none;
 }
-
 .grey {color:#999;}
-
-
-
-
 .text-white {
 	color:white;
 }
@@ -334,27 +304,14 @@ a.black-bkg:active {
 .text-bold {
 	font-weight: bold;
 }
-
-
-
-
-
-
 a.red-lighter, button.red-lighter {
 	color:#000;
 	background-color: #e68c6b;
 }
-
-
-
-
 a.black, button.black {
 	color:#e68c6b;
 	background-color: #000;
 }
-
-
-
 .color-darkest {
 	background-color:#6b0b01;
 }
@@ -363,33 +320,19 @@ a.black, button.black {
 	background-color: yellow;
 	border:10px solid red;
 }
-
-/*************************************/
+/******/
 .text-tiny {
 	font-size: 0.5em;
 }
-
-
 a.color-lighter {
 	color:#d5b6ad;
 }
-
-
 .size-huge {
 	font-size: 6em;
 }
-
-
 h1.h1-smaller {
 	font-size: 1.4em;
 }
-
-
-
-
-
-
-
 ul, li {
 	padding: 0;
 	margin: 0;
@@ -406,19 +349,13 @@ header, footer {
 	background-color: #000;
 
 }
-
-
-/*************************************/
-
+/**********/
 #performances * {
-	/*border:1px solid red;*/
 }
 #performances h3 {
-	/*background-color: yellow;*/
 	margin: 0;
 }
 #performances h4 {
-	/*background-color: yellow;*/
 	margin: 0;
 }
 
@@ -430,12 +367,8 @@ background: -webkit-linear-gradient(top,  #3d150c 0%,#3a1e18 43%,#b27863 100%); 
 background: -o-linear-gradient(top,  #3d150c 0%,#3a1e18 43%,#b27863 100%); /* Opera 11.10+ */
 background: -ms-linear-gradient(top,  #3d150c 0%,#3a1e18 43%,#b27863 100%); /* IE10+ */
 background: linear-gradient(to bottom,  #3d150c 0%,#3a1e18 43%,#b27863 100%); /* W3C */
-/*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#3d150c', endColorstr='#b27863',GradientType=0 );*/ 
-
-
 }
 #performances .performance {
-	/*padding:1% 5% 1% 5%;*/
 	padding:0% 5% 0% 5%;
 }
 #performances .performance img {
@@ -447,7 +380,7 @@ background: linear-gradient(to bottom,  #3d150c 0%,#3a1e18 43%,#b27863 100%); /*
 	-webkit-border-radius: 22px;
 	-moz-border-radius: 22px;
 }
-/**************** CAROUSEL *********************/
+/**** CAROUSEL ****/
 
 ul[rn-carousel] {
     width:100%;
@@ -471,14 +404,14 @@ ul[rn-carousel] {
 	color:#fff;
 }
 
-/*************************************/
+/*******/
 .text-italic {
 	font-style: italic;
 }
 .center-vertical {
 	padding-top: 10%;
 }
-/*************************************/
+/*********/
 
 header #status-bar {
 	padding-top: 18px;
@@ -494,7 +427,6 @@ header a, footer a {
 }
 header input {
 	width:100%;
-	/*height:44px;*/
 }
 header h1 {
 	padding: 0;
@@ -510,19 +442,7 @@ header .header-side-btn-left {
 header .header-side-btn-right {
 	
 }
-/*header #search-field {
-	opacity: 1;
-   transition: opacity .9s ease-in-out;
-   -moz-transition: opacity .9s ease-in-out;
-   -webkit-transition: opacity .9s ease-in-out;
-}
-header #search-field.ng-hide {
-    opacity: 0;
-    transition: opacity 0s ease-in-out;
-   -moz-transition: opacity 0s ease-in-out;
-   -webkit-transition: opacity 0s ease-in-out;
-}*/
-/*************************************/
+/******/
 footer {
 	position:fixed;
    left:0px;
@@ -548,7 +468,7 @@ footer a .menu-label {
 }
 
 
-/*************************************/
+/********/
 @font-face {
     font-family: CondensedFont;
     src: url(../fonts/antonio/Antonio-Light.ttf);
@@ -585,36 +505,25 @@ footer a .menu-label {
 h2 {
 	font-size: 1.4em;
 }
-/*************************************/
+/*********/
 main {
-	/* otherwise last elemtn of list is covered with footer */
 	padding-bottom: 44px;
 }
 
-/*************************************/
+/*********/
 .list-element img {
 	width: 44px;
 	height: 44px;
 	/*border:5px solid #dfb1a2;*/
 }
-/*************************************/
+/*******/
 a.list-element, a.list-element:link, a.list-element:visited {
 	display: block;
 	overflow: hidden;
 	border-top: 2px solid #fff;
 	border-bottom: 1px solid #d7ac9f;
 }
-/*a.list-element:link, a.list-element:visited {
-	background-color: transparent;
-}
-a.list-element:hover {
-	background-color: transparent;
-}
-a.list-element:active {
-	background-color: #dea592;
-}*/
-
-/*************************************/
+/*******/
 #concert-details, #place-details {
 	padding-top: 2%;
 	padding-bottom: 3%;
@@ -628,59 +537,21 @@ a.list-element:active {
 #concert #concert-details ul li + li::before {
     content: "//";
 }
-/*************************************/
+/*********/
 #place-details {
 	overflow: hidden;
 }
 #place-details a {
 	display: block;
 }
-/*************************************/
+/*******/
 #concerts-list a.list-element {
 	padding: 0 0 5px 0;
 }
 #places-list a.list-element {
 	padding: 5px 0 5px 0;
 }
-
-
-
-.gradient {
-	/*
-	background: -webkit-gradient(
-		linear,
-		left bottom, right top,
-		from(#fff),
-		to(#eee)
-	);
-	background: -webkit-linear-gradient(
-		left bottom,
-		#fff,
-		#eee
-	);
-	background: -moz-linear-gradient(
-		left bottom,
-		#fff,
-		#eee
-	);
-	background: -o-linear-gradient(
-		left bottom,
-		#fff,
-		#eee
-	);
-	background: linear-gradient(
-		left bottom,
-		#fff,
-		#eee
-	);
-*/
-}
-/*************************************/
-#landscape {
-	
-}
-
-/*************************************/
+/********/
 .pad-marg-none {
 	padding: 0;
 	margin: 0;
@@ -688,64 +559,29 @@ a.list-element:active {
 .date {
 	text-align: center;
 	
-}		
-.date-narrow {
-	/*width: 88px;*/
-}
-
+}	
 .date .day {
 	font-size: 2em;
 }
 .date .day-alt1 {
 	background-color: white;
 	padding: 7px 0 3px 0;
-	/*display: block;
-  position: relative;*/
 }
-/*.date .day-alt2::after {
-  content: "";
-  background: url(http://0.gravatar.com/avatar/adfa32af6cb568d63b216ac217c4d1f0?s=160&d=http%3A%2F%2Fcss-tricks.com%2Fimages%2Fget-gravatar.png%3Fs%3D160&r=PG);
-  opacity: 0.5;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  position: absolute;
-  z-index: -1;   
-}*/
-
 .date-container{
-	/*position: relative;*/
     width: 88px; 
     height: 88px;
 }
-
-
-
 .date-resume .month {
 	background-color: black;
 	color: white;
 	font-size: 1em;
 	text-transform: uppercase;
 	padding: 0 3px 0 3px;
-	/*border:1px solid green;*/
 }
-/*.dayName {
-	font-family: 5px;
-}*/
-
-
-
 .date .day-alt2 {
 	background-color: transparent;
 	
 }
-
-
-
-
-
-
 .date .month {
 	font-size: 0.6em;
 	text-transform: uppercase;
@@ -753,8 +589,6 @@ a.list-element:active {
 }
 .date .month-alt1 {
 	background-color: #000;
-	/*filter: alpha(opacity=20); 
-	opacity: 0.2;*/
 }
 .date .month-alt2 {
 	background-color: #000;
@@ -768,10 +602,4 @@ a.list-element:active {
 	-moz-box-shadow:    0px 0px 3px 3px #e3bbaf;
   	-webkit-box-shadow: 0px 0px 3px 3px #e3bbaf;
   	box-shadow:         0px 0px 3px 3px #e3bbaf;
-} 
-
-
-
-
-
-
+}

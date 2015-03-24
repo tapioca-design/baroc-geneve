@@ -2,9 +2,7 @@
 <ion-nav-title class="text-condensed">
 <span class="text-extended bold">B a r o c • G e n è v e</span>
 </ion-nav-title>
-
 <ion-content>
-
 <div id="search" class="bar bar-header item-input-inset color1-bkg-brightest" >
         <div class="item-input-wrapper">
           <i class="icon ion-search placeholder-icon"></i>
@@ -12,14 +10,12 @@
           <i class="icon ion-close placeholder-icon" ng-click="clearSearch()" ng-show="data.searchQuery.length"></i>
         </div>
       </div>
-
 <ion-list>
 <ion-item 
 ng-repeat="concert in filteredConcerts = (concerts | filter:data.searchQuery | orderBy: concert[1])" 
 type="item-text-wrap" 
 href="#/tab/concerts/concert/{{concert[0].work.id}}"
 >
-
 <div class="row pad-side-4 ">
   <div class="col-75 pad-right-1 pad-vertical-1" >
               <h2 class="text-condensed black">
@@ -57,14 +53,7 @@ href="#/tab/concerts/concert/{{concert[0].work.id}}"
               </div>
             </div>
     </div>  
-    <!-- will close row -->
 </div>  
-
-
-
-
-
-
 </ion-item>
 </ion-list>
 <div ng-show="Data.loadingActive" class="text-center vertical-center">

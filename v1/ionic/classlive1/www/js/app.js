@@ -2,13 +2,10 @@ var starter = angular.module('starter', ['ionic',"ngAnimate", 'angular-carousel'
 
 starter.run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
-    // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
-    // for form inputs)
     if (window.cordova && window.cordova.plugins.Keyboard) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar(true);
     }
     if (window.StatusBar) {
-      // org.apache.cordova.statusbar required
       StatusBar.styleDefault();
     }
   });
@@ -18,7 +15,6 @@ starter.config(['$httpProvider', function($httpProvider) {
         delete $httpProvider.defaults.headers.common['X-Requested-With'];
     }
 ]);
-/***********************************************************************************************/
 starter.run(function ($rootScope, $location,$http,$state,$cordovaStatusbar,$ionicPlatform,Const,Data) {
 
   $rootScope.debugMode=false;
@@ -36,37 +32,23 @@ starter.run(function ($rootScope, $location,$http,$state,$cordovaStatusbar,$ioni
 
 $ionicPlatform.ready(function() {
   $cordovaStatusbar.overlaysWebView(false);
-  // $cordovaStatusBar.style(1);
   $cordovaStatusbar.styleHex('#e68c6b');
 });
    
 
 
   $rootScope.transitionTo = function(stateName){
-    // $rootScope.d("transitionTo");
     $state.transitionTo(stateName);
   }
   
-  // $rootScope.getState = function(stateUrlPrefix){
-  //   var expl = stateUrlPrefix.split("/");
-  //   var stateType = expl[2];
-  //   $rootScope.d(stateType);
-  // }
   $rootScope.isThereConnection = function() {
-        // document.addEventListener("deviceready", onDeviceReady, false);
-        // function onDeviceReady() {
-            // $rootScope.d("isThereConnection - navigator.network.connection.type: "+navigator.network.connection.type);
-            if(navigator.network.connection.type == Connection.NONE){
-                // $rootScope.d("nocon");
+        if(navigator.network.connection.type == Connection.NONE){
                 return false;
             }else{
-                // $rootScope.d("yescon");
                 return true;
             }
-        // }
     };
   $rootScope.getImagePath = function (object,folder,name_url,filename,callback) {
-                // $rootScope.d("getImagePath");
                 var localImagesPath = "img/";
                 var serverImagesPath = Const.baseUrl+"/symfony/web/bundles/tapiocadesignclasslivegnv/images/";
                 //works landscape suffix
@@ -88,12 +70,10 @@ $ionicPlatform.ready(function() {
             };
 
     $rootScope.getData = function (url_suffix,folder,callback) {
-      // $rootScope.d("getData url_suffix,folder,callback");
         if (localStorage.getItem(url_suffix) === null) {
             var url=Const.baseUrl+'/symfony/web/api/'+url_suffix;
             $http.get(url).
             success(function(data) {
-              // $rootScope.d("http succes for "+url);
                 localStorage.setItem(url_suffix, JSON.stringify(data));
                 //if no need to add landscape img to data, skip
                 if (folder!="") {
@@ -105,7 +85,7 @@ $ionicPlatform.ready(function() {
                   callback(data);
                 }
             }).error(function(data, status, headers, config) {
-                    alert("httpRrror, url:"+url+", data: "+data+" status:"+status+" headers:"+headers+" config:"+config);
+                    alert("Impossible de charger les données");
               });
           } else {
                 var data = localStorage.getItem(url_suffix);
@@ -121,13 +101,11 @@ $ionicPlatform.ready(function() {
           }
   }
 });
-/***********************************************************************************************/
 starter.factory('Const', function($location){
     var baseUrlInner;
     baseUrlInner= "http://tapiocadesign.com/_CLASSLIVE/v1";
     return {
       baseUrl:baseUrlInner, 
-      // url:baseUrlInner+"/angular-static/",
       appNameFr:"Classique live Genève"
     };
 });
@@ -155,7 +133,6 @@ starter.factory('Concert', function(){
     return {term: ''};
 });
 
-/***********************************************************************************************/
 starter.config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
   // setup an abstract state for the tabs directive
@@ -201,9 +178,7 @@ starter.config(function($stateProvider, $urlRouterProvider) {
       }
     }
   })
-    /*********************************************************************************/
-    /*********************************************************************************/
-    /*********************************************************************************/
+    /********/
   .state('tab.map', {
     url: '/map',
     views: {
@@ -240,9 +215,7 @@ starter.config(function($stateProvider, $urlRouterProvider) {
       }
     }
   })
-    /*********************************************************************************/
-    /*********************************************************************************/
-    /*********************************************************************************/
+    /*************/
   .state('tab.places', {
     url: '/places',
     views: {

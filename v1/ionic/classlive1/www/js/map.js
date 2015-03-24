@@ -1,40 +1,7 @@
 starter.controller('MapCtrl', ['$rootScope','$scope','$http','$location','Data','Const', function($rootScope,$scope,$http,$location, Data, Const) { 
-
 $rootScope.d("MapCtrl");
-
 Data.loadingActive = 1;
    $scope.Data = Data;
-
-
-
-
-
-
-
-       // document.addEventListener("deviceready", onDeviceReady, false);
-       //          function onDeviceReady() {
-       //              navigator.geolocation.getCurrentPosition(onSuccess, onError);
-       //          }
-       //          function onSuccess(position) {
-       //              alert('Cordova navgator getCurrentPosition success '+position.coords.latitude+" - "+position.coords.longitude);
-       //          }
-       //          function onError(error) {
-       //               alert('error: '+error.code+" - "+error.message);
-       //          }
-
-
-
-
-
-
-
-    // $rootScope.d("after deviceready bloc");
-
-            // var windowHeight = $( window ).height();
-            // var documentHeight = $( document ).height();
-            // windowHeight = windowHeight - 88;
-            // $scope.mapHeightStyle = "height:"+windowHeight+"px";
-
     $http.get(Const.baseUrl+'/symfony/web/api/city/1/placesWithPerformances').
             success(function(places) {
 				$rootScope.d("http get success");
@@ -61,24 +28,18 @@ Data.loadingActive = 1;
 				dateRefDays[5] = "Sam";
 				dateRefDays[6] = "Dim";
 
-				
-
-				/********* keep places with events to come ********/
-				// $rootScope.d(places);
 				var placesWithEventsToCome = new Array();
 				// places.performances
 				for (var i = 0; i < places.length; i++) {
 					var place = places[i];
 					place.numberOfEventsToCome = 0;
 					var performances = place.performances;
-					// $rootScope.d(place.name_fr);
 					for (var j = 0; j < performances.length; j++) {
 						var performance = performances[j];
 						var d = performance.date_performance.split(/[^0-9]/);
 					    var date_perf = new Date(d[0],d[1]-1,d[2],d[3],d[4],d[5] );
 					    var date_now = new Date();
 					    if (date_perf > date_now) {
-					    	// $rootScope.d(date_perf+" AFTER now: "+date_now);
 					    	place.numberOfEventsToCome++;
 					    }
 					}
@@ -88,14 +49,7 @@ Data.loadingActive = 1;
 					
 				}
 				places = placesWithEventsToCome;
-				
-				/*****************************/
-
 				$scope.places = places;
-
-
-
-
 				var mapOptions = {
 				    zoom: 10,
 				    center: new google.maps.LatLng(46.215, 6.13),
@@ -125,15 +79,11 @@ Data.loadingActive = 1;
 				    icon: place.landscapeBkgPath,
 				});
 				google.maps.event.addListener(marker, 'click', function(){
-					// $rootScope.d("map click");
-
 				var monthsWithPerformance = new Object();
 				for (var i = 0; i < place.performances.length; i++) {
 				    var performance = place.performances[i];
 				    var d = performance.date_performance.split(/[^0-9]/);
 				    var date = new Date(d[0],d[1]-1,d[2],d[3],d[4],d[5] );
-
-
 
 				    var date_now = new Date();
 					if (date > date_now) {
@@ -148,8 +98,6 @@ Data.loadingActive = 1;
 					        
 					    }  
 					}
-
-				    
 				};
 				function eliminateDuplicates(arr) {
 				          var i,
@@ -188,23 +136,7 @@ Data.loadingActive = 1;
 				        html += "</div>";
 				    }
 				    html += "</div>";
-
-
-
-				    $scope.path = function ( path ) {
-		              // console.log("path="+path);
-		              alert("path()");
-		              // $rootScope.d("path "+path);
-		              // $location.url(path);
-		              
-		            };
-		            function path () {
-		            	alert("path2()");
-		            }
-
-
 		            $scope.absolute = function ( path ) {
-		              //$location.path(path);
 		              window.open(path,"_system");
 		            };
 
@@ -248,11 +180,8 @@ Data.loadingActive = 1;
 			        if (!isThereConnection) {
 			        	$rootScope.bug("La cartographie nécessite une connexion internet.");
 			            $rootScope.d("isThereConnection :: false");
-			            // $scope.connectionNeeded=1;
-			            // return;
 			        } else {
 			        	$rootScope.d("isThereConnection :: true");
-			            // $scope.connectionNeeded=0;
 			            navigator.geolocation.getCurrentPosition(onSuccess, onError);
 			        }
 			    }
@@ -264,31 +193,8 @@ Data.loadingActive = 1;
 			    function onError(error) {
 			         $rootScope.bug('Impossible de vous localiser: '+error.message);
 			    }
-
-				// if (navigator.geolocation) {
-				// 	navigator.geolocation.getCurrentPosition(function(pos) {
-				// 	    var me = new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude);
-				// 	    myloc.setPosition(me);
-				// 	}, function(error) {
-				// 	    $rootScope.d("Impossible de vous localiser (!navigator.geolocation)");
-				// 	});
-				// }
-
-
-				// navigator.geolocation.getCurrentPosition(function(pos) {
-		  //         $scope.map.setCenter(new google.maps.LatLng(pos.coords.latitude, pos.coords.longitude));
-		  //         $scope.loading.hide();
-		  //       }, function(error) {
-		  //         alert('Unable to get location: ' + error.message);
-		  //       });
-
-
-
             }).error(function(data, status) {
                 var msg='Impossible de charger les lieux. Status:'+status;
                 $rootScope.bug(msg);
             });
-        
  }]);
-
-

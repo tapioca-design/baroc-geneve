@@ -2,49 +2,10 @@ starter.controller('PlaceMapCtrl', ['$rootScope','$scope','$http', "$stateParams
 
     $rootScope.d("PlaceMapCtrl");
 
-
-   //  document.addEventListener("deviceready", onDeviceReady, false);
-   //  function onDeviceReady() {
-   //      $rootScope.d("onDeviceReadyInCtrl");
-   //      var isThereConnection = $rootScope.isThereConnection();
-   //      if (!isThereConnection) {
-   //          alert("La cartographie nécessite une connexion internet.");
-   //          $rootScope.d("isThereConnection :: false");
-   //          // $scope.connectionNeeded=1;
-   //          return;
-   //      } else {
-   //          $rootScope.d("isThereConnection :: true");
-   //          // $scope.connectionNeeded=0;
-   //          navigator.geolocation.getCurrentPosition(onSuccess, onError);
-   //      }
-   //  }
-   //  function onSuccess(position) {
-   //      $rootScope.d(position.coords.latitude+" --- "+position.coords.longitude);
-   //  }
-   //  function onError(error) {
-   //     $rootScope.bug('Impossible de vous localiser.');
-   // }
-
-
-
-
-   // $rootScope.d("after deviceready bloc");
-
-
-
    var stateUrlPrefix = $state.$current.url.prefix;
    var expl = stateUrlPrefix.split("/");
    var stateType = expl[2];
-          // $scope.stateType = stateType;
-
-
-
-
-
           var placeId = $stateParams.placeId;
-   // var placeId = $routeParams.placeId;
-
-
    Data.headerTitle=Const.appNameFr;
    Data.loadingActive = 1;
    $scope.Data = Data;
@@ -172,16 +133,8 @@ starter.controller('PlaceMapCtrl', ['$rootScope','$scope','$http', "$stateParams
                                         }
                                         
                                         html += "</div>";
-                                        // html += '<button ng-click="clickPlace(performance.place.id)" target="_blank" class="btn color1-bkg-bright white width-full" >Details</button>';
-
-
-
-
+                                        
                                         html += '<button ng-click="" class="TD-btn color1-bkg-bright white width-full" >Details</button>';
-
-
-
-                                        //we re clicking from DIRECTIONS button of place details, but this place detail view could come from Concerts tab, Map tab or Place tab, we don t know, so add stateType
 
                                         infoWindow.setContent(
                                             '<a class="color1-medium" href="#/tab/'+stateType+'/place/'+place.id+'">'
@@ -217,11 +170,8 @@ var myloc = new google.maps.Marker({
                     if (!isThereConnection) {
                         $rootScope.bug("La cartographie nécessite une connexion internet.");
                         $rootScope.d("isThereConnection :: false");
-                        // $scope.connectionNeeded=1;
-                        // return;
                     } else {
                         $rootScope.d("isThereConnection :: true");
-                        // $scope.connectionNeeded=0;
                         navigator.geolocation.getCurrentPosition(onSuccess, onError);
                     }
                 }
@@ -251,19 +201,13 @@ var myloc = new google.maps.Marker({
                             });
 
                 }
-
                 function onError(error) {
                      $rootScope.bug('Impossible de vous localiser: '+error.message);
                 }
-
 Data.loadingActive = 0;
             //end success
         }).error(function(data, status) {
             var msg='Error 12.2: unable to load place. Status:'+status;
-                //console.log(msg);
                 $rootScope.d(msg);
             });
-
-        
-
     }]);
