@@ -1,0 +1,605 @@
+#search .icon, #search a.icon, #search .icon a {
+	height: 44px;
+	width: 44px;
+	display: block;	
+	text-align: center;
+	padding: 5px 0 0 0;
+}
+.center {
+	text-align: center;
+}
+#ios7-status-bar {
+        position: absolute;
+        width: 100%;
+        height: 20px;
+        background: blue;
+        color: white;
+        text-align: center;
+        z-index: 9999;
+        display: none;
+      }
+.platform-cordova.platform-ios7 #ios7-status-bar {
+        display: block;
+      }
+.row {
+	padding: 0;
+	margin: 0;
+}
+.TD-list ion-item, .TD-list ion-item a, .TD-list .item,  .TD-list .item-content, .TD-list a.item-content, .TD-list .item-complex{
+	border:none;
+	padding: 0 !important;
+  	margin: 0 !important;
+
+}
+ion-item a {
+  background-color: #ecd4cd !important;
+  border-top: 1px solid #fff !important;
+  border-bottom: 1px solid #ac5e46 !important;
+}
+ion-item a:active {
+  background-color: #fff !important;
+}
+/**** carousel ********/
+.TD-theme-1, .TD-theme-1 a {
+	color:#DE7659 !important;
+}
+
+/***** carousel ******/
+/* Empty. Add your own CSS if you like */
+ul[rn-carousel] {
+    width:400px;
+    height:200px;
+    margin: 0 auto;
+}
+.carousel5 li {
+    width:100%;
+    height:100%;
+    font-size:30px;
+    background-color: #ccc;
+}
+.carousel-demo {
+    padding:30px;
+    margin:30px;
+    display:block;
+    text-align: center;
+}
+/*******/
+.pad-1 {padding:1%}
+.pad-side-1 {padding-left:1%; padding-right:1%}
+.pad-vertical-1 {padding-top:1%; padding-bottom:1%}
+.pad-top-1 {padding-top:1%}
+.pad-right-1 {padding-right:1%}
+.pad-bottom-1 {padding-bottom:1%}
+.pad-left-1 {padding-left:1%}
+
+.pad-2 {padding:2%}
+.pad-side-2 {padding-left:2%; padding-right:2%}
+.pad-vertical-2 {padding-top:2%; padding-bottom:2%}
+.pad-top-2 {padding-top:2%}
+.pad-right-2 {padding-right:2%}
+.pad-bottom-2 {padding-bottom:2%}
+.pad-left-2 {padding-left:2%}
+
+.pad-3 {padding:3%}
+.pad-side-3 {padding-left:3%; padding-right:3%}
+.pad-vertical-3 {padding-top:3%; padding-bottom:3%}
+.pad-top-3 {padding-top:3%}
+.pad-right-3 {padding-right:3%}
+.pad-bottom-3 {padding-bottom:3%}
+.pad-left-3 {padding-left:3%}
+
+.pad-4 {padding:4%}
+.pad-side-4 {padding-left:4%; padding-right:4%}
+.pad-vertical-4 {padding-top:4%; padding-bottom:4%}
+.pad-top-4 {padding-top:4%}
+.pad-right-4 {padding-right:4%}
+.pad-bottom-4 {padding-bottom:4%}
+.pad-left-4 {padding-left:4%}
+/*********/
+.uppercase {
+	text-transform: uppercase;
+}
+.small {
+	font-size: 0.8em;
+}
+.smaller {
+	font-size: 0.7em;
+}
+.icon {
+	font-size: 2em;
+}
+
+* {
+	white-space:normal;
+}
+/***** map **********/
+#map {
+	height:88vh;
+    width:100%;
+}
+a[href^="http://maps.google.com/maps"]{display:none !important}
+
+.gmnoprint a, .gmnoprint span {
+    display:none;
+}
+.gmnoprint div {
+    background:none !important;
+}
+/************/
+.padding-side-no {
+	padding-left: 0;
+	padding-right: 0;
+}
+#concert-description {
+	padding-top:1.2%;
+	padding-bottom:2.2%;
+}
+.TD-btn {
+	display: block;
+	border: none;
+	height:44px;
+}
+.days-list-element {
+	padding: 0 6px 0 6px;
+}
+.text-regular {
+	font-size: 1em;
+}
+.large {
+	font-size: 1.2em;
+}
+.larger {
+	font-size: 1.5em;
+}
+.largest {
+	
+}
+.detail-page-end {
+	background-color: #b27863;
+}
+.uppercase {
+	text-transform: uppercase;
+}
+/********/
+.color1-brightest, a.color1-brightest:link, a.color1-brightest:visited, a.color1-brightest:hover {
+	color:#ecd4cd;
+}
+a.color1-brightest:active, button.color1-brightest:active {
+	color:white;
+}
+.color1-brighter, a.color1-brighter:link, a.color1-brighter:visited, a.color1-brighter:hover {
+	color:#ebd3c6;
+}
+a.color1-brighter:active, button.color1-brighter:active {
+	color:#e5a995;
+}
+.color1-bright, a.color1-bright:link, a.color1-bright:visited, a.color1-bright:hover {
+	color:#e5a995;
+}
+a.color1-bright:active, button.color1-bright:active {
+	color:#e68c6b;
+}
+.color1-medium, a.color1-medium:link, a.color1-medium:visited, a.color1-medium:hover {
+	color:#e68c6b;
+}
+a.color1-medium:active, button.color1-medium:active {
+	color:#e68c6b;
+}
+.color1-dark, a.color1-dark:link, a.color1-dark:visited, a.color1-dark:hover {
+	color:#ac5e46;
+}
+a.color1-dark:active, button.color1-dark:active {
+	color:#341b1a;
+}
+.color1-darker, a.color1-darker:link, a.color1-darker:visited, a.color1-darker:hover {
+	color:#3b1b14;
+}
+a.color1-darker:active, button.color1-darker:active {
+	color:#180a08;
+}
+.color1-darkest, a.color1-darkest:link, a.color1-darkest:visited, a.color1-darkest:hover {
+	color:#180a08;
+}
+a.color1-darkest:active, button.color1-darkest:active {
+	color:#180a08;
+}
+/********/
+.color1-bkg-brightest, a.color1-bkg-brightest:link, a.color1-bkg-brightest:visited, a.color1-bkg-brightest:hover {
+	background-color:#ecd4cd;
+}
+a.color1-bkg-brightest:active, button.color1-bkg-brightest:active {
+	background-color:white;
+}
+.color1-bkg-brighter, a.color1-bkg-brighter:link, a.color1-bkg-brighter:visited, a.color1-bkg-brighter:hover {
+	background-color:#ffddd2;
+}
+a.color1-bkg-brighter:active, button.color1-bkg-brighter:active {
+	background-color:white;
+}
+.color1-bkg-bright, a.color1-bkg-bright:link, a.color1-bkg-bright:visited, a.color1-bkg-bright:hover {
+	background-color:#e5a995;
+}
+a.color1-bkg-bright:active, button.color1-bkg-bright:active {
+	background-color:#ffddd2;
+}
+.color1-bkg-medium, a.color1-bkg-medium:link, a.color1-bkg-medium:visited, a.color1-bkg-medium:hover {
+	background-color:#e68c6b;
+}
+a.color1-bkg-medium:active, button.color1-bkg-medium:active {
+	background-color:#e5a995;
+}
+.color1-bkg-dark, a.color1-bkg-dark:link, a.color1-bkg-dark:visited, a.color1-bkg-dark:hover {
+	background-color:#96452e;
+}
+a.color1-bkg-dark:active, button.color1-bkg-dark:active {
+	background-color:#e68c6b;
+}
+.color1-bkg-darker, a.color1-bkg-darker:link, a.color1-bkg-darker:visited, a.color1-bkg-darker:hover {
+	background-color:#3b1b14;
+}
+a.color1-bkg-darker:active, button.color1-bkg-darker:active {
+	background-color:#96452e;
+}
+.color1-bkg-darkest, a.color1-bkg-darkest:link, a.color1-bkg-darkest:visited, a.color1-bkg-darkest:hover {
+	background-color:#180a08;
+}
+a.color1-bkg-darkest:active, button.color1-bkg-darkest:active {
+	background-color:#341b1a;
+}
+/*******/
+.bkg-black {
+	background-color: black;
+}
+/********/
+body, ion-view, ion-content {
+	background-color: #e5a995 !important;
+}
+/*********/
+a, a:link, a:visited, a:hover, a:active {
+	outline: none;
+	text-decoration: none;
+	border:none;
+	-moz-box-shadow:    0px 0px 0px 0px rgba(0,0,0,0);
+  	-webkit-box-shadow: 0px 0px 0px 0px rgba(0,0,0,0);
+  	box-shadow:         0px 0px 0px 0px rgba(0,0,0,0);
+}
+.vertical-center {
+	padding-top: 20vh;
+}
+img.img-size-half {
+	width: 60px;
+}
+.black {
+	color:black !important;
+}
+a.black:link, a.black:hover, a.black:visited, a.black:active {
+	color:black;
+}
+
+.black-bkg, a.black-bkg:link, a.black-bkg:visited, a.black-bkg:hover {
+	background-color:black;
+}
+a.black-bkg:active {
+	background-color:#3b1b14;
+}
+.green-bkg{background-color:green;}
+.red-bkg{background-color:red;}
+.blue-bkg{background-color:blue;}
+.yellow-bkg{background-color:yellow;}
+
+.white, .white:link, .white:hover, .white:visited, .white:active {
+	color:white;
+	text-decoration: none;
+}
+.grey {color:#999;}
+.text-white {
+	color:white;
+}
+.text-lighter {
+	color:white;
+}
+.width-full{
+	width:100%;
+}
+.text-bold {
+	font-weight: bold;
+}
+a.red-lighter, button.red-lighter {
+	color:#000;
+	background-color: #e68c6b;
+}
+a.black, button.black {
+	color:#e68c6b;
+	background-color: #000;
+}
+.color-darkest {
+	background-color:#6b0b01;
+}
+.box{
+	padding: 20px;
+	background-color: yellow;
+	border:10px solid red;
+}
+/******/
+.text-tiny {
+	font-size: 0.5em;
+}
+a.color-lighter {
+	color:#d5b6ad;
+}
+.size-huge {
+	font-size: 6em;
+}
+h1.h1-smaller {
+	font-size: 1.4em;
+}
+ul, li {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+
+nav li{
+	display: inline;
+	padding: 1%;
+}
+
+header, footer {
+	min-height: 44px;
+	background-color: #000;
+
+}
+/**********/
+#performances * {
+}
+#performances h3 {
+	margin: 0;
+}
+#performances h4 {
+	margin: 0;
+}
+
+#performances, #place-details {
+	background: #3d150c; /* Old browsers */
+background: -moz-linear-gradient(top,  #3d150c 0%, #3a1e18 43%, #b27863 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#3d150c), color-stop(43%,#3a1e18), color-stop(100%,#b27863)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #3d150c 0%,#3a1e18 43%,#b27863 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #3d150c 0%,#3a1e18 43%,#b27863 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #3d150c 0%,#3a1e18 43%,#b27863 100%); /* IE10+ */
+background: linear-gradient(to bottom,  #3d150c 0%,#3a1e18 43%,#b27863 100%); /* W3C */
+}
+#performances .performance {
+	padding:0% 5% 0% 5%;
+}
+#performances .performance img {
+	width:44px;
+	height:44px;
+}
+.img-circle {
+	border-radius: 22px;
+	-webkit-border-radius: 22px;
+	-moz-border-radius: 22px;
+}
+/**** CAROUSEL ****/
+
+ul[rn-carousel] {
+    width:100%;
+    height:160px;
+    margin: 0 auto;
+}
+
+.carousel li {
+    width:100%;
+    height:100%;
+    font-size:30px;
+    background-color: #ccc;
+}
+.rn-carousel-indicator {
+	text-align: center;
+}
+.rn-carousel-indicator .ng-scope {
+	color:#6c3c2d;
+}
+.rn-carousel-indicator .ng-scope.active {
+	color:#fff;
+}
+
+/*******/
+.text-italic {
+	font-style: italic;
+}
+.center-vertical {
+	padding-top: 10%;
+}
+/*********/
+
+header #status-bar {
+	padding-top: 18px;
+}
+
+header {
+	padding: 4px 0 4px 0;
+
+}
+header a, footer a {
+	display: block;
+	height: 44px;
+}
+header input {
+	width:100%;
+}
+header h1 {
+	padding: 0;
+	margin: 0;
+	font-size: 1.7em;
+}
+header .header-side-btn {
+	padding: 4px 0 0 0;
+}
+header .header-side-btn-left {
+	
+}
+header .header-side-btn-right {
+	
+}
+/******/
+footer {
+	position:fixed;
+   left:0px;
+   bottom:0px;
+   /*height:44px;*/
+   width:100%;
+}
+/* IE 6 */
+* html footer {
+   position:absolute;
+   top:expression((0-(footer.offsetHeight)+(document.documentElement.clientHeight ? document.documentElement.clientHeight : document.body.clientHeight)+(ignoreMe = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop))+'px');
+}
+
+footer a .menu-label {
+	font-size: 1.5em;
+}
+
+.main-nav-off {
+	background-color: black;
+}
+.main-nav-on {
+	background-color: #96452e;
+}
+
+
+/********/
+@font-face {
+    font-family: CondensedFont;
+    src: url(../fonts/antonio/Antonio-Light.ttf);
+}
+@font-face {
+    font-family: LightFont;
+    src: url(../fonts/lato/Lato-Light.ttf);
+}
+@font-face {
+    font-family: ThinFont;
+    src: url(../fonts/lato/Lato-Thin.ttf);
+}
+@font-face {
+    font-family: ExtendedFont;
+    src: url(../fonts/agbq/Akzidenz-Grotesk-extend.ttf);
+}
+.text-condensed {
+	font-family: 'CondensedFont', serif;
+	/*font-size: 0.8em;*/
+}
+.text-light {
+	font-family: 'LightFont', sans-serif;
+}
+.text-thin {
+	font-family: 'ThinFont', sans-serif;
+}
+.text-extended {
+	font-family: 'ExtendedFont', sans-serif;
+}
+.text-bold {
+	font-weight: bold;
+}
+
+h2 {
+	font-size: 1.4em;
+}
+/*********/
+main {
+	padding-bottom: 44px;
+}
+
+/*********/
+.list-element img {
+	width: 44px;
+	height: 44px;
+	/*border:5px solid #dfb1a2;*/
+}
+/*******/
+a.list-element, a.list-element:link, a.list-element:visited {
+	display: block;
+	overflow: hidden;
+	border-top: 2px solid #fff;
+	border-bottom: 1px solid #d7ac9f;
+}
+/*******/
+#concert-details, #place-details {
+	padding-top: 2%;
+	padding-bottom: 3%;
+}
+#concert #concert-details ul {
+	list-style-type: circle !important;
+}
+#concert #concert-details ul li {
+	display: inline;
+}
+#concert #concert-details ul li + li::before {
+    content: "//";
+}
+/*********/
+#place-details {
+	overflow: hidden;
+}
+#place-details a {
+	display: block;
+}
+/*******/
+#concerts-list a.list-element {
+	padding: 0 0 5px 0;
+}
+#places-list a.list-element {
+	padding: 5px 0 5px 0;
+}
+/********/
+.pad-marg-none {
+	padding: 0;
+	margin: 0;
+}
+.date {
+	text-align: center;
+	
+}	
+.date .day {
+	font-size: 2em;
+}
+.date .day-alt1 {
+	background-color: white;
+	padding: 7px 0 3px 0;
+}
+.date-container{
+    width: 88px; 
+    height: 88px;
+}
+.date-resume .month {
+	background-color: black;
+	color: white;
+	font-size: 1em;
+	text-transform: uppercase;
+	padding: 0 3px 0 3px;
+}
+.date .day-alt2 {
+	background-color: transparent;
+	
+}
+.date .month {
+	font-size: 0.6em;
+	text-transform: uppercase;
+	padding: 0 1px 0 1px;
+}
+.date .month-alt1 {
+	background-color: #000;
+}
+.date .month-alt2 {
+	background-color: #000;
+}
+.drop-shadow{
+	-moz-box-shadow:    0px 0px 3px 3px #ccc;
+  	-webkit-box-shadow: 0px 0px 3px 3px #ccc;
+  	box-shadow:         0px 0px 3px 3px #ccc;
+} 
+.color1-drop-shadow{
+	-moz-box-shadow:    0px 0px 3px 3px #e3bbaf;
+  	-webkit-box-shadow: 0px 0px 3px 3px #e3bbaf;
+  	box-shadow:         0px 0px 3px 3px #e3bbaf;
+}
