@@ -19,5 +19,6 @@
     "org.apache.cordova.statusbar",
     "org.apache.cordova.network-information",
     "org.apache.cordova.inappbrowser"
-  ]
+  ],
+  "cordovaPlatforms": []
 }
