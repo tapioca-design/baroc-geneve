@@ -20,7 +20,5 @@
     "org.apache.cordova.network-information",
     "org.apache.cordova.inappbrowser"
   ],
-  "cordovaPlatforms": [
-    "ios"
-  ]
+  "cordovaPlatforms": []
 }
