@@ -103,7 +103,8 @@ $ionicPlatform.ready(function() {
 });
 starter.factory('Const', function($location){
     var baseUrlInner;
-    baseUrlInner= "http://tapiocadesign.com/_CLASSLIVE/v1";
+    //baseUrlInner= "http://tapiocadesign.com/_CLASSLIVE/v1";
+    baseUrlInner= "http://localhost/v1";
     return {
       baseUrl:baseUrlInner, 
       appNameFr:"Classique live Genève"
