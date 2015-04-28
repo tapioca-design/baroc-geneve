@@ -1,26 +1,3 @@
-starter.controller('ConcertsCtrl', ['$rootScope' ,'$scope','$state', 'Data', function($rootScope, $scope, $state, Data) {
-$rootScope.d("ConcertsCtrl");
-      Data.loadingActive = 1;
-      Data.concertsNoResultAllowed = 0;
-      $scope.Data = Data;
-  $rootScope.getData("city/1/worksOrderedByFirstPerformance", "",
-      function (callback_arg) {
-          var concerts = callback_arg;
-          Data.loadingActive = 0;
-          $scope.concerts = concerts;
-          
-      });
-  $scope.data = {};
-  $scope.clearSearch = function() {
-    $rootScope.d("clearSearch");
-    $scope.data.searchQuery = '';
-  };
-}]);
-
-
-
-
-
 starter.controller('ConcertDetailCtrl', ['$rootScope', '$scope', '$stateParams','$location','$state','Data', function($rootScope, $scope, $stateParams,$location,$state, Data) {
 
 $rootScope.d("ConcertDetailCtrl");

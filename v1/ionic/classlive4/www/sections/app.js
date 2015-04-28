@@ -17,12 +17,12 @@ starter.config(['$httpProvider', function($httpProvider) {
 ]);
 starter.run(function ($rootScope, $location,$http,$state,$cordovaStatusbar,$ionicPlatform,Const,Data) {
 
-  $rootScope.debugMode=false;
+  $rootScope.debugMode=true;
 
   $rootScope.d = function(t) {
     if ($rootScope.debugMode) {
       console.log(t);
-      alert(t);
+      // alert(t);
     }
   }
 
@@ -101,38 +101,7 @@ $ionicPlatform.ready(function() {
           }
   }
 });
-starter.factory('Const', function($location){
-    var baseUrlInner;
-    //baseUrlInner= "http://tapiocadesign.com/_CLASSLIVE/v1";
-    baseUrlInner= "http://localhost/v1";
-    return {
-      baseUrl:baseUrlInner, 
-      appNameFr:"Classique live Genève"
-    };
-});
-starter.factory('Data', function($location){
-    return {
-      headerTitle: '', 
-      filteredConcerts:"", 
-      searchAllowed:1, 
-      searchActive:0,
-      concertsNoResultAllowed:0,
-      loadingActive:1,
-    };
-});
-starter.factory('Navigation', function(){
-    return {
-      concerts:"off", 
-      map:"off", 
-      places:"off",
-    };
-});
-starter.factory('Search', function(){
-    return {term: ''};
-});
-starter.factory('Concert', function(){
-    return {term: ''};
-});
+
 
 starter.config(function($stateProvider, $urlRouterProvider) {
   $stateProvider

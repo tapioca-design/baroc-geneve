@@ -1,14 +1,3 @@
-starter.controller('PlacesCtrl', ['$rootScope','$scope','$http','Data','Search','Const', function($rootScope, $scope,$http, Data, Search, Const) {
-  $rootScope.d("PlacesCtrl");
-  Data.loadingActive = 1;
-          $scope.Data = Data;
-          $rootScope.getData("city/1/places", "",
-          function (callback_arg) {
-            Data.loadingActive = 0;
-              $scope.places = callback_arg;
-          });
- }]);
-
 starter.controller('PlaceDetailCtrl', ['$rootScope','$scope','$http', '$stateParams','$state','Data','Search','Const', function($rootScope, $scope,$http, $stateParams, $state, Data, Search, Const) {
 
   $rootScope.d("PlaceDetailCtrl");
