@@ -140,14 +140,14 @@ starter.config(function($stateProvider, $urlRouterProvider) {
   .state('tab', {
     url: "/tab",
     abstract: true,
-    templateUrl: "templates/tabs.html"
+    templateUrl: "sections/tabs/tabs.html"
   })
   // Each tab has its own nav history stack:
   .state('tab.concerts', {
       url: '/concerts',
       views: {
         'tab-concerts': {
-          templateUrl: 'templates/concerts.html',
+          templateUrl: 'sections/concerts/concerts.html',
           controller: 'ConcertsCtrl'
         }
       }
@@ -156,7 +156,7 @@ starter.config(function($stateProvider, $urlRouterProvider) {
       url: '/concerts/concert/:workId',
       views: {
         'tab-concerts': {
-          templateUrl: 'templates/concert-detail.html',
+          templateUrl: 'sections/concert/concert-detail.html',
           controller: 'ConcertDetailCtrl'
         }
       }
@@ -165,7 +165,7 @@ starter.config(function($stateProvider, $urlRouterProvider) {
       url: '/concerts/place/:placeId',
       views: {
         'tab-concerts': {
-          templateUrl: 'templates/place-detail.html',
+          templateUrl: 'sections/place/place-detail.html',
           controller: 'PlaceDetailCtrl'
         }
       }
@@ -174,7 +174,7 @@ starter.config(function($stateProvider, $urlRouterProvider) {
     url: '/concerts/place-map/:placeId',
     views: {
       'tab-concerts': {
-        templateUrl: 'templates/place-map.html',
+        templateUrl: 'sections/place-map/place-map.html',
         controller: 'PlaceMapCtrl'
       }
     }
@@ -184,7 +184,7 @@ starter.config(function($stateProvider, $urlRouterProvider) {
     url: '/map',
     views: {
       'tab-map': {
-        templateUrl: 'templates/map.html',
+        templateUrl: 'sections/map/map.html',
         controller: 'MapCtrl'
       }
     }
@@ -193,7 +193,7 @@ starter.config(function($stateProvider, $urlRouterProvider) {
       url: '/map/concert/:workId',
       views: {
         'tab-map': {
-          templateUrl: 'templates/concert-detail.html',
+          templateUrl: 'sections/concert/concert-detail.html',
           controller: 'ConcertDetailCtrl'
         }
       }
@@ -202,7 +202,7 @@ starter.config(function($stateProvider, $urlRouterProvider) {
       url: '/map/place/:placeId',
       views: {
         'tab-map': {
-          templateUrl: 'templates/place-detail.html',
+          templateUrl: 'sections/place/place-detail.html',
           controller: 'PlaceDetailCtrl'
         }
       }
@@ -211,7 +211,7 @@ starter.config(function($stateProvider, $urlRouterProvider) {
     url: '/map/place-map/:placeId',
     views: {
       'tab-map': {
-        templateUrl: 'templates/place-map.html',
+        templateUrl: 'sections/place-map/place-map.html',
         controller: 'PlaceMapCtrl'
       }
     }
@@ -221,7 +221,7 @@ starter.config(function($stateProvider, $urlRouterProvider) {
     url: '/places',
     views: {
       'tab-places': {
-        templateUrl: 'templates/places.html',
+        templateUrl: 'sections/places/places.html',
         controller: 'PlacesCtrl'
       }
     }
@@ -230,7 +230,7 @@ starter.config(function($stateProvider, $urlRouterProvider) {
     url: '/places/place/:placeId',
     views: {
       'tab-places': {
-        templateUrl: 'templates/place-detail.html',
+        templateUrl: 'sections/place/place-detail.html',
         controller: 'PlaceDetailCtrl'
       }
     }
@@ -239,7 +239,7 @@ starter.config(function($stateProvider, $urlRouterProvider) {
     url: '/places/concert/:workId',
     views: {
       'tab-places': {
-        templateUrl: 'templates/concert-detail.html',
+        templateUrl: 'sections/concert/concert-detail.html',
         controller: 'ConcertDetailCtrl'
       }
     }
@@ -248,7 +248,7 @@ starter.config(function($stateProvider, $urlRouterProvider) {
     url: '/places/place-map/:placeId',
     views: {
       'tab-places': {
-        templateUrl: 'templates/place-map.html',
+        templateUrl: 'sections/place-map/place-map.html',
         controller: 'PlaceMapCtrl'
       }
     }
