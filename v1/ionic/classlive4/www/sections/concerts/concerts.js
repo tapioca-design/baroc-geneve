@@ -15,16 +15,15 @@ $rootScope.d("ConcertsCtrl");
           
   //     });
 
-function worksOrderedByFirstPerformance() {
+
         API.worksOrderedByFirstPerformance()
             .success(function (concerts) {
                 $scope.concerts = concerts;
             })
             .error(function (error) {
-                $rootScope.d('Unable to load customer data: ' + error.message);
+                $rootScope.bug('Unable to load customer data: ' + error.message);
             });
-    }
-worksOrderedByFirstPerformance();
+    
 
 
 

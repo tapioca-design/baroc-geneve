@@ -1,6 +1,7 @@
-starter.controller('MapCtrl', ['$rootScope','$scope','$http','$location','Data','Const','Calendar', function($rootScope,$scope,$http,$location, Data, Const, Calendar) { 
+starter.controller('MapCtrl', ['$rootScope','$scope','$http','$location','Data','Const','Calendar','Map', function($rootScope,$scope,$http,$location, Data, Const, Calendar, Map) { 
 	$rootScope.d("MapCtrl");
 	Data.loadingActive = 1;
+	stateType = "map";
 	// alert(Calendar.dateFromString());
 	$scope.Data = Data;
 	$http.get(Const.baseUrl+'/symfony/web/api/city/1/placesWithPerformances').
@@ -12,9 +13,6 @@ starter.controller('MapCtrl', ['$rootScope','$scope','$http','$location','Data',
 					var place = places[i];
 					place.numberOfEventsToCome = 0;
 					var performances = place.performances;
-
-
-
 
 					for (var j = 0; j < performances.length; j++) {
 						var performance = performances[j];
@@ -28,11 +26,6 @@ starter.controller('MapCtrl', ['$rootScope','$scope','$http','$location','Data',
 							place.numberOfEventsToCome++;
 						}
 					}
-
-
-
-
-
 					if (place.numberOfEventsToCome > 0) {
 						placesWithEventsToCome.push(place);
 					}
@@ -55,97 +48,10 @@ starter.controller('MapCtrl', ['$rootScope','$scope','$http','$location','Data',
 				$scope.markers = [];
 				var infoWindow = new google.maps.InfoWindow();
 
-				var createMarker = function (place){
-					$rootScope.getImagePath(place,"places",place.name_url,"map-markers.png",
-						function (glbkgp_callback_arg) {
-							var place = glbkgp_callback_arg;
-
-							var markerPosition = new google.maps.LatLng(place.map_latitude, place.map_longitude);
-
-							var marker = new google.maps.Marker({
-								map: $scope.map,
-								position: markerPosition,
-								title: place.name_fr,
-								icon: place.landscapeBkgPath,
-							});
-							google.maps.event.addListener(marker, 'click', function(){
-								var monthsWithPerformance = new Object();
-								for (var i = 0; i < place.performances.length; i++) {
-									var performance = place.performances[i];
-									var d = performance.date_performance.split(/[^0-9]/);
-									var date = new Date(d[0],d[1]-1,d[2],d[3],d[4],d[5] );
-
-									var date_now = new Date();
-									if (date > date_now) {
-										var month = date.getMonth();
-										var dayNumber = date.getDate();
-
-
-
-										if(Calendar.months[month] in monthsWithPerformance){
-											monthsWithPerformance[Calendar.months[month]].push(dayNumber);
-										} else {
-											monthsWithPerformance[Calendar.months[month]]= new Array();
-											monthsWithPerformance[Calendar.months[month]].push(dayNumber);
-										}  
-									}
-								};
-								function eliminateDuplicates(arr) {
-									var i,
-									len=arr.length,
-									out=[],
-									obj={};
-
-									for (i=0;i<len;i++) {
-										obj[arr[i]]=0;
-									}
-									for (i in obj) {
-										out.push(i);
-									}
-									return out;
-								}
-
-								for (var key in monthsWithPerformance) {
-									if (monthsWithPerformance.hasOwnProperty(key)) {
-										monthsWithPerformance[key] = eliminateDuplicates(monthsWithPerformance[key]);
-									} else {
-										console.log("ERROR: this month has no day");
-									}
-								}
-								var html = "";
-								html += "<div>";
-								for (var key in monthsWithPerformance) {
-									html += "<div>";
-									html += "<span class='black uppercase text-bold'>";
-									html += key;
-									html += ": </span>";
-									for (var i = 0; i < monthsWithPerformance[key].length; i++) {
-										html += "<span class='day days-list-element text-light black '>";
-										html += monthsWithPerformance[key][i];
-										html += "</span>";
-									}
-									html += "</div>";
-								}
-								html += "</div>";
-								$scope.absolute = function ( path ) {
-									window.open(path,"_system");
-								};
-
-								html += '<button ng-click="" class="TD-btn color1-bkg-bright white width-full" >Details</button>';
-
-								infoWindow.setContent(
-									'<a class="color1-medium" href="#/tab/map/place/'+place.id+'">'
-									+'<h2 class="text-condensed color1-dark">'+marker.title+'</h2>'
-									+ html
-									+'</a>'
-									);
-								infoWindow.open($scope.map, marker);
-							});
-$scope.markers.push(marker);
-});
-}  
 for (i = 0; i < $scope.places.length; i++){
-	createMarker($scope.places[i]);
+	// createMarker($scope.places[i]);
+	//$rootScope place Calendar stateType infoWindow
+	Map.createMarker($scope, $scope.places[i], Calendar, stateType, infoWindow);
 }
 $scope.openInfoWindow = function(e, selectedMarker){
 	e.preventDefault();
